@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'About - JSONKits',
+  title: 'About',
   description:
     'JSONKits is a free online collection of browser-based JSON tools for developers. All processing happens client-side — nothing is uploaded to servers.',
 }

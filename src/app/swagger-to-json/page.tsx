@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import ToolPageClient from './ToolPageClient'
 
 export const metadata: Metadata = {
-  title: 'Swagger to JSON - Free Online Converter | JSONKits',
+  title: 'Swagger to JSON - Free Online Converter ',
   description: 'Extract sample JSON data from Swagger 2.0 API definitions. 100% free, client-side JSON tool with no server uploads.',
   keywords: ['swagger to json, swagger to json online, swagger to json tool, convert swagger to json, swagger json converter, json converter, convert json, json transformation, data conversion, json format converter, online json converter, online json tool, free json tool, jsonkits'],
 }

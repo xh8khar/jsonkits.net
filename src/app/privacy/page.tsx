@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy - JSONKits',
+  title: 'Privacy Policy',
   description:
     'JSONKits privacy policy. All JSON processing happens client-side. No data is uploaded to servers.',
 }

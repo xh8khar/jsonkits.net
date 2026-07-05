@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import ToolPageClient from './ToolPageClient'
 
 export const metadata: Metadata = {
-  title: 'JSON to MessagePack - Free Online Converter | JSONKits',
+  title: 'JSON to MessagePack - Free Online Converter ',
   description: 'Convert JSON data to MessagePack binary format for compact data storage and transmission. 100% free, client-side JSON tool with no server uploads.',
   keywords: ['json to messagepack, json to messagepack online, json to messagepack tool, convert json to messagepack, json messagepack converter, json converter, convert json, json transformation, data conversion, json format converter, online json converter, online json tool, free json tool, jsonkits'],
 }

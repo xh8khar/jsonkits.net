@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Disclaimer - JSONKits',
+  title: 'Disclaimer',
   description:
     'Disclaimer and limitation of liability for using JSONKits tools and services.',
 }

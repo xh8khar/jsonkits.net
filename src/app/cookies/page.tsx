@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Cookie Policy - JSONKits',
+  title: 'Cookie Policy',
   description:
     'Learn how JSONKits uses cookies, including Google AdSense for advertising.',
 }
