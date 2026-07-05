@@ -1,0 +1,9 @@
+# Cloudflare Pages redirects
+# https://developers.cloudflare.com/pages/platform/redirects/
+
+# Force trailing slash for all routes
+/robots.txt    /robots.txt    200
+/sitemap.xml   /sitemap.xml   200
+
+# 404 fallback
+/*  /404.html  404
