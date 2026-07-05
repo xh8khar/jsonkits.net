@@ -1,6 +1,8 @@
 import type { MetadataRoute } from 'next'
 import { tools } from '@/lib/navigation'
 
+export const dynamic = 'force-static'
+
 const BASE_URL = 'https://jsonkits.com'
 
 const staticPages = [
