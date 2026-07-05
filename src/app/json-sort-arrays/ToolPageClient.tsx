@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Array Sorting?</h2>
         <p>JSON array sorting reorders array elements within your data. String arrays are sorted alphabetically (a-z), number arrays numerically (ascending). Nested arrays at any depth are also sorted.</p>
         <ul><li><strong>Data Cleanup</strong>: Sort lists for consistent display.</li><li><strong>Comparison</strong>: Normalize arrays before diffing.</li><li><strong>Reporting</strong>: Produce sorted data for reports.</li></ul>

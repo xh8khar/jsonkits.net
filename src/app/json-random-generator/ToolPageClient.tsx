@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is a JSON Random Data Generator?</h2>
         <p>A JSON random data generator creates completely random JSON structures based on configuration parameters. You control the maximum nesting depth, number of items, and which JSON types to include, producing varied test data for any scenario.</p>
         <p>Random data generation is useful for:</p>

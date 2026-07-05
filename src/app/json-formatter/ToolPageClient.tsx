@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-            <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+            <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Formatting?</h2>
         <p>JSON formatting (also called beautification or pretty-printing) is the process of transforming minified JSON into a human-readable format with proper indentation, line breaks, and spacing. This makes JSON data easier to read, debug, and maintain.</p>
         <p>Formatted JSON is essential for:</p>

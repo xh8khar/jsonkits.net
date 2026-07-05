@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="JSON Compare Tool" description="Compare two JSON objects to find added, removed, and changed fields with deep nested comparison." inputPlaceholder="Paste first JSON, then second JSON..." outputPlaceholder="Comparison result will appear here..." convertLabel="Compare" onConvert={jsonCompare} exampleInput={example} outputLanguage="json" />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Compare Tool?</h2>
         <p>This tool performs a deep comparison between two JSON objects and reports added, removed, and changed fields. It can handle nested objects and arrays, showing the exact paths where differences were found.</p>
         <h2>How to Use</h2>

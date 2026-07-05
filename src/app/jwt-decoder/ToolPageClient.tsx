@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="text"
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Are JSON Web Tokens (JWT)?</h2>
         <p>JSON Web Tokens (JWT) are an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. JWTs are widely used for authentication and authorization in web applications.</p><p>JWT decoding is essential for:</p><ul><li><strong>Debugging</strong>: Inspecting token contents during development.</li><li><strong>Security Auditing</strong>: Verifying token claims and expiration.</li><li><strong>API Development</strong>: Testing authentication flows in web services.</li></ul>
         <h2>How to Use</h2>

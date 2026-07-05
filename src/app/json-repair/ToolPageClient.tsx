@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="JSON Repair Tool" description="Attempt to repair invalid JSON by fixing single quotes, unquoted keys, trailing commas, and stripping comments." inputPlaceholder="Paste your malformed JSON here..." outputPlaceholder="Repaired JSON will appear here..." convertLabel="Repair JSON" onConvert={jsonRepair} exampleInput={example} outputLanguage="json" />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Repair Tool?</h2>
         <p>This tool attempts to fix common JSON syntax errors including single quotes instead of double quotes, unquoted keys, trailing commas, missing commas, and inline comments. It is useful when dealing with lenient JSON from logs or hand-written data.</p>
         <h2>How to Use</h2>

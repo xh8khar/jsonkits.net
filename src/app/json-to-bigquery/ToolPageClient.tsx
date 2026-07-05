@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is BigQuery Schema?</h2>
         <p>Google BigQuery uses a schema definition format that specifies column names, types, and modes for data warehouse tables. Generating schemas from JSON ensures data type compatibility.</p><p>BigQuery schema generation is used for:</p><ul><li><strong>Data Warehousing</strong>: Defining table schemas that match JSON data sources.</li><li><strong>Data Pipelines</strong>: Preparing BigQuery schemas for ETL processes.</li><li><strong>Analytics</strong>: Loading JSON data into BigQuery for analysis.</li></ul>
         <h2>How to Use</h2>

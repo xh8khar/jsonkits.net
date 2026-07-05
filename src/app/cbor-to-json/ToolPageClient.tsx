@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="text"
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>Why Convert CBOR to JSON?</h2>
         <p>Converting CBOR binary data to JSON is essential for debugging IoT protocols, inspecting WebAuthn credentials, and analyzing binary data streams in a human-readable format.</p><p>CBOR decoding is used for:</p><ul><li><strong>IoT Debugging</strong>: Inspecting sensor data from constrained devices.</li><li><strong>Security Analysis</strong>: Analyzing WebAuthn and COSE message formats.</li><li><strong>Protocol Development</strong>: Debugging CBOR-encoded network protocols.</li></ul>
         <h2>How to Use</h2>

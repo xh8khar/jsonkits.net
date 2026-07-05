@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="JSON to OpenAPI Schema Generator" description="Generate OpenAPI 3.0 schema components from JSON data samples. Document your API response formats instantly." inputPlaceholder="Paste your JSON here..." outputPlaceholder="OpenAPI schema will appear here..." convertLabel="Generate OpenAPI" onConvert={jsonToOpenAPI} exampleInput={example} inputLanguage="json" outputLanguage="json" bidirectional onReverse={openapiToJson} />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is OpenAPI Schema Generation?</h2>
         <p>OpenAPI 3.0 is the industry standard for documenting RESTful APIs. Writing schema components by hand is time-consuming and error-prone. This tool analyzes your JSON data sample and auto-generates the corresponding OpenAPI 3.0 schema component with proper types, required fields, and nested object definitions.</p>
         <h2>How to Generate an OpenAPI Schema from JSON</h2>

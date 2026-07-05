@@ -24,7 +24,7 @@ export default function ToolPageClient() {
         bidirectional
         onReverse={jsonToCurl}
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is cURL Commands?</h2>
         <p>cURL commands are command-line tools for transferring data using various protocols. They are widely used for testing APIs, automating HTTP requests, and documenting API usage examples.</p>
         cURL is a command-line tool for HTTP requests. It is widely used for:

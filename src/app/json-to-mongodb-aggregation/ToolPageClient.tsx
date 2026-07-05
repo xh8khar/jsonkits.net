@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is MongoDB Aggregation?</h2>
         <p>MongoDB aggregation pipeline is a powerful framework for data processing and transformation. It processes documents through a series of stages, each performing a specific operation.</p><p>MongoDB aggregation is used for:</p><ul><li><strong>Data Analysis</strong>: Grouping, filtering, and transforming collections.</li><li><strong>Reporting</strong>: Generating aggregated statistics from database records.</li><li><strong>ETL</strong>: Processing and reshaping data for export or migration.</li></ul>
         <h2>How to Use</h2>

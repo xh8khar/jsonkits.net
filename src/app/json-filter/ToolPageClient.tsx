@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Filtering?</h2>
         <p>JSON filtering extracts only the parts of your JSON that match specified dot-notation paths. You provide the JSON data followed by one path per line, and the tool returns a new JSON object containing only the matching nodes.</p>
         <p>JSON filtering is useful for:</p>

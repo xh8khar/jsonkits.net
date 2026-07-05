@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Empty Removal?</h2>
         <p>JSON empty removal scans your data recursively and removes all empty objects {'{}'} and empty arrays {[]}. This helps clean up datasets that contain placeholder or default empty containers, producing a more compact and meaningful representation.</p>
         <p>Empty removal is useful for:</p>

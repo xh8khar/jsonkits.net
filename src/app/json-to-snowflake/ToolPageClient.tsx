@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="sql"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is Snowflake?</h2>
         <p>JSON to Snowflake is a free online tool that converts JSON data into snowflake format for use in various programming environments. This tool is 100% client-side and processes all data locally in your browser.</p>
         <h2>How to Use</h2>

@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         outputLanguage="json"
         inputLanguage="xml"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is This Tool?</h2>
         <p>Extract JSON data from Word document content. Paste HTML from a Word document or the document text to extract any embedded JSON structures.</p>
         <h2>How to Use</h2>

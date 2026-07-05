@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="OpenAPI to JSON Extractor" description="Extract sample JSON data from OpenAPI 3.0 schema definitions. Generate example payloads from your API specs." inputPlaceholder="Paste OpenAPI schema here..." outputPlaceholder="Sample JSON will appear here..." convertLabel="Extract JSON" onConvert={openapiToJson} exampleInput={example} inputLanguage="json" outputLanguage="json" bidirectional onReverse={jsonToOpenAPI} />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is OpenAPI to JSON Extraction?</h2>
         <p>OpenAPI specifications define the structure of your API responses using schema objects. This tool parses the first schema component from your OpenAPI 3.0 spec and generates a sample JSON payload with appropriate default values for each property type. This is useful for generating test data, populating mock servers, and validating your API design.</p>
         <h2>How to Extract JSON from OpenAPI</h2>

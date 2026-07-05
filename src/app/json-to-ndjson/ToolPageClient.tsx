@@ -21,7 +21,7 @@ export default function ToolPageClient() {
         bidirectional
         onReverse={ndjsonToJson}
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is NDJSON?</h2>
         <p>NDJSON (Newline-Delimited JSON) is a streaming format where each line is a valid JSON object. Unlike a JSON array, NDJSON can be processed line-by-line without loading the entire file into memory, making it ideal for big data and streaming pipelines.</p>
         <p>NDJSON is used for:</p>

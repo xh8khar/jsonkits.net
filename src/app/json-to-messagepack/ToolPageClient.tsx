@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="text"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is MessagePack?</h2>
         <p>MessagePack is an efficient binary serialization format that lets you exchange data among multiple languages like JSON, but it's smaller and faster. It's widely used in high-performance applications where bandwidth and parsing speed are critical.</p><p>MessagePack is ideal for:</p><ul><li><strong>Real-Time Systems</strong>: Faster parsing than JSON in latency-sensitive applications.</li><li><strong>Mobile Apps</strong>: Reduced payload size for better battery life.</li><li><strong>Microservices</strong>: Efficient internal service-to-service communication.</li></ul>
         <h2>How to Use</h2>

@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="JSON to Tree View Converter" description="Generate a visual indented tree view with Unicode box-drawing characters from JSON data." inputPlaceholder="Paste your JSON here..." outputPlaceholder="Tree view will appear here..." convertLabel="Convert to Tree" onConvert={jsonToTree} exampleInput={example} inputLanguage="json" outputLanguage="text" bidirectional onReverse={treeToJson} />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON to Tree View Conversion?</h2>
         <p>A tree view representation uses Unicode box-drawing characters (├──, └──, │) to visualize the hierarchical structure of JSON data. This tool transforms your JSON object into an indented text-based tree that clearly shows parent-child relationships, making it easier to understand complex nested data at a glance.</p>
         <h2>How to Convert JSON to Tree View</h2>

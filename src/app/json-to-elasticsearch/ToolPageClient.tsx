@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is Elasticsearch Bulk Format?</h2>
         <p>Elasticsearch bulk format is a newline-delimited JSON format (NDJSON) used for efficient batch indexing of documents. Each document is preceded by an action line specifying the index operation.</p><p>Elasticsearch bulk indexing is essential for:</p><ul><li><strong>Data Ingestion</strong>: Efficiently loading large datasets into Elasticsearch.</li><li><strong>Log Aggregation</strong>: Batch processing log entries into ELK stacks.</li><li><strong>Search Indexing</strong>: Building search indexes from JSON data exports.</li></ul>
         <h2>How to Use</h2>

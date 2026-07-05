@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Number Conversion?</h2>
         <p>JSON numbers can be represented in various numeric formats. Our tool converts all numeric values in your JSON between decimal, hexadecimal, octal, binary, and scientific notation.</p><p>Number conversion is used for:</p><ul><li><strong>Debugging</strong>: Inspecting hex/binary values in human-readable decimal.</li><li><strong>Data Processing</strong>: Converting numeric formats for data analysis.</li><li><strong>Configuration</strong>: Adapting JSON configs between different numeric conventions.</li></ul>
         <h2>How to Use</h2>

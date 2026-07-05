@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="powershell"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is PowerShell Object Syntax?</h2>
         <p>PowerShell uses custom objects and hashtables extensively for data manipulation in automation scripts. Converting JSON to PowerShell syntax enables seamless integration with PowerShell's pipeline and cmdlet ecosystem.</p><p>PowerShell JSON conversion is used for:</p><ul><li><strong>DevOps Scripts</strong>: Processing JSON from Azure and AWS APIs.</li><li><strong>System Administration</strong>: Managing configuration files.</li><li><strong>Automation</strong>: Parsing JSON responses in automation workflows.</li></ul>
         <h2>How to Use</h2>

@@ -21,7 +21,7 @@ export default function ToolPageClient() {
         bidirectional
         onReverse={jsonToUrlEncoded}
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is URL Encoded?</h2>
         <p>URL encoding (percent-encoding) encodes special characters in URLs using % followed by two hexadecimal digits. It ensures that data containing spaces, symbols, or non-ASCII characters can be safely transmitted in URLs.</p>
         URL encoding ensures that special characters like spaces, &, and = are properly transmitted in URLs. It is used in:

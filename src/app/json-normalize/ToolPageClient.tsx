@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Normalization?</h2>
         <p>JSON normalization produces consistent, canonical JSON by sorting all object keys alphabetically at every level. This removes key-order differences that can cause false diffs in version control and testing.</p>
         <ul><li><strong>Version Control</strong>: Clean diffs without key-order noise.</li><li><strong>API Testing</strong>: Predictable response comparisons.</li><li><strong>Canonical JSON</strong>: Consistent output for signing or hashing.</li></ul>

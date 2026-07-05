@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is DynamoDB JSON Format?</h2>
         <p>Amazon DynamoDB uses a specific JSON format with typed attribute wrappers (S for string, N for number, etc.) for data operations. Converting JSON to this format simplifies DynamoDB integration.</p><p>DynamoDB JSON conversion is used for:</p><ul><li><strong>AWS Development</strong>: Preparing data for DynamoDB put and batch operations.</li><li><strong>Data Migration</strong>: Converting standard JSON to DynamoDB format.</li><li><strong>Infrastructure as Code</strong>: Defining DynamoDB seed data in CloudFormation.</li></ul>
         <h2>How to Use</h2>

@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="JSON Mask Sensitive Data" description="Automatically mask sensitive fields in JSON including passwords, tokens, API keys, emails, SSNs, and credentials." inputPlaceholder="Paste your JSON with sensitive data here..." outputPlaceholder="Masked JSON will appear here..." convertLabel="Mask Data" onConvert={jsonMaskData} exampleInput={example} outputLanguage="json" />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Mask Data?</h2>
         <p>This tool automatically detects and masks sensitive fields in JSON data such as passwords, tokens, API keys, email addresses, credit card numbers, and social security numbers. It replaces sensitive values with asterisks while preserving the JSON structure.</p>
         <h2>How to Use</h2>

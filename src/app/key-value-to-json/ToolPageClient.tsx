@@ -21,7 +21,7 @@ export default function ToolPageClient() {
         bidirectional
         onReverse={jsonToKeyValue}
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is Key-Value to JSON Conversion?</h2>
         <p>Key-value to JSON conversion parses lines of <code>key: value</code> pairs into structured JSON objects. This is essential for migrating flat configs, environment variables, and simple data files into API-ready JSON format.</p>
         <p>This conversion is useful for:</p>

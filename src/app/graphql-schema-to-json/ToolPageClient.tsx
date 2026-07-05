@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="GraphQL Schema to JSON" description="Generate sample JSON data from GraphQL type definitions. Quickly create test data from your GraphQL schema." inputPlaceholder="Paste your GraphQL schema here..." outputPlaceholder="Sample JSON will appear here..." convertLabel="Generate JSON" onConvert={graphQLSchemaToJson} exampleInput={example} inputLanguage="text" outputLanguage="json" bidirectional onReverse={jsonToGraphQLSchema} />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is GraphQL Schema to JSON Extraction?</h2>
         <p>When designing a GraphQL API, you need sample data to test your queries and mutations. This tool parses your GraphQL type definitions and generates realistic sample JSON data, inferring appropriate values for each scalar type. It is ideal for rapid prototyping, frontend development, and API testing.</p>
         <h2>How to Convert GraphQL Schema to JSON</h2>

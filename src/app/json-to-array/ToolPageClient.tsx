@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="JSON Object to Array Converter" description="Convert JSON objects into arrays of key-value pair objects. Useful for data transformations." inputPlaceholder="Paste your JSON object here..." outputPlaceholder="Array output will appear here..." convertLabel="Convert to Array" onConvert={jsonToArray} exampleInput={example} inputLanguage="json" outputLanguage="json" bidirectional onReverse={arrayToJson} />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Object to Array Conversion?</h2>
         <p>JSON objects store data as key-value pairs, but some data processing workflows require an array format. This tool converts each key-value pair from your JSON object into an array element containing <code>{"{"}key, value{"}"}</code> objects. This transformation is commonly used when preparing data for table views, spreadsheet exports, and certain database operations.</p>
         <h2>How to Convert JSON Object to Array</h2>

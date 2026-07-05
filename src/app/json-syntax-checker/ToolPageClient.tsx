@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Syntax Checking?</h2>
         <p>JSON syntax checking validates that your JSON is properly formatted according to the JSON specification. It checks for missing commas, brackets, quotes, and other syntax issues.</p>
         <h2>How to Check JSON Syntax Online</h2>

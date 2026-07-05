@@ -21,7 +21,7 @@ export default function ToolPageClient() {
         bidirectional
         onReverse={jsonToJsonp}
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSONP?</h2>
         <p>JSONP (JSON with Padding) is a technique for overcoming cross-origin restrictions in web browsers by wrapping JSON data in a JavaScript function call. It was commonly used before CORS became widely supported.</p>
         JSONP bypasses the same-origin policy by using the &lt;script&gt; tag's ability to load cross-origin resources. It is useful for:

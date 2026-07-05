@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON String Analysis?</h2>
         <p>JSON string analysis extracts and analyzes every string value in your document. It reports total string count, total and average character count, maximum and minimum string length, and identifies the shortest and longest strings in your data.</p>
         <p>String analysis is useful for:</p>

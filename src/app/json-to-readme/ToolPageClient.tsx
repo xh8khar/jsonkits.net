@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="JSON to README Generator" description="Convert JSON data to a structured README document with headings, lists, and code blocks." inputPlaceholder="Paste your JSON here..." outputPlaceholder="README output will appear here..." convertLabel="Generate README" onConvert={jsonToReadme} exampleInput={example} inputLanguage="json" outputLanguage="text" bidirectional onReverse={readmeToJson} />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON to README Generation?</h2>
         <p>Documentation is essential for any project, but writing it manually from structured data is tedious. This tool takes your JSON data and generates a well-formatted README document with a structured tree view of your data, field descriptions with types, and a raw JSON code block. It is ideal for auto-generating documentation for configuration files, API payloads, and data models.</p>
         <h2>How to Generate a README from JSON</h2>

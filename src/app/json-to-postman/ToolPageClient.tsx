@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="JSON to Postman Collection Converter" description="Generate Postman Collection v2.1 from JSON request definitions. Each object becomes a request with method, path, and body." inputPlaceholder="Paste your JSON request array here..." outputPlaceholder="Generated Postman Collection will appear here..." convertLabel="Generate Collection" onConvert={jsonToPostman} exampleInput={example} inputLanguage="json" outputLanguage="json" bidirectional onReverse={postmanToJson} />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON to Postman Collection Converter?</h2>
         <p>This tool converts a simplified JSON array of API request definitions into a full Postman Collection v2.1 JSON file. Each object in the array becomes a request with its method, URL path, optional headers, and request body.</p>
         <h2>How to Use</h2>

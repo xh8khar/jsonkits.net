@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="JSON to SQLite Converter" description="Generate SQLite-compatible CREATE TABLE and INSERT statements. Boolean values become 1/0 integers." inputPlaceholder="Paste your JSON array here..." outputPlaceholder="Generated SQL will appear here..." convertLabel="Generate SQL" onConvert={jsonToSqlite} exampleInput={example} inputLanguage="json" outputLanguage="sql" bidirectional onReverse={sqliteToJson} />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON to SQLite Converter?</h2>
         <p>This tool converts JSON arrays into SQLite-compatible SQL. Booleans are mapped to 1/0 integers, and column types are chosen from SQLite's flexible type system including INTEGER, REAL, and TEXT.</p>
         <h2>How to Use</h2>

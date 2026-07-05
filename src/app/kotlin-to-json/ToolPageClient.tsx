@@ -25,7 +25,7 @@ export default function ToolPageClient() {
         inputLanguage="kotlin"
         outputLanguage="json"
       />
-            <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+            <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Are Kotlin Data Classes?</h2>
         <p>Kotlin data classes are concise classes designed to hold data, automatically generating equals(), hashCode(), toString(), and copy() methods. They work seamlessly with kotlinx.serialization.
         <p>Kotlin data classes excel at:</p>

@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="JSON to Firestore Converter" description="Convert JSON data to Firestore document format with typed fields (stringValue, integerValue, mapValue, etc.). Perfect for Firebase database imports." inputPlaceholder="Paste your JSON here..." outputPlaceholder="Firestore document will appear here..." convertLabel="Convert to Firestore" onConvert={jsonToFirestore} exampleInput={example} inputLanguage="json" outputLanguage="json" bidirectional onReverse={firestoreToJson} />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is Firestore Document Format?</h2>
         <p>Cloud Firestore is a flexible, scalable NoSQL database from Firebase. It stores data in documents that use typed fields such as <code>stringValue</code>, <code>integerValue</code>, <code>booleanValue</code>, <code>mapValue</code>, and <code>arrayValue</code>. The Firestore REST API requires data in this structured format, making conversion from plain JSON essential for programmatic database imports and exports.</p>
         <h2>How to Convert JSON to Firestore</h2>

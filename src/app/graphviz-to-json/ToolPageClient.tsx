@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="Graphviz to JSON Converter" description="Parse Graphviz DOT format graphs back into structured JSON objects." inputPlaceholder="Paste your Graphviz DOT graph here..." outputPlaceholder="Parsed JSON will appear here..." convertLabel="Parse to JSON" onConvert={graphvizToJson} exampleInput={example} inputLanguage="text" outputLanguage="json" bidirectional onReverse={jsonToGraphviz} />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is Graphviz to JSON Converter?</h2>
         <p>This tool parses Graphviz DOT format graphs and converts them into structured JSON objects. Each node, edge, and attribute becomes a structured JSON field, making it easy to manipulate graph data programmatically.</p>
         <h2>How to Use</h2>

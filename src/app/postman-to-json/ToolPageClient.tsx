@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="Postman Collection to JSON Converter" description="Extract request definitions from Postman Collection JSON format." inputPlaceholder="Paste your Postman Collection JSON here..." outputPlaceholder="Extracted requests will appear here..." convertLabel="Extract Requests" onConvert={postmanToJson} exampleInput={example} inputLanguage="json" outputLanguage="json" bidirectional onReverse={jsonToPostman} />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is Postman Collection to JSON Converter?</h2>
         <p>This tool extracts simplified request definitions from a Postman Collection v2.1 JSON file. It parses the collection structure and returns an array of objects with name, method, path, headers, and body for each request.</p>
         <h2>How to Use</h2>

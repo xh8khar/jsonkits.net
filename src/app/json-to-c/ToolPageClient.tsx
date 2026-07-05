@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="c"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Are C Structs?</h2>
         <p>C structs are fundamental building blocks for organizing data in C programs. They group related variables under a single name, making code more readable and maintainable. In embedded systems and IoT applications, JSON data is often mapped to C structs for efficient processing.</p><p>C structs are critical for:</p><ul><li><strong>Embedded Systems</strong>: Parsing JSON sensor data on microcontrollers.</li><li><strong>Network Programming</strong>: Structuring protocol messages.</li><li><strong>System Utilities</strong>: Configuration parsing in C-based tools.</li></ul>
         <h2>How to Use</h2>

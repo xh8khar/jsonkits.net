@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="go"
         outputLanguage="json"
       />
-            <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+            <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Are Go Structs?</h2>
         <p>Go structs with JSON tags define how Go types map to JSON fields. When paired with json struct tags, they tell the encoding/json package exactly how to serialize and deserialize data.
         <p>Go structs are essential for:</p>

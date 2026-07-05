@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="cpp"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Are C++ Classes?</h2>
         <p>C++ classes with JSON serialization enable type-safe data handling in modern C++ applications. Using nlohmann/json or similar libraries, developers can easily map JSON data to strongly-typed class structures.</p><p>C++ JSON classes are essential for:</p><ul><li><strong>Game Development</strong>: Loading game assets and configurations.</li><li><strong>Desktop Applications</strong>: Reading application settings from JSON files.</li><li><strong>Financial Systems</strong>: Processing JSON trade data with type safety.</li></ul>
         <h2>How to Use</h2>

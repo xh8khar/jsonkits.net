@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="java"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Schema to Java?</h2>
         <p>Generating Java classes from JSON Schema ensures your Java models are always valid against the schema definition. This bridges the gap between API contracts and implementation.</p><p>JSON Schema to Java generation is used for:</p><ul><li><strong>API Development</strong>: Creating Java models from OpenAPI schemas.</li><li><strong>Validation</strong>: Adding Bean Validation annotations automatically.</li><li><strong>Code Generation</strong>: Boilerplate reduction in Java microservices.</li></ul>
         <h2>How to Use</h2>

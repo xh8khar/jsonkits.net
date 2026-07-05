@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="csharp"
         outputLanguage="json"
       />
-            <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+            <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Are C# Classes?</h2>
         <p>C# classes with JSON attributes enable seamless serialization and deserialization in .NET applications. Using JsonPropertyName attributes ensures correct mapping between C# properties and JSON fields.
         <p>C# classes are used for:</p>

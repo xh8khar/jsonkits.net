@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="text"
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>Why Validate JWT Tokens?</h2>
         <p>JWT validation ensures that tokens are authentic, not expired, and contain valid claims. This is critical for security in any application that relies on JWT-based authentication.</p><p>JWT validation checks:</p><ul><li><strong>Signature</strong>: Verifies the token hasn't been tampered with.</li><li><strong>Expiration (exp)</strong>: Ensures the token is still valid.</li><li><strong>Claims</strong>: Validates issuer, audience, and other standard claims.</li></ul>
         <h2>How to Use</h2>

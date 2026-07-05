@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="SQLite to JSON Converter" description="Parse SQLite INSERT statements back into JSON format." inputPlaceholder="Paste your SQLite INSERT statement here..." outputPlaceholder="Converted JSON will appear here..." convertLabel="Convert to JSON" onConvert={sqliteToJson} exampleInput={example} inputLanguage="sql" outputLanguage="json" bidirectional onReverse={jsonToSqlite} />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is SQLite to JSON Converter?</h2>
         <p>This tool converts SQLite INSERT statements into JSON objects. It handles SQLite's integer-based booleans (0/1) and its flexible type system, mapping values back to proper JSON types.</p>
         <h2>How to Use</h2>

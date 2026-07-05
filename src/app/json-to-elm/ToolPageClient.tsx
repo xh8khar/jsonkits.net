@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="elm"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is This Tool?</h2>
         <p>Generate Elm type aliases from your JSON data. Each JSON object becomes an Elm type alias with proper type annotations for Json.Decode and Json.Encode.</p>
         <h2>How to Use</h2>

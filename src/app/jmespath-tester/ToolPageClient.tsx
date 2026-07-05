@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="text"
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JMESPath?</h2>
         <p>JMESPath is a query language for JSON that allows you to extract and transform elements from a JSON document. It's the standard query language used by AWS CLI, Azure CLI, and many other cloud tools.</p><p>JMESPath is essential for:</p><ul><li><strong>AWS CLI</strong>: Filtering and formatting AWS command outputs.</li><li><strong>Azure CLI</strong>: Querying Azure resource properties.</li><li><strong>Automation</strong>: Extracting specific data from API responses in scripts.</li></ul>
         <h2>How to Use</h2>

@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="xml"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is This Tool?</h2>
         <p>Convert your JSON data into a Code 39 barcode SVG image. The barcode uses alphanumeric encoding to represent your data in a scannable format.</p>
         <h2>How to Use</h2>

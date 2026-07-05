@@ -21,7 +21,7 @@ export default function ToolPageClient() {
         bidirectional
         onReverse={jsonConvertArrays}
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is Object JSON to Array JSON Conversion?</h2>
         <p>This transformation converts an object of arrays back into an array of objects. Each array element is reconstructed by combining values at the same index across all keys.</p>
         <h2>How to Use</h2>

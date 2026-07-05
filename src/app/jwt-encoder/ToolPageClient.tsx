@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="text"
         outputLanguage="text"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>How to Encode JWT Tokens?</h2>
         <p>Encoding JWTs is essential for generating authentication tokens for API testing and development. Our tool supports HS256 (default) and HS512 signing algorithms with custom secret keys.</p><p>JWT encoding is used for:</p><ul><li><strong>API Testing</strong>: Generating test tokens for development environments.</li><li><strong>Service Accounts</strong>: Creating tokens for internal service authentication.</li><li><strong>Prototyping</strong>: Building authentication flows before backend implementation.</li></ul>
         <h2>How to Use</h2>

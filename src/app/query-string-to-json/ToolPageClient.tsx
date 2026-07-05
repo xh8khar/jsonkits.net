@@ -21,7 +21,7 @@ export default function ToolPageClient() {
         bidirectional
         onReverse={jsonToQueryString}
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is Query Strings?</h2>
         <p>query strings are the part of a URL after the ? that contains data in key-value format. They are essential for passing parameters in HTTP GET requests and web application routing.</p>
         Query strings are the standard way to pass data in HTTP GET requests. They are essential for:

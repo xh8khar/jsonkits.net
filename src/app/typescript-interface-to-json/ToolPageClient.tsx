@@ -24,7 +24,7 @@ export default function ToolPageClient() {
         inputLanguage="typescript"
         outputLanguage="json"
       />
-            <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+            <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Are TypeScript Interfaces?</h2>
         <p>TypeScript interfaces define the shape of data objects using type annotations for each property. They provide compile-time type checking and excellent developer experience with autocompletion.
         <p>TypeScript interfaces are essential for:</p>

@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="JSON to PostgreSQL Converter" description="Generate PostgreSQL CREATE TABLE and INSERT statements from JSON arrays. Auto-detects column types as INTEGER, DOUBLE PRECISION, BOOLEAN, or TEXT." inputPlaceholder="Paste your JSON array here..." outputPlaceholder="Generated SQL will appear here..." convertLabel="Generate SQL" onConvert={jsonToPostgresql} exampleInput={example} inputLanguage="json" outputLanguage="sql" bidirectional onReverse={postgresqlToJson} />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON to PostgreSQL Converter?</h2>
         <p>This tool converts a JSON array of objects into PostgreSQL-compatible SQL statements. It generates a CREATE TABLE statement with columns typed as TEXT, INTEGER, DOUBLE PRECISION, or BOOLEAN, followed by INSERT statements for each object.</p>
         <h2>How to Use</h2>

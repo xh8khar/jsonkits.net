@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="fsharp"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Are F# Record Types?</h2>
         <p>F# record types with JSON serialization enable functional and type-safe data handling in .NET applications. Using Newtonsoft.Json or System.Text.Json, developers can easily map JSON to immutable data structures.</p><p>F# JSON records are essential for:</p><ul><li><strong>Data Science</strong>: Processing JSON datasets with functional programming.</li><li><strong>Web Services</strong>: Type-safe API responses in Giraffe or Saturn.</li><li><strong>Financial Modeling</strong>: Parsing JSON market data with immutable types.</li></ul>
         <h2>How to Use</h2>

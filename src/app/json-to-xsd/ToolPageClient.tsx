@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="xml"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is XML Schema (XSD)?</h2>
         <p>XML Schema Definition (XSD) describes the structure of XML documents. Generating XSD from JSON data enables enterprise systems that rely on XML validation to interoperate with modern JSON APIs.</p><p>JSON to XSD generation is used for:</p><ul><li><strong>Enterprise Integration</strong>: Converting JSON APIs to XML/SOAP systems.</li><li><strong>Data Validation</strong>: Creating XSD validation rules from JSON samples.</li><li><strong>Legacy Systems</strong>: Bridging JSON-modern and XML-legacy data formats.</li></ul>
         <h2>How to Use</h2>

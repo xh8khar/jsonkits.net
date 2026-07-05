@@ -21,7 +21,7 @@ export default function ToolPageClient() {
         bidirectional
         onReverse={jsonToMarkdown}
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is Markdown to JSON Conversion?</h2>
         <p>Markdown to JSON conversion extracts JSON data from fenced code blocks in Markdown documents. This is essential when migrating documentation examples to live data, processing API docs, or extracting configuration samples from README files.</p>
         <p>This conversion is useful for:</p>

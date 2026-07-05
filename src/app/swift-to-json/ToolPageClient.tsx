@@ -24,7 +24,7 @@ export default function ToolPageClient() {
         inputLanguage="swift"
         outputLanguage="json"
       />
-            <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+            <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Are Swift Structs?</h2>
         <p>Swift structs conforming to Codable are value types that can be encoded to JSON using JSONEncoder and decoded with JSONDecoder. They are the foundation of data modeling in iOS and macOS development.
         <p>Swift structs are used for:</p>

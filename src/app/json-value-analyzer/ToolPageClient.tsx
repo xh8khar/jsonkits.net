@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage={"json"}
         outputLanguage={"json"}
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is This Tool?</h2>
         <p>Analyze value frequency and distribution across JSON fields. This tool processes your data entirely in your browser.</p>
         <h2>How to Use</h2>

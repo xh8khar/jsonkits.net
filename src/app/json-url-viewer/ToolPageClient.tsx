@@ -56,7 +56,7 @@ export default function ToolPageClient() {
         </div>
         {output && <OutputPanel value={output} label="JSON Response" />}
       </div>
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is This Tool?</h2>
         <p>Fetch and display JSON data from any URL. Perfect for quickly inspecting API responses, debugging endpoints, and exploring JSON data from the web.</p>
         <h2>How to Use</h2>

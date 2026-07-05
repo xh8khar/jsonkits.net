@@ -21,7 +21,7 @@ export default function ToolPageClient() {
         bidirectional
         onReverse={jsonUnescape}
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Escaping?</h2>
         <p>JSON escaping converts special characters (double quotes, backslashes, newlines, tabs, carriage returns) into their escape sequences. This makes JSON safe to embed in JavaScript source code, SQL queries, URL parameters, and other string contexts.</p>
         <p>Escaping is essential for:</p>

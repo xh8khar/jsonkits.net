@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is Apache Avro?</h2>
         <p>Apache Avro is a data serialization system that uses JSON for defining schemas and compact binary encoding for data. This tool infers an Avro schema from your JSON data — useful as a starting point before customizing field types and names.</p>
         <h2>How to Use</h2>

@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is a JSON Fake Data Generator?</h2>
         <p>A JSON fake data generator creates realistic-looking data from a template. You define a JSON structure with type hints as values (e.g., "fullname", "email", "uuid", "city", "number"), and the tool replaces them with realistic random values while preserving your structure.</p>
         <p>Fake data generation is useful for:</p>

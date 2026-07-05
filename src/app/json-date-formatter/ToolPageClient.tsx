@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="JSON Date Formatter" description="Find and convert date strings in JSON between ISO, date, locale, Unix timestamp, and UTC formats." inputPlaceholder="Add format: iso|date|locale|unix|utc, then paste JSON..." outputPlaceholder="Formatted JSON will appear here..." convertLabel="Format Dates" onConvert={jsonDateFormatter} exampleInput={example} outputLanguage="json" />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Date Formatter?</h2>
         <p>This tool finds date strings in your JSON data and converts them to the specified format. It supports ISO 8601, date-only (YYYY-MM-DD), locale date strings, Unix timestamps (seconds), and UTC format.</p>
         <h2>How to Use</h2>

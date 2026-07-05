@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="python"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is Pydantic?</h2>
         <p>Pydantic is a Python library for data validation using Python type annotations. Generating Pydantic models from JSON Schema ensures your Python data models are always valid against the schema.</p><p>JSON Schema to Pydantic generation is used for:</p><ul><li><strong>FastAPI</strong>: Creating request/response models from OpenAPI schemas.</li><li><strong>Data Validation</strong>: Ensuring JSON data conforms to expected structure.</li><li><strong>Configuration</strong>: Type-safe configuration file parsing.</li></ul>
         <h2>How to Use</h2>

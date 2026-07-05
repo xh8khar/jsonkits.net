@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="JSON Decrypt" description="Decrypt previously encrypted JSON data back to its original readable format." inputPlaceholder="Add key: yourkey on first line, then paste encrypted text below..." outputPlaceholder="Decrypted JSON will appear here..." convertLabel="Decrypt" onConvert={jsonDecrypt} exampleInput={example} inputLanguage="text" outputLanguage="json" bidirectional onReverse={jsonEncrypt} />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Decrypt?</h2>
         <p>This tool decrypts JSON data that was previously encrypted using the XOR cipher and Base64 encoding. Provide the same key that was used during encryption to restore the original JSON content.</p>
         <h2>How to Use</h2>

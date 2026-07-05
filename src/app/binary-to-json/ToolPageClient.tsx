@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="Binary to JSON Converter" description="Convert binary strings back into readable JSON format. Decodes 8-bit binary sequences to characters." inputPlaceholder="Paste binary string here..." outputPlaceholder="JSON output will appear here..." convertLabel="Convert to JSON" onConvert={binaryToJson} exampleInput={example} inputLanguage="text" outputLanguage="json" bidirectional onReverse={jsonToBinary} />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is Binary to JSON Conversion?</h2>
         <p>Binary to JSON conversion takes an 8-bit binary string and decodes it back into readable JSON. Each group of 8 binary digits represents a single character via its ASCII code. This tool is essential for recovering data from binary-encoded logs, reversing data transformations, and understanding how digital information is stored and transmitted.</p>
         <h2>How to Convert Binary to JSON</h2>

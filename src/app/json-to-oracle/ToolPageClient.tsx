@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="JSON to Oracle Converter" description="Generate Oracle SQL CREATE TABLE and INSERT statements from JSON data." inputPlaceholder="Paste your JSON array here..." outputPlaceholder="Generated SQL will appear here..." convertLabel="Generate SQL" onConvert={jsonToOracle} exampleInput={example} inputLanguage="json" outputLanguage="sql" bidirectional onReverse={oracleToJson} />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON to Oracle Converter?</h2>
         <p>This tool converts JSON arrays into Oracle SQL statements. It generates CREATE TABLE with Oracle-friendly types such as NUMBER, VARCHAR2, and DATE, followed by INSERT statements using Oracle's implicit quote style.</p>
         <h2>How to Use</h2>

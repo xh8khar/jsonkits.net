@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Size Analysis?</h2>
         <p>JSON size analysis calculates key metrics about your JSON data: byte sizes (raw, minified, formatted), element counts (keys, arrays, strings, numbers, booleans, nulls), and nesting depth. This helps you understand and optimize your data structures.</p>
         <p>Size analysis is useful for:</p>
