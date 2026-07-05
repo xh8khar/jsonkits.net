@@ -45,9 +45,9 @@ export default function ToolPageClient() {
         <p>JSON minification is used when deploying API responses to production, optimizing configuration files for containerized applications, reducing payload size in serverless functions, and compressing data for real-time WebSocket connections.</p>
         <h2>Related Tools</h2>
         <ul>
-          <li><a href="/formatter">JSON Formatter</a> — Beautify and pretty-print JSON</li>
-          <li><a href="/validator">JSON Validator</a> — Check if your JSON is valid</li>
-          <li><a href="/viewer">JSON Viewer</a> — Explore JSON in a tree structure</li>
+          <li><a href="/json-formatter">JSON Formatter</a> — Beautify and pretty-print JSON</li>
+          <li><a href="/json-validator">JSON Validator</a> — Check if your JSON is valid</li>
+          <li><a href="/json-viewer">JSON Viewer</a> — Explore JSON in a tree structure</li>
         </ul>
       </article>
     </>

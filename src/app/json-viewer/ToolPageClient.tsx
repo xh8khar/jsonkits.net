@@ -45,9 +45,9 @@ export default function ToolPageClient() {
         <p>Using a JSON viewer helps explore complex API responses with deeply nested objects, inspect configuration files with many settings, understand database documents from MongoDB or Firestore, and debug webhook payloads from third-party services.</p>
         <h2>Related Tools</h2>
         <ul>
-          <li><a href="/formatter">JSON Formatter</a> — Beautify and pretty-print JSON</li>
-          <li><a href="/validator">JSON Validator</a> — Check if your JSON is valid</li>
-          <li><a href="/diff-checker">JSON Diff Checker</a> — Compare two JSON objects</li>
+          <li><a href="/json-formatter">JSON Formatter</a> — Beautify and pretty-print JSON</li>
+          <li><a href="/json-validator">JSON Validator</a> — Check if your JSON is valid</li>
+          <li><a href="/json-diff-checker">JSON Diff Checker</a> — Compare two JSON objects</li>
         </ul>
       </article>
     </>

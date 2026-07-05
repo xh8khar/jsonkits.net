@@ -45,9 +45,9 @@ export default function ToolPageClient() {
         <p>JSON formatting is used daily by developers debugging API responses, reviewing configuration files like package.json or tsconfig.json, preparing JSON samples for documentation, and sharing formatted JSON in code reviews.</p>
         <h2>Related Tools</h2>
         <ul>
-          <li><a href="/minifier">JSON Minifier</a> — Compress JSON by removing whitespace</li>
-          <li><a href="/validator">JSON Validator</a> — Check if your JSON is valid</li>
-          <li><a href="/viewer">JSON Viewer</a> — Explore JSON in a tree structure</li>
+          <li><a href="/json-minifier">JSON Minifier</a> — Compress JSON by removing whitespace</li>
+          <li><a href="/json-validator">JSON Validator</a> — Check if your JSON is valid</li>
+          <li><a href="/json-viewer">JSON Viewer</a> — Explore JSON in a tree structure</li>
         </ul>
       </article>
     </>

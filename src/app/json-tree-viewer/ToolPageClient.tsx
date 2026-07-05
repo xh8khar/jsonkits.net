@@ -26,7 +26,7 @@ export default function ToolPageClient() {
         <h2>Frequently Asked Questions</h2>
         <h3>Is this tool safe?</h3><p>Yes. Processing is 100% client-side with no server upload.</p>
         <h2>Related Tools</h2>
-        <ul><li><a href="/viewer">JSON Viewer</a></li><li><a href="/json-to-tree">JSON to Tree</a></li></ul>
+        <ul><li><a href="/json-viewer">JSON Viewer</a></li><li><a href="/json-to-tree">JSON to Tree</a></li></ul>
       </article>
     </>
   )

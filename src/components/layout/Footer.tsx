@@ -8,8 +8,8 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-slate-900 dark:text-white mb-3">Tools</h3>
             <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-              <li><Link href="/formatter" className="hover:text-blue-500">JSON Formatter</Link></li>
-              <li><Link href="/validator" className="hover:text-blue-500">JSON Validator</Link></li>
+              <li><Link href="/json-formatter" className="hover:text-blue-500">JSON Formatter</Link></li>
+              <li><Link href="/json-validator" className="hover:text-blue-500">JSON Validator</Link></li>
               <li><Link href="/json-to-yaml" className="hover:text-blue-500">JSON to YAML</Link></li>
               <li><Link href="/json-to-csv" className="hover:text-blue-500">JSON to CSV</Link></li>
             </ul>

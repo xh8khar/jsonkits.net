@@ -27,7 +27,7 @@ export default function ToolPageClient() {
         <h3>Is this tool safe?</h3><p>Yes. Processing is 100% client-side with no server upload.</p>
         <h3>What Swagger version is generated?</h3><p>This tool generates Swagger 2.0 (OpenAPI 2.0) specifications.</p>
         <h2>Related Tools</h2>
-        <ul><li><a href="/json-to-openapi">JSON to OpenAPI</a></li><li><a href="/validator">JSON Validator</a></li></ul>
+        <ul><li><a href="/json-to-openapi">JSON to OpenAPI</a></li><li><a href="/json-validator">JSON Validator</a></li></ul>
       </article>
     </>
   )

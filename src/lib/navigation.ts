@@ -2,18 +2,18 @@ import type { NavItem, Tool } from '@/types'
 
 export const navItems: NavItem[] = [
   { label: 'Home', href: '/' },
-  { label: 'Formatters', href: '/formatter' },
-  { label: 'Validators', href: '/validator' },
-  { label: 'Viewers', href: '/viewer' },
+  { label: 'Formatters', href: '/json-formatter' },
+  { label: 'Validators', href: '/json-validator' },
+  { label: 'Viewers', href: '/json-viewer' },
   { label: 'Converters', href: '/json-to-yaml' },
 ]
 
 export const tools: Tool[] = [
-  { id: 'formatter', name: 'JSON Formatter', description: 'Beautify and pretty-print your JSON with customizable indentation.', category: 'formatter', slug: '/formatter', icon: 'Braces' },
-  { id: 'validator', name: 'JSON Validator', description: 'Check if your JSON is valid and get detailed error messages.', category: 'validator', slug: '/validator', icon: 'CheckCircle' },
-  { id: 'viewer', name: 'JSON Viewer', description: 'View and explore JSON data in a readable tree structure.', category: 'viewer', slug: '/viewer', icon: 'Eye' },
-  { id: 'minifier', name: 'JSON Minifier', description: 'Compress JSON by removing whitespace to reduce file size.', category: 'formatter', slug: '/minifier', icon: 'Compress' },
-  { id: 'diff-checker', name: 'JSON Diff Checker', description: 'Compare two JSON objects and see the differences.', category: 'compare', slug: '/diff-checker', icon: 'Columns' },
+  { id: 'formatter', name: 'JSON Formatter', description: 'Beautify and pretty-print your JSON with customizable indentation.', category: 'formatter', slug: '/json-formatter', icon: 'Braces' },
+  { id: 'validator', name: 'JSON Validator', description: 'Check if your JSON is valid and get detailed error messages.', category: 'validator', slug: '/json-validator', icon: 'CheckCircle' },
+  { id: 'viewer', name: 'JSON Viewer', description: 'View and explore JSON data in a readable tree structure.', category: 'viewer', slug: '/json-viewer', icon: 'Eye' },
+  { id: 'minifier', name: 'JSON Minifier', description: 'Compress JSON by removing whitespace to reduce file size.', category: 'formatter', slug: '/json-minifier', icon: 'Compress' },
+  { id: 'diff-checker', name: 'JSON Diff Checker', description: 'Compare two JSON objects and see the differences.', category: 'compare', slug: '/json-diff-checker', icon: 'Columns' },
 
   // Data Format Converters
   { id: 'json-to-yaml', name: 'JSON to YAML', description: 'Convert JSON data to YAML format for configuration files.', category: 'converter', slug: '/json-to-yaml', icon: 'ArrowRight' },

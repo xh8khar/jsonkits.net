@@ -109,9 +109,9 @@ export default function ToolPageClient() {
         <p>JSON validation is used when writing API clients, editing configuration files like tsconfig.json, debugging webhook payloads, ensuring CI/CD pipeline configs are valid, and teaching JSON syntax to new developers.</p>
         <h2>Related Tools</h2>
         <ul>
-          <li><a href="/formatter">JSON Formatter</a> — Beautify and pretty-print JSON</li>
-          <li><a href="/viewer">JSON Viewer</a> — Explore JSON in a tree structure</li>
-          <li><a href="/diff-checker">JSON Diff Checker</a> — Compare two JSON objects</li>
+          <li><a href="/json-formatter">JSON Formatter</a> — Beautify and pretty-print JSON</li>
+          <li><a href="/json-viewer">JSON Viewer</a> — Explore JSON in a tree structure</li>
+          <li><a href="/json-diff-checker">JSON Diff Checker</a> — Compare two JSON objects</li>
         </ul>
       </article>
     </>

@@ -27,7 +27,7 @@ export default function ToolPageClient() {
         <h2>Frequently Asked Questions</h2>
         <h3>Is this tool safe?</h3><p>Yes. Processing is 100% client-side with no server upload.</p>
         <h2>Related Tools</h2>
-        <ul><li><a href="/json-to-qrcode">JSON to QR Code</a></li><li><a href="/validator">JSON Validator</a></li></ul>
+        <ul><li><a href="/json-to-qrcode">JSON to QR Code</a></li><li><a href="/json-validator">JSON Validator</a></li></ul>
       </article>
     </>
   )

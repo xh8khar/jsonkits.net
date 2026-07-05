@@ -28,7 +28,7 @@ export default function ToolPageClient() {
         <h3>Can I upload a PDF file?</h3><p>This tool extracts JSON from PDF text content. For PDF file upload, copy the text content and paste it in the editor.</p>
         <h3>Is this tool safe?</h3><p>Yes. Processing is 100% client-side with no server upload.</p>
         <h2>Related Tools</h2>
-        <ul><li><a href="/json-to-pdf">JSON to PDF</a></li><li><a href="/formatter">JSON Formatter</a></li></ul>
+        <ul><li><a href="/json-to-pdf">JSON to PDF</a></li><li><a href="/json-formatter">JSON Formatter</a></li></ul>
       </article>
     </>
   )

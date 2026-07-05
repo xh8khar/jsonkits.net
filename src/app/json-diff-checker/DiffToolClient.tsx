@@ -170,9 +170,9 @@ export default function DiffToolClient() {
         <p>JSON diffing is essential when reviewing API contract changes between versions, debugging why a configuration update broke a deployment, tracking data migration accuracy, and verifying that a transformation pipeline produced the expected output.</p>
         <h2>Related Tools</h2>
         <ul>
-          <li><a href="/formatter">JSON Formatter</a> — Pretty-print JSON for readability before comparing</li>
-          <li><a href="/validator">JSON Validator</a> — Validate both JSON inputs before running a diff</li>
-          <li><a href="/viewer">JSON Viewer</a> — View JSON in a readable tree structure</li>
+          <li><a href="/json-formatter">JSON Formatter</a> — Pretty-print JSON for readability before comparing</li>
+          <li><a href="/json-validator">JSON Validator</a> — Validate both JSON inputs before running a diff</li>
+          <li><a href="/json-viewer">JSON Viewer</a> — View JSON in a readable tree structure</li>
         </ul>
       </article>
     </>

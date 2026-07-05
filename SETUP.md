@@ -40,7 +40,7 @@ Each tool page includes structured educational content. Below is the content map
 
 ### Formatters & Validators
 
-#### JSON Formatter — `/formatter` (`formatJSON`)
+#### JSON Formatter — `/json-formatter` (`formatJSON`)
 
 | Section | Content |
 |---|---|
@@ -50,7 +50,7 @@ Each tool page includes structured educational content. Below is the content map
 | **FAQ** | Is my data safe? Can I format large files? Can I download formatted output? |
 | **Related Tools** | JSON Minifier, JSON Validator, JSON Viewer |
 
-#### JSON Minifier — `/minifier` (`minifyJSON`)
+#### JSON Minifier — `/json-minifier` (`minifyJSON`)
 
 | Section | Content |
 |---|---|
@@ -60,7 +60,7 @@ Each tool page includes structured educational content. Below is the content map
 | **FAQ** | Does minification change data? How much space can I save? Is minified JSON still valid? |
 | **Related Tools** | JSON Formatter, JSON Validator |
 
-#### JSON Validator — `/validator` (`validateJSON`)
+#### JSON Validator — `/json-validator` (`validateJSON`)
 
 | Section | Content |
 |---|---|
@@ -70,7 +70,7 @@ Each tool page includes structured educational content. Below is the content map
 | **FAQ** | What makes JSON invalid? Can I validate large files? |
 | **Related Tools** | JSON Formatter, JSON Viewer |
 
-#### JSON Viewer — `/viewer` (`formatJSON`)
+#### JSON Viewer — `/json-viewer` (`formatJSON`)
 
 | Section | Content |
 |---|---|
@@ -206,7 +206,7 @@ Each tool page includes structured educational content. Below is the content map
 
 ### Compare
 
-#### JSON Diff Checker — `/diff-checker` (`jsonDiff`)
+#### JSON Diff Checker — `/json-diff-checker` (`jsonDiff`)
 
 | Section | Content |
 |---|---|

@@ -67,7 +67,7 @@ export default function ToolPageClient() {
         <h3>Can I fetch from any URL?</h3>
         <p>Public APIs that support CORS will work. Some endpoints may block browser-based requests.</p>
         <h2>Related Tools</h2>
-        <ul><li><a href="/viewer">JSON Viewer</a></li><li><a href="/formatter">JSON Formatter</a></li></ul>
+        <ul><li><a href="/json-viewer">JSON Viewer</a></li><li><a href="/json-formatter">JSON Formatter</a></li></ul>
       </article>
     </>
   )

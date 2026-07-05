@@ -33,8 +33,8 @@ export default function ToolPageClient() {
         <p>Yes. Processing is 100% client-side with no server upload.</p>
         <h2>Related Tools</h2>
         <ul>
-          <li><a href="/formatter">JSON Formatter</a></li>
-          <li><a href="/viewer">JSON Viewer</a></li>
+          <li><a href="/json-formatter">JSON Formatter</a></li>
+          <li><a href="/json-viewer">JSON Viewer</a></li>
         </ul>
       </article>
     </>
