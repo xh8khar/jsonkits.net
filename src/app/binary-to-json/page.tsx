@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import ToolPageClient from './ToolPageClient'
 
 export const metadata: Metadata = {
-  title: 'Binary to JSON Online — Free JSON Tool | JSONKits',
-  description: 'Convert binary strings back into readable JSON format. 100% client-side and free to use.',
-  keywords: ['binary to json, convert binary to json, binary json converter, json converter, binary format, binary parser, online json tool, free json tool, data conversion, jsonkits'],
+  title: 'Binary to JSON - Free Online Converter | JSONKits',
+  description: 'Convert binary strings back into readable JSON format. 100% free, client-side JSON tool with no server uploads.',
+  keywords: ['binary to json, binary to json online, binary to json tool, convert binary to json, binary json converter, json converter, convert json, json transformation, data conversion, json format converter, online json converter, online json tool, free json tool, jsonkits'],
 }
 
 export default function Page() {

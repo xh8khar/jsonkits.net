@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import ToolPageClient from './ToolPageClient'
 
 export const metadata: Metadata = {
-  title: 'JSON to URL Parameters Online — Free JSON Tool | JSONKits',
-  description: 'Convert JSON objects to URL parameter format. 100% client-side and free to use.',
-  keywords: ['json to url parameters, convert json to url parameters, json url parameters converter, url parameters format, json converter, online json tool, free json converter, json transformation, data conversion, jsonkits'],
+  title: 'JSON to URL Parameters - Free Online Converter | JSONKits',
+  description: 'Convert JSON objects to URL parameter format. 100% free, client-side JSON tool with no server uploads.',
+  keywords: ['json to url parameters, json to url parameters online, json to url parameters tool, json to url params online, json to url params tool, json to url params, convert json to url params, json url params converter, json converter, convert json, json transformation, data conversion, json format converter, online json converter, online json tool'],
 }
 
 export default function Page() {

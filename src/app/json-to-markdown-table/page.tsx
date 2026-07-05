@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import ToolPageClient from './ToolPageClient'
 
 export const metadata: Metadata = {
-  title: 'JSON to Markdown Table Online — Free JSON Tool | JSONKits',
-  description: 'Convert JSON data to a Markdown table. 100% client-side and free to use.',
-  keywords: ['json to markdown table, convert json to markdown table, json markdown table converter, markdown table format, json converter, online json tool, free json converter, json transformation, data conversion, jsonkits'],
+  title: 'JSON to Markdown Table - Free Online Converter | JSONKits',
+  description: 'Convert JSON data to a Markdown table. 100% free, client-side JSON tool with no server uploads.',
+  keywords: ['json to markdown table, json to markdown table online, json to markdown table tool, convert json to markdown table, json markdown table converter, json converter, convert json, json transformation, data conversion, json format converter, online json converter, online json tool, free json tool, jsonkits'],
 }
 
 export default function Page() {

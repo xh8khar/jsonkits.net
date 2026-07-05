@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import ToolPageClient from './ToolPageClient'
 
 export const metadata: Metadata = {
-  title: 'JSON to Key-Value Online — Free JSON Tool | JSONKits',
-  description: 'Convert JSON objects to simple key:value pair lines. 100% client-side and free to use.',
-  keywords: ['json to key-value, convert json to key-value, json key-value converter, key-value format, json converter, online json tool, free json converter, json transformation, data conversion, jsonkits'],
+  title: 'JSON to Key-Value - Free Online Converter | JSONKits',
+  description: 'Convert JSON objects to simple key:value pair lines. 100% free, client-side JSON tool with no server uploads.',
+  keywords: ['json to key-value, json to key-value online, json to key-value tool, json to key value online, json to key value tool, json to key value, convert json to key value, json key value converter, json converter, convert json, json transformation, data conversion, json format converter, online json converter, online json tool'],
 }
 
 export default function Page() {

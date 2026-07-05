@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import ToolPageClient from './ToolPageClient'
 
 export const metadata: Metadata = {
-  title: 'JSON to TypeScript Online — Free JSON Tool | JSONKits',
-  description: 'Generate TypeScript interfaces from JSON samples. 100% client-side and free to use.',
-  keywords: ['json to typescript, convert json to typescript, json typescript converter, typescript format, json converter, online json tool, free json converter, json transformation, data conversion, jsonkits'],
+  title: 'JSON to TypeScript - Free Online Converter | JSONKits',
+  description: 'Generate TypeScript interfaces from JSON samples. 100% free, client-side JSON tool with no server uploads.',
+  keywords: ['json to typescript, json to typescript online, json to typescript tool, convert json to typescript, json typescript converter, json converter, convert json, json transformation, data conversion, json format converter, online json converter, online json tool, free json tool, jsonkits'],
 }
 
 export default function Page() {

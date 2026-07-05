@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import ToolPageClient from './ToolPageClient'
 
 export const metadata: Metadata = {
-  title: 'Excel (XLSX) to JSON Online — Free JSON Tool | JSONKits',
-  description: 'Convert Excel XLSX files back into structured JSON format. 100% client-side and free to use.',
-  keywords: ['excel (xlsx) to json, convert excel (xlsx) to json, excel (xlsx) json converter, json converter, excel (xlsx) format, excel (xlsx) parser, online json tool, free json tool, data conversion, jsonkits'],
+  title: 'Excel (XLSX) to JSON - Free Online Converter | JSONKits',
+  description: 'Convert Excel XLSX files back into structured JSON format. 100% free, client-side JSON tool with no server uploads.',
+  keywords: ['excel (xlsx) to json, excel (xlsx) to json online, excel (xlsx) to json tool, xlsx to json online, xlsx to json tool, xlsx to json, convert xlsx to json, xlsx json converter, json converter, convert json, json transformation, data conversion, json format converter, online json converter, online json tool'],
 }
 
 export default function Page() {

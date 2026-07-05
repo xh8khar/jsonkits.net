@@ -295,4 +295,78 @@ export const tools: Tool[] = [
   { id: 'invalid-json-repair', name: 'Invalid JSON Repair', description: 'Repair malformed JSON by detecting and fixing common syntax issues.', category: 'validator', slug: '/invalid-json-repair', icon: 'Wrench' },
   { id: 'json-tree-viewer', name: 'JSON Tree Viewer', description: 'Visualize JSON data as an interactive tree structure.', category: 'viewer', slug: '/json-tree-viewer', icon: 'GitBranch' },
   { id: 'json-python-dataclass', name: 'JSON to Python Dataclass', description: 'Generate Python dataclass definitions from JSON data samples.', category: 'converter', slug: '/json-python-dataclass', icon: 'Code' },
+
+  // ---- Additional Languages ----
+  { id: 'json-to-c', name: 'JSON to C', description: 'Generate C struct definitions with JSON parsing support from JSON data samples.', category: 'converter', slug: '/json-to-c', icon: 'Code' },
+  { id: 'json-to-cpp', name: 'JSON to C++', description: 'Generate C++ class definitions with JSON serialization support from JSON data samples.', category: 'converter', slug: '/json-to-cpp', icon: 'Code' },
+  { id: 'json-to-groovy', name: 'JSON to Groovy', description: 'Generate Groovy class definitions with JSON parsing support from JSON data samples.', category: 'converter', slug: '/json-to-groovy', icon: 'Code' },
+  { id: 'json-to-elixir', name: 'JSON to Elixir', description: 'Generate Elixir struct definitions with JSON encoding support from JSON data samples.', category: 'converter', slug: '/json-to-elixir', icon: 'Code' },
+  { id: 'json-to-powershell', name: 'JSON to PowerShell', description: 'Generate PowerShell custom object and hashtable syntax from JSON data for scripting.', category: 'converter', slug: '/json-to-powershell', icon: 'Code' },
+  { id: 'json-to-fsharp', name: 'JSON to F#', description: 'Generate F# record type definitions with JSON serialization support from JSON data samples.', category: 'converter', slug: '/json-to-fsharp', icon: 'Code' },
+  { id: 'json-to-julia', name: 'JSON to Julia', description: 'Generate Julia struct definitions with JSON parsing support from JSON data samples.', category: 'converter', slug: '/json-to-julia', icon: 'Code' },
+
+  // ---- Binary Serialization ----
+  { id: 'json-to-messagepack', name: 'JSON to MessagePack', description: 'Convert JSON data to MessagePack binary format for compact data storage and transmission.', category: 'converter', slug: '/json-to-messagepack', icon: 'ArrowRight' },
+  { id: 'messagepack-to-json', name: 'MessagePack to JSON', description: 'Convert MessagePack binary format back into readable JSON format for inspection and debugging.', category: 'converter', slug: '/messagepack-to-json', icon: 'ArrowLeft' },
+  { id: 'json-to-cbor', name: 'JSON to CBOR', description: 'Convert JSON data to CBOR (Concise Binary Object Representation) format for compact binary encoding.', category: 'converter', slug: '/json-to-cbor', icon: 'ArrowRight' },
+  { id: 'cbor-to-json', name: 'CBOR to JSON', description: 'Convert CBOR (Concise Binary Object Representation) binary data back into readable JSON format.', category: 'converter', slug: '/cbor-to-json', icon: 'ArrowLeft' },
+
+  // ---- JWT & Security ----
+  { id: 'jwt-decoder', name: 'JWT Decoder', description: 'Decode JSON Web Tokens (JWT) to inspect header, payload, and signature information.', category: 'validator', slug: '/jwt-decoder', icon: 'Search' },
+  { id: 'jwt-encoder', name: 'JWT Encoder', description: 'Create JSON Web Tokens (JWT) by encoding header and payload with HS256 or HS512 signing algorithms.', category: 'converter', slug: '/jwt-encoder', icon: 'Lock' },
+  { id: 'jwt-validator', name: 'JWT Validator', description: 'Validate JSON Web Tokens (JWT) by verifying signature, expiration (exp), and other standard claims.', category: 'validator', slug: '/jwt-validator', icon: 'Shield' },
+  { id: 'json-hash', name: 'JSON Hash Generator', description: 'Generate cryptographic hashes (MD5, SHA-1, SHA-256, SHA-512) of your JSON data for integrity verification.', category: 'validator', slug: '/json-hash', icon: 'Hash' },
+
+  // ---- Query & Transform ----
+  { id: 'jmespath-tester', name: 'JMESPath Tester', description: 'Test JMESPath query expressions against JSON data and see results. JMESPath is used by AWS CLI and Azure CLI.', category: 'formatter', slug: '/jmespath-tester', icon: 'Search' },
+  { id: 'json-to-html', name: 'JSON to HTML', description: 'Convert JSON data to a formatted HTML document with syntax highlighting and collapsible sections.', category: 'converter', slug: '/json-to-html', icon: 'ArrowRight' },
+  { id: 'json-property-path', name: 'JSON Property Path Finder', description: 'Find all property paths in JSON data with their types and example values for data structure exploration.', category: 'formatter', slug: '/json-property-path', icon: 'SearchCheck' },
+  { id: 'json-number-converter', name: 'JSON Number Converter', description: 'Convert numbers in JSON between decimal, hexadecimal, octal, binary, and scientific notation formats.', category: 'formatter', slug: '/json-number-converter', icon: 'Hash' },
+
+  // ---- SQL & Database Schema ----
+  { id: 'json-to-sql-create', name: 'JSON to SQL CREATE TABLE', description: 'Generate SQL CREATE TABLE statements from JSON data samples for major database engines.', category: 'converter', slug: '/json-to-sql-create', icon: 'Database' },
+  { id: 'json-to-elasticsearch', name: 'JSON to Elasticsearch Bulk', description: 'Convert JSON data to Elasticsearch bulk indexing format for efficient data ingestion.', category: 'converter', slug: '/json-to-elasticsearch', icon: 'ArrowRight' },
+  { id: 'json-to-dynamodb', name: 'JSON to DynamoDB', description: 'Convert JSON data to Amazon DynamoDB JSON format with typed attribute values.', category: 'converter', slug: '/json-to-dynamodb', icon: 'ArrowRight' },
+  { id: 'json-to-bigquery', name: 'JSON to BigQuery Schema', description: 'Generate Google BigQuery schema definitions from JSON data samples for data warehouse table design.', category: 'converter', slug: '/json-to-bigquery', icon: 'ArrowRight' },
+  { id: 'json-to-redis', name: 'JSON to Redis Commands', description: 'Convert JSON data to Redis JSON.SET commands for storing JSON documents using RedisJSON.', category: 'converter', slug: '/json-to-redis', icon: 'ArrowRight' },
+  { id: 'json-mongodb-aggregation', name: 'JSON to MongoDB Aggregation', description: 'Generate MongoDB aggregation pipeline stages from JSON data queries for database operations.', category: 'converter', slug: '/json-to-mongodb-aggregation', icon: 'ArrowRight' },
+
+  // ---- Schema Generation ----
+  { id: 'json-schema-to-java', name: 'JSON Schema to Java', description: 'Generate Java POJO classes with validation annotations from JSON Schema (draft-07) definitions.', category: 'converter', slug: '/json-schema-to-java', icon: 'Code' },
+  { id: 'json-schema-to-pydantic', name: 'JSON Schema to Pydantic', description: 'Generate Python Pydantic model classes with validation rules from JSON Schema (draft-07) definitions.', category: 'converter', slug: '/json-schema-to-pydantic', icon: 'Code' },
+  { id: 'json-to-xsd', name: 'JSON to XSD', description: 'Generate XML Schema Definition (XSD) from JSON data samples for enterprise XML data validation.', category: 'converter', slug: '/json-to-xsd', icon: 'ArrowRight' },
+
+  // ---- API Formats ----
+  { id: 'json-to-soap', name: 'JSON to SOAP XML', description: 'Convert JSON data to SOAP XML envelope format for enterprise web service integration.', category: 'converter', slug: '/json-to-soap', icon: 'ArrowRight' },
+  { id: 'json-to-asyncapi', name: 'JSON to AsyncAPI', description: 'Generate AsyncAPI 2.0 channel definitions from JSON data samples for event-driven API documentation.', category: 'converter', slug: '/json-to-asyncapi', icon: 'ArrowRight' },
+  { id: 'json-to-graphql-query', name: 'JSON to GraphQL Query', description: 'Generate GraphQL queries from JSON data structure templates for rapid API development.', category: 'converter', slug: '/json-to-graphql-query', icon: 'Code' },
+
+  // ---- Additional Languages ----
+  { id: 'json-to-erlang', name: 'JSON to Erlang', description: 'Generate Erlang record definitions and term syntax from JSON data samples.', category: 'converter', slug: '/json-to-erlang', icon: 'Code' },
+  { id: 'json-to-clojure', name: 'JSON to Clojure', description: 'Generate Clojure data structure syntax from JSON data samples for functional programming.', category: 'converter', slug: '/json-to-clojure', icon: 'Code' },
+  { id: 'json-to-objc', name: 'JSON to Objective-C', description: 'Generate Objective-C class interfaces with properties from JSON data samples.', category: 'converter', slug: '/json-to-objc', icon: 'Code' },
+  { id: 'json-to-fortran', name: 'JSON to Fortran', description: 'Generate Fortran derived type definitions from JSON data samples.', category: 'converter', slug: '/json-to-fortran', icon: 'Code' },
+  { id: 'json-to-cobol', name: 'JSON to COBOL', description: 'Generate COBOL data division structures from JSON data samples.', category: 'converter', slug: '/json-to-cobol', icon: 'Code' },
+  { id: 'json-to-sas', name: 'JSON to SAS', description: 'Generate SAS data step code from JSON data samples for statistical analysis.', category: 'converter', slug: '/json-to-sas', icon: 'Code' },
+
+  // ---- SQL Commands ----
+  { id: 'json-to-sql-update', name: 'JSON to SQL UPDATE', description: 'Generate SQL UPDATE statements from JSON data for database record modifications.', category: 'converter', slug: '/json-to-sql-update', icon: 'Database' },
+  { id: 'json-to-sql-delete', name: 'JSON to SQL DELETE', description: 'Generate SQL DELETE statements with WHERE clauses from JSON data for record removal.', category: 'converter', slug: '/json-to-sql-delete', icon: 'Database' },
+
+  // ---- More GraphQL ----
+  { id: 'json-to-graphql-mutation', name: 'JSON to GraphQL Mutation', description: 'Generate GraphQL mutation definitions from JSON data structure templates.', category: 'converter', slug: '/json-to-graphql-mutation', icon: 'Code' },
+  { id: 'json-to-graphql-subscription', name: 'JSON to GraphQL Subscription', description: 'Generate GraphQL subscription definitions from JSON data for real-time APIs.', category: 'converter', slug: '/json-to-graphql-subscription', icon: 'Code' },
+
+  // ---- Cloud DB ----
+  { id: 'json-to-snowflake', name: 'JSON to Snowflake', description: 'Generate Snowflake INSERT statements from JSON data for cloud data warehouse ingestion.', category: 'converter', slug: '/json-to-snowflake', icon: 'Database' },
+  { id: 'json-to-prometheus', name: 'JSON to Prometheus', description: 'Convert JSON data to Prometheus metric format with gauge metrics for monitoring.', category: 'converter', slug: '/json-to-prometheus', icon: 'ArrowRight' },
+
+  // ---- Display ----
+  { id: 'json-to-ansi', name: 'JSON to ANSI Colorized', description: 'Render JSON data with ANSI color codes for syntax-highlighted terminal output.', category: 'formatter', slug: '/json-to-ansi', icon: 'Braces' },
+
+  // ---- Binary Serialization ----
+  { id: 'json-to-protobuf', name: 'JSON to Protocol Buffers', description: 'Encode JSON data into Protocol Buffers binary format using a .proto schema.', category: 'converter', slug: '/json-to-protobuf', icon: 'ArrowRight' },
+  { id: 'protobuf-to-json', name: 'Protocol Buffers to JSON', description: 'Decode Protocol Buffers binary format back into readable JSON using a .proto schema.', category: 'converter', slug: '/protobuf-to-json', icon: 'ArrowLeft' },
+  { id: 'json-to-avro', name: 'JSON to Apache Avro', description: 'Encode JSON data into Apache Avro binary format using an Avro schema.', category: 'converter', slug: '/json-to-avro', icon: 'ArrowRight' },
+  { id: 'avro-to-json', name: 'Apache Avro to JSON', description: 'Decode Apache Avro binary data back into readable JSON using an Avro schema.', category: 'converter', slug: '/avro-to-json', icon: 'ArrowLeft' },
 ]

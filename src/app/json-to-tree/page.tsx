@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import ToolPageClient from './ToolPageClient'
 
 export const metadata: Metadata = {
-  title: 'JSON to Tree View Online — Free JSON Tool | JSONKits',
-  description: 'Generate a visual indented tree view from JSON data. 100% client-side and free to use.',
-  keywords: ['json to tree view, convert json to tree view, json tree view converter, tree view format, json converter, online json tool, free json converter, json transformation, data conversion, jsonkits'],
+  title: 'JSON to Tree View - Free Online Converter | JSONKits',
+  description: 'Generate a visual indented tree view from JSON data. 100% free, client-side JSON tool with no server uploads.',
+  keywords: ['json to tree view, json to tree view online, json to tree view tool, json to tree online, json to tree tool, json to tree, convert json to tree, json tree converter, json converter, convert json, json transformation, data conversion, json format converter, online json converter, online json tool'],
 }
 
 export default function Page() {

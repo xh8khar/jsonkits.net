@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import ToolPageClient from './ToolPageClient'
 
 export const metadata: Metadata = {
-  title: 'JSONC to JSON Online — Free JSON Tool | JSONKits',
-  description: 'Strip comments from JSONC (JSON with Comments) to produce valid JSON. 100% client-side and free to use.',
-  keywords: ['jsonc to json, convert jsonc to json, jsonc json converter, json converter, jsonc format, jsonc parser, online json tool, free json tool, data conversion, jsonkits'],
+  title: 'JSONC to JSON - Free Online Converter | JSONKits',
+  description: 'Strip comments from JSONC (JSON with Comments) to produce valid JSON. 100% free, client-side JSON tool with no server uploads.',
+  keywords: ['jsonc to json, jsonc to json online, jsonc to json tool, convert jsonc to json, jsonc json converter, json converter, convert json, json transformation, data conversion, json format converter, online json converter, online json tool, free json tool, jsonkits'],
 }
 
 export default function Page() {

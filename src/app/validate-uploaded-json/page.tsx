@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import ToolPageClient from './ToolPageClient'
 
 export const metadata: Metadata = {
-  title: 'Validate Uploaded JSON Online — Free JSON Tool | JSONKits',
-  description: 'Validate JSON data from file uploads with detailed feedback. 100% client-side and free to use.',
-  keywords: ['json validator, validate json, json syntax checker, json linter, check json online, json error checker, json schema validation, online json tool, free json tool, jsonkits'],
+  title: 'Validate Uploaded JSON - Free Online Validator | JSONKits',
+  description: 'Validate JSON data from file uploads with detailed feedback. 100% free, client-side JSON tool with no server uploads.',
+  keywords: ['validate uploaded json, validate uploaded json online, validate uploaded json tool, json validator, validate json, json syntax checker, json linter, check json online, json validation tool, json error checker, online json tool, free json tool, jsonkits'],
 }
 
 export default function Page() {

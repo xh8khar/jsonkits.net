@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import ToolPageClient from './ToolPageClient'
 
 export const metadata: Metadata = {
-  title: 'Nested JSON to Flat Online — Free JSON Tool | JSONKits',
-  description: 'Flatten deeply nested JSON into dot-notation key-value pairs. 100% client-side and free to use.',
-  keywords: ['nested json to flat, convert nested json to flat, nested json flat converter, flat conversion, nested json format, json converter, online tool, free converter, data transform, jsonkits'],
+  title: 'Nested JSON to Flat - Free Online Converter | JSONKits',
+  description: 'Flatten deeply nested JSON into dot-notation key-value pairs. 100% free, client-side JSON tool with no server uploads.',
+  keywords: ['nested json to flat, nested json to flat online, nested json to flat tool, nested to flat json online, nested to flat json tool, json converter, convert json, json transformation, data conversion, json format converter, online json converter, online json tool, free json tool, jsonkits'],
 }
 
 export default function Page() {

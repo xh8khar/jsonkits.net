@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import ToolPageClient from './ToolPageClient'
 
 export const metadata: Metadata = {
-  title: 'JSON to PHP Array Online — Free JSON Tool | JSONKits',
-  description: 'Convert JSON to PHP array syntax. 100% client-side and free to use.',
-  keywords: ['json to php array, convert json to php array, json php array converter, php array format, json converter, online json tool, free json converter, json transformation, data conversion, jsonkits'],
+  title: 'JSON to PHP Array - Free Online Converter | JSONKits',
+  description: 'Convert JSON to PHP array syntax. 100% free, client-side JSON tool with no server uploads.',
+  keywords: ['json to php array, json to php array online, json to php array tool, convert json to php array, json php array converter, json converter, convert json, json transformation, data conversion, json format converter, online json converter, online json tool, free json tool, jsonkits'],
 }
 
 export default function Page() {

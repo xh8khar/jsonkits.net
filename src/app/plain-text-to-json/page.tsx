@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import ToolPageClient from './ToolPageClient'
 
 export const metadata: Metadata = {
-  title: 'Plain Text to JSON Online — Free JSON Tool | JSONKits',
-  description: 'Convert key: value text back into JSON format. 100% client-side and free to use.',
-  keywords: ['plain text to json, convert plain text to json, plain text json converter, json converter, plain text format, plain text parser, online json tool, free json tool, data conversion, jsonkits'],
+  title: 'Plain Text to JSON - Free Online Converter | JSONKits',
+  description: 'Convert key: value text back into JSON format. 100% free, client-side JSON tool with no server uploads.',
+  keywords: ['plain text to json, plain text to json online, plain text to json tool, convert plain text to json, plain text json converter, json converter, convert json, json transformation, data conversion, json format converter, online json converter, online json tool, free json tool, jsonkits'],
 }
 
 export default function Page() {

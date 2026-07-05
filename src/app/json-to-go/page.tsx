@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import ToolPageClient from './ToolPageClient'
 
 export const metadata: Metadata = {
-  title: 'JSON to Go Online — Free JSON Tool | JSONKits',
-  description: 'Generate Go structs with JSON tags from JSON samples. 100% client-side and free to use.',
-  keywords: ['json to go, convert json to go, json go converter, go format, json converter, online json tool, free json converter, json transformation, data conversion, jsonkits'],
+  title: 'JSON to Go - Free Online Converter | JSONKits',
+  description: 'Generate Go structs with JSON tags from JSON samples. 100% free, client-side JSON tool with no server uploads.',
+  keywords: ['json to go, json to go online, json to go tool, convert json to go, json go converter, json converter, convert json, json transformation, data conversion, json format converter, online json converter, online json tool, free json tool, jsonkits'],
 }
 
 export default function Page() {

@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import ToolPageClient from './ToolPageClient'
 
 export const metadata: Metadata = {
-  title: 'JSON to SVG Image Online — Free JSON Tool | JSONKits',
-  description: 'Render JSON data as a syntax-highlighted SVG image. 100% client-side and free to use.',
-  keywords: ['json to svg image, convert json to svg image, json svg image converter, svg image format, json converter, online json tool, free json converter, json transformation, data conversion, jsonkits'],
+  title: 'JSON to SVG Image - Free Online Converter | JSONKits',
+  description: 'Render JSON data as a syntax-highlighted SVG image. 100% free, client-side JSON tool with no server uploads.',
+  keywords: ['json to svg image, json to svg image online, json to svg image tool, json to image online, json to image tool, json to image, convert json to image, json image converter, json converter, convert json, json transformation, data conversion, json format converter, online json converter, online json tool'],
 }
 
 export default function Page() {

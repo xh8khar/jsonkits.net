@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import ToolPageClient from './ToolPageClient'
 
 export const metadata: Metadata = {
-  title: 'JSON to QR Code Online — Free JSON Tool | JSONKits',
-  description: 'Generate a QR code image from any JSON data. 100% client-side and free to use.',
-  keywords: ['json to qr code, convert json to qr code, json qr code converter, qr code format, json converter, online json tool, free json converter, json transformation, data conversion, jsonkits'],
+  title: 'JSON to QR Code - Free Online Converter | JSONKits',
+  description: 'Generate a QR code image from any JSON data. 100% free, client-side JSON tool with no server uploads.',
+  keywords: ['json to qr code, json to qr code online, json to qr code tool, json to qrcode online, json to qrcode tool, json to qrcode, convert json to qrcode, json qrcode converter, json converter, convert json, json transformation, data conversion, json format converter, online json converter, online json tool'],
 }
 
 export default function Page() {
