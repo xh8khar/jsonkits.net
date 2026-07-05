@@ -3,7 +3,7 @@ import { tools } from '@/lib/navigation'
 
 export const dynamic = 'force-static'
 
-const BASE_URL = 'https://jsonkits.com'
+const BASE_URL = 'https://jsonkitsnet.pages.dev'
 
 const staticPages = [
   { path: '', priority: 1.0, changeFrequency: 'weekly' as const },
