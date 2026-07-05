@@ -71,7 +71,7 @@ export default function ToolLayout({
       const fn = isReversed && onReverse ? onReverse : convertFn
       const result = await fn(input)
       setOutput(result)
-      addToast('✅ Converted successfully!', 'success')
+      addToast('Converted successfully', 'success')
     } catch (e) {
       const msg = (e as Error).message
       setError(msg)
@@ -85,7 +85,7 @@ export default function ToolLayout({
     if (!output) return
     try {
       await navigator.clipboard.writeText(output)
-      addToast('📋 Copied to clipboard!', 'success')
+      addToast('Copied to clipboard', 'success')
     } catch {
       addToast('Failed to copy', 'error')
     }
@@ -101,7 +101,7 @@ export default function ToolLayout({
     a.download = `output.${ext}`
     a.click()
     URL.revokeObjectURL(url)
-    addToast('📥 Downloaded!', 'success')
+      addToast('Downloaded', 'success')
   }, [output, outputLanguage, addToast])
 
   const handleSwap = useCallback(() => {
@@ -109,7 +109,7 @@ export default function ToolLayout({
     setIsReversed(!isReversed)
     setOutput('')
     setError('')
-    addToast('🔄 Swapped!', 'info')
+      addToast('Swapped input and output', 'info')
   }, [bidirectional, onReverse, isReversed, addToast])
 
   const loadExample = useCallback(() => {
@@ -117,7 +117,7 @@ export default function ToolLayout({
       setInput(exampleInput)
       setOutput('')
       setError('')
-      addToast('📄 Example loaded!', 'info')
+      addToast('Example loaded', 'info')
     }
   }, [exampleInput, addToast])
 

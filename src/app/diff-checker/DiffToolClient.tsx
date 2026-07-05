@@ -28,7 +28,7 @@ export default function DiffToolClient() {
     try {
       const result = await jsonDiff(inputA, inputB)
       setOutput(result)
-      addToast('✅ Comparison complete!', 'success')
+      addToast('Comparison complete', 'success')
     } catch (e) {
       const msg = (e as Error).message
       setError(msg)
@@ -42,7 +42,7 @@ export default function DiffToolClient() {
     if (!output) return
     try {
       await navigator.clipboard.writeText(output)
-      addToast('📋 Copied to clipboard!', 'success')
+      addToast('Copied to clipboard', 'success')
     } catch {
       addToast('Failed to copy', 'error')
     }
@@ -57,7 +57,7 @@ export default function DiffToolClient() {
     a.download = 'diff.json'
     a.click()
     URL.revokeObjectURL(url)
-    addToast('📥 Downloaded!', 'success')
+    addToast('Downloaded', 'success')
   }, [output, addToast])
 
   const loadExample = useCallback(() => {
@@ -65,7 +65,7 @@ export default function DiffToolClient() {
     setInputB(exampleB)
     setOutput('')
     setError('')
-    addToast('📄 Example loaded!', 'info')
+    addToast('Example loaded', 'info')
   }, [addToast])
 
   const handleClear = useCallback(() => {

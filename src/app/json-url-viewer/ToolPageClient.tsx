@@ -36,7 +36,7 @@ export default function ToolPageClient() {
   const loadExample = useCallback(() => {
     setInput('https://jsonplaceholder.typicode.com/todos/1')
     setOutput('')
-    addToast('Example URL loaded!', 'info')
+    addToast('Example loaded', 'info')
   }, [addToast])
 
   const handleClear = useCallback(() => {

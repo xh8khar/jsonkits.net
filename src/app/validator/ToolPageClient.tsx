@@ -20,13 +20,13 @@ export default function ToolPageClient() {
     }
     const res = validateJSON(input)
     setResult(res)
-    addToast(res.valid ? '✅ Valid JSON!' : `❌ ${res.error}`, res.valid ? 'success' : 'error')
+    addToast(res.valid ? 'Valid JSON' : res.error!, res.valid ? 'success' : 'error')
   }, [input, addToast])
 
   const loadExample = useCallback(() => {
     setInput(example)
     setResult(null)
-    addToast('📄 Example loaded!', 'info')
+    addToast('Example loaded', 'info')
   }, [addToast])
 
   const handleClear = useCallback(() => {
