@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="JSON Schema Validator" description="Validate JSON data against a JSON Schema (draft-07). Add schema: on the first line or separate with ---." inputPlaceholder="Paste schema: then JSON to validate..." outputPlaceholder="Validation results will appear here..." convertLabel="Validate" onConvert={jsonSchemaValidator} exampleInput={example} outputLanguage="json" />
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is JSON Schema Validator?</h2>
         <p>This tool validates JSON data against a JSON Schema (draft-07). It checks that required fields exist, data types match, and values conform to constraints like min, max, pattern, and enum.</p>
         <h2>How to Use</h2>

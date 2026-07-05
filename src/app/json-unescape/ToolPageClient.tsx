@@ -21,7 +21,7 @@ export default function ToolPageClient() {
         bidirectional
         onReverse={jsonEscape}
       />
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is JSON Unescaping?</h2>
         <p>JSON unescaping converts escaped characters back to their original form. When JSON is embedded in source code or URL parameters, special characters are escaped. Unescaping restores the original readable JSON.</p>
         <p>Unescaping is useful for:</p>

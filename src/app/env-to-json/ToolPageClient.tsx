@@ -21,7 +21,7 @@ export default function ToolPageClient() {
         bidirectional
         onReverse={jsonToEnv}
       />
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is .env?</h2>
         <p>.env files (environment variables) store configuration key-value pairs for applications. They are widely used in development environments with tools like dotenv to load configuration without hardcoding sensitive data.</p>
         .env files store configuration as key=value pairs. They are commonly used for:

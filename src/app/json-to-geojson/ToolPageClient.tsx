@@ -21,7 +21,7 @@ export default function ToolPageClient() {
         bidirectional
         onReverse={geojsonToJson}
       />
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is GeoJSON?</h2>
         <p>GeoJSON is a format for encoding geographic data structures using JSON. It supports geometry types like Point, LineString, Polygon, and MultiPoint, organized into Feature and FeatureCollection objects. It is the standard format for web mapping applications.</p>
         <p>GeoJSON is essential for:</p>

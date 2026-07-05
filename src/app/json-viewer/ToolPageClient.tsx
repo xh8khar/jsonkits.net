@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-            <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+            <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is a JSON Viewer?</h2>
         <p>A JSON viewer is a tool that displays JSON data in a structured, interactive tree format. Instead of reading raw text, you can expand and collapse nodes to navigate complex nested structures.</p>
         <p>JSON viewers are essential for:</p>

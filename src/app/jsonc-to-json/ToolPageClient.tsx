@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="JSONC to JSON Converter" description="Strip comments from JSONC (JSON with Comments) files to produce valid standard JSON." inputPlaceholder="Paste your JSONC here..." outputPlaceholder="Clean JSON will appear here..." convertLabel="Strip Comments" onConvert={jsoncToJson} exampleInput={example} inputLanguage="text" outputLanguage="json" bidirectional onReverse={jsonToJsonc} />
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is JSONC to JSON Converter?</h2>
         <p>JSONC (JSON with Comments) allows single-line // and multi-line /* */ comments in JSON files, commonly used in configuration files like tsconfig.json or VS Code settings. This tool strips all comments to produce clean, standard JSON.</p>
         <h2>How to Use</h2>

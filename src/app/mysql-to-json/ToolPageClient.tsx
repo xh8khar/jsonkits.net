@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="MySQL to JSON Converter" description="Parse MySQL INSERT statements back into JSON format." inputPlaceholder="Paste your MySQL INSERT statement here..." outputPlaceholder="Converted JSON will appear here..." convertLabel="Convert to JSON" onConvert={mysqlToJson} exampleInput={example} inputLanguage="sql" outputLanguage="json" bidirectional onReverse={jsonToMysql} />
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is MySQL to JSON Converter?</h2>
         <p>This tool converts MySQL INSERT statements into JSON format. It parses backtick-quoted column names and their corresponding values, handling numeric, boolean, string, and NULL types.</p>
         <h2>How to Use</h2>

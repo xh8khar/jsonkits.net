@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="JSON Search Tool" description="Search within JSON data for matching values and keys. Add search: term on the first line." inputPlaceholder="Add search: term on first line, then paste JSON..." outputPlaceholder="Search results will appear here..." convertLabel="Search JSON" onConvert={jsonSearch} exampleInput={example} outputLanguage="json" />
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is JSON Search Tool?</h2>
         <p>This tool searches through JSON data and returns all matching keys and values. It supports case-insensitive partial matching across the entire JSON structure, including nested objects and arrays.</p>
         <h2>How to Use</h2>

@@ -21,7 +21,7 @@ export default function ToolPageClient() {
         bidirectional
         onReverse={jsonToGeojson}
       />
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is GeoJSON to JSON Conversion?</h2>
         <p>GeoJSON to JSON conversion extracts the properties and coordinate data from GeoJSON features into simple JSON objects. This is useful when you need to process spatial data in tools that don't understand GeoJSON's geometry structure.</p>
         <p>This conversion is useful for:</p>

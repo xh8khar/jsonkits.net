@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is JSON Null Removal?</h2>
         <p>JSON null removal strips all null values from objects and arrays, producing cleaner, more compact data. This is essential when preparing API responses for display, cleaning data for databases, or reducing payload size.</p>
         <p>Null removal is useful for:</p>

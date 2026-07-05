@@ -51,7 +51,7 @@ export default function ToolPageClient() {
         </div>
         {output && <OutputPanel value={output} label="API Response" />}
       </div>
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is This Tool?</h2>
         <p>View and explore JSON responses from any REST API. Perfect for API development, testing endpoints, and debugging JSON responses.</p>
         <h2>How to Use</h2>

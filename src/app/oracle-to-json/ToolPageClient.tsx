@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="Oracle to JSON Converter" description="Parse Oracle SQL INSERT statements back into JSON format." inputPlaceholder="Paste your Oracle INSERT statement here..." outputPlaceholder="Converted JSON will appear here..." convertLabel="Convert to JSON" onConvert={oracleToJson} exampleInput={example} inputLanguage="sql" outputLanguage="json" bidirectional onReverse={jsonToOracle} />
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is Oracle to JSON Converter?</h2>
         <p>This tool converts Oracle INSERT statements into JSON format. It handles Oracle's unquoted identifiers and maps NUMBER columns with 0/1 values back to JSON booleans.</p>
         <h2>How to Use</h2>

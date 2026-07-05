@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is a JSON Sample Data Generator?</h2>
         <p>A JSON sample data generator creates deterministic placeholder data from a type template. Unlike random or fake generators, sample generators produce the same output every time for the same input, making them ideal for documentation and reproducible testing.</p>
         <p>Sample data generation is useful for:</p>

@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="JSON to BSON Converter" description="Convert standard JSON to MongoDB extended JSON (BSON) format. Numbers become $numberInt/$numberDouble, dates become $date." inputPlaceholder="Paste your JSON here..." outputPlaceholder="Converted BSON will appear here..." convertLabel="Convert to BSON" onConvert={jsonToBson} exampleInput={example} inputLanguage="json" outputLanguage="json" bidirectional onReverse={bsonToJson} />
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is JSON to BSON Converter?</h2>
         <p>This tool converts standard JSON into MongoDB's extended JSON format (commonly called BSON representation). Numbers are wrapped in $numberInt or $numberDouble, ISO date strings become $date with $numberLong timestamps, and ObjectId strings become $oid.</p>
         <h2>How to Use</h2>

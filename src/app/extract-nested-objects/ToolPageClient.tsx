@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is This Tool?</h2>
         <p>Extract every nested object from your JSON data into a flat list. Each object at every nesting level becomes a separate entry.</p>
         <h2>How to Use</h2>

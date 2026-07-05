@@ -21,7 +21,7 @@ export default function ToolPageClient() {
         bidirectional
         onReverse={jsonToHex}
       />
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is Hexadecimal?</h2>
         <p>Hexadecimal encoding represents binary data as base-16 numbers using characters 0-9 and A-F. It is commonly used in cryptography, color codes, and low-level programming for its compact and human-readable representation.</p>
         Hexadecimal (base-16) uses digits 0-9 and letters A-F to represent values. It is widely used in:

@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is Swagger?</h2>
         <p>Swagger (OpenAPI 2.0) is a specification for describing RESTful APIs. It defines endpoints, request/response formats, authentication, and more in a machine-readable format.</p>
         <h2>How to Use</h2>

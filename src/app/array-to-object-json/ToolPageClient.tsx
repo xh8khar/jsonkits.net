@@ -21,7 +21,7 @@ export default function ToolPageClient() {
         bidirectional
         onReverse={jsonConvertObjects}
       />
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is Array JSON to Object JSON Conversion?</h2>
         <p>This transformation converts an array of objects into an object of arrays. Each unique key from the input objects becomes a key in the output object with all corresponding values collected into arrays.</p>
         <h2>How to Use</h2>

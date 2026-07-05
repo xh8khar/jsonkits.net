@@ -142,7 +142,7 @@ export default function DiffToolClient() {
         />
       </div>
 
-            <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+            <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is JSON Diff?</h2>
         <p>JSON diff (or JSON comparison) is the process of comparing two JSON objects to identify what has changed between them. The tool highlights additions, removals, and modifications at every nested level.</p>
         <p>JSON diff checking is essential for:</p>

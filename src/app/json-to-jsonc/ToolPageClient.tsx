@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="JSON to JSONC Converter" description="Add inline comments to JSON keys to create JSONC (JSON with Comments) format." inputPlaceholder="Paste your JSON here..." outputPlaceholder="JSONC with comments will appear here..." convertLabel="Add Comments" onConvert={jsonToJsonc} exampleInput={example} inputLanguage="json" outputLanguage="text" bidirectional onReverse={jsoncToJson} />
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is JSON to JSONC Converter?</h2>
         <p>This tool takes valid JSON and adds descriptive inline comments to each key, producing JSONC format. JSONC is commonly used in configuration files like tsconfig.json, VS Code settings, and other tools that extend JSON with comment support.</p>
         <h2>How to Use</h2>

@@ -21,7 +21,7 @@ export default function ToolPageClient() {
         bidirectional
         onReverse={jsonToUrlParams}
       />
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is URL Parameters?</h2>
         <p>URL parameters (query strings) are key-value pairs appended to URLs after the ? character. They are commonly used to pass data between web pages and API endpoints.</p>
         URL parameters pass data in the query string of a URL. They are commonly used for:

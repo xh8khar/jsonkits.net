@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is JSON Array Splitting?</h2>
         <p>JSON array splitting divides a large array into smaller chunks of a specified size. This is essential for batch processing, paginating API responses, and respecting rate limits when processing data.</p>
         <ul><li><strong>Batch Processing</strong>: Process items in manageable groups.</li><li><strong>API Rate Limits</strong>: Split data to respect rate limits.</li><li><strong>Pagination</strong>: Create pages of data for UI display.</li></ul>

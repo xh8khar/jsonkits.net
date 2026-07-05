@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is JSON Fixing?</h2>
         <p>JSON fixing automatically repairs common JSON errors including single quotes, trailing commas, missing quotes on keys, and Python-style booleans.</p>
         <h2>How to Fix JSON Online</h2>

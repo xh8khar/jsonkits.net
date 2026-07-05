@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="Mermaid to JSON Converter" description="Parse Mermaid flowchart definitions back into structured JSON format." inputPlaceholder="Paste Mermaid diagram here..." outputPlaceholder="JSON output will appear here..." convertLabel="Convert to JSON" onConvert={mermaidToJson} exampleInput={example} inputLanguage="text" outputLanguage="json" bidirectional onReverse={jsonToMermaid} />
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is Mermaid to JSON Conversion?</h2>
         <p>Mermaid diagrams are widely used for documentation and visualization. This tool parses Mermaid flowchart definitions and extracts the key-value relationships into a structured JSON format. It is useful for extracting data from diagrams, migrating content between tools, and programmatically processing visual documentation.</p>
         <h2>How to Convert Mermaid to JSON</h2>

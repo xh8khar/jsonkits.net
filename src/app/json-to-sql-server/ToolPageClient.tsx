@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="JSON to SQL Server Converter" description="Generate SQL Server compatible CREATE TABLE and INSERT statements with bracket quoting." inputPlaceholder="Paste your JSON array here..." outputPlaceholder="Generated SQL will appear here..." convertLabel="Generate SQL" onConvert={jsonToSqlServer} exampleInput={example} inputLanguage="json" outputLanguage="sql" bidirectional onReverse={sqlServerToJson} />
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is JSON to SQL Server Converter?</h2>
         <p>This tool converts JSON arrays into SQL Server compatible SQL statements. It uses bracket quoting for identifiers and maps types to SQL Server types including INT, FLOAT, and BIT.</p>
         <h2>How to Use</h2>

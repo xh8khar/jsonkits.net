@@ -21,7 +21,7 @@ export default function ToolPageClient() {
         bidirectional
         onReverse={jsonToJsObject}
       />
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is JavaScript Objects?</h2>
         <p>JavaScript object literals are the native syntax for defining objects in JavaScript code. Unlike JSON, JS object literals allow unquoted keys, single-quoted strings, trailing commas, and function references.</p>
         JavaScript object literals are the native syntax for data in JS. Unlike JSON, they are more flexible:

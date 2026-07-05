@@ -24,7 +24,7 @@ export default function ToolPageClient() {
         inputLanguage="python"
         outputLanguage="json"
       />
-            <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+            <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Are Python Dataclasses?</h2>
         <p>Python dataclasses are a feature that automatically generates boilerplate code like __init__ for classes that primarily store data. Combined with type hints, they give you clear, self-documenting data models.
         <p>Python dataclasses are used for:</p>

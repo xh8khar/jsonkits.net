@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is JSON Key Renaming?</h2>
         <p>JSON key renaming transforms object keys across your entire data structure using an old-to-new mapping. This is essential when migrating API responses, normalizing data from different sources, or conforming to a new schema.</p>
         <ul><li><strong>API Migration</strong>: Adapting responses from deprecated APIs.</li><li><strong>Data Normalization</strong>: Standardizing field names across datasets.</li><li><strong>Schema Changes</strong>: Updating JSON to match new database schemas.</li></ul>

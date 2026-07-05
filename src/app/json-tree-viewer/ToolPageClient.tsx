@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="text"
       />
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is a JSON Tree View?</h2>
         <p>A JSON tree view displays the hierarchical structure of your data using indentation and tree-drawing characters, making nested relationships easy to understand.</p>
         <h2>How to Use</h2>

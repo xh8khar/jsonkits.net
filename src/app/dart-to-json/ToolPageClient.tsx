@@ -26,7 +26,7 @@ export default function ToolPageClient() {
         inputLanguage="dart"
         outputLanguage="json"
       />
-            <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+            <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Are Dart Model Classes?</h2>
         <p>Dart model classes with JSON serialization are essential for Flutter mobile apps and Dart backend services. The json_serializable package generates fromJson/toJson code automatically.
         <p>Dart model classes power:</p>

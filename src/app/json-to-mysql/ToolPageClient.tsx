@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="JSON to MySQL Converter" description="Generate MySQL CREATE TABLE and INSERT statements from JSON. Uses backtick quoting and InnoDB engine." inputPlaceholder="Paste your JSON array here..." outputPlaceholder="Generated SQL will appear here..." convertLabel="Generate SQL" onConvert={jsonToMysql} exampleInput={example} inputLanguage="json" outputLanguage="sql" bidirectional onReverse={mysqlToJson} />
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is JSON to MySQL Converter?</h2>
         <p>This tool converts a JSON array into MySQL-compatible SQL statements. It generates a CREATE TABLE with backtick-quoted identifiers, InnoDB engine, and utf8mb4 charset, followed by INSERT statements.</p>
         <h2>How to Use</h2>

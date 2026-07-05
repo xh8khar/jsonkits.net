@@ -21,7 +21,7 @@ export default function ToolPageClient() {
         bidirectional
         onReverse={jsonToSqlInsert}
       />
-      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
+      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert max-w-none">
         <h2>What Is SQL INSERT?</h2>
         <p>SQL INSERT statements are used to add rows of data to database tables. Converting JSON to SQL is essential for seeding databases, migrating data between systems, and generating test data.</p>
         SQL INSERT statements add data to relational databases. They are essential for:
