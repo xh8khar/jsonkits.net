@@ -43,7 +43,7 @@ export default function ToolPageClient() {
     <>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
         <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-3">API JSON Viewer</h1>
-        <p className="text-slate-600 dark:text-slate-400 max-w-3xl mb-8">View and explore JSON responses from REST API endpoints. Enter an API URL to fetch and display the formatted response.</p>
+        <p className="text-slate-600 dark:text-slate-400 max-w-5xl mb-8">View and explore JSON responses from REST API endpoints. Enter an API URL to fetch and display the formatted response.</p>
         <InputPanel label="API URL" value={input} onChange={setInput} placeholder="https://api.example.com/data.json" />
         <div className="flex flex-wrap items-center gap-3 mt-4 mb-6">
           <Button onClick={handleFetch} disabled={loading} size="lg">View API</Button>
