@@ -445,8 +445,15 @@ export function graphvizToJson(input: string): string {
 
 // ---- JSONC (JSON with Comments) ----
 export function jsoncToJson(input: string): string {
-  const cleaned = input
-    .replace(/\/\/.*$/gm, '')
+  const lines = input.split('\n')
+  const cleaned = lines.map(line => {
+    let inString = false
+    for (let i = 0; i < line.length - 1; i++) {
+      if (line[i] === '"') inString = !inString
+      if (line[i] === '/' && line[i + 1] === '/' && !inString) return line.slice(0, i)
+    }
+    return line
+  }).join('\n')
     .replace(/\/\*[\s\S]*?\*\//g, '')
     .replace(/,\s*([}\]])/g, '$1')
     .trim()
@@ -520,9 +527,18 @@ export function jsonLinter(input: string): string {
 export function jsonRepair(input: string): string {
   let text = input.trim()
   if (!text) throw new Error('Empty input')
-  text = text.replace(/\/\/.*$/gm, '').replace(/\/\*[\s\S]*?\*\//g, '')
+  const lines = text.split('\n')
+  text = lines.map(line => {
+    let inString = false
+    for (let i = 0; i < line.length - 1; i++) {
+      if (line[i] === '"') inString = !inString
+      if (line[i] === '/' && line[i + 1] === '/' && !inString) return line.slice(0, i)
+    }
+    return line
+  }).join('\n')
+  text = text.replace(/\/\*[\s\S]*?\*\//g, '')
   text = text.replace(/'/g, '"')
-  text = text.replace(/(\w+)(?=\s*:)/g, '"$1"')
+  text = text.replace(/([{,]\s*)(\w+)(\s*:)/g, '$1"$2"$3')
   text = text.replace(/,\s*([}\]])/g, '$1')
   text = text.replace(/,\s*$/gm, '')
   text = text.replace(/True|False/g, s => s.toLowerCase())

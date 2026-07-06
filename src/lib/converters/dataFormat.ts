@@ -185,7 +185,8 @@ export function propertiesToJson(input: string): string {
   for (const line of input.split('\n')) {
     const trimmed = line.trim()
     if (!trimmed || trimmed.startsWith('#') || trimmed.startsWith('!')) continue
-    const sepIndex = trimmed.indexOf('=')
+    let sepIndex = trimmed.indexOf('=')
+    if (sepIndex === -1) sepIndex = trimmed.indexOf(':')
     if (sepIndex === -1) continue
     const key = trimmed.slice(0, sepIndex).trim()
     const value = trimmed.slice(sepIndex + 1).trim()

@@ -47,9 +47,10 @@ export function urlEncodedToJson(input: string): string {
   const result: Record<string, unknown> = {}
   for (const pair of input.split('&')) {
     if (!pair.trim()) continue
-    const [rawKey, rawVal] = pair.split('=')
-    const key = decodeURIComponent(rawKey)
-    const val = decodeURIComponent(rawVal ?? '')
+    const eqIdx = pair.indexOf('=')
+    if (eqIdx === -1) continue
+    const key = decodeURIComponent(pair.slice(0, eqIdx))
+    const val = decodeURIComponent(pair.slice(eqIdx + 1))
     const keyMatch = key.match(/^(\w+)\[(\d+)\]$/)
     if (keyMatch) {
       const [, objKey, idx] = keyMatch
@@ -182,7 +183,7 @@ function jsObjStringify(value: unknown, indent: number): string {
 
 export function jsObjectToJson(input: string): string {
   const normalized = input
-    .replace(/(\w+):/g, '"$1":')
+    .replace(/([{,]\s*)(\w+)(\s*:)/g, '$1"$2"$3')
     .replace(/'/g, '"')
     .replace(/(\d+),(\s*[\]}])/g, '$1$2')
   const parsed = JSON.parse(normalized)
@@ -282,7 +283,7 @@ export function jsonToMongodb(input: string): string {
 export function mongodbToJson(input: string): string {
   const normalized = input
     .replace(/'/g, '"')
-    .replace(/(\w+):/g, '"$1":')
+    .replace(/([{,]\s*)(\w+)(\s*:)/g, '$1"$2"$3')
     .replace(/ObjectId\("([^"]+)"\)/g, '"$1"')
     .replace(/ISODate\("([^"]+)"\)/g, '"$1"')
     .replace(/NumberLong\((\d+)\)/g, '$1')
