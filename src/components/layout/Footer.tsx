@@ -35,6 +35,9 @@ export default function Footer() {
               <li><Link href="/contact" className="hover:text-blue-500">Contact</Link></li>
               <li><Link href="/privacy" className="hover:text-blue-500">Privacy Policy</Link></li>
               <li><Link href="/terms" className="hover:text-blue-500">Terms of Service</Link></li>
+              <li><a href="/robots.txt" className="hover:text-blue-500" target="_blank" rel="noopener">robots.txt</a></li>
+              <li><a href="/sitemap.xml" className="hover:text-blue-500" target="_blank" rel="noopener">Sitemap</a></li>
+              <li><a href="/llms.txt" className="hover:text-blue-500" target="_blank" rel="noopener">llms.txt</a></li>
             </ul>
           </div>
           <div>
