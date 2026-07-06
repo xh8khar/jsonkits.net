@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { tools } from '@/lib/navigation'
+import { blogPosts } from '@/lib/blog/posts'
 
 export const dynamic = 'force-static'
 
@@ -13,6 +14,7 @@ const staticPages = [
   { path: '/terms', priority: 0.3, changeFrequency: 'yearly' as const },
   { path: '/cookies', priority: 0.3, changeFrequency: 'yearly' as const },
   { path: '/disclaimer', priority: 0.3, changeFrequency: 'yearly' as const },
+  { path: '/blog', priority: 0.7, changeFrequency: 'weekly' as const },
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -30,5 +32,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  return [...staticUrls, ...toolUrls]
+  const blogUrls = blogPosts.map((post) => ({
+    url: `${BASE_URL}/blog/${post.slug}/`,
+    lastModified: new Date(post.date),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }))
+
+  return [...staticUrls, ...toolUrls, ...blogUrls]
 }

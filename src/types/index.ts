@@ -49,3 +49,14 @@ export interface Toast {
   type: 'success' | 'error' | 'info'
   icon?: string
 }
+
+export interface BlogPost {
+  slug: string
+  title: string
+  description: string
+  keywords: string
+  content: string
+  date: string
+  readTime: string
+  relatedTools: { name: string; href: string }[]
+}
