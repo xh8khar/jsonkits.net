@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://jsonkits.net',
+    url: 'https://www.jsonkits.net',
     siteName: 'JSONKits',
     title: 'JSONKits — Free Online JSON Tools for Developers',
     description: 'Free online JSON tools: formatter, validator, converter, viewer.',

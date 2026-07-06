@@ -2,160 +2,160 @@
 > Free online JSON tools for developers — 300+ browser-based JSON utilities. All processing is 100% client-side with no server uploads.
 
 ## Info
-- About: https://jsonkits.net/about
-- Contact: https://jsonkits.net/contact
-- Privacy: https://jsonkits.net/privacy
-- Terms: https://jsonkits.net/terms
+- About: https://www.jsonkits.net/about
+- Contact: https://www.jsonkits.net/contact
+- Privacy: https://www.jsonkits.net/privacy
+- Terms: https://www.jsonkits.net/terms
 
 ## Essential Tools
-- JSON Formatter: https://jsonkits.net/json-formatter
-- JSON Validator: https://jsonkits.net/json-validator
-- JSON Viewer: https://jsonkits.net/json-viewer
-- JSON Minifier: https://jsonkits.net/json-minifier
-- JSON Diff Checker: https://jsonkits.net/json-diff-checker
-- JSON Search: https://jsonkits.net/json-search
+- JSON Formatter: https://www.jsonkits.net/json-formatter
+- JSON Validator: https://www.jsonkits.net/json-validator
+- JSON Viewer: https://www.jsonkits.net/json-viewer
+- JSON Minifier: https://www.jsonkits.net/json-minifier
+- JSON Diff Checker: https://www.jsonkits.net/json-diff-checker
+- JSON Search: https://www.jsonkits.net/json-search
 
 ## Converters
-- JSON ↔ YAML: https://jsonkits.net/json-to-yaml
-- JSON ↔ CSV: https://jsonkits.net/json-to-csv
-- JSON ↔ XML: https://jsonkits.net/json-to-xml
-- JSON ↔ TOML: https://jsonkits.net/json-to-toml
-- JSON ↔ INI: https://jsonkits.net/json-to-ini
-- JSON ↔ Properties: https://jsonkits.net/json-to-properties
-- JSON ↔ TSV: https://jsonkits.net/json-to-tsv
-- JSON ↔ HTML Table: https://jsonkits.net/json-to-html-table
-- JSON ↔ Markdown Table: https://jsonkits.net/json-to-markdown-table
-- JSON ↔ Plain Text: https://jsonkits.net/json-to-plain-text
+- JSON ↔ YAML: https://www.jsonkits.net/json-to-yaml
+- JSON ↔ CSV: https://www.jsonkits.net/json-to-csv
+- JSON ↔ XML: https://www.jsonkits.net/json-to-xml
+- JSON ↔ TOML: https://www.jsonkits.net/json-to-toml
+- JSON ↔ INI: https://www.jsonkits.net/json-to-ini
+- JSON ↔ Properties: https://www.jsonkits.net/json-to-properties
+- JSON ↔ TSV: https://www.jsonkits.net/json-to-tsv
+- JSON ↔ HTML Table: https://www.jsonkits.net/json-to-html-table
+- JSON ↔ Markdown Table: https://www.jsonkits.net/json-to-markdown-table
+- JSON ↔ Plain Text: https://www.jsonkits.net/json-to-plain-text
 
 ## Code Generators (JSON → Language)
-- JSON → TypeScript: https://jsonkits.net/json-to-typescript
-- JSON → Python: https://jsonkits.net/json-to-python
-- JSON → Go: https://jsonkits.net/json-to-go
-- JSON → Java: https://jsonkits.net/json-to-java
-- JSON → C#: https://jsonkits.net/json-to-csharp
-- JSON → Rust: https://jsonkits.net/json-to-rust
-- JSON → Kotlin: https://jsonkits.net/json-to-kotlin
-- JSON → Swift: https://jsonkits.net/json-to-swift
-- JSON → Dart: https://jsonkits.net/json-to-dart
-- JSON → PHP: https://jsonkits.net/json-to-php-array
-- JSON → Zod Schema: https://jsonkits.net/json-to-zod-schema
-- JSON → Prisma Schema: https://jsonkits.net/json-to-prisma-schema
-- JSON → Pydantic v2: https://jsonkits.net/json-to-pydantic-v2
+- JSON → TypeScript: https://www.jsonkits.net/json-to-typescript
+- JSON → Python: https://www.jsonkits.net/json-to-python
+- JSON → Go: https://www.jsonkits.net/json-to-go
+- JSON → Java: https://www.jsonkits.net/json-to-java
+- JSON → C#: https://www.jsonkits.net/json-to-csharp
+- JSON → Rust: https://www.jsonkits.net/json-to-rust
+- JSON → Kotlin: https://www.jsonkits.net/json-to-kotlin
+- JSON → Swift: https://www.jsonkits.net/json-to-swift
+- JSON → Dart: https://www.jsonkits.net/json-to-dart
+- JSON → PHP: https://www.jsonkits.net/json-to-php-array
+- JSON → Zod Schema: https://www.jsonkits.net/json-to-zod-schema
+- JSON → Prisma Schema: https://www.jsonkits.net/json-to-prisma-schema
+- JSON → Pydantic v2: https://www.jsonkits.net/json-to-pydantic-v2
 
 ## Reverse Generators (Language → JSON)
-- TypeScript → JSON: https://jsonkits.net/typescript-interface-to-json
-- Java → JSON: https://jsonkits.net/java-class-to-json
-- Go → JSON: https://jsonkits.net/go-struct-to-json
-- Python Dict → JSON: https://jsonkits.net/python-dict-to-json
+- TypeScript → JSON: https://www.jsonkits.net/typescript-interface-to-json
+- Java → JSON: https://www.jsonkits.net/java-class-to-json
+- Go → JSON: https://www.jsonkits.net/go-struct-to-json
+- Python Dict → JSON: https://www.jsonkits.net/python-dict-to-json
 
 ## Database Tools
-- JSON → SQL INSERT: https://jsonkits.net/json-to-sql-insert
-- JSON → PostgreSQL: https://jsonkits.net/json-to-postgresql
-- JSON → MySQL: https://jsonkits.net/json-to-mysql
-- JSON → SQLite: https://jsonkits.net/json-to-sqlite
-- JSON → MongoDB: https://jsonkits.net/json-to-mongodb
-- JSON → Firestore: https://jsonkits.net/json-to-firestore
-- JSON → DynamoDB: https://jsonkits.net/json-to-dynamodb
-- JSON → Prisma Schema: https://jsonkits.net/json-to-prisma-schema
-- JSON → SQLAlchemy Model: https://jsonkits.net/json-to-sqlalchemy-model
+- JSON → SQL INSERT: https://www.jsonkits.net/json-to-sql-insert
+- JSON → PostgreSQL: https://www.jsonkits.net/json-to-postgresql
+- JSON → MySQL: https://www.jsonkits.net/json-to-mysql
+- JSON → SQLite: https://www.jsonkits.net/json-to-sqlite
+- JSON → MongoDB: https://www.jsonkits.net/json-to-mongodb
+- JSON → Firestore: https://www.jsonkits.net/json-to-firestore
+- JSON → DynamoDB: https://www.jsonkits.net/json-to-dynamodb
+- JSON → Prisma Schema: https://www.jsonkits.net/json-to-prisma-schema
+- JSON → SQLAlchemy Model: https://www.jsonkits.net/json-to-sqlalchemy-model
 
 ## Validation & Security
-- JSON Validator: https://jsonkits.net/json-validator
-- JSON Schema Validator: https://jsonkits.net/json-schema-validator
-- JSON Linter: https://jsonkits.net/json-linter
-- JSON Repair: https://jsonkits.net/json-repair
-- JSON Escape: https://jsonkits.net/json-escape
-- JSON Encrypt: https://jsonkits.net/json-encrypt
-- JSON Decrypt: https://jsonkits.net/json-decrypt
-- JSON Mask Data: https://jsonkits.net/json-mask-data
-- JSON Data Anonymizer: https://jsonkits.net/json-data-anonymizer
-- JWT Decoder: https://jsonkits.net/jwt-decoder
-- JWT Encoder: https://jsonkits.net/jwt-encoder
-- JSON Hash Generator: https://jsonkits.net/json-hash
+- JSON Validator: https://www.jsonkits.net/json-validator
+- JSON Schema Validator: https://www.jsonkits.net/json-schema-validator
+- JSON Linter: https://www.jsonkits.net/json-linter
+- JSON Repair: https://www.jsonkits.net/json-repair
+- JSON Escape: https://www.jsonkits.net/json-escape
+- JSON Encrypt: https://www.jsonkits.net/json-encrypt
+- JSON Decrypt: https://www.jsonkits.net/json-decrypt
+- JSON Mask Data: https://www.jsonkits.net/json-mask-data
+- JSON Data Anonymizer: https://www.jsonkits.net/json-data-anonymizer
+- JWT Decoder: https://www.jsonkits.net/jwt-decoder
+- JWT Encoder: https://www.jsonkits.net/jwt-encoder
+- JSON Hash Generator: https://www.jsonkits.net/json-hash
 
 ## Comparison Tools
-- JSON Diff Checker: https://jsonkits.net/json-diff-checker
-- JSON Compare: https://jsonkits.net/json-compare
-- JSON Version Diff: https://jsonkits.net/json-version-diff
-- JSON Array Diff: https://jsonkits.net/json-array-diff
-- JSON Schema Diff: https://jsonkits.net/json-schema-diff
+- JSON Diff Checker: https://www.jsonkits.net/json-diff-checker
+- JSON Compare: https://www.jsonkits.net/json-compare
+- JSON Version Diff: https://www.jsonkits.net/json-version-diff
+- JSON Array Diff: https://www.jsonkits.net/json-array-diff
+- JSON Schema Diff: https://www.jsonkits.net/json-schema-diff
 
 ## Data Generators
-- Fake JSON Generator: https://jsonkits.net/json-fake-generator
-- Random JSON Generator: https://jsonkits.net/json-random-generator
-- Mock API Generator: https://jsonkits.net/json-mock-generator
-- Sample JSON Generator: https://jsonkits.net/json-sample-generator
-- JSON Schema Generator: https://jsonkits.net/json-schema-generator
+- Fake JSON Generator: https://www.jsonkits.net/json-fake-generator
+- Random JSON Generator: https://www.jsonkits.net/json-random-generator
+- Mock API Generator: https://www.jsonkits.net/json-mock-generator
+- Sample JSON Generator: https://www.jsonkits.net/json-sample-generator
+- JSON Schema Generator: https://www.jsonkits.net/json-schema-generator
 
 ## Encoding & Web Formats
-- JSON ↔ Base64: https://jsonkits.net/json-to-base64
-- JSON ↔ Hex: https://jsonkits.net/json-to-hex
-- JSON ↔ Binary: https://jsonkits.net/json-to-binary
-- JSON ↔ URL Encoded: https://jsonkits.net/json-to-url-encoded
-- JSON ↔ URL Parameters: https://jsonkits.net/json-to-url-params
-- JSON ↔ Query String: https://jsonkits.net/json-to-query-string
-- JSON ↔ JSONP: https://jsonkits.net/json-to-jsonp
+- JSON ↔ Base64: https://www.jsonkits.net/json-to-base64
+- JSON ↔ Hex: https://www.jsonkits.net/json-to-hex
+- JSON ↔ Binary: https://www.jsonkits.net/json-to-binary
+- JSON ↔ URL Encoded: https://www.jsonkits.net/json-to-url-encoded
+- JSON ↔ URL Parameters: https://www.jsonkits.net/json-to-url-params
+- JSON ↔ Query String: https://www.jsonkits.net/json-to-query-string
+- JSON ↔ JSONP: https://www.jsonkits.net/json-to-jsonp
 
 ## Edit & Transform
-- JSON Sort Keys: https://jsonkits.net/json-sort-keys
-- JSON Remove Nulls: https://jsonkits.net/json-remove-nulls
-- JSON Remove Duplicates: https://jsonkits.net/json-remove-duplicates
-- JSON Rename Keys: https://jsonkits.net/json-rename-keys
-- JSON Filter: https://jsonkits.net/json-filter
-- JSON Merge: https://jsonkits.net/json-merge
-- JSON Split: https://jsonkits.net/json-split
-- JSON Slice: https://jsonkits.net/json-slice
-- JSON Case Converter: https://jsonkits.net/json-case-converter
-- JSON Date Formatter: https://jsonkits.net/json-date-formatter
-- JSON Number Converter: https://jsonkits.net/json-number-converter
-- JSON Data Anonymizer: https://jsonkits.net/json-data-anonymizer
+- JSON Sort Keys: https://www.jsonkits.net/json-sort-keys
+- JSON Remove Nulls: https://www.jsonkits.net/json-remove-nulls
+- JSON Remove Duplicates: https://www.jsonkits.net/json-remove-duplicates
+- JSON Rename Keys: https://www.jsonkits.net/json-rename-keys
+- JSON Filter: https://www.jsonkits.net/json-filter
+- JSON Merge: https://www.jsonkits.net/json-merge
+- JSON Split: https://www.jsonkits.net/json-split
+- JSON Slice: https://www.jsonkits.net/json-slice
+- JSON Case Converter: https://www.jsonkits.net/json-case-converter
+- JSON Date Formatter: https://www.jsonkits.net/json-date-formatter
+- JSON Number Converter: https://www.jsonkits.net/json-number-converter
+- JSON Data Anonymizer: https://www.jsonkits.net/json-data-anonymizer
 
 ## API Formats
-- JSON → GraphQL Schema: https://jsonkits.net/json-to-graphql-schema
-- JSON → OpenAPI: https://jsonkits.net/json-to-openapi
-- JSON → Swagger: https://jsonkits.net/json-to-swagger
-- JSON → Postman Collection: https://jsonkits.net/json-to-postman
-- JSON → cURL: https://jsonkits.net/json-to-curl
-- JSON → AsyncAPI: https://jsonkits.net/json-to-asyncapi
-- JSON → SOAP XML: https://jsonkits.net/json-to-soap
+- JSON → GraphQL Schema: https://www.jsonkits.net/json-to-graphql-schema
+- JSON → OpenAPI: https://www.jsonkits.net/json-to-openapi
+- JSON → Swagger: https://www.jsonkits.net/json-to-swagger
+- JSON → Postman Collection: https://www.jsonkits.net/json-to-postman
+- JSON → cURL: https://www.jsonkits.net/json-to-curl
+- JSON → AsyncAPI: https://www.jsonkits.net/json-to-asyncapi
+- JSON → SOAP XML: https://www.jsonkits.net/json-to-soap
 
 ## Binary Serialization
-- JSON ↔ MessagePack: https://jsonkits.net/json-to-messagepack
-- JSON ↔ CBOR: https://jsonkits.net/json-to-cbor
-- JSON ↔ Protocol Buffers: https://jsonkits.net/json-to-protobuf
-- JSON ↔ Avro: https://jsonkits.net/json-to-avro
-- JSON ↔ BSON: https://jsonkits.net/json-to-bson
+- JSON ↔ MessagePack: https://www.jsonkits.net/json-to-messagepack
+- JSON ↔ CBOR: https://www.jsonkits.net/json-to-cbor
+- JSON ↔ Protocol Buffers: https://www.jsonkits.net/json-to-protobuf
+- JSON ↔ Avro: https://www.jsonkits.net/json-to-avro
+- JSON ↔ BSON: https://www.jsonkits.net/json-to-bson
 
 ## Export & Output
-- JSON → PDF: https://jsonkits.net/json-to-pdf
-- JSON → Word: https://jsonkits.net/json-to-word
-- JSON → Excel: https://jsonkits.net/json-to-xlsx
-- JSON → QR Code: https://jsonkits.net/json-to-qrcode
-- JSON → SVG Image: https://jsonkits.net/json-to-image
-- JSON → Markdown: https://jsonkits.net/json-to-markdown
-- JSON → HTML: https://jsonkits.net/json-to-html
-- JSON → Mermaid Diagram: https://jsonkits.net/json-to-mermaid
-- JSON → Graphviz: https://jsonkits.net/json-to-graphviz
+- JSON → PDF: https://www.jsonkits.net/json-to-pdf
+- JSON → Word: https://www.jsonkits.net/json-to-word
+- JSON → Excel: https://www.jsonkits.net/json-to-xlsx
+- JSON → QR Code: https://www.jsonkits.net/json-to-qrcode
+- JSON → SVG Image: https://www.jsonkits.net/json-to-image
+- JSON → Markdown: https://www.jsonkits.net/json-to-markdown
+- JSON → HTML: https://www.jsonkits.net/json-to-html
+- JSON → Mermaid Diagram: https://www.jsonkits.net/json-to-mermaid
+- JSON → Graphviz: https://www.jsonkits.net/json-to-graphviz
 
 ## Analysis
-- JSON Size Calculator: https://jsonkits.net/json-size-calculator
-- JSON Depth Analyzer: https://jsonkits.net/json-depth-analyzer
-- JSON Statistics: https://jsonkits.net/json-statistics
-- JSON Key Counter: https://jsonkits.net/json-key-counter
-- JSON Type Detector: https://jsonkits.net/json-type-detector
-- JSON String Analyzer: https://jsonkits.net/json-string-analyzer
-- JSON Value Analyzer: https://jsonkits.net/json-value-analyzer
-- JSON Path Tester: https://jsonkits.net/json-path-tester
-- JSON Pointer Tester: https://jsonkits.net/json-pointer-tester
-- JMESPath Tester: https://jsonkits.net/jmespath-tester
-- Path Notation Converter: https://jsonkits.net/path-notation-converter
+- JSON Size Calculator: https://www.jsonkits.net/json-size-calculator
+- JSON Depth Analyzer: https://www.jsonkits.net/json-depth-analyzer
+- JSON Statistics: https://www.jsonkits.net/json-statistics
+- JSON Key Counter: https://www.jsonkits.net/json-key-counter
+- JSON Type Detector: https://www.jsonkits.net/json-type-detector
+- JSON String Analyzer: https://www.jsonkits.net/json-string-analyzer
+- JSON Value Analyzer: https://www.jsonkits.net/json-value-analyzer
+- JSON Path Tester: https://www.jsonkits.net/json-path-tester
+- JSON Pointer Tester: https://www.jsonkits.net/json-pointer-tester
+- JMESPath Tester: https://www.jsonkits.net/jmespath-tester
+- Path Notation Converter: https://www.jsonkits.net/path-notation-converter
 
 ## Developer Tools
-- JSON to Zod Schema: https://jsonkits.net/json-to-zod-schema
-- JSON to Yup Schema: https://jsonkits.net/json-to-yup-schema
-- JSON to Prisma Schema: https://jsonkits.net/json-to-prisma-schema
-- JSON to Mongoose Schema: https://jsonkits.net/json-to-mongoose-schema
-- JSON to TypeScript Enum: https://jsonkits.net/json-to-typescript-enum
-- JSON to TypeScript Type Guard: https://jsonkits.net/json-to-type-guard
-- JSON to Pydantic v2: https://jsonkits.net/json-to-pydantic-v2
-- JSON to SQLAlchemy Model: https://jsonkits.net/json-to-sqlalchemy-model
+- JSON to Zod Schema: https://www.jsonkits.net/json-to-zod-schema
+- JSON to Yup Schema: https://www.jsonkits.net/json-to-yup-schema
+- JSON to Prisma Schema: https://www.jsonkits.net/json-to-prisma-schema
+- JSON to Mongoose Schema: https://www.jsonkits.net/json-to-mongoose-schema
+- JSON to TypeScript Enum: https://www.jsonkits.net/json-to-typescript-enum
+- JSON to TypeScript Type Guard: https://www.jsonkits.net/json-to-type-guard
+- JSON to Pydantic v2: https://www.jsonkits.net/json-to-pydantic-v2
+- JSON to SQLAlchemy Model: https://www.jsonkits.net/json-to-sqlalchemy-model
