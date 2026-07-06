@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="README to JSON Converter" description="Extract JSON data from structured README documents and Markdown files." inputPlaceholder="Paste README markdown here..." outputPlaceholder="JSON output will appear here..." convertLabel="Convert to JSON" onConvert={readmeToJson} exampleInput={example} inputLanguage="text" outputLanguage="json" bidirectional onReverse={jsonToReadme} />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is README to JSON Conversion?</h2>
         <p>README files often contain structured data hidden within Markdown formatting. This tool extracts JSON data from README documents in two ways: it looks for JSON code blocks (```json) and parses them, or it analyzes Markdown structure with bold field names and types to reconstruct a JSON object. This is useful for migrating documentation to structured data formats.</p>
         <h2>How to Convert README to JSON</h2>

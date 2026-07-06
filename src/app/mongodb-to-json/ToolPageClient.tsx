@@ -21,7 +21,7 @@ export default function ToolPageClient() {
         bidirectional
         onReverse={jsonToMongodb}
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is MongoDB Documents?</h2>
         <p>MongoDB documents use a JSON-like format with extensions like ObjectId, ISODate, and NumberLong. They are the primary data unit in MongoDB, a leading NoSQL database.</p>
         MongoDB uses a flexible document model similar to JSON with extended data types. It is ideal for:

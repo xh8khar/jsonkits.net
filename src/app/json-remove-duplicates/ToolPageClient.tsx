@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Duplicate Removal?</h2>
         <p>JSON duplicate removal scans arrays in your data and removes objects that have identical content using deep comparison. Each array is deduplicated independently while non-array values and the overall structure are preserved.</p>
         <p>Duplicate removal is useful for:</p>

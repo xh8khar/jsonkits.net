@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="julia"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Are Julia Structs?</h2>
         <p>Julia structs with JSON parsing enable high-performance data processing in scientific computing and data analysis applications. Julia's type system combined with JSON data creates powerful data pipelines.</p><p>Julia JSON structs are used for:</p><ul><li><strong>Scientific Computing</strong>: Loading JSON experiment data.</li><li><strong>Data Analysis</strong>: Parsing JSON datasets for statistical analysis.</li><li><strong>Machine Learning</strong>: Reading JSON model configurations.</li></ul>
         <h2>How to Use</h2>

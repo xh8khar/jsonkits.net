@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="elixir"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Are Elixir Structs?</h2>
         <p>Elixir structs with JSON encoding enable type-safe data handling in Elixir applications, particularly in Phoenix web frameworks and distributed systems using the BEAM VM.</p><p>Elixir JSON structs are essential for:</p><ul><li><strong>Web APIs</strong>: JSON response formatting in Phoenix controllers.</li><li><strong>Data Pipelines</strong>: Transforming JSON data in ETL processes.</li><li><strong>Microservices</strong>: Type-safe message passing between services.</li></ul>
         <h2>How to Use</h2>

@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="JSON to GraphQL Schema Generator" description="Generate GraphQL type definitions from JSON data samples. Perfect for building GraphQL APIs from existing data." inputPlaceholder="Paste your JSON here..." outputPlaceholder="GraphQL schema will appear here..." convertLabel="Generate Schema" onConvert={jsonToGraphQLSchema} exampleInput={example} inputLanguage="json" outputLanguage="text" bidirectional onReverse={graphQLSchemaToJson} />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON to GraphQL Schema Generation?</h2>
         <p>GraphQL schemas define the types and fields available in your API. Writing them manually from existing JSON data is error-prone and tedious. This tool analyzes your JSON sample and automatically generates the corresponding GraphQL type definitions, inferring scalar types (String, Int, Float, Boolean) and nested object types.</p>
         <h2>How to Generate a GraphQL Schema from JSON</h2>

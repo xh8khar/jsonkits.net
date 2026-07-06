@@ -29,7 +29,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is This Tool?</h2>
         <p>Automatically detect and anonymize sensitive data in JSON. The tool scans for common sensitive fields (passwords, tokens, emails, SSNs, phone numbers, API keys, JWTs) and replaces them with anonymized values while preserving the data structure.</p>
         <h2>How to Use</h2>

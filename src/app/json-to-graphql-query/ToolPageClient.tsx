@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="text"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Are GraphQL Queries?</h2>
         <p>GraphQL queries allow clients to request exactly the data they need from an API. Generating queries from JSON data structures helps developers quickly build and test GraphQL requests.</p><p>GraphQL queries are used for:</p><ul><li><strong>Frontend Development</strong>: Building type-safe data fetching in React/Vue apps.</li><li><strong>API Testing</strong>: Crafting queries for GraphQL endpoint testing.</li><li><strong>Documentation</strong>: Illustrating query patterns with sample data.</li></ul>
         <h2>How to Use</h2>

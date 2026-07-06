@@ -21,7 +21,7 @@ export default function ToolPageClient() {
         bidirectional
         onReverse={markdownToJson}
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON to Markdown Conversion?</h2>
         <p>Converting JSON to Markdown wraps your JSON data in a fenced code block with the <code>json</code> language tag, enabling syntax highlighting in GitHub, GitLab, and most documentation platforms. This makes JSON samples readable and professional in technical documentation.</p>
         <p>This conversion is essential for:</p>

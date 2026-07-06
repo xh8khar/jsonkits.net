@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Inline Conversion?</h2>
         <p>JSON inline conversion compacts JSON into a single line (no whitespace) or custom-indented format. This is useful for storing JSON in configuration variables, URL parameters, or database columns with size limits.</p>
         <ul><li><strong>Storage</strong>: Compact JSON for database fields.</li><li><strong>Config Vars</strong>: Single-line JSON for environment variables.</li><li><strong>API Payloads</strong>: Minified JSON for HTTP requests.</li></ul>

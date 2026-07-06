@@ -22,7 +22,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>Apache Avro to JSON Conversion</h2>
         <p>This tool accepts an Apache Avro schema definition and optional sample data, then returns a validated schema structure. It is useful for quickly checking your Avro schema design.</p>
         <h2>How to Use</h2>

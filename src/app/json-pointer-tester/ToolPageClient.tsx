@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Pointer?</h2>
         <p>JSON Pointer (RFC 6901) is a standard syntax for identifying specific values in a JSON document. Pointers use slash-separated tokens (e.g., <code>/store/book/0/title</code>) and are used in JSON Patch, OpenAPI, and JSON Schema.</p>
         <ul><li><strong>JSON Patch</strong>: Targeting values for patching.</li><li><strong>OpenAPI</strong>: Referencing schema components.</li><li><strong>JSON Schema</strong>: Pointing to sub-schemas.</li></ul>

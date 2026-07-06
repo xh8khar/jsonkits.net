@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Depth Analysis?</h2>
         <p>JSON depth analysis measures the structural complexity of your data: maximum nesting depth, average depth, total nodes, leaf nodes, and branching factor. This helps you understand and optimize your data structures for performance and readability.</p>
         <p>Depth analysis is useful for:</p>

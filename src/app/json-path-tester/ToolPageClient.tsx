@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSONPath?</h2>
         <p>JSONPath is a query language for JSON, similar to XPath for XML. It allows you to navigate and extract data from JSON structures using path expressions. For example, <code>$.store.book[0].title</code> accesses the title of the first book in a store.</p>
         <p>JSONPath is essential for:</p>

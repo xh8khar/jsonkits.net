@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="JSON to Mermaid Diagram Generator" description="Generate Mermaid.js flowchart diagrams from JSON data structures. Visualize your data hierarchies." inputPlaceholder="Paste your JSON here..." outputPlaceholder="Mermaid diagram will appear here..." convertLabel="Generate Diagram" onConvert={jsonToMermaid} exampleInput={example} inputLanguage="json" outputLanguage="text" bidirectional onReverse={mermaidToJson} />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON to Mermaid Diagram Generation?</h2>
         <p>Mermaid.js is a popular diagramming tool that renders flowcharts from text definitions. This tool converts your JSON data into a Mermaid flowchart, where each JSON key becomes a node and nested objects create hierarchical branches. It is perfect for visualizing API response structures, configuration hierarchies, and complex data models.</p>
         <h2>How to Generate a Mermaid Diagram from JSON</h2>

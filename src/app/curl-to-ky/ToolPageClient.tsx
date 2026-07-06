@@ -24,7 +24,7 @@ export default function ToolPageClient() {
         outputLanguage="typescript"
         toolSlug="curl-to-ky"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>cURL vs Ky</h2>
         <p>cURL is a command-line tool for HTTP requests, while Ky is a tiny, elegant HTTP client for JavaScript based on the Fetch API. It provides a cleaner API with retries, timeouts, and hooks.</p>
         <ul>

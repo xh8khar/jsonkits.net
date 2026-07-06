@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="groovy"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Are Groovy Classes?</h2>
         <p>Groovy classes with JSON support enable seamless data processing in Groovy applications, particularly in Gradle build scripts and Grails web applications. Groovy's dynamic nature makes it ideal for rapid JSON data handling.</p><p>Groovy JSON classes are used for:</p><ul><li><strong>Build Scripts</strong>: Processing JSON configuration in Gradle.</li><li><strong>Web Development</strong>: Data binding in Grails controllers.</li><li><strong>Automation</strong>: Parsing JSON API responses in automation scripts.</li></ul>
         <h2>How to Use</h2>

@@ -21,7 +21,7 @@ export default function ToolPageClient() {
         bidirectional
         onReverse={jsonToNdjson}
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is NDJSON to JSON Conversion?</h2>
         <p>Converting NDJSON to JSON reads each line as an independent JSON object and collects them into a standard JSON array. This is essential when processing streaming data or logs for import into tools that expect standard JSON arrays.</p>
         <p>This is useful for:</p>

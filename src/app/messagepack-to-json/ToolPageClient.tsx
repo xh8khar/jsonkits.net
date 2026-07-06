@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="text"
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is MessagePack Used For?</h2>
         <p>Converting MessagePack back to JSON is essential for debugging and inspecting binary data in human-readable format. This is particularly useful when troubleshooting data serialization issues or analyzing protocol buffers.</p><p>MessagePack decoding is used for:</p><ul><li><strong>Debugging</strong>: Inspecting binary protocol messages.</li><li><strong>Data Analysis</strong>: Reading MessagePack logs and datasets.</li><li><strong>Compatibility</strong>: Converting legacy MessagePack data to modern JSON.</li></ul>
         <h2>How to Use</h2>

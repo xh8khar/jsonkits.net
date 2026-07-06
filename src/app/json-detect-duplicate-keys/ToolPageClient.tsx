@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is Duplicate Key Detection?</h2>
         <p>Duplicate key detection scans your JSON for objects that contain the same key more than once. While standard JSON parsers typically use the last value when duplicate keys are present, this can hide data quality issues or indicate serialization bugs.</p>
         <p>Duplicate key detection is useful for:</p>

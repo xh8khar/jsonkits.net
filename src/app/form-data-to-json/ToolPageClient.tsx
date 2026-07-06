@@ -21,7 +21,7 @@ export default function ToolPageClient() {
         bidirectional
         onReverse={jsonToFormData}
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is Form Data?</h2>
         <p>form data (URL-encoded) is the standard format for submitting HTML form data to web servers. It encodes form fields as key-value pairs using percent-encoding for special characters.</p>
         Form data encoding (application/x-www-form-urlencoded) is the standard format for HTML form submissions. It is used for:

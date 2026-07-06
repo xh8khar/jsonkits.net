@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="text"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>Why Hash JSON Data?</h2>
         <p>Hashing JSON data creates a unique fingerprint that can be used to verify data integrity, detect tampering, and create cache keys. Different hash algorithms offer varying levels of security and performance.</p><p>JSON hashing is used for:</p><ul><li><strong>Data Integrity</strong>: Verifying JSON hasn't been modified in transit.</li><li><strong>Cache Keys</strong>: Creating unique identifiers for cached API responses.</li><li><strong>Change Detection</strong>: Monitoring if JSON configuration has changed.</li></ul>
         <h2>How to Use</h2>

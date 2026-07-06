@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="Firestore to JSON Converter" description="Convert Firestore document format back to standard JSON. Extract plain values from typed Firestore structures." inputPlaceholder="Paste Firestore document here..." outputPlaceholder="Plain JSON will appear here..." convertLabel="Convert to JSON" onConvert={firestoreToJson} exampleInput={example} inputLanguage="json" outputLanguage="json" bidirectional onReverse={jsonToFirestore} />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is Firestore to JSON Conversion?</h2>
         <p>When working with the Firestore REST API or exporting Firebase data, documents arrive in a typed format with fields like <code>stringValue</code>, <code>integerValue</code>, and <code>mapValue</code>. This converter strips away the Firestore type wrappers and returns plain, clean JSON that is ready for further processing, analysis, or migration.</p>
         <h2>How to Convert Firestore to JSON</h2>

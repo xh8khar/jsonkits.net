@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is Circular Reference Detection?</h2>
         <p>Circular references occur when a JSON object contains a reference back to itself, either directly or through a chain of nested objects. Standard JSON cannot represent circular references, but JavaScript objects can. This tool analyzes data structures and reports any circular paths found.</p>
         <p>Circular reference detection is useful for:</p>

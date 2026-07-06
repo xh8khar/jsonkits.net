@@ -21,7 +21,7 @@ export default function ToolPageClient() {
         bidirectional
         onReverse={jsonToBase64}
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is Base64?</h2>
         <p>Base64 encoding represents binary data as ASCII text using 64 characters. It is widely used for embedding binary content in JSON, sending data in URLs, and storing complex data in text-based formats.</p>
         Base64 encoding works by converting binary data into a radix-64 representation using the characters A-Z, a-z, 0-9, +, /, and =. It is essential for:

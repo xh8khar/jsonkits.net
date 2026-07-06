@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="text"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Property Path Analysis?</h2>
         <p>JSON Property Path Analysis extracts every possible path through your JSON data, showing the type and an example value at each leaf node. This is essential for understanding complex nested JSON structures.</p><p>Property path analysis is used for:</p><ul><li><strong>Data Mapping</strong>: Understanding structure for ETL processes.</li><li><strong>Documentation</strong>: Generating data dictionaries from JSON samples.</li><li><strong>Schema Inference</strong> Reverse-engineering data structures.</li></ul>
         <h2>How to Use</h2>

@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is Custom JSON Stringify?</h2>
         <p>Custom JSON stringify gives you full control over JSON formatting: indentation size (0-10 spaces or tabs), and optional key sorting. Perfect for matching project-specific formatting conventions.</p>
         <ul><li><strong>Team Standards</strong>: Format JSON per project conventions.</li><li><strong>Code Generation</strong>: Produce consistently formatted output.</li><li><strong>Debugging</strong>: Adjust formatting for readability.</li></ul>

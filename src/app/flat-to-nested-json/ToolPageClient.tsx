@@ -21,7 +21,7 @@ export default function ToolPageClient() {
         bidirectional
         onReverse={jsonToNestedToFlat}
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Unflattening?</h2>
         <p>JSON unflattening converts dot-notation flat keys back into nested object structures. For example, <code>{"{"}user.name: "Alice"{"}"}</code> becomes <code>{"{"}user: {"{"}name: "Alice"{"}"}{"}"}</code>. This is essential when restoring API-compatible formats from flat data.</p>
         <p>Unflattening is useful for:</p>

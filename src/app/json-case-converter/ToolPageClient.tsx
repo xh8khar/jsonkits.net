@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="JSON Case Converter" description="Convert all JSON object keys between naming conventions: camelCase, PascalCase, snake_case, kebab-case, UPPER_CASE, lowercase." inputPlaceholder="Add case: camel|snake|kebab|pascal|upper|lower, then paste JSON..." outputPlaceholder="Converted JSON will appear here..." convertLabel="Convert Case" onConvert={jsonCaseConverter} exampleInput={example} outputLanguage="json" />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Case Converter?</h2>
         <p>This tool converts all JSON object keys between different naming conventions: camelCase, PascalCase, snake_case, kebab-case, UPPER_CASE, and lowercase. It recursively processes nested objects and arrays.</p>
         <h2>How to Use</h2>

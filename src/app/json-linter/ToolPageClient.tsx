@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="JSON Linter" description="Lint JSON for style issues, duplicate keys, naming convention violations, and formatting problems." inputPlaceholder="Paste your JSON here..." outputPlaceholder="Lint results will appear here..." convertLabel="Lint JSON" onConvert={jsonLinter} exampleInput={example} outputLanguage="json" />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Linter?</h2>
         <p>This tool lints your JSON data and reports style issues such as duplicate keys, inconsistent naming conventions (camelCase vs snake_case vs kebab-case), mixed indentation, and formatting problems. It helps you maintain a consistent JSON style across your project.</p>
         <h2>How to Use</h2>

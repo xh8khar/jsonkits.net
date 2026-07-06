@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="text"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is GraphQL Mutation?</h2>
         <p>JSON to GraphQL Mutation is a free online tool that converts JSON data into graphql mutation format for use in various programming environments. This tool is 100% client-side and processes all data locally in your browser.</p>
         <h2>How to Use</h2>

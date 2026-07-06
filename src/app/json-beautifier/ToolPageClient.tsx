@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Beautification?</h2>
         <p>JSON beautification transforms minified or poorly formatted JSON into a clean, readable structure with proper indentation and line breaks.</p>
         <h2>How to Beautify JSON Online</h2>

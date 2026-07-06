@@ -21,7 +21,7 @@ export default function ToolPageClient() {
         bidirectional
         onReverse={jsonToUnicodeEscape}
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is Unicode Escape?</h2>
         <p>Unicode escape sequences (\\uXXXX) allow representing Unicode characters in ASCII-only contexts. They are used in JSON for encoding characters outside the ASCII range, ensuring compatibility across different systems and encodings.</p>
         Unicode escape sequences allow representing any Unicode character using only ASCII characters. They are useful for:

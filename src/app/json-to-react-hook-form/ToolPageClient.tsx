@@ -20,7 +20,7 @@ export default function ToolPageClient() {
         outputLanguage="tsx"
         toolSlug="json-to-react-hook-form"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is React Hook Form?</h2>
         <p>React Hook Form is a performant, flexible library for building forms in React. It minimizes re-renders and provides a clean API for validation, error handling, and form state management.</p>
         <h2>How to Use</h2>

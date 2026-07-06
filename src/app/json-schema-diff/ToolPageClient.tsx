@@ -33,7 +33,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="text"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is This Tool?</h2>
         <p>Compare two JSON Schema definitions and get a detailed diff of structural changes. Perfect for reviewing schema changes in code reviews or API version migrations.</p>
         <h2>How to Use</h2>

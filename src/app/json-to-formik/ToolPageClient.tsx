@@ -20,7 +20,7 @@ export default function ToolPageClient() {
         outputLanguage="tsx"
         toolSlug="json-to-formik"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is Formik?</h2>
         <p>Formik is a popular React form library that simplifies form building with form state management, validation, and submission handling. It pairs well with Yup for schema-based validation.</p>
         <h2>How to Use</h2>

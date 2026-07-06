@@ -26,7 +26,7 @@ export default function ToolPageClient() {
         onReverse={axiosToCurl}
         toolSlug="curl-to-axios"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>cURL vs Axios</h2>
         <p>cURL is a command-line tool for HTTP requests, while Axios is a popular JavaScript HTTP client library. This converter helps you translate cURL commands into Axios API calls for use in your Node.js or browser JavaScript projects.</p>
         <ul>

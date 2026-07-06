@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="JSON to Graphviz Converter" description="Generate a Graphviz DOT graph visualization from JSON data structures. Great for visualizing nested data." inputPlaceholder="Paste your JSON here..." outputPlaceholder="Generated DOT graph will appear here..." convertLabel="Generate DOT" onConvert={jsonToGraphviz} exampleInput={example} inputLanguage="json" outputLanguage="text" bidirectional onReverse={graphvizToJson} />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON to Graphviz Converter?</h2>
         <p>This tool converts JSON data structures into Graphviz DOT format for visualization. Objects and nested fields become graph nodes with labeled edges, arrays create cluster subgraphs, and you can render the output with any Graphviz viewer.</p>
         <h2>How to Use</h2>

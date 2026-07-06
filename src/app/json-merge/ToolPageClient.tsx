@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Merging?</h2>
         <p>JSON merging combines two or more JSON objects into a single object using deep merge semantics. Nested objects are merged recursively, and top-level keys are combined. This is essential when combining configuration files, API responses, or data sources.</p>
         <p>JSON merging is useful for:</p>

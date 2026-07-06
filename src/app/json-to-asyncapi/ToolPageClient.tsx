@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="yaml"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is AsyncAPI?</h2>
         <p>AsyncAPI is an open-source specification for defining event-driven, asynchronous APIs. It's the event-driven equivalent of OpenAPI and describes message-based communication patterns.</p><p>AsyncAPI generation is used for:</p><ul><li><strong>Event-Driven Architectures</strong>: Documenting Kafka, RabbitMQ, and MQTT APIs.</li><li><strong>Microservices</strong>: Defining async communication contracts.</li><li><strong>API Documentation</strong>: Generating AsyncAPI specs from message samples.</li></ul>
         <h2>How to Use</h2>

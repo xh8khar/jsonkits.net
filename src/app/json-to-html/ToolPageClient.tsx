@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="html"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON to HTML Conversion?</h2>
         <p>Converting JSON to HTML creates self-contained, visually formatted documents that display JSON data with syntax highlighting, indentation, and collapsible sections for better readability.</p><p>JSON to HTML is used for:</p><ul><li><strong>Documentation</strong>: Embedding readable JSON examples in web pages.</li><li><strong>Reporting</strong>: Generating formatted JSON data reports.</li><li><strong>Sharing</strong>: Sharing JSON data in a visually appealing format.</li></ul>
         <h2>How to Use</h2>

@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="sql"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is SQL CREATE TABLE?</h2>
         <p>SQL CREATE TABLE statements define the schema of database tables. Generating these from JSON data samples accelerates database design and ensures your schema matches your data structure.</p><p>SQL CREATE TABLE generation is used for:</p><ul><li><strong>Database Design</strong>: Creating tables that match your JSON data models.</li><li><strong>Data Migration</strong>: Setting up database schemas from JSON exports.</li><li><strong>Prototyping</strong>: Quickly creating tables during application development.</li></ul>
         <h2>How to Use</h2>

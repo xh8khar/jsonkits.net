@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Pretty Printing?</h2>
         <p>JSON pretty printing transforms minified JSON into a human-readable format with proper indentation, making it easier to read and debug.</p>
         <h2>How to Pretty Print JSON Online</h2>

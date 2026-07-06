@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is a JSON Schema?</h2>
         <p>A JSON Schema describes the structure of JSON data, including field names, types, required fields, and nested structures. It is used for validation, documentation, and code generation.</p>
         <h2>How to Use</h2>

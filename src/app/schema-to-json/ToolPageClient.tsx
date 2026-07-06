@@ -21,7 +21,7 @@ export default function ToolPageClient() {
         bidirectional
         onReverse={jsonToSchema}
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is Schema to JSON Generation?</h2>
         <p>Schema to JSON generation creates realistic sample data from a JSON Schema definition. This is essential for API development, testing, and mocking before actual data is available.</p>
         <p>This is useful for:</p>

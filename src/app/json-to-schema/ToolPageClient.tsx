@@ -21,7 +21,7 @@ export default function ToolPageClient() {
         bidirectional
         onReverse={schemaToJson}
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Schema?</h2>
         <p>JSON Schema is a vocabulary that allows you to annotate and validate JSON documents. It describes the shape of your JSON data — what fields are expected, their types, and which are required. This tool generates a draft-07 schema from your data sample.</p>
         <p>JSON Schema is essential for:</p>

@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="SQL Server to JSON Converter" description="Parse SQL Server INSERT statements back into JSON format." inputPlaceholder="Paste your SQL Server INSERT statement here..." outputPlaceholder="Converted JSON will appear here..." convertLabel="Convert to JSON" onConvert={sqlServerToJson} exampleInput={example} inputLanguage="sql" outputLanguage="json" bidirectional onReverse={jsonToSqlServer} />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is SQL Server to JSON Converter?</h2>
         <p>This tool converts SQL Server INSERT statements into JSON format. It handles bracket-quoted identifiers and maps SQL Server BIT values (0/1) back to JSON booleans.</p>
         <h2>How to Use</h2>

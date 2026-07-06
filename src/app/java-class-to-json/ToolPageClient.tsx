@@ -24,7 +24,7 @@ export default function ToolPageClient() {
         inputLanguage="java"
         outputLanguage="json"
       />
-            <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+            <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Are Java POJOs?</h2>
         <p>Java POJOs (Plain Old Java Objects) use private fields with public getter and setter methods, commonly mapped to JSON using Jackson or Gson libraries in Spring Boot applications.
         <p>Java POJOs are fundamental for:</p>

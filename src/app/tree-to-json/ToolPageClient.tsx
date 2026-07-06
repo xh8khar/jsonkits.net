@@ -8,7 +8,7 @@ export default function ToolPageClient() {
   return (
     <>
       <ToolLayout title="Tree View to JSON Converter" description="Convert Unicode box-drawing tree views back into structured JSON format." inputPlaceholder="Paste tree view here..." outputPlaceholder="JSON output will appear here..." convertLabel="Convert to JSON" onConvert={treeToJson} exampleInput={example} inputLanguage="text" outputLanguage="json" bidirectional onReverse={jsonToTree} />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is Tree View to JSON Conversion?</h2>
         <p>Tree views created with Unicode box-drawing characters are a common way to visualize data hierarchies in terminal output, documentation, and code comments. This tool reverses the process, parsing the visual indentation and connectors back into structured JSON. It is ideal for recovering data from visual diagrams, terminal dumps, and documentation examples.</p>
         <h2>How to Convert Tree View to JSON</h2>

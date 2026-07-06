@@ -18,7 +18,7 @@ export default function ToolPageClient() {
         exampleInput={example}
         outputLanguage="json"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is JSON Merge Patch?</h2>
         <p>JSON Merge Patch (RFC 7396) is a format for describing changes to a JSON document. A patch is applied to a target object: values are updated, nested objects are merged recursively, and null values remove keys.</p>
         <ul><li><strong>API Updates</strong>: Partial updates to REST resources.</li><li><strong>Config Changes</strong>: Apply incremental configuration changes.</li><li><strong>State Management</strong>: Merge state updates in applications.</li></ul>

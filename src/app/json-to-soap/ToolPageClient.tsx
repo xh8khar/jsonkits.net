@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="xml"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is SOAP XML?</h2>
         <p>SOAP (Simple Object Access Protocol) is an XML-based messaging protocol for exchanging structured information in enterprise web services. Converting JSON to SOAP XML enables integration with legacy enterprise systems.</p><p>JSON to SOAP conversion is used for:</p><ul><li><strong>Enterprise Integration</strong>: Connecting modern JSON APIs to legacy SOAP services.</li><li><strong>Data Migration</strong>: Moving data between SOAP-based and REST-based systems.</li><li><strong>Interoperability</strong>: Bridging XML and JSON data formats in enterprise environments.</li></ul>
         <h2>How to Use</h2>

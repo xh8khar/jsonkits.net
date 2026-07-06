@@ -26,7 +26,7 @@ export default function ToolPageClient() {
         onReverse={fetchToCurl}
         toolSlug="curl-to-fetch"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>cURL vs Fetch API</h2>
         <p>cURL is a command-line tool for HTTP requests, while fetch() is a browser-native JavaScript API. This converter helps you translate between the two when migrating from terminal-based testing to in-browser JavaScript code.</p>
         <ul>

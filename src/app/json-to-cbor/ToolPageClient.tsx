@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="text"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is CBOR?</h2>
         <p>CBOR (Concise Binary Object Representation) is a binary data format defined in RFC 7049 that provides a compact and efficient encoding for data interchange. It's designed for constrained environments like IoT devices and network protocols.</p><p>CBOR is ideal for:</p><ul><li><strong>IoT Devices</strong>: Minimal memory and bandwidth usage on microcontrollers.</li><li><strong>Network Protocols</strong>: Efficient binary encoding for CoAP and other protocols.</li><li><strong>WebAuthn</strong>: Used by the Web Authentication API for credential data.</li></ul>
         <h2>How to Use</h2>

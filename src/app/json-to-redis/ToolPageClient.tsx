@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         inputLanguage="json"
         outputLanguage="text"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is RedisJSON?</h2>
         <p>RedisJSON is a Redis module that provides native JSON support, allowing you to store, query, and manipulate JSON documents directly in Redis. JSON.SET commands enable efficient JSON document storage.</p><p>Redis JSON commands are used for:</p><ul><li><strong>Caching</strong>: Storing JSON API responses in Redis cache.</li><li><strong>Session Management</strong>: Persisting complex user session data.</li><li><strong>Real-Time Apps</strong>: Storing real-time data as JSON documents.</li></ul>
         <h2>How to Use</h2>

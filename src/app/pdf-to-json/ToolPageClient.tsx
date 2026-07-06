@@ -19,7 +19,7 @@ export default function ToolPageClient() {
         outputLanguage="json"
         inputLanguage="text"
       />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is This Tool?</h2>
         <p>Convert PDF text content into structured JSON format. Each paragraph is extracted as a separate entry for easy data processing.</p>
         <h2>How to Use</h2>
