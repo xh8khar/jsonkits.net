@@ -83,6 +83,8 @@ export const navItems: NavItem[] = [
       { label: 'Markdown Table to JSON', href: '/markdown-table-to-json' },
       { label: 'JSON to Plain Text', href: '/json-to-plain-text' },
       { label: 'Plain Text to JSON', href: '/plain-text-to-json' },
+      { label: 'JSON to React Hook Form', href: '/json-to-react-hook-form' },
+      { label: 'JSON to Formik', href: '/json-to-formik' },
     ],
   },
   {
@@ -221,6 +223,9 @@ export const tools: Tool[] = [
   // API Formats
   { id: 'json-to-curl', name: 'JSON to cURL', description: 'Generate cURL commands from JSON request bodies.', category: 'converter', slug: '/json-to-curl', icon: 'ArrowRight' },
   { id: 'curl-to-json', name: 'cURL to JSON', description: 'Extract JSON request bodies from cURL commands.', category: 'converter', slug: '/curl-to-json', icon: 'ArrowLeft' },
+  { id: 'curl-to-fetch', name: 'cURL to Fetch', description: 'Convert cURL commands to modern JavaScript fetch() API calls.', category: 'converter', slug: '/curl-to-fetch', icon: 'Code' },
+  { id: 'curl-to-axios', name: 'cURL to Axios', description: 'Convert cURL commands to Axios HTTP client calls.', category: 'converter', slug: '/curl-to-axios', icon: 'Code' },
+  { id: 'curl-to-ky', name: 'cURL to Ky', description: 'Convert cURL commands to Ky HTTP client calls.', category: 'converter', slug: '/curl-to-ky', icon: 'Code' },
 
   // Utilities (Markdown, Nested/Flat, Key-Value, Schema, NDJSON, GeoJSON, Escape)
   { id: 'json-to-markdown', name: 'JSON to Markdown', description: 'Convert JSON data to a Markdown code block with syntax highlighting.', category: 'converter', slug: '/json-to-markdown', icon: 'ArrowRight' },
@@ -476,6 +481,8 @@ export const tools: Tool[] = [
   // ---- Developer Tools ----
   { id: 'json-to-zod-schema', name: 'JSON to Zod Schema', description: 'Generate Zod validation schemas from JSON data samples for TypeScript runtime validation.', category: 'converter', slug: '/json-to-zod-schema', icon: 'Code' },
   { id: 'json-to-yup-schema', name: 'JSON to Yup Schema', description: 'Generate Yup validation schemas from JSON data samples for JavaScript form validation.', category: 'converter', slug: '/json-to-yup-schema', icon: 'Code' },
+  { id: 'json-to-react-hook-form', name: 'JSON to React Hook Form', description: 'Generate React Hook Form code with validation rules from JSON data samples.', category: 'converter', slug: '/json-to-react-hook-form', icon: 'Code' },
+  { id: 'json-to-formik', name: 'JSON to Formik', description: 'Generate Formik form code with Yup validation from JSON data samples.', category: 'converter', slug: '/json-to-formik', icon: 'Code' },
   { id: 'json-to-prisma-schema', name: 'JSON to Prisma Schema', description: 'Generate Prisma ORM models from JSON data samples for Node.js/TypeScript database schemas.', category: 'converter', slug: '/json-to-prisma-schema', icon: 'Database' },
   { id: 'json-to-mongoose-schema', name: 'JSON to Mongoose Schema', description: 'Generate Mongoose ODM schemas from JSON data samples for MongoDB/Node.js applications.', category: 'converter', slug: '/json-to-mongoose-schema', icon: 'Database' },
   { id: 'json-to-typescript-enum', name: 'JSON to TypeScript Enum', description: 'Generate TypeScript enum definitions from JSON constant objects for strongly-typed code.', category: 'converter', slug: '/json-to-typescript-enum', icon: 'Code' },

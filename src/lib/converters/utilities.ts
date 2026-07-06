@@ -122,8 +122,76 @@ function jsonSchemaFromValue(value: unknown, title?: string): Record<string, unk
   }
 }
 
+function mergeSchemas(schemas: Record<string, unknown>[]): Record<string, unknown> {
+  if (schemas.length === 0) return {}
+  if (schemas.length === 1) return schemas[0]
+  const first = schemas[0]
+  const rest = schemas.slice(1)
+  if (first.type === 'object' && first.properties && rest.every(s => s.type === 'object' && s.properties)) {
+    const mergedProps: Record<string, unknown> = {}
+    const allKeys = new Set<string>()
+    const propSchemas: Record<string, Record<string, unknown>[]> = {}
+    for (const s of [first, ...rest]) {
+      const props = s.properties as Record<string, unknown>
+      for (const k of Object.keys(props)) {
+        allKeys.add(k)
+        if (!propSchemas[k]) propSchemas[k] = []
+        propSchemas[k].push(props[k] as Record<string, unknown>)
+      }
+    }
+    for (const k of allKeys) {
+      const ps = propSchemas[k] || []
+      if (ps.length === 0) {
+        mergedProps[k] = {}
+      } else {
+        const merged = mergeSchemas(ps)
+        if (typeof merged === 'object' && merged !== null) {
+          const req = first.required as string[] | undefined
+          const alwaysPresent = schemas.every(s => {
+            const props = s.properties as Record<string, unknown> | undefined
+            return props && k in props
+          })
+          if (!alwaysPresent) {
+            delete (merged as Record<string, unknown>).required
+            ;(merged as Record<string, unknown>).required = []
+          }
+        }
+        mergedProps[k] = merged
+      }
+    }
+    const alwaysRequired = [...allKeys].filter(k =>
+      schemas.every(s => {
+        const props = s.properties as Record<string, unknown> | undefined
+        const req = s.required as string[] | undefined
+        return props && k in props && (!req || req.includes(k))
+      })
+    )
+    const result: Record<string, unknown> = { type: 'object', properties: mergedProps }
+    if (alwaysRequired.length) result.required = alwaysRequired
+    return result
+  }
+  if (first.type === 'array' && first.items && rest.every(s => s.type === 'array' && s.items)) {
+    const itemSchemas = [first.items as Record<string, unknown>, ...rest.map(s => s.items as Record<string, unknown>)]
+    return { type: 'array', items: mergeSchemas(itemSchemas) }
+  }
+  const allTypes = [...new Set([first.type as string, ...rest.map(s => s.type as string)])].filter(Boolean)
+  if (allTypes.length === 1) return first
+  return { anyOf: schemas }
+}
+
 export function jsonToSchema(input: string): string {
-  const parsed = JSON.parse(input)
+  const blocks = input.split(/\n\s*\n/).filter(b => b.trim())
+  if (blocks.length > 1) {
+    const samples = blocks.map(b => JSON.parse(b.trim()))
+    const schemas = samples.map(s => jsonSchemaFromValue(s))
+    const merged = mergeSchemas(schemas)
+    const full: Record<string, unknown> = {
+      $schema: 'http://json-schema.org/draft-07/schema#',
+      ...merged
+    }
+    return JSON.stringify(full, null, 2)
+  }
+  const parsed = JSON.parse(input.trim())
   const schema = jsonSchemaFromValue(parsed, 'GeneratedSchema')
   const full: Record<string, unknown> = {
     $schema: 'http://json-schema.org/draft-07/schema#',

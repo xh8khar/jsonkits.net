@@ -443,3 +443,138 @@ function toMatlabExpr(value: unknown, indent: number): string {
   }
   return '[]'
 }
+
+function getFormType(value: unknown): string {
+  if (value === null || value === undefined) return 'string'
+  if (typeof value === 'boolean') return 'checkbox'
+  if (typeof value === 'number') return Number.isInteger(value) ? 'number' : 'number'
+  if (typeof value === 'string') return 'text'
+  if (Array.isArray(value)) return 'array'
+  return 'object'
+}
+
+function getValidationRules(value: unknown, path: string): Record<string, unknown> {
+  const rules: Record<string, unknown> = {}
+  if (typeof value === 'string') {
+    if (path.toLowerCase().includes('email')) rules.pattern = { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Invalid email' }
+    if (path.toLowerCase().includes('url') || path.toLowerCase().includes('website')) rules.pattern = { value: /^https?:\/\/.+/, message: 'Invalid URL' }
+    if (value.length > 20) rules.maxLength = { value: 255, message: 'Max 255 characters' }
+  }
+  if (typeof value === 'number') {
+    rules.valueAsNumber = true
+    if (value < 0) rules.min = { value: value, message: `Min ${value}` }
+    if (value > 0) rules.min = { value: 0, message: 'Must be positive' }
+  }
+  return rules
+}
+
+export function jsonToReactHookForm(input: string): string {
+  const parsed = JSON.parse(input)
+  if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) {
+    throw new Error('Input must be a JSON object')
+  }
+  const entries = Object.entries(parsed as Record<string, unknown>)
+  const fields = entries.map(([key, value]) => {
+    const type = getFormType(value)
+    const rules = getValidationRules(value, key)
+    const rulesStr = Object.keys(rules).length ? `, rules={${JSON.stringify(rules, null, 6).replace(/"valueAsNumber":true/g, 'valueAsNumber: true').replace(/"(\w+)":/g, '$1:').replace(/\n\s{6}/g, '\n      ')}}` : ''
+    const typeAttr = type === 'checkbox' ? '' : ` type="${type}"`
+    if (type === 'checkbox') {
+      return `      <label>
+        <input type="checkbox" {...register("${key}"${rulesStr})} />
+        ${key.charAt(0).toUpperCase() + key.slice(1)}
+      </label>`
+    }
+    if (type === 'array') {
+      return `      {/* ${key}: array field - use useFieldArray */}`
+    }
+    if (type === 'object') {
+      return `      {/* ${key}: nested object */}`
+    }
+    return `      <input${typeAttr} {...register("${key}"${rulesStr})} placeholder="${key}" />`
+  })
+
+  return `import { useForm } from 'react-hook-form'
+
+interface FormData {
+${entries.map(([k]) => `  ${k}: ${typeof (parsed as Record<string, unknown>)[k] === 'number' ? 'number' : 'string'}`).join('\n')}
+}
+
+export default function MyForm() {
+  const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
+
+  const onSubmit = (data: FormData) => {
+    console.log(data)
+  }
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+${fields.join('\n')}
+      <button type="submit">Submit</button>
+    </form>
+  )
+}`
+}
+
+export function jsonToFormik(input: string): string {
+  const parsed = JSON.parse(input)
+  if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) {
+    throw new Error('Input must be a JSON object')
+  }
+  const entries = Object.entries(parsed as Record<string, unknown>)
+  const initialValues = entries.map(([key, value]) => {
+    const safeVal = typeof value === 'string' ? `'${value.replace(/'/g, "\\'")}'` : JSON.stringify(value)
+    return `    ${key}: ${safeVal}`
+  })
+  const validationFields = entries.map(([key, value]) => {
+    const rules: string[] = []
+    if (typeof value === 'string') {
+      if (key.toLowerCase().includes('email')) rules.push(`    ${key}: Yup.string().email('Invalid email')`)
+      else rules.push(`    ${key}: Yup.string()`)
+      if (value.length > 0 && !key.toLowerCase().includes('email') && !key.toLowerCase().includes('url')) {
+        rules[rules.length - 1] = rules[rules.length - 1].replace('()', '()')
+      }
+    }
+    if (typeof value === 'number') {
+      rules.push(`    ${key}: Yup.number()${value > 0 ? '.positive()' : ''}`)
+    }
+    if (typeof value === 'boolean') {
+      rules.push(`    ${key}: Yup.boolean()`)
+    }
+    return rules.length ? rules.join('\n') : `    ${key}: Yup.string()`
+  })
+
+  return `import { Formik, Form, Field, ErrorMessage } from 'formik'
+import * as Yup from 'yup'
+
+interface FormValues {
+${entries.map(([k, v]) => `  ${k}: ${typeof v === 'number' ? 'number' : typeof v === 'boolean' ? 'boolean' : 'string'}`).join('\n')}
+}
+
+const validationSchema = Yup.object({
+${validationFields.join(',\n')}
+})
+
+export default function MyForm() {
+  const initialValues: FormValues = {
+${initialValues.join(',\n')}
+  }
+
+  return (
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={(values) => console.log(values)}
+    >
+      <Form>
+${entries.map(([key]) => `        <div>
+          <label htmlFor="${key}">${key.charAt(0).toUpperCase() + key.slice(1)}</label>
+          <Field name="${key}" id="${key}" />
+          <ErrorMessage name="${key}" component="div" />
+        </div>`).join('\n')}
+        <button type="submit">Submit</button>
+      </Form>
+    </Formik>
+  )
+}`
+}

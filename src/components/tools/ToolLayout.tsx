@@ -1,11 +1,37 @@
 'use client'
 
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import { Button } from '@/components/ui/Button'
 import { useToast } from '@/components/ui/Toast'
 import InputPanel from './InputPanel'
 import OutputPanel from './OutputPanel'
 import { decodeShareData } from '@/lib/share'
+
+const MAX_HISTORY = 20
+
+interface HistoryEntry {
+  input: string
+  output: string
+  timestamp: number
+}
+
+function getHistoryKey(slug: string): string {
+  return `jk_history_${slug}`
+}
+
+function loadHistory(slug: string): HistoryEntry[] {
+  try {
+    const raw = localStorage.getItem(getHistoryKey(slug))
+    return raw ? JSON.parse(raw) : []
+  } catch { return [] }
+}
+
+function saveHistory(slug: string, entry: HistoryEntry): void {
+  const entries = loadHistory(slug)
+  entries.unshift(entry)
+  if (entries.length > MAX_HISTORY) entries.length = MAX_HISTORY
+  try { localStorage.setItem(getHistoryKey(slug), JSON.stringify(entries)) } catch { /* ignore */ }
+}
 
 const downloadExtensions: Record<string, string> = {
   json: 'json',
@@ -35,6 +61,7 @@ interface ToolLayoutProps {
   onReverse?: (input: string) => string | Promise<string>
   extraActions?: React.ReactNode
   children?: React.ReactNode
+  toolSlug?: string
 }
 
 export default function ToolLayout({
@@ -53,13 +80,23 @@ export default function ToolLayout({
   onReverse,
   extraActions,
   children,
+  toolSlug,
 }: ToolLayoutProps) {
   const [input, setInput] = useState('')
   const [output, setOutput] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [isReversed, setIsReversed] = useState(false)
+  const [historyOpen, setHistoryOpen] = useState(false)
+  const [history, setHistory] = useState<HistoryEntry[]>([])
+  const slugRef = useRef('')
   const { addToast } = useToast()
+
+  useEffect(() => {
+    const slug = toolSlug || window.location.pathname.replace(/^\//, '')
+    slugRef.current = slug
+    setHistory(loadHistory(slug))
+  }, [toolSlug])
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
@@ -84,6 +121,9 @@ export default function ToolLayout({
       const fn = isReversed && onReverse ? onReverse : convertFn
       const result = await fn(input)
       setOutput(result)
+      const entry: HistoryEntry = { input, output: result, timestamp: Date.now() }
+      saveHistory(slugRef.current, entry)
+      setHistory(loadHistory(slugRef.current))
       addToast('Converted successfully', 'success')
     } catch (e) {
       const msg = (e as Error).message
@@ -221,6 +261,34 @@ export default function ToolLayout({
         </Button>
 
         {extraActions}
+
+        {history.length > 0 && (
+          <div className="relative">
+            <Button variant="ghost" size="sm" onClick={() => setHistoryOpen(!historyOpen)} icon={
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            }>
+              History ({history.length})
+            </Button>
+            {historyOpen && (
+              <div className="absolute left-0 top-full mt-1 w-96 max-h-64 overflow-y-auto bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg shadow-lg z-50">
+                {history.map((entry, i) => (
+                  <button
+                    key={entry.timestamp}
+                    className="w-full text-left px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 border-b border-slate-100 dark:border-slate-700 last:border-0 text-sm"
+                    onClick={() => { setInput(entry.input); setOutput(entry.output); setError(''); setHistoryOpen(false) }}
+                  >
+                    <div className="text-slate-500 dark:text-slate-400 text-xs">
+                      {new Date(entry.timestamp).toLocaleString()}
+                    </div>
+                    <div className="truncate text-slate-700 dark:text-slate-300 mt-0.5">{entry.input.substring(0, 80)}</div>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
       {children}

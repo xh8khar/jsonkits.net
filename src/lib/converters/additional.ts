@@ -305,6 +305,125 @@ export function curlToJson(input: string): string {
   return JSON.stringify(parsed, null, 2)
 }
 
+function parseCurl(input: string): { url: string; method: string; headers: Record<string, string>; body: string | null } {
+  const lines = input.replace(/\\\n/g, ' ').replace(/\\\r\n/g, ' ').split('\n').join(' ')
+  const result: { url: string; method: string; headers: Record<string, string>; body: string | null } = {
+    url: '',
+    method: 'GET',
+    headers: {},
+    body: null,
+  }
+  const urlMatch = lines.match(/curl\s+(?:-\w+\s+)*(['"]?)([^'"\s]+)\1/)
+  if (urlMatch) result.url = urlMatch[2]
+  const methodMatch = lines.match(/-X\s+(\w+)/)
+  if (methodMatch) result.method = methodMatch[1]
+  const headerRegex = /-H\s+['"](([^'"]|\\')+)['"]/g
+  let hMatch: RegExpExecArray | null
+  while ((hMatch = headerRegex.exec(lines)) !== null) {
+    const colonIdx = hMatch[1].indexOf(':')
+    if (colonIdx > 0) {
+      const k = hMatch[1].slice(0, colonIdx).trim()
+      const v = hMatch[1].slice(colonIdx + 1).trim()
+      result.headers[k] = v
+    }
+  }
+  const dataMatch = lines.match(/-d\s+['"](([^'"]|\\')+)['"]/)
+  if (dataMatch) result.body = dataMatch[1].replace(/\\'/g, "'")
+  if (result.body && !result.body.startsWith('{') && !result.body.startsWith('[')) {
+    const encodedMatch = lines.match(/--data-urlencode\s+['"](([^'"]|\\')+)['"]/)
+    if (encodedMatch) result.body = encodedMatch[1]
+  }
+  return result
+}
+
+export function curlToFetch(input: string): string {
+  const parsed = parseCurl(input)
+  if (!parsed.url) throw new Error('Could not parse URL from cURL command')
+  const lines: string[] = []
+  const opts: Record<string, unknown> = {}
+  if (parsed.method !== 'GET') opts.method = parsed.method
+  if (Object.keys(parsed.headers).length > 0) opts.headers = parsed.headers
+  if (parsed.body) {
+    try { opts.body = JSON.stringify(JSON.parse(parsed.body)) }
+    catch { opts.body = JSON.stringify(parsed.body) }
+  }
+  const optsStr = Object.keys(opts).length ? `, ${JSON.stringify(opts, null, 2).split('\n').join('\n  ')}` : ''
+  return `fetch('${parsed.url}'${optsStr})${optsStr ? '' : ''}`
+}
+
+export function curlToAxios(input: string): string {
+  const parsed = parseCurl(input)
+  if (!parsed.url) throw new Error('Could not parse URL from cURL command')
+  const config: Record<string, unknown> = { url: parsed.url }
+  if (parsed.method !== 'GET') config.method = parsed.method.toLowerCase()
+  if (Object.keys(parsed.headers).length > 0) config.headers = parsed.headers
+  if (parsed.body) {
+    try { config.data = JSON.parse(parsed.body) }
+    catch { config.data = parsed.body }
+  }
+  return `const response = await axios(${JSON.stringify(config, null, 2)})`
+}
+
+export function curlToKy(input: string): string {
+  const parsed = parseCurl(input)
+  if (!parsed.url) throw new Error('Could not parse URL from cURL command')
+  const lines: string[] = [`await ky${parsed.method !== 'GET' ? `.${parsed.method.toLowerCase()}` : ''}('${parsed.url}'`]
+  const opts: Record<string, unknown> = {}
+  if (Object.keys(parsed.headers).length > 0) opts.headers = parsed.headers
+  if (parsed.body) {
+    try { opts.json = JSON.parse(parsed.body) }
+    catch { opts.body = parsed.body }
+  }
+  if (Object.keys(opts).length) {
+    const optsStr = JSON.stringify(opts, null, 2).split('\n').join('\n  ')
+    lines.push(`  ${optsStr}`)
+  }
+  lines.push(')')
+  return lines.join('\n')
+}
+
+export function fetchToCurl(input: string): string {
+  const fetchMatch = input.match(/fetch\(['"](([^'"]|\\')+)['"],?\s*({[\s\S]*?})\)/)
+  if (!fetchMatch) throw new Error('Could not parse fetch() call')
+  const url = fetchMatch[1]
+  let opts: Record<string, unknown> = {}
+  if (fetchMatch[2]) {
+    try { opts = JSON.parse(fetchMatch[2]) } catch { /* ignore */ }
+  }
+  const method = (opts.method as string) || 'GET'
+  const headers = opts.headers as Record<string, string> || {}
+  let body = opts.body as string || ''
+  if (body && typeof body === 'object') body = JSON.stringify(body)
+  const lines = [`curl -X ${method}`]
+  for (const [k, v] of Object.entries(headers)) {
+    lines.push(`  -H '${k}: ${v}'`)
+  }
+  if (body) lines.push(`  -d '${body.replace(/'/g, "\\'")}'`)
+  lines.push(`  ${url}`)
+  return lines.join(' \\\n')
+}
+
+export function axiosToCurl(input: string): string {
+  const axiosMatch = input.match(/axios\(({[\s\S]*?})\)/)
+  if (!axiosMatch) throw new Error('Could not parse axios() call')
+  const config = JSON.parse(axiosMatch[1])
+  const method = (config.method as string || 'get').toUpperCase()
+  const url = config.url as string || ''
+  const headers = config.headers as Record<string, string> || {}
+  const data = config.data as Record<string, unknown> | undefined
+  let body = ''
+  if (data) {
+    try { body = JSON.stringify(data) } catch { body = String(data) }
+  }
+  const lines = [`curl -X ${method}`]
+  for (const [k, v] of Object.entries(headers)) {
+    lines.push(`  -H '${k}: ${v}'`)
+  }
+  if (body) lines.push(`  -d '${body.replace(/'/g, "\\'")}'`)
+  lines.push(`  ${url}`)
+  return lines.join(' \\\n')
+}
+
 import * as yaml from 'js-yaml'
 export function jsonToDockerCompose(input: string): string {
   const parsed = JSON.parse(input)
