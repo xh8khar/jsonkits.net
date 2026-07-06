@@ -1,0 +1,161 @@
+# JSONKits
+> Free online JSON tools for developers — 300+ browser-based JSON utilities. All processing is 100% client-side with no server uploads.
+
+## Info
+- About: https://jsonkitsnet.pages.dev/about
+- Contact: https://jsonkitsnet.pages.dev/contact
+- Privacy: https://jsonkitsnet.pages.dev/privacy
+- Terms: https://jsonkitsnet.pages.dev/terms
+
+## Essential Tools
+- JSON Formatter: https://jsonkitsnet.pages.dev/json-formatter
+- JSON Validator: https://jsonkitsnet.pages.dev/json-validator
+- JSON Viewer: https://jsonkitsnet.pages.dev/json-viewer
+- JSON Minifier: https://jsonkitsnet.pages.dev/json-minifier
+- JSON Diff Checker: https://jsonkitsnet.pages.dev/json-diff-checker
+- JSON Search: https://jsonkitsnet.pages.dev/json-search
+
+## Converters
+- JSON ↔ YAML: https://jsonkitsnet.pages.dev/json-to-yaml
+- JSON ↔ CSV: https://jsonkitsnet.pages.dev/json-to-csv
+- JSON ↔ XML: https://jsonkitsnet.pages.dev/json-to-xml
+- JSON ↔ TOML: https://jsonkitsnet.pages.dev/json-to-toml
+- JSON ↔ INI: https://jsonkitsnet.pages.dev/json-to-ini
+- JSON ↔ Properties: https://jsonkitsnet.pages.dev/json-to-properties
+- JSON ↔ TSV: https://jsonkitsnet.pages.dev/json-to-tsv
+- JSON ↔ HTML Table: https://jsonkitsnet.pages.dev/json-to-html-table
+- JSON ↔ Markdown Table: https://jsonkitsnet.pages.dev/json-to-markdown-table
+- JSON ↔ Plain Text: https://jsonkitsnet.pages.dev/json-to-plain-text
+
+## Code Generators (JSON → Language)
+- JSON → TypeScript: https://jsonkitsnet.pages.dev/json-to-typescript
+- JSON → Python: https://jsonkitsnet.pages.dev/json-to-python
+- JSON → Go: https://jsonkitsnet.pages.dev/json-to-go
+- JSON → Java: https://jsonkitsnet.pages.dev/json-to-java
+- JSON → C#: https://jsonkitsnet.pages.dev/json-to-csharp
+- JSON → Rust: https://jsonkitsnet.pages.dev/json-to-rust
+- JSON → Kotlin: https://jsonkitsnet.pages.dev/json-to-kotlin
+- JSON → Swift: https://jsonkitsnet.pages.dev/json-to-swift
+- JSON → Dart: https://jsonkitsnet.pages.dev/json-to-dart
+- JSON → PHP: https://jsonkitsnet.pages.dev/json-to-php-array
+- JSON → Zod Schema: https://jsonkitsnet.pages.dev/json-to-zod-schema
+- JSON → Prisma Schema: https://jsonkitsnet.pages.dev/json-to-prisma-schema
+- JSON → Pydantic v2: https://jsonkitsnet.pages.dev/json-to-pydantic-v2
+
+## Reverse Generators (Language → JSON)
+- TypeScript → JSON: https://jsonkitsnet.pages.dev/typescript-interface-to-json
+- Java → JSON: https://jsonkitsnet.pages.dev/java-class-to-json
+- Go → JSON: https://jsonkitsnet.pages.dev/go-struct-to-json
+- Python Dict → JSON: https://jsonkitsnet.pages.dev/python-dict-to-json
+
+## Database Tools
+- JSON → SQL INSERT: https://jsonkitsnet.pages.dev/json-to-sql-insert
+- JSON → PostgreSQL: https://jsonkitsnet.pages.dev/json-to-postgresql
+- JSON → MySQL: https://jsonkitsnet.pages.dev/json-to-mysql
+- JSON → SQLite: https://jsonkitsnet.pages.dev/json-to-sqlite
+- JSON → MongoDB: https://jsonkitsnet.pages.dev/json-to-mongodb
+- JSON → Firestore: https://jsonkitsnet.pages.dev/json-to-firestore
+- JSON → DynamoDB: https://jsonkitsnet.pages.dev/json-to-dynamodb
+- JSON → Prisma Schema: https://jsonkitsnet.pages.dev/json-to-prisma-schema
+- JSON → SQLAlchemy Model: https://jsonkitsnet.pages.dev/json-to-sqlalchemy-model
+
+## Validation & Security
+- JSON Validator: https://jsonkitsnet.pages.dev/json-validator
+- JSON Schema Validator: https://jsonkitsnet.pages.dev/json-schema-validator
+- JSON Linter: https://jsonkitsnet.pages.dev/json-linter
+- JSON Repair: https://jsonkitsnet.pages.dev/json-repair
+- JSON Escape: https://jsonkitsnet.pages.dev/json-escape
+- JSON Encrypt: https://jsonkitsnet.pages.dev/json-encrypt
+- JSON Decrypt: https://jsonkitsnet.pages.dev/json-decrypt
+- JSON Mask Data: https://jsonkitsnet.pages.dev/json-mask-data
+- JSON Data Anonymizer: https://jsonkitsnet.pages.dev/json-data-anonymizer
+- JWT Decoder: https://jsonkitsnet.pages.dev/jwt-decoder
+- JWT Encoder: https://jsonkitsnet.pages.dev/jwt-encoder
+- JSON Hash Generator: https://jsonkitsnet.pages.dev/json-hash
+
+## Comparison Tools
+- JSON Diff Checker: https://jsonkitsnet.pages.dev/json-diff-checker
+- JSON Compare: https://jsonkitsnet.pages.dev/json-compare
+- JSON Version Diff: https://jsonkitsnet.pages.dev/json-version-diff
+- JSON Array Diff: https://jsonkitsnet.pages.dev/json-array-diff
+- JSON Schema Diff: https://jsonkitsnet.pages.dev/json-schema-diff
+
+## Data Generators
+- Fake JSON Generator: https://jsonkitsnet.pages.dev/json-fake-generator
+- Random JSON Generator: https://jsonkitsnet.pages.dev/json-random-generator
+- Mock API Generator: https://jsonkitsnet.pages.dev/json-mock-generator
+- Sample JSON Generator: https://jsonkitsnet.pages.dev/json-sample-generator
+- JSON Schema Generator: https://jsonkitsnet.pages.dev/json-schema-generator
+
+## Encoding & Web Formats
+- JSON ↔ Base64: https://jsonkitsnet.pages.dev/json-to-base64
+- JSON ↔ Hex: https://jsonkitsnet.pages.dev/json-to-hex
+- JSON ↔ Binary: https://jsonkitsnet.pages.dev/json-to-binary
+- JSON ↔ URL Encoded: https://jsonkitsnet.pages.dev/json-to-url-encoded
+- JSON ↔ URL Parameters: https://jsonkitsnet.pages.dev/json-to-url-params
+- JSON ↔ Query String: https://jsonkitsnet.pages.dev/json-to-query-string
+- JSON ↔ JSONP: https://jsonkitsnet.pages.dev/json-to-jsonp
+
+## Edit & Transform
+- JSON Sort Keys: https://jsonkitsnet.pages.dev/json-sort-keys
+- JSON Remove Nulls: https://jsonkitsnet.pages.dev/json-remove-nulls
+- JSON Remove Duplicates: https://jsonkitsnet.pages.dev/json-remove-duplicates
+- JSON Rename Keys: https://jsonkitsnet.pages.dev/json-rename-keys
+- JSON Filter: https://jsonkitsnet.pages.dev/json-filter
+- JSON Merge: https://jsonkitsnet.pages.dev/json-merge
+- JSON Split: https://jsonkitsnet.pages.dev/json-split
+- JSON Slice: https://jsonkitsnet.pages.dev/json-slice
+- JSON Case Converter: https://jsonkitsnet.pages.dev/json-case-converter
+- JSON Date Formatter: https://jsonkitsnet.pages.dev/json-date-formatter
+- JSON Number Converter: https://jsonkitsnet.pages.dev/json-number-converter
+- JSON Data Anonymizer: https://jsonkitsnet.pages.dev/json-data-anonymizer
+
+## API Formats
+- JSON → GraphQL Schema: https://jsonkitsnet.pages.dev/json-to-graphql-schema
+- JSON → OpenAPI: https://jsonkitsnet.pages.dev/json-to-openapi
+- JSON → Swagger: https://jsonkitsnet.pages.dev/json-to-swagger
+- JSON → Postman Collection: https://jsonkitsnet.pages.dev/json-to-postman
+- JSON → cURL: https://jsonkitsnet.pages.dev/json-to-curl
+- JSON → AsyncAPI: https://jsonkitsnet.pages.dev/json-to-asyncapi
+- JSON → SOAP XML: https://jsonkitsnet.pages.dev/json-to-soap
+
+## Binary Serialization
+- JSON ↔ MessagePack: https://jsonkitsnet.pages.dev/json-to-messagepack
+- JSON ↔ CBOR: https://jsonkitsnet.pages.dev/json-to-cbor
+- JSON ↔ Protocol Buffers: https://jsonkitsnet.pages.dev/json-to-protobuf
+- JSON ↔ Avro: https://jsonkitsnet.pages.dev/json-to-avro
+- JSON ↔ BSON: https://jsonkitsnet.pages.dev/json-to-bson
+
+## Export & Output
+- JSON → PDF: https://jsonkitsnet.pages.dev/json-to-pdf
+- JSON → Word: https://jsonkitsnet.pages.dev/json-to-word
+- JSON → Excel: https://jsonkitsnet.pages.dev/json-to-xlsx
+- JSON → QR Code: https://jsonkitsnet.pages.dev/json-to-qrcode
+- JSON → SVG Image: https://jsonkitsnet.pages.dev/json-to-image
+- JSON → Markdown: https://jsonkitsnet.pages.dev/json-to-markdown
+- JSON → HTML: https://jsonkitsnet.pages.dev/json-to-html
+- JSON → Mermaid Diagram: https://jsonkitsnet.pages.dev/json-to-mermaid
+- JSON → Graphviz: https://jsonkitsnet.pages.dev/json-to-graphviz
+
+## Analysis
+- JSON Size Calculator: https://jsonkitsnet.pages.dev/json-size-calculator
+- JSON Depth Analyzer: https://jsonkitsnet.pages.dev/json-depth-analyzer
+- JSON Statistics: https://jsonkitsnet.pages.dev/json-statistics
+- JSON Key Counter: https://jsonkitsnet.pages.dev/json-key-counter
+- JSON Type Detector: https://jsonkitsnet.pages.dev/json-type-detector
+- JSON String Analyzer: https://jsonkitsnet.pages.dev/json-string-analyzer
+- JSON Value Analyzer: https://jsonkitsnet.pages.dev/json-value-analyzer
+- JSON Path Tester: https://jsonkitsnet.pages.dev/json-path-tester
+- JSON Pointer Tester: https://jsonkitsnet.pages.dev/json-pointer-tester
+- JMESPath Tester: https://jsonkitsnet.pages.dev/jmespath-tester
+- Path Notation Converter: https://jsonkitsnet.pages.dev/path-notation-converter
+
+## Developer Tools
+- JSON to Zod Schema: https://jsonkitsnet.pages.dev/json-to-zod-schema
+- JSON to Yup Schema: https://jsonkitsnet.pages.dev/json-to-yup-schema
+- JSON to Prisma Schema: https://jsonkitsnet.pages.dev/json-to-prisma-schema
+- JSON to Mongoose Schema: https://jsonkitsnet.pages.dev/json-to-mongoose-schema
+- JSON to TypeScript Enum: https://jsonkitsnet.pages.dev/json-to-typescript-enum
+- JSON to TypeScript Type Guard: https://jsonkitsnet.pages.dev/json-to-type-guard
+- JSON to Pydantic v2: https://jsonkitsnet.pages.dev/json-to-pydantic-v2
+- JSON to SQLAlchemy Model: https://jsonkitsnet.pages.dev/json-to-sqlalchemy-model
