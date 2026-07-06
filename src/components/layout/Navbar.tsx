@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 import ThemeToggle from './ThemeToggle'
 import { navItems } from '@/lib/navigation'
 
-const SITE_URL = 'https://jsonkitsnet.pages.dev'
+const SITE_URL = 'https://jsonkits.net'
 const SITE_TITLE = 'JSONKits - 300+ Free Online JSON Tools'
 
 const socialLinks = [
