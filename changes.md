@@ -1,5 +1,70 @@
 # Changes
 
+## e928f7e — feat: add _redirects to redirect jsonkits.net -> www.jsonkits.net
+
+Added `public/_redirects` file for Cloudflare Pages to 301-redirect `https://jsonkits.net/*` → `https://www.jsonkits.net/:splat`.
+
+---
+
+## 5493d21 — fix: use www.jsonkits.net as canonical domain
+
+Updated all references from `https://jsonkits.net` to `https://www.jsonkits.net` in:
+- sitemap.ts, layout.tsx (OpenGraph), Navbar.tsx (social shares)
+- robots.txt, llms.txt
+
+---
+
+## 9e19e93 — feat: add robots.txt, sitemap.xml, llms.txt links to footer
+
+Added links to `/robots.txt`, `/sitemap.xml`, and `/llms.txt` in the footer Company section.
+
+---
+
+## 0ecddef — chore: update domain from jsonkitsnet.pages.dev to jsonkits.net
+
+Replaced all references to the old Cloudflare Pages domain with the new custom domain `jsonkits.net`.
+
+---
+
+## 6577137 — feat: add llms.txt for AI crawlers and update robots.txt
+
+- Created `public/llms.txt` with categorized links to 100+ tools for LLM/AI crawlers
+- Updated `public/robots.txt` to explicitly allow AI crawlers (GPTBot, Claude-Web, PerplexityBot, etc.)
+
+---
+
+## 1aa0692 — feat: add Generators and Compare dropdowns to navbar
+
+Added "Generators" (16 tools) and "Compare" (5 tools) dropdown menus to the top navbar.
+
+---
+
+## 8fee135 — feat: replace share button with social media share icons in navbar
+
+- Removed the per-tool Share button from ToolLayout
+- Added social share dropdown in desktop navbar (Facebook, X/Twitter, LinkedIn, Reddit, WhatsApp)
+- Added compact social share icons in mobile menu
+
+---
+
+## abf8e73 — feat: add dropdown menus to navbar
+
+Converted flat navbar links into dropdown menus for Formatters (17 tools), Validators (12 tools), Viewers (10 tools), and Converters (20 tools).
+
+---
+
+## e63f345 — feat: add 11 developer-focused JSON tools
+
+New tools added:
+- **Validation/ORM schemas:** JSON to Zod Schema, JSON to Yup Schema, JSON to Prisma Schema, JSON to Mongoose Schema
+- **TypeScript code gen:** JSON to TypeScript Enum, JSON to TypeScript Type Guard
+- **Python code gen:** JSON to Pydantic v2, JSON to SQLAlchemy Model
+- **Utilities:** Path Notation Converter (JSONPath ↔ JSON Pointer ↔ JMESPath), JSON Schema Diff, JSON Data Anonymizer
+
+Converter functions in `src/lib/converters/devTools.ts`. All 11 tools have dedicated pages, metadata, and navigation entries. Total tool count: 300+.
+
+---
+
 ## 78fc8f5 — Add 48 new tools and fix SEO metadata across all pages
 
 ### New Tools (48)
