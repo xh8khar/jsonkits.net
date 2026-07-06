@@ -1,2 +1,2 @@
-# Redirect non-www to www
-https://jsonkits.net/* https://www.jsonkits.net/:splat 301!
+# Redirect apex domain to www
+jsonkits.net/* https://www.jsonkits.net/:splat 301!
