@@ -361,6 +361,19 @@ export const tools: Tool[] = [
   { id: 'json-to-snowflake', name: 'JSON to Snowflake', description: 'Generate Snowflake INSERT statements from JSON data for cloud data warehouse ingestion.', category: 'converter', slug: '/json-to-snowflake', icon: 'Database' },
   { id: 'json-to-prometheus', name: 'JSON to Prometheus', description: 'Convert JSON data to Prometheus metric format with gauge metrics for monitoring.', category: 'converter', slug: '/json-to-prometheus', icon: 'ArrowRight' },
 
+  // ---- Developer Tools ----
+  { id: 'json-to-zod-schema', name: 'JSON to Zod Schema', description: 'Generate Zod validation schemas from JSON data samples for TypeScript runtime validation.', category: 'converter', slug: '/json-to-zod-schema', icon: 'Code' },
+  { id: 'json-to-yup-schema', name: 'JSON to Yup Schema', description: 'Generate Yup validation schemas from JSON data samples for JavaScript form validation.', category: 'converter', slug: '/json-to-yup-schema', icon: 'Code' },
+  { id: 'json-to-prisma-schema', name: 'JSON to Prisma Schema', description: 'Generate Prisma ORM models from JSON data samples for Node.js/TypeScript database schemas.', category: 'converter', slug: '/json-to-prisma-schema', icon: 'Database' },
+  { id: 'json-to-mongoose-schema', name: 'JSON to Mongoose Schema', description: 'Generate Mongoose ODM schemas from JSON data samples for MongoDB/Node.js applications.', category: 'converter', slug: '/json-to-mongoose-schema', icon: 'Database' },
+  { id: 'json-to-typescript-enum', name: 'JSON to TypeScript Enum', description: 'Generate TypeScript enum definitions from JSON constant objects for strongly-typed code.', category: 'converter', slug: '/json-to-typescript-enum', icon: 'Code' },
+  { id: 'json-to-type-guard', name: 'JSON to TypeScript Type Guard', description: 'Generate TypeScript type guard functions for runtime type checking of JSON data structures.', category: 'converter', slug: '/json-to-type-guard', icon: 'Shield' },
+  { id: 'json-to-pydantic-v2', name: 'JSON to Pydantic v2', description: 'Generate Pydantic v2 BaseModel classes from JSON data samples for Python data validation.', category: 'converter', slug: '/json-to-pydantic-v2', icon: 'Code' },
+  { id: 'json-to-sqlalchemy-model', name: 'JSON to SQLAlchemy Model', description: 'Generate SQLAlchemy ORM model classes from JSON data samples for Python database schemas.', category: 'converter', slug: '/json-to-sqlalchemy-model', icon: 'Database' },
+  { id: 'path-notation-converter', name: 'Path Notation Converter', description: 'Convert between JSONPath, JSON Pointer (RFC 6901), and JMESPath query notations.', category: 'converter', slug: '/path-notation-converter', icon: 'ArrowRight' },
+  { id: 'json-schema-diff', name: 'JSON Schema Diff', description: 'Compare two JSON Schemas and report structural differences including added, removed, and changed properties.', category: 'compare', slug: '/json-schema-diff', icon: 'Columns' },
+  { id: 'json-data-anonymizer', name: 'JSON Data Anonymizer', description: 'Anonymize sensitive data in JSON including emails, passwords, tokens, phone numbers, and other PII fields.', category: 'formatter', slug: '/json-data-anonymizer', icon: 'EyeOff' },
+
   // ---- Display ----
   { id: 'json-to-ansi', name: 'JSON to ANSI Colorized', description: 'Render JSON data with ANSI color codes for syntax-highlighted terminal output.', category: 'formatter', slug: '/json-to-ansi', icon: 'Braces' },
 
