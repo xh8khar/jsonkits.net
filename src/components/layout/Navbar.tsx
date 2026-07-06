@@ -87,6 +87,7 @@ function SocialShare() {
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+  const [mobileExpanded, setMobileExpanded] = useState<Set<string>>(new Set())
   const pathname = usePathname()
   const dropdownRef = useRef<HTMLDivElement>(null)
 
@@ -103,7 +104,20 @@ export default function Navbar() {
   useEffect(() => {
     setOpenDropdown(null)
     setMenuOpen(false)
+    setMobileExpanded(new Set())
   }, [pathname])
+
+  const toggleMobile = (label: string) => {
+    setMobileExpanded(prev => {
+      const next = new Set(prev)
+      if (next.has(label)) {
+        next.delete(label)
+      } else {
+        next.add(label)
+      }
+      return next
+    })
+  }
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/')
 
@@ -195,25 +209,37 @@ export default function Navbar() {
               <div key={item.href}>
                 {item.children ? (
                   <>
-                    <div className="px-3 py-2 text-sm font-semibold text-slate-500 dark:text-slate-500 uppercase tracking-wider">
+                    <button
+                      onClick={() => toggleMobile(item.label)}
+                      className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                        isActive(item.href)
+                          ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
+                          : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
+                      }`}
+                    >
                       {item.label}
-                    </div>
-                    <div className="ml-3 space-y-0.5">
-                      {item.children.map(child => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          onClick={() => setMenuOpen(false)}
-                          className={`block px-3 py-1.5 rounded-lg text-sm ${
-                            pathname === child.href
-                              ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
-                              : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
-                          }`}
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
+                      <svg className={`w-3 h-3 transition-transform ${mobileExpanded.has(item.label) ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                    {mobileExpanded.has(item.label) && (
+                      <div className="ml-3 space-y-0.5 animate-fade-in">
+                        {item.children.map(child => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            onClick={() => setMenuOpen(false)}
+                            className={`block px-3 py-1.5 rounded-lg text-sm ${
+                              pathname === child.href
+                                ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
+                                : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
+                            }`}
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </>
                 ) : (
                   <Link
