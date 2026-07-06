@@ -41,7 +41,7 @@ export default function ToolPageClient() {
 
   return (
     <>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
         <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-3">Fetch JSON from URL</h1>
         <p className="text-slate-600 dark:text-slate-400 max-w-3xl mb-8">Fetch and display JSON data from any REST API endpoint. Enter a URL and click Fetch to see the formatted JSON response.</p>
         <InputPanel label="API URL" value={input} onChange={setInput} placeholder="https://api.example.com/data.json" />

@@ -1,22 +1,22 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { blogPosts } from '@/lib/blog/posts'
+import { learnPosts } from '@/lib/learn/posts'
 
 interface Props {
   params: Promise<{ slug: string }>
 }
 
 export async function generateStaticParams() {
-  return blogPosts.map(post => ({ slug: post.slug }))
+  return learnPosts.map(post => ({ slug: post.slug }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const post = blogPosts.find(p => p.slug === slug)
+  const post = learnPosts.find(p => p.slug === slug)
   if (!post) return {}
   return {
-    title: `${post.title} — JSONKits Blog`,
+    title: `${post.title} — JSONKits Learn`,
     description: post.description,
     keywords: post.keywords,
     openGraph: {
@@ -28,18 +28,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default async function BlogPostPage({ params }: Props) {
+export default async function LearnPostPage({ params }: Props) {
   const { slug } = await params
-  const post = blogPosts.find(p => p.slug === slug)
+  const post = learnPosts.find(p => p.slug === slug)
   if (!post) notFound()
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 animate-fade-in">
-      <Link href="/blog" className="inline-flex items-center gap-1 text-sm text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 mb-6 transition-colors">
+      <Link href="/learn" className="inline-flex items-center gap-1 text-sm text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 mb-6 transition-colors">
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
-        Back to Blog
+        Back to Learn
       </Link>
 
       <article>
@@ -75,7 +75,7 @@ export default async function BlogPostPage({ params }: Props) {
 
       <div className="mt-8 text-center">
         <Link
-          href="/blog"
+          href="/learn"
           className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

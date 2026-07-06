@@ -2,6 +2,7 @@ import type { NavItem, Tool } from '@/types'
 
 export const navItems: NavItem[] = [
   { label: 'Home', href: '/' },
+  { label: 'Learn', href: '/learn' },
   { label: 'Blog', href: '/blog' },
   {
     label: 'Formatters',
