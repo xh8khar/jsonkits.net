@@ -85,6 +85,39 @@ export const navItems: NavItem[] = [
       { label: 'Plain Text to JSON', href: '/plain-text-to-json' },
     ],
   },
+  {
+    label: 'Generators',
+    href: '/json-fake-generator',
+    children: [
+      { label: 'Fake JSON Generator', href: '/json-fake-generator' },
+      { label: 'Random JSON Generator', href: '/json-random-generator' },
+      { label: 'Mock API Generator', href: '/json-mock-generator' },
+      { label: 'Sample JSON Generator', href: '/json-sample-generator' },
+      { label: 'JSON Schema Generator', href: '/json-schema-generator' },
+      { label: 'TypeScript Interface to JSON', href: '/typescript-interface-to-json' },
+      { label: 'Java Class to JSON', href: '/java-class-to-json' },
+      { label: 'C# Class to JSON', href: '/csharp-class-to-json' },
+      { label: 'Python Dict to JSON', href: '/python-dict-to-json' },
+      { label: 'Go Struct to JSON', href: '/go-struct-to-json' },
+      { label: 'PHP Array to JSON', href: '/php-array-to-json' },
+      { label: 'Kotlin to JSON', href: '/kotlin-to-json' },
+      { label: 'Swift to JSON', href: '/swift-to-json' },
+      { label: 'Dart to JSON', href: '/dart-to-json' },
+      { label: 'Rust Struct to JSON', href: '/rust-struct-to-json' },
+      { label: 'Fake Data to JSON', href: '/fake-data-to-json' },
+    ],
+  },
+  {
+    label: 'Compare',
+    href: '/json-diff-checker',
+    children: [
+      { label: 'JSON Diff Checker', href: '/json-diff-checker' },
+      { label: 'JSON Compare', href: '/json-compare' },
+      { label: 'JSON Version Diff', href: '/json-version-diff' },
+      { label: 'JSON Array Diff', href: '/json-array-diff' },
+      { label: 'JSON Schema Diff', href: '/json-schema-diff' },
+    ],
+  },
 ]
 
 export const tools: Tool[] = [
