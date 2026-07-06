@@ -44,11 +44,24 @@ export default function InputPanel({ label, value, onChange, placeholder, langua
     <div className="flex flex-col">
       <div className="flex items-center justify-between mb-2">
         <label className="text-sm font-medium text-slate-700 dark:text-slate-300">{label}</label>
+        <label className="inline-flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 cursor-pointer">
+          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+          </svg>
+          Choose File
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept=".json,.yaml,.yml,.csv,.ts,.txt,.xml,.toml,.ini,.env,.properties,.graphql,.sql,.md,.tsv"
+            onChange={handleFileChange}
+            className="hidden"
+          />
+        </label>
       </div>
       <div
         onDrop={handleDrop}
         onDragOver={handleDragOver}
-        className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden flex-1 min-h-[300px] relative"
+        className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden flex-1 min-h-[300px]"
       >
         <MonacoEditor
           height="400px"
@@ -66,21 +79,6 @@ export default function InputPanel({ label, value, onChange, placeholder, langua
             padding: { top: 8 },
           }}
         />
-        <div className="absolute top-2 right-2 z-10">
-          <label className="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-slate-500 dark:text-slate-400 bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-600 rounded-md hover:bg-white dark:hover:bg-slate-800 hover:border-blue-400 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer transition-colors shadow-sm">
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-            </svg>
-            Choose File
-            <input
-              ref={fileInputRef}
-              type="file"
-              accept=".json,.yaml,.yml,.csv,.ts,.txt,.xml,.toml,.ini,.env,.properties,.graphql,.sql,.md,.tsv"
-              onChange={handleFileChange}
-              className="hidden"
-            />
-          </label>
-        </div>
       </div>
     </div>
   )
