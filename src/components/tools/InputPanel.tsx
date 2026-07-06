@@ -1,8 +1,7 @@
 'use client'
 
-import { useRef, useState, useCallback } from 'react'
+import { useRef, useCallback } from 'react'
 import dynamic from 'next/dynamic'
-import type { OnMount } from '@monaco-editor/react'
 
 const MonacoEditor = dynamic(() => import('@monaco-editor/react'), { ssr: false })
 
@@ -16,8 +15,6 @@ interface InputPanelProps {
 
 export default function InputPanel({ label, value, onChange, placeholder, language = 'json' }: InputPanelProps) {
   const fileInputRef = useRef<HTMLInputElement>(null)
-  const editorRef = useRef<Parameters<OnMount>[0] | null>(null)
-  const [showHint, setShowHint] = useState(true)
 
   const handleFile = useCallback((file: File | undefined) => {
     if (!file) return
@@ -43,18 +40,6 @@ export default function InputPanel({ label, value, onChange, placeholder, langua
     e.preventDefault()
   }, [])
 
-  const handleMount: OnMount = useCallback((editor) => {
-    editorRef.current = editor
-    editor.onDidFocusEditorText(() => setShowHint(false))
-  }, [])
-
-  const handleHintClick = useCallback(() => {
-    setShowHint(false)
-    editorRef.current?.focus()
-  }, [])
-
-  const isHintVisible = showHint && !value
-
   return (
     <div className="flex flex-col">
       <div className="flex items-center justify-between mb-2">
@@ -78,17 +63,14 @@ export default function InputPanel({ label, value, onChange, placeholder, langua
         onDragOver={handleDragOver}
         className="relative border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden flex-1 min-h-[300px]"
       >
-        {isHintVisible && (
-          <div
-            onClick={handleHintClick}
-            className="absolute inset-0 z-10 flex items-center justify-center bg-slate-50 dark:bg-slate-800/50 cursor-pointer"
-          >
-            <div className="text-center text-slate-400 dark:text-slate-500 pointer-events-none">
-              <svg className="w-10 h-10 mx-auto mb-3 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        {!value && (
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+            <div className="text-center text-slate-400 dark:text-slate-500">
+              <svg className="w-10 h-10 mx-auto mb-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
               </svg>
-              <p className="text-sm font-medium">Drag & drop a file here</p>
-              <p className="text-xs mt-1 opacity-60">or click to start typing</p>
+              <p className="text-sm font-medium">Drop a file here</p>
+              <p className="text-xs mt-1 opacity-50">or paste your JSON</p>
             </div>
           </div>
         )}
@@ -97,7 +79,6 @@ export default function InputPanel({ label, value, onChange, placeholder, langua
           language={language}
           value={value}
           onChange={(v) => onChange(v || '')}
-          onMount={handleMount}
           theme="vs-dark"
           options={{
             minimap: { enabled: false },
