@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/Button'
 import { useToast } from '@/components/ui/Toast'
 import InputPanel from './InputPanel'
 import OutputPanel from './OutputPanel'
-import { decodeShareData } from '@/lib/share'
+import { decodeShareData, buildShareUrl, parseHashShare } from '@/lib/share'
 
 const MAX_HISTORY = 20
 
@@ -99,6 +99,12 @@ export default function ToolLayout({
   }, [toolSlug])
 
   useEffect(() => {
+    const hashData = parseHashShare()
+    if (hashData) {
+      setInput(hashData.input)
+      setOutput(hashData.output)
+      return
+    }
     const params = new URLSearchParams(window.location.search)
     const d = params.get('d')
     if (d) {
@@ -180,6 +186,16 @@ export default function ToolLayout({
     setError('')
   }, [])
 
+  const handleShare = useCallback(() => {
+    if (!input && !output) return
+    const url = buildShareUrl(input, output)
+    navigator.clipboard.writeText(url).then(() => {
+      addToast('Share link copied to clipboard!', 'success')
+    }).catch(() => {
+      addToast('Failed to copy share link', 'error')
+    })
+  }, [input, output, addToast])
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
       <div className="mb-8">
@@ -239,6 +255,15 @@ export default function ToolLayout({
             }>
               Download
             </Button>
+            {output && (
+              <Button variant="secondary" onClick={handleShare} icon={
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                </svg>
+              }>
+                Share
+              </Button>
+            )}
           </>
         )}
 

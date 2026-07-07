@@ -28,3 +28,16 @@ export function decodeShareData(encoded: string): { input: string; output: strin
     return null
   }
 }
+
+export function buildShareUrl(input: string, output: string): string {
+  const encoded = encodeShareData(input, output)
+  const { origin, pathname } = window.location
+  return `${origin}${pathname}#d=${encoded}`
+}
+
+export function parseHashShare(): { input: string; output: string } | null {
+  if (typeof window === 'undefined') return null
+  const hash = window.location.hash
+  if (!hash.startsWith('#d=')) return null
+  return decodeShareData(hash.slice(3))
+}
