@@ -6,8 +6,9 @@ function toBase64Url(bytes: Uint8Array): string {
 }
 
 function fromBase64Url(str: string): Uint8Array {
-  const base64 = str.replace(/-/g, '+').replace(/_/g, '/') + '=='.slice(0, (3 - str.length % 3) % 3)
-  const binary = atob(base64)
+  const base64 = str.replace(/-/g, '+').replace(/_/g, '/')
+  const padded = base64 + '===='.slice(0, (4 - base64.length % 4) % 4)
+  const binary = atob(padded)
   const bytes = new Uint8Array(binary.length)
   for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i)
   return bytes

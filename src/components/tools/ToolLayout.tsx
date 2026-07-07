@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/Button'
 import { useToast } from '@/components/ui/Toast'
 import InputPanel from './InputPanel'
 import OutputPanel from './OutputPanel'
-import { decodeShareData, buildShareUrl, parseHashShare } from '@/lib/share'
+import { decodeShareData, buildShareUrl } from '@/lib/share'
 
 const MAX_HISTORY = 20
 
@@ -99,10 +99,15 @@ export default function ToolLayout({
   }, [toolSlug])
 
   useEffect(() => {
-    const hashData = parseHashShare()
-    if (hashData) {
-      setInput(hashData.input)
-      setOutput(hashData.output)
+    const hash = window.location.hash
+    if (hash.startsWith('#d=')) {
+      const decoded = decodeShareData(hash.slice(3))
+      if (decoded) {
+        setInput(decoded.input)
+        setOutput(decoded.output)
+      } else {
+        addToast('Share link data is corrupted or invalid', 'error')
+      }
       return
     }
     const params = new URLSearchParams(window.location.search)
@@ -112,9 +117,17 @@ export default function ToolLayout({
       if (decoded) {
         setInput(decoded.input)
         setOutput(decoded.output)
+      } else {
+        addToast('Share link data is corrupted or invalid', 'error')
       }
     }
   }, [])
+
+  useEffect(() => {
+    const slug = toolSlug || window.location.pathname.replace(/^\//, '')
+    slugRef.current = slug
+    setHistory(loadHistory(slug))
+  }, [toolSlug])
 
   const handleConvert = useCallback(async () => {
     if (!input.trim()) {
