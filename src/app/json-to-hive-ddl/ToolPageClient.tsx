@@ -20,19 +20,35 @@ export default function ToolPageClient() {
         toolSlug="json-to-hive-ddl"
       />
       <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
-        <h2>What Is This Tool?</h2>
-        <p>This tool generates Apache Hive DDL CREATE TABLE statements with JSON SerDe configuration from your JSON data samples.</p>
-        <h2>How to Use</h2>
+        <h2>What Is Hive DDL?</h2>
+        <p>Hive DDL (Data Definition Language) consists of CREATE, ALTER, and DROP statements used to define table structures in Apache Hive. When working with JSON data, Hive uses a JSON SerDe (Serializer/Deserializer) to parse and query the data using SQL-like syntax.</p>
+        <p>This tool is used for:</p>
+        <ul>
+          <li><strong>Big Data Warehousing</strong>: Quickly generate Hive table definitions for JSON datasets stored in HDFS or S3.</li>
+          <li><strong>Schema-on-Read</strong>: Define external Hive tables over raw JSON files without pre-loading data.</li>
+          <li><strong>ETL Pipeline Setup</strong>: Bootstrap Hive tables for downstream processing with tools like Pig, Spark, or MapReduce.</li>
+        </ul>
+        <h2>How to Use JSON to Hive DDL Online</h2>
         <ol>
-          <li>Paste your input data in the editor</li>
-          <li>Click the Convert button</li>
-          <li>Copy or download the result</li>
+          <li><strong>Paste your JSON sample</strong>: Enter a representative JSON record that matches the structure of your data files.</li>
+          <li><strong>Click Generate Hive DDL</strong>: The tool produces a complete CREATE TABLE statement with ROW FORMAT SERDE and column definitions.</li>
+          <li><strong>Execute in Hive</strong>: Run the generated DDL in your Hive CLI, Beeline, or Hue to create the table and start querying your JSON data.</li>
         </ol>
         <h2>Frequently Asked Questions</h2>
+        <h3>What is a JSON SerDe in Hive?</h3>
+        <p>A JSON SerDe (org.apache.hive.hcatalog.data.JsonSerDe) is a Hive serialization library that allows Hive to read and write JSON-formatted data. The generated DDL includes the necessary SerDe class and table properties for Hive to parse JSON files correctly.</p>
         <h3>Is this tool safe?</h3>
         <p>Yes. All processing happens 100% client-side in your browser. Nothing is uploaded to any server.</p>
         <h3>Is this tool free?</h3>
         <p>Yes, completely free with no usage limits or registration required.</p>
+        <h2>Real-World Examples</h2>
+        <p>Data analysts in Hadoop ecosystems often receive JSON log files or API exports that need to be queried with HiveQL. Rather than manually constructing DDL with SerDe properties and column mappings — which is tedious for wide schemas — this tool generates the complete Hive table definition from a single JSON record, accelerating the time from data landing to query execution.</p>
+        <h2>Related Tools</h2>
+        <ul>
+          <li><a href="/json-to-pyspark-schema">JSON to PySpark Schema</a> — Generate PySpark StructType schemas from JSON data</li>
+          <li><a href="/json-to-snowflake">JSON to Snowflake</a> — Generate Snowflake table schemas from JSON data</li>
+          <li><a href="/json-to-dbml">JSON to DBML</a> — Generate Database Markup Language from JSON</li>
+        </ul>
       </article>
     </>
   )

@@ -22,19 +22,35 @@ export default function ToolPageClient() {
         toolSlug="vcard-to-json"
       />
       <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
-        <h2>What Is This Tool?</h2>
-        <p>Convert vCard (.vcf) contact files into structured JSON objects. vCard is a standard file format for electronic business cards, widely used for contact exchange. This tool parses vCard fields like name, phone, email, and organization into clean JSON.</p>
-        <h2>How to Use</h2>
+        <h2>What Is vCard to JSON?</h2>
+        <p>vCard (Virtual Contact File, .vcf) is a worldwide standard file format for electronic business cards, used by virtually all email clients, address books, and mobile operating systems. Converting vCard to JSON transforms contact data like names, phone numbers, emails, and addresses into structured, machine-readable JSON objects.</p>
+        <p>This is used for:</p>
+        <ul>
+          <li><strong>Contact Management</strong>: Parsing vCard exports from Apple Contacts, Google Contacts, or Outlook into JSON for programmatic processing or database storage.</li>
+          <li><strong>Data Migration</strong>: Converting bulk vCard files into JSON for importing into CRM systems, marketing platforms, or custom contact databases.</li>
+          <li><strong>API Integration</strong>: Normalizing contact data from various vCard sources into a consistent JSON format for REST API consumption.</li>
+        </ul>
+        <h2>How to Use vCard to JSON Online</h2>
         <ol>
-          <li>Paste your input data in the editor</li>
-          <li>Click the Convert button</li>
-          <li>Copy or download the result</li>
+          <li><strong>Paste your vCard data</strong>: Copy the entire vCard content starting with <code>BEGIN:VCARD</code> and ending with <code>END:VCARD</code>, including all property fields.</li>
+          <li><strong>Click Convert</strong>: Press the Convert to JSON button to parse the vCard structure and extract all fields into a structured JSON object.</li>
+          <li><strong>Copy or download</strong>: Copy the JSON output or download it for integration with your application or database.</li>
         </ol>
         <h2>Frequently Asked Questions</h2>
+        <h3>What vCard versions are supported?</h3>
+        <p>This tool supports vCard versions 2.1, 3.0, and 4.0. It handles standard properties like FN (formatted name), N (name components), TEL (phone), EMAIL, ADR (address), ORG (organization), and more.</p>
         <h3>Is this tool safe?</h3>
         <p>Yes. All processing happens 100% client-side in your browser. Nothing is uploaded to any server.</p>
         <h3>Is this tool free?</h3>
         <p>Yes, completely free with no usage limits or registration required.</p>
+        <h2>Real-World Examples</h2>
+        <p>Businesses migrating from one CRM to another often export contacts as vCard files from systems like Google Workspace or Microsoft 365. Using this converter, teams can transform those vCard exports into JSON, then use custom scripts to map the data into their new CRM's API format or import into a database.</p>
+        <h2>Related Tools</h2>
+        <ul>
+          <li><a href="/json-to-vcard">JSON to vCard</a> — Reverse conversion from JSON contact data to vCard format</li>
+          <li><a href="/ical-to-json">iCal to JSON</a> — Convert iCalendar event files to JSON</li>
+          <li><a href="/csv-to-json">CSV to JSON</a> — Convert CSV spreadsheet data to JSON</li>
+        </ul>
       </article>
     </>
   )

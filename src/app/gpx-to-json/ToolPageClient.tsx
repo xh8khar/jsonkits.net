@@ -20,19 +20,35 @@ export default function ToolPageClient() {
         toolSlug="gpx-to-json"
       />
       <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
-        <h2>What Is This Tool?</h2>
-        <p>This tool converts GPX (GPS Exchange Format) files into structured JSON with waypoints, tracks, and route data including elevation and timestamps.</p>
-        <h2>How to Use</h2>
+        <h2>What Is GPX?</h2>
+        <p>GPX (GPS Exchange Format) is an XML-based format used to store GPS data including waypoints, tracks, and routes with elevation, timestamps, and satellite metadata. Converting GPX to JSON makes GPS data easier to process in web applications, data analysis, and mapping tools.</p>
+        <p>This is used for:</p>
+        <ul>
+          <li><strong>GPS Data Analysis</strong>: Converting GPX tracks to JSON for performance analysis, route comparisons, and statistical processing.</li>
+          <li><strong>Web Mapping Integration</strong>: Importing GPS data from fitness devices and outdoor apps into browser-based mapping applications.</li>
+          <li><strong>Geospatial Data Processing</strong>: Parsing GPS tracks and waypoints for further computation in geospatial pipelines.</li>
+        </ul>
+        <h2>How to Use GPX to JSON Online</h2>
         <ol>
-          <li>Paste your input data in the editor</li>
-          <li>Click the Convert button</li>
-          <li>Copy or download the result</li>
+          <li><strong>Paste your GPX content</strong>: Copy GPX XML data with track segments, waypoints, or routes from your GPS device or app export.</li>
+          <li><strong>Convert to JSON</strong>: Click the "Convert to JSON" button to extract GPS coordinates, elevation, and timestamps.</li>
+          <li><strong>Copy or download</strong>: Save the structured JSON output for analysis in your application or mapping tool.</li>
         </ol>
         <h2>Frequently Asked Questions</h2>
+        <h3>What GPX elements are extracted?</h3>
+        <p>The converter extracts trackpoints (trkpt) with lat/lon coordinates, elevation (ele), timestamps (time), waypoints (wpt), routes (rte), and metadata like name, description, and type from the GPX file.</p>
         <h3>Is this tool safe?</h3>
         <p>Yes. All processing happens 100% client-side in your browser. Nothing is uploaded to any server.</p>
         <h3>Is this tool free?</h3>
         <p>Yes, completely free with no usage limits or registration required.</p>
+        <h2>Real-World Examples</h2>
+        <p>Cyclists and runners convert GPX files from fitness watches to JSON for performance analysis and route visualization. Geocaching enthusiasts parse GPX waypoint data for cache management, and outdoor app developers use the conversion to ingest GPS track data into their platforms.</p>
+        <h2>Related Tools</h2>
+        <ul>
+          <li><a href="/kml-to-geojson">KML to GeoJSON</a> — Convert Google Earth KML files to GeoJSON format</li>
+          <li><a href="/geojson-to-kml">GeoJSON to KML</a> — Convert GeoJSON data to Google Earth KML format</li>
+          <li><a href="/json-viewer">JSON Viewer</a> — Browse and inspect JSON data with a tree view</li>
+        </ul>
       </article>
     </>
   )
