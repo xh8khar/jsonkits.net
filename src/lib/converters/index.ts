@@ -10,6 +10,7 @@ export * from './utilities'
 export * from './extras'
 export * from './resources'
 export * from './devTools'
+export * from './newTools'
 
 export function formatJSON(input: string): string {
   try {
