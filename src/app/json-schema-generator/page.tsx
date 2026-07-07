@@ -5,6 +5,18 @@ export const metadata: Metadata = {
   title: 'JSON Schema Generator - Free Online Generator ',
   description: 'Generate a JSON Schema (draft-07) from JSON data samples. 100% free, client-side JSON tool with no server uploads.',
   keywords: ['json schema generator, json schema generator online, json schema generator tool, json generator, generate json, json creator, json maker, random json generator, json data generator, mock json data, online json tool, free json tool, jsonkits'],
+  alternates: { canonical: 'https://www.jsonkits.net/json-schema-generator/' },
+  openGraph: {
+    title: 'JSON Schema Generator - Free Online Generator ',
+    description: 'Generate a JSON Schema (draft-07) from JSON data samples. 100% free, client-side JSON tool with no server uploads.',
+    url: 'https://www.jsonkits.net/json-schema-generator/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'JSON Schema Generator - Free Online Generator ',
+    description: 'Generate a JSON Schema (draft-07) from JSON data samples. 100% free, client-side JSON tool with no server uploads.',
+  },
 }
 
 export default function Page() {

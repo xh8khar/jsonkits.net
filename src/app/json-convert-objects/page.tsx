@@ -5,6 +5,18 @@ export const metadata: Metadata = {
   title: 'JSON Convert to Array - Free Online Converter ',
   description: 'Transpose object of arrays back into array of objects. 100% free, client-side JSON tool with no server uploads.',
   keywords: ['json convert to array, json convert to array online, json convert to array tool, json convert objects online, json convert objects tool, json converter, convert json, json transformation, data conversion, json format converter, online json converter, online json tool, free json tool, jsonkits'],
+  alternates: { canonical: 'https://www.jsonkits.net/json-convert-objects/' },
+  openGraph: {
+    title: 'JSON Convert to Array - Free Online Converter ',
+    description: 'Transpose object of arrays back into array of objects. 100% free, client-side JSON tool with no server uploads.',
+    url: 'https://www.jsonkits.net/json-convert-objects/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'JSON Convert to Array - Free Online Converter ',
+    description: 'Transpose object of arrays back into array of objects. 100% free, client-side JSON tool with no server uploads.',
+  },
 }
 
 export default function Page() {

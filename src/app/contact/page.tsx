@@ -1,8 +1,23 @@
 import type { Metadata } from 'next'
 
+const title = 'Contact'
+const description = 'Get in touch with the JSONKits team. Reach us at contact@jsonkits.com.'
+
 export const metadata: Metadata = {
-  title: 'Contact',
-  description: 'Get in touch with the JSONKits team. Reach us at contact@jsonkits.com.',
+  title,
+  description,
+  alternates: { canonical: 'https://www.jsonkits.net/contact/' },
+  openGraph: {
+    title,
+    description,
+    url: 'https://www.jsonkits.net/contact/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+  },
 }
 
 export default function ContactPage() {

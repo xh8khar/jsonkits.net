@@ -6,7 +6,15 @@ export const metadata: Metadata = {
   title: 'Learn JSON — JSONKits: free Online JSON Tutorials',
   description: 'Master JSON with our comprehensive collection of tutorials and guides. Learn JSON syntax, data types, validation, conversion, and best practices.',
   keywords: 'learn json, json tutorial, json guide, json for beginners, json programming, json how to, json tips and tricks, json best practices',
+  alternates: { canonical: 'https://www.jsonkits.net/learn/' },
   openGraph: {
+    title: 'Learn JSON — Free Online JSON Tutorials and Guides',
+    description: 'Master JSON from beginner to advanced with our free tutorials, guides, and articles.',
+    url: 'https://www.jsonkits.net/learn/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
     title: 'Learn JSON — Free Online JSON Tutorials and Guides',
     description: 'Master JSON from beginner to advanced with our free tutorials, guides, and articles.',
   },

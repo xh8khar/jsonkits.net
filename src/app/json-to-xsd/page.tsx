@@ -5,6 +5,18 @@ export const metadata: Metadata = {
   title: 'JSON to XSD Converter - Free Online Converter',
   description: 'Generate XML Schema Definition (XSD) from JSON data samples for enterprise XML data validation. 100% free, client-side JSON tool with no server uploads.',
   keywords: ['json to xsd, json to xsd online, json to xsd tool, convert json to xsd, json xsd converter, json converter, convert json, json transformation, data conversion, json format converter, online json converter, online json tool, free json tool, jsonkits'],
+  alternates: { canonical: 'https://www.jsonkits.net/json-to-xsd/' },
+  openGraph: {
+    title: 'JSON to XSD Converter - Free Online Converter',
+    description: 'Generate XML Schema Definition (XSD) from JSON data samples for enterprise XML data validation. 100% free, client-side JSON tool with no server uploads.',
+    url: 'https://www.jsonkits.net/json-to-xsd/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'JSON to XSD Converter - Free Online Converter',
+    description: 'Generate XML Schema Definition (XSD) from JSON data samples for enterprise XML data validation. 100% free, client-side JSON tool with no server uploads.',
+  },
 }
 
 export default function Page() {

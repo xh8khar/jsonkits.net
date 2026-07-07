@@ -5,6 +5,18 @@ export const metadata: Metadata = {
   title: 'JSON to Pandas DataFrame - Generate Python Pandas Code',
   description: 'Generate Python Pandas DataFrame code from JSON data for data analysis and manipulation.',
   keywords: ['json to pandas', 'pandas dataframe', 'python code generator', 'json to python'],
+  alternates: { canonical: 'https://www.jsonkits.net/json-to-pandas/' },
+  openGraph: {
+    title: 'JSON to Pandas DataFrame - Generate Python Pandas Code',
+    description: 'Generate Python Pandas DataFrame code from JSON data for data analysis and manipulation.',
+    url: 'https://www.jsonkits.net/json-to-pandas/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'JSON to Pandas DataFrame - Generate Python Pandas Code',
+    description: 'Generate Python Pandas DataFrame code from JSON data for data analysis and manipulation.',
+  },
 }
 
 export default function Page() {

@@ -1,9 +1,24 @@
 import type { Metadata } from 'next'
 
+const title = 'Privacy Policy'
+const description =
+  'JSONKits privacy policy. All JSON processing happens client-side. No data is uploaded to servers.'
+
 export const metadata: Metadata = {
-  title: 'Privacy Policy',
-  description:
-    'JSONKits privacy policy. All JSON processing happens client-side. No data is uploaded to servers.',
+  title,
+  description,
+  alternates: { canonical: 'https://www.jsonkits.net/privacy/' },
+  openGraph: {
+    title,
+    description,
+    url: 'https://www.jsonkits.net/privacy/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+  },
 }
 
 export default function PrivacyPage() {

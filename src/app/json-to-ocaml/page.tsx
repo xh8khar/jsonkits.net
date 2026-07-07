@@ -5,6 +5,18 @@ export const metadata: Metadata = {
   title: 'JSON to OCaml Converter - Free Online Converter',
   description: 'Generate OCaml type definitions with Yojson deriving from JSON samples. 100% free, client-side JSON tool with no server uploads.',
   keywords: ['json to ocaml, json to ocaml online, json to ocaml tool, convert json to ocaml, json ocaml converter, json converter, convert json, json transformation, data conversion, json format converter, online json converter, online json tool, free json tool, jsonkits'],
+  alternates: { canonical: 'https://www.jsonkits.net/json-to-ocaml/' },
+  openGraph: {
+    title: 'JSON to OCaml Converter - Free Online Converter',
+    description: 'Generate OCaml type definitions with Yojson deriving from JSON samples. 100% free, client-side JSON tool with no server uploads.',
+    url: 'https://www.jsonkits.net/json-to-ocaml/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'JSON to OCaml Converter - Free Online Converter',
+    description: 'Generate OCaml type definitions with Yojson deriving from JSON samples. 100% free, client-side JSON tool with no server uploads.',
+  },
 }
 
 export default function Page() {

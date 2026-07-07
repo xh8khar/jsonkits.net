@@ -5,6 +5,18 @@ export const metadata: Metadata = {
   title: 'JSON to SOAP XML Converter - Free Online Converter',
   description: 'Convert JSON data to SOAP XML envelope format for enterprise web service integration. 100% free, client-side JSON tool with no server uploads.',
   keywords: ['json to soap xml, json to soap xml online, json to soap xml tool, json to soap online, json to soap tool, json to soap, convert json to soap, json soap converter, json converter, convert json, json transformation, data conversion, json format converter, online json converter, online json tool'],
+  alternates: { canonical: 'https://www.jsonkits.net/json-to-soap/' },
+  openGraph: {
+    title: 'JSON to SOAP XML Converter - Free Online Converter',
+    description: 'Convert JSON data to SOAP XML envelope format for enterprise web service integration. 100% free, client-side JSON tool with no server uploads.',
+    url: 'https://www.jsonkits.net/json-to-soap/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'JSON to SOAP XML Converter - Free Online Converter',
+    description: 'Convert JSON data to SOAP XML envelope format for enterprise web service integration. 100% free, client-side JSON tool with no server uploads.',
+  },
 }
 
 export default function Page() {

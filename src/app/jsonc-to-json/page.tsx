@@ -5,6 +5,18 @@ export const metadata: Metadata = {
   title: 'JSONC to JSON Converter - Free Online Converter',
   description: 'Strip comments from JSONC (JSON with Comments) to produce valid JSON. 100% free, client-side JSON tool with no server uploads.',
   keywords: ['jsonc to json, jsonc to json online, jsonc to json tool, convert jsonc to json, jsonc json converter, json converter, convert json, json transformation, data conversion, json format converter, online json converter, online json tool, free json tool, jsonkits'],
+  alternates: { canonical: 'https://www.jsonkits.net/jsonc-to-json/' },
+  openGraph: {
+    title: 'JSONC to JSON Converter - Free Online Converter',
+    description: 'Strip comments from JSONC (JSON with Comments) to produce valid JSON. 100% free, client-side JSON tool with no server uploads.',
+    url: 'https://www.jsonkits.net/jsonc-to-json/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'JSONC to JSON Converter - Free Online Converter',
+    description: 'Strip comments from JSONC (JSON with Comments) to produce valid JSON. 100% free, client-side JSON tool with no server uploads.',
+  },
 }
 
 export default function Page() {

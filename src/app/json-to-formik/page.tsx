@@ -5,6 +5,18 @@ export const metadata: Metadata = {
   title: 'JSON to Formik - Free Online Converter',
   description: 'Generate Formik form code with Yup validation from JSON data samples. 100% free, client-side form generator with no server uploads.',
   keywords: ['json to formik, json to formik online, formik form generator, form schema from json, formik yup generator, online json tool, free json tool, jsonkits'],
+  alternates: { canonical: 'https://www.jsonkits.net/json-to-formik/' },
+  openGraph: {
+    title: 'JSON to Formik - Free Online Converter',
+    description: 'Generate Formik form code with Yup validation from JSON data samples. 100% free, client-side form generator with no server uploads.',
+    url: 'https://www.jsonkits.net/json-to-formik/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'JSON to Formik - Free Online Converter',
+    description: 'Generate Formik form code with Yup validation from JSON data samples. 100% free, client-side form generator with no server uploads.',
+  },
 }
 
 export default function Page() {

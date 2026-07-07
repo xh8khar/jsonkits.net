@@ -5,6 +5,18 @@ export const metadata: Metadata = {
   title: 'JSON to SQL DELETE - Free Online Converter ',
   description: 'Generate SQL DELETE statements with WHERE clauses from JSON data for record removal.',
   keywords: ['json to sql delete, json to sql delete online, json to sql delete tool, json to sql delete, online json tool, free json tool, jsonkits'],
+  alternates: { canonical: 'https://www.jsonkits.net/json-to-sql-delete/' },
+  openGraph: {
+    title: 'JSON to SQL DELETE - Free Online Converter ',
+    description: 'Generate SQL DELETE statements with WHERE clauses from JSON data for record removal.',
+    url: 'https://www.jsonkits.net/json-to-sql-delete/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'JSON to SQL DELETE - Free Online Converter ',
+    description: 'Generate SQL DELETE statements with WHERE clauses from JSON data for record removal.',
+  },
 }
 
 export default function Page() {

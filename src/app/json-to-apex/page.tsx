@@ -5,6 +5,18 @@ export const metadata: Metadata = {
   title: 'JSON to Apex - Generate Salesforce Apex Classes',
   description: 'Generate Salesforce Apex class definitions with getters/setters from JSON data samples. 100% free, client-side JSON to Apex converter.',
   keywords: ['json to apex', 'salesforce apex', 'apex class generator', 'json to salesforce', 'apex parser', 'online json tool', 'free json tool', 'jsonkits'],
+  alternates: { canonical: 'https://www.jsonkits.net/json-to-apex/' },
+  openGraph: {
+    title: 'JSON to Apex - Generate Salesforce Apex Classes',
+    description: 'Generate Salesforce Apex class definitions with getters/setters from JSON data samples. 100% free, client-side JSON to Apex converter.',
+    url: 'https://www.jsonkits.net/json-to-apex/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'JSON to Apex - Generate Salesforce Apex Classes',
+    description: 'Generate Salesforce Apex class definitions with getters/setters from JSON data samples. 100% free, client-side JSON to Apex converter.',
+  },
 }
 
 export default function Page() {

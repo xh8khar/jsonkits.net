@@ -1,9 +1,24 @@
 import type { Metadata } from 'next'
 
+const title = 'Disclaimer'
+const description =
+  'Disclaimer and limitation of liability for using JSONKits tools and services.'
+
 export const metadata: Metadata = {
-  title: 'Disclaimer',
-  description:
-    'Disclaimer and limitation of liability for using JSONKits tools and services.',
+  title,
+  description,
+  alternates: { canonical: 'https://www.jsonkits.net/disclaimer/' },
+  openGraph: {
+    title,
+    description,
+    url: 'https://www.jsonkits.net/disclaimer/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+  },
 }
 
 export default function DisclaimerPage() {

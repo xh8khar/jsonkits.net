@@ -5,6 +5,18 @@ export const metadata: Metadata = {
   title: 'JSON to COBOL Converter - Free Online Converter',
   description: 'Generate COBOL data division structures from JSON data samples for mainframe and enterprise systems.',
   keywords: ['json to cobol, json to cobol online, json to cobol tool, json to cobol, online json tool, free json tool, jsonkits'],
+  alternates: { canonical: 'https://www.jsonkits.net/json-to-cobol/' },
+  openGraph: {
+    title: 'JSON to COBOL Converter - Free Online Converter',
+    description: 'Generate COBOL data division structures from JSON data samples for mainframe and enterprise systems.',
+    url: 'https://www.jsonkits.net/json-to-cobol/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'JSON to COBOL Converter - Free Online Converter',
+    description: 'Generate COBOL data division structures from JSON data samples for mainframe and enterprise systems.',
+  },
 }
 
 export default function Page() {

@@ -5,6 +5,18 @@ export const metadata: Metadata = {
   title: 'JSON Size Calculator - Free Online Formatter ',
   description: 'Calculate the byte size, element count, and depth of JSON data. 100% free, client-side JSON tool with no server uploads.',
   keywords: ['json size calculator, json size calculator online, json size calculator tool, json formatter, json beautifier, pretty print json, format json online, json prettier, json formatting tool, json indentation, json formatter online, online json tool, free json tool, jsonkits'],
+  alternates: { canonical: 'https://www.jsonkits.net/json-size-calculator/' },
+  openGraph: {
+    title: 'JSON Size Calculator - Free Online Formatter ',
+    description: 'Calculate the byte size, element count, and depth of JSON data. 100% free, client-side JSON tool with no server uploads.',
+    url: 'https://www.jsonkits.net/json-size-calculator/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'JSON Size Calculator - Free Online Formatter ',
+    description: 'Calculate the byte size, element count, and depth of JSON data. 100% free, client-side JSON tool with no server uploads.',
+  },
 }
 
 export default function Page() {

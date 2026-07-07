@@ -5,6 +5,18 @@ export const metadata: Metadata = {
   title: 'JSON to Chart - Visualize JSON Data',
   description: 'Create ASCII bar chart visualizations from numeric JSON data. 100% free, client-side JSON to chart tool.',
   keywords: ['json to chart', 'json visualization', 'ascii bar chart', 'json data viz', 'chart from json', 'online json tool', 'free json tool', 'jsonkits'],
+  alternates: { canonical: 'https://www.jsonkits.net/json-to-chart/' },
+  openGraph: {
+    title: 'JSON to Chart - Visualize JSON Data',
+    description: 'Create ASCII bar chart visualizations from numeric JSON data. 100% free, client-side JSON to chart tool.',
+    url: 'https://www.jsonkits.net/json-to-chart/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'JSON to Chart - Visualize JSON Data',
+    description: 'Create ASCII bar chart visualizations from numeric JSON data. 100% free, client-side JSON to chart tool.',
+  },
 }
 
 export default function Page() {

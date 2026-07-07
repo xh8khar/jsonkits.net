@@ -1,12 +1,14 @@
 'use client'
 
 import { useState, useCallback, useEffect, useRef } from 'react'
+import { usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/Button'
 import { useToast } from '@/components/ui/Toast'
 import InputPanel from './InputPanel'
 import OutputPanel from './OutputPanel'
 import { decodeShareData, buildShareUrl } from '@/lib/share'
 
+const SITE_URL = 'https://www.jsonkits.net'
 const MAX_HISTORY = 20
 
 interface HistoryEntry {
@@ -82,6 +84,29 @@ export default function ToolLayout({
   children,
   toolSlug,
 }: ToolLayoutProps) {
+  const pathname = usePathname()
+  const pageUrl = `${SITE_URL}${pathname || (toolSlug ? `/${toolSlug.replace(/^\//, '')}/` : '/')}`
+  const softwareAppJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: title,
+    description,
+    url: pageUrl,
+    applicationCategory: 'DeveloperApplication',
+    operatingSystem: 'Any (Web-based)',
+    browserRequirements: 'Requires JavaScript. Works in any modern browser.',
+    isAccessibleForFree: true,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  }
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: title, item: pageUrl },
+    ],
+  }
+
   const [input, setInput] = useState('')
   const [output, setOutput] = useState('')
   const [loading, setLoading] = useState(false)
@@ -211,6 +236,14 @@ export default function ToolLayout({
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-3">{title}</h1>
         <p className="text-slate-600 dark:text-slate-400 max-w-7xl">{description}</p>

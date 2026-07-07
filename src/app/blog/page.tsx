@@ -6,7 +6,15 @@ export const metadata: Metadata = {
   title: 'Blog — JSONKits: JSON Tools, Tutorials, and Guides',
   description: 'Explore tutorials, guides, and articles about JSON, data formats, APIs, and developer tools. Learn how to format, validate, convert, and work with JSON data.',
   keywords: 'json blog, json tutorial, json guide, json how to, json tips, developer blog, json tools blog, json tutorials',
+  alternates: { canonical: 'https://www.jsonkits.net/blog/' },
   openGraph: {
+    title: 'JSONKits Blog — JSON Tutorials and Developer Guides',
+    description: 'Learn JSON formatting, validation, conversion, and more with our free tutorials and guides.',
+    url: 'https://www.jsonkits.net/blog/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
     title: 'JSONKits Blog — JSON Tutorials and Developer Guides',
     description: 'Learn JSON formatting, validation, conversion, and more with our free tutorials and guides.',
   },

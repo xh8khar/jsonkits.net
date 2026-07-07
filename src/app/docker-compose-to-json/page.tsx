@@ -5,6 +5,18 @@ export const metadata: Metadata = {
   title: 'Docker Compose to JSON Converter - Free Online Converter',
   description: 'Convert Docker Compose YAML to JSON format. 100% free, client-side JSON tool with no server uploads.',
   keywords: ['docker compose to json, docker compose to json online, docker compose to json tool, convert docker compose to json, docker compose json converter, json converter, convert json, json transformation, data conversion, json format converter, online json converter, online json tool, free json tool, jsonkits'],
+  alternates: { canonical: 'https://www.jsonkits.net/docker-compose-to-json/' },
+  openGraph: {
+    title: 'Docker Compose to JSON Converter - Free Online Converter',
+    description: 'Convert Docker Compose YAML to JSON format. 100% free, client-side JSON tool with no server uploads.',
+    url: 'https://www.jsonkits.net/docker-compose-to-json/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Docker Compose to JSON Converter - Free Online Converter',
+    description: 'Convert Docker Compose YAML to JSON format. 100% free, client-side JSON tool with no server uploads.',
+  },
 }
 
 export default function Page() {

@@ -1,9 +1,24 @@
 import type { Metadata } from 'next'
 
+const title = 'Cookie Policy'
+const description =
+  'Learn how JSONKits uses cookies, including Google AdSense for advertising.'
+
 export const metadata: Metadata = {
-  title: 'Cookie Policy',
-  description:
-    'Learn how JSONKits uses cookies, including Google AdSense for advertising.',
+  title,
+  description,
+  alternates: { canonical: 'https://www.jsonkits.net/cookies/' },
+  openGraph: {
+    title,
+    description,
+    url: 'https://www.jsonkits.net/cookies/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+  },
 }
 
 export default function CookiesPage() {

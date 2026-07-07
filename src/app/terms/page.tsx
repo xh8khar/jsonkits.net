@@ -1,8 +1,23 @@
 import type { Metadata } from 'next'
 
+const title = 'Terms of Service'
+const description = 'Terms and conditions for using JSONKits tools and services.'
+
 export const metadata: Metadata = {
-  title: 'Terms of Service',
-  description: 'Terms and conditions for using JSONKits tools and services.',
+  title,
+  description,
+  alternates: { canonical: 'https://www.jsonkits.net/terms/' },
+  openGraph: {
+    title,
+    description,
+    url: 'https://www.jsonkits.net/terms/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+  },
 }
 
 export default function TermsPage() {

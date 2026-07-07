@@ -1,9 +1,24 @@
 import type { Metadata } from 'next'
 
+const title = 'About'
+const description =
+  'JSONKits is a free online collection of browser-based JSON tools for developers. All processing happens client-side — nothing is uploaded to servers.'
+
 export const metadata: Metadata = {
-  title: 'About',
-  description:
-    'JSONKits is a free online collection of browser-based JSON tools for developers. All processing happens client-side — nothing is uploaded to servers.',
+  title,
+  description,
+  alternates: { canonical: 'https://www.jsonkits.net/about/' },
+  openGraph: {
+    title,
+    description,
+    url: 'https://www.jsonkits.net/about/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+  },
 }
 
 export default function AboutPage() {

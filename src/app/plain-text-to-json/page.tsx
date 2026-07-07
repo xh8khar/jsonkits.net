@@ -5,6 +5,18 @@ export const metadata: Metadata = {
   title: 'Plain Text to JSON Converter - Free Online Converter',
   description: 'Convert key: value text back into JSON format. 100% free, client-side JSON tool with no server uploads.',
   keywords: ['plain text to json, plain text to json online, plain text to json tool, convert plain text to json, plain text json converter, json converter, convert json, json transformation, data conversion, json format converter, online json converter, online json tool, free json tool, jsonkits'],
+  alternates: { canonical: 'https://www.jsonkits.net/plain-text-to-json/' },
+  openGraph: {
+    title: 'Plain Text to JSON Converter - Free Online Converter',
+    description: 'Convert key: value text back into JSON format. 100% free, client-side JSON tool with no server uploads.',
+    url: 'https://www.jsonkits.net/plain-text-to-json/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Plain Text to JSON Converter - Free Online Converter',
+    description: 'Convert key: value text back into JSON format. 100% free, client-side JSON tool with no server uploads.',
+  },
 }
 
 export default function Page() {
