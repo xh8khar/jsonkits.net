@@ -14,18 +14,55 @@ function fromBase64Url(str: string): Uint8Array {
   return bytes
 }
 
+function encodeRaw(input: string, output: string): Uint8Array {
+  const enc = new TextEncoder()
+  const iBytes = enc.encode(input)
+  const oBytes = enc.encode(output)
+  const buf = new Uint8Array(iBytes.length + 1 + oBytes.length)
+  buf.set(iBytes)
+  buf[iBytes.length] = 0
+  buf.set(oBytes, iBytes.length + 1)
+  return buf
+}
+
+function decodeRaw(buf: Uint8Array): { input: string; output: string } {
+  const dec = new TextDecoder()
+  const nul = buf.indexOf(0)
+  if (nul >= 0) {
+    return { input: dec.decode(buf.slice(0, nul)), output: dec.decode(buf.slice(nul + 1)) }
+  }
+  return { input: dec.decode(buf), output: '' }
+}
+
 export function encodeShareData(input: string, output: string): string {
-  const data = JSON.stringify({ i: input, o: output })
-  const compressed = deflate(data, { level: 9 })
-  return toBase64Url(compressed)
+  const raw = encodeRaw(input, output)
+  const compressed = deflate(raw, { level: 9 })
+  const final = compressed.length < raw.length ? compressed : raw
+  return toBase64Url(final)
 }
 
 export function decodeShareData(encoded: string): { input: string; output: string } | null {
   try {
-    const compressed = fromBase64Url(encoded)
-    const decompressed = inflate(compressed, { toText: true })
-    const parsed = JSON.parse(decompressed)
-    return { input: parsed.i ?? '', output: parsed.o ?? '' }
+    const raw = fromBase64Url(encoded)
+    if (raw.length === 0) return null
+    // Try with inflation first
+    let inflated: Uint8Array | null = null
+    try {
+      inflated = inflate(raw)
+    } catch { /* not compressed */ }
+    const data = inflated ?? raw
+    if (data.length === 0) return null
+    // Old JSON format starts with '{'
+    if (data[0] === 0x7b) {
+      const text = new TextDecoder().decode(data)
+      const parsed = JSON.parse(text)
+      if (parsed && typeof parsed.i === 'string') {
+        return { input: parsed.i, output: parsed.o ?? '' }
+      }
+    }
+    // New raw format: input\0output
+    const result = decodeRaw(data)
+    return { input: result.input, output: result.output }
   } catch {
     return null
   }
