@@ -1289,3 +1289,480 @@ function getPojoType(value: unknown, key: string, classes: string[]): string {
     default: return 'Object'
   }
 }
+
+// ============================================================
+// Batch 3: Remaining Tools from TODO
+// ============================================================
+
+// ---- PO / Gettext ----
+
+export function poToJson(input: string): string {
+  const result: Record<string, string> = {}
+  const lines = input.split('\n')
+  let currentId = ''
+  let currentStr = ''
+  for (const line of lines) {
+    const idMatch = line.match(/^msgid\s+"((?:[^"\\]|\\.)*)"/)
+    if (idMatch) { currentId = idMatch[1]; currentStr = ''; continue }
+    const strMatch = line.match(/^msgstr\s+"((?:[^"\\]|\\.)*)"/)
+    if (strMatch) { currentStr = strMatch[1]; continue }
+    const contMatch = line.match(/^"((?:[^"\\]|\\.)*)"/)
+    if (contMatch && currentStr !== undefined) currentStr += contMatch[1]
+    if (line.trim() === '' && currentId && currentId !== '') {
+      if (currentId !== '') result[currentId] = currentStr
+      currentId = ''
+    }
+  }
+  if (currentId) result[currentId] = currentStr
+  return JSON.stringify(result, null, 2)
+}
+
+export function jsonToPo(input: string): string {
+  const parsed = JSON.parse(input)
+  const entries = Object.entries(parsed as Record<string, string>)
+  const header = '# JSONKits PO Export\n#\nmsgid ""\nmsgstr ""\n"Content-Type: text/plain; charset=UTF-8\\n"\n'
+  const messages = entries.map(([id, str]) => {
+    const escapedId = id.replace(/"/g, '\\"')
+    const escapedStr = (str || '').replace(/"/g, '\\"')
+    return `\nmsgid "${escapedId}"\nmsgstr "${escapedStr}"`
+  })
+  return header + messages.join('')
+}
+
+// ---- XLIFF ----
+
+export function xliffToJson(input: string): string {
+  const result: Record<string, string> = {}
+  const transRegex = /<trans-unit[^>]*id="([^"]+)"[^>]*>[\s\S]*?<target[^>]*>([\s\S]*?)<\/target>/g
+  let match
+  while ((match = transRegex.exec(input)) !== null) {
+    result[match[1]] = match[2].trim()
+  }
+  return JSON.stringify(result, null, 2)
+}
+
+// ---- ARB (Flutter) ----
+
+export function arbToJson(input: string): string {
+  const parsed = JSON.parse(input)
+  const result: Record<string, string> = {}
+  for (const [k, v] of Object.entries(parsed as Record<string, unknown>)) {
+    if (k.startsWith('@')) continue
+    result[k] = String(v)
+  }
+  return JSON.stringify(result, null, 2)
+}
+
+// ---- iOS .strings ----
+
+export function jsonToIosStrings(input: string): string {
+  const parsed = JSON.parse(input)
+  const entries = Object.entries(parsed as Record<string, string>)
+  return entries.map(([k, v]) => `"${k}" = "${(v || '').replace(/"/g, '\\"')}";`).join('\n')
+}
+
+// ---- Android strings.xml ----
+
+export function stringsXmlToJson(input: string): string {
+  const result: Record<string, string> = {}
+  const stringRegex = /<string\s+name="([^"]+)"[^>]*>([\s\S]*?)<\/string>/g
+  let match
+  while ((match = stringRegex.exec(input)) !== null) {
+    result[match[1]] = match[2].trim()
+  }
+  return JSON.stringify(result, null, 2)
+}
+
+// ---- vCard ----
+
+export function vcardToJson(input: string): string {
+  const lines = input.split('\n').map(l => l.trim()).filter(Boolean)
+  const result: Record<string, unknown> = {}
+  let currentGroup = ''
+  for (const line of lines) {
+    if (line === 'BEGIN:VCARD') { currentGroup = ''; continue }
+    if (line === 'END:VCARD') continue
+    const colonIdx = line.indexOf(':')
+    if (colonIdx === -1) continue
+    const key = line.slice(0, colonIdx).split(';')[0]
+    const value = line.slice(colonIdx + 1)
+    const knownKeys: Record<string, string> = {
+      FN: 'fullName', N: 'name', TEL: 'phone', EMAIL: 'email',
+      ADR: 'address', ORG: 'organization', TITLE: 'title',
+      URL: 'url', PHOTO: 'photo', NOTE: 'note', VERSION: 'version',
+      BDAY: 'birthday', CATEGORIES: 'categories',
+    }
+    const propName = knownKeys[key] || key.toLowerCase()
+    if (result[propName]) {
+      if (!Array.isArray(result[propName])) result[propName] = [result[propName]]
+      ;(result[propName] as string[]).push(value)
+    } else {
+      result[propName] = value
+    }
+  }
+  return JSON.stringify(result, null, 2)
+}
+
+export function jsonToVcard(input: string): string {
+  const parsed = JSON.parse(input) as Record<string, unknown>
+  const lines = ['BEGIN:VCARD', 'VERSION:3.0']
+  const fieldMap: Record<string, string> = {
+    fullName: 'FN', name: 'N', phone: 'TEL', email: 'EMAIL',
+    address: 'ADR', organization: 'ORG', title: 'TITLE',
+    url: 'URL', note: 'NOTE', birthday: 'BDAY',
+  }
+  for (const [key, val] of Object.entries(parsed)) {
+    const vcardKey = fieldMap[key] || key.toUpperCase()
+    if (Array.isArray(val)) {
+      val.forEach(v => lines.push(`${vcardKey}:${v}`))
+    } else {
+      lines.push(`${vcardKey}:${String(val)}`)
+    }
+  }
+  lines.push('END:VCARD')
+  return lines.join('\n')
+}
+
+// ---- JSON Resume Builder ----
+
+export function jsonResumeBuilder(input: string): string {
+  const parsed = JSON.parse(input)
+  const template = {
+    $schema: 'https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json',
+    basics: {
+      name: (parsed as Record<string, unknown>).name || 'Your Name',
+      label: (parsed as Record<string, unknown>).label || 'Job Title',
+      email: (parsed as Record<string, unknown>).email || '',
+      phone: (parsed as Record<string, unknown>).phone || '',
+      url: (parsed as Record<string, unknown>).url || '',
+      summary: (parsed as Record<string, unknown>).summary || '',
+      location: (parsed as Record<string, unknown>).location || { city: '', countryCode: '' },
+      profiles: (parsed as Record<string, unknown>).profiles || [],
+    },
+    work: (parsed as Record<string, unknown>).work || [],
+    education: (parsed as Record<string, unknown>).education || [],
+    skills: (parsed as Record<string, unknown>).skills || [],
+    projects: (parsed as Record<string, unknown>).projects || [],
+    languages: (parsed as Record<string, unknown>).languages || [],
+    interests: (parsed as Record<string, unknown>).interests || [],
+  }
+  const merged = { ...template, ...parsed }
+  return JSON.stringify(merged, null, 2)
+}
+
+// ---- HTML Bookmarks ----
+
+export function bookmarksToJson(input: string): string {
+  const result: Record<string, unknown>[] = []
+  const linkRegex = /<a[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/g
+  let match
+  while ((match = linkRegex.exec(input)) !== null) {
+    result.push({ url: match[1], title: match[2].trim(), source: 'bookmarks' })
+  }
+  return JSON.stringify(result, null, 2)
+}
+
+// ---- Laravel Migration ----
+
+export function jsonToLaravelMigration(input: string): string {
+  const parsed = JSON.parse(input)
+  const arr = Array.isArray(parsed) ? parsed : [parsed]
+  if (arr.length === 0) return '// Empty data'
+  const first = arr[0] as Record<string, unknown>
+  const columns = Object.entries(first).map(([k, v]) => {
+    const type = v === null ? 'text' : typeof v === 'number' ? (Number.isInteger(v) ? 'integer' : 'float') : typeof v === 'boolean' ? 'boolean' : 'string'
+    return `            $table->${type}('${k}')${v === null ? '->nullable()' : ''};`
+  })
+  return `<?php\n\nuse Illuminate\\Database\\Migrations\\Migration;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Support\\Facades\\Schema;\n\nreturn new class extends Migration\n{\n    public function up(): void\n    {\n        Schema::create('table_name', function (Blueprint $table) {\n            $table->id();\n${columns.join('\n')}\n            $table->timestamps();\n        });\n    }\n\n    public function down(): void\n    {\n        Schema::dropIfExists('table_name');\n    }\n};`
+}
+
+// ---- Django Model ----
+
+export function jsonToDjangoModel(input: string): string {
+  const parsed = JSON.parse(input)
+  const arr = Array.isArray(parsed) ? parsed : [parsed]
+  if (arr.length === 0) return '# Empty data'
+  const first = arr[0] as Record<string, unknown>
+  const fields = Object.entries(first).map(([k, v]) => {
+    const fieldType = v === null ? 'TextField' : typeof v === 'number' ? (Number.isInteger(v) ? 'IntegerField' : 'FloatField') : typeof v === 'boolean' ? 'BooleanField' : 'TextField'
+    const opts = v === null ? '(blank=True, null=True)' : '()'
+    return `    ${k} = models.${fieldType}${opts}`
+  })
+  return `from django.db import models\n\n\nclass DataModel(models.Model):\n${fields.join('\n')}\n\n    def __str__(self):\n        return str(self.id)\n`
+}
+
+// ---- Rails Migration ----
+
+export function jsonToRailsMigration(input: string): string {
+  const parsed = JSON.parse(input)
+  const arr = Array.isArray(parsed) ? parsed : [parsed]
+  if (arr.length === 0) return '# Empty data'
+  const first = arr[0] as Record<string, unknown>
+  const columns = Object.entries(first).map(([k, v]) => {
+    const type = v === null ? 'text' : typeof v === 'number' ? (Number.isInteger(v) ? 'integer' : 'float') : typeof v === 'boolean' ? 'boolean' : 'string'
+    const opts = v === null ? ', null: true' : ''
+    return `      t.${type} :${k}${opts}`
+  })
+  const now = new Date().toISOString().replace(/[^0-9]/g, '').slice(0, 14)
+  return `class CreateDataModel < ActiveRecord::Migration[7.1]\n  def change\n    create_table :data_models do |t|\n${columns.join('\n')}\n      t.timestamps\n    end\n  end\nend`
+}
+
+// ---- Spring Entity ----
+
+export function jsonToSpringEntity(input: string): string {
+  const parsed = JSON.parse(input)
+  if (typeof parsed !== 'object' || parsed === null) throw new Error('Input must be a JSON object')
+  const fields = Object.entries(parsed as Record<string, unknown>).map(([k, v]) => {
+    const javaType = v === null ? 'String' : typeof v === 'number' ? (Number.isInteger(v) ? 'Long' : 'Double') : typeof v === 'boolean' ? 'Boolean' : 'String'
+    const capKey = k.charAt(0).toUpperCase() + k.slice(1)
+    return `    @Column(name = "${k}")\n    private ${javaType} ${k};\n\n    public ${javaType} get${capKey}() { return ${k}; }\n\n    public void set${capKey}(${javaType} ${k}) { this.${k} = ${k}; }`
+  })
+  return `package com.example.model;\n\nimport jakarta.persistence.*;\n\n@Entity\n@Table(name = "data_entity")\npublic class DataEntity {\n\n    @Id\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\n    private Long id;\n\n${fields.join('\n\n')}\n}`
+}
+
+// ---- Valibot Schema ----
+
+export function jsonToValibot(input: string): string {
+  const parsed = JSON.parse(input)
+  return generateValibot(parsed, 0)
+}
+
+function generateValibot(value: unknown, depth: number): string {
+  const indent = '  '.repeat(depth)
+  if (value === null) return `${indent}v.nullable(v.string())`
+  if (Array.isArray(value)) {
+    if (value.length === 0) return `${indent}v.array(v.any())`
+    const itemType = [...new Set(value.map(v => generateValibot(v, depth + 1).trim()))]
+    return `${indent}v.array(${itemType[0] || 'v.any()'})`
+  }
+  if (typeof value === 'object' && value !== null) {
+    const entries = Object.entries(value as Record<string, unknown>)
+    const fields = entries.map(([key, val]) => {
+      const fieldSchema = generateValibot(val, depth + 2).trim()
+      const isOptional = val === null || val === undefined
+      return `${indent}  ${key}: ${isOptional ? `v.optional(${fieldSchema})` : fieldSchema}`
+    })
+    return `v.object({\n${fields.join(',\n')},\n${indent}})`
+  }
+  switch (typeof value) {
+    case 'string': return `${indent}v.string()`
+    case 'number': return `${indent}v.number()`
+    case 'boolean': return `${indent}v.boolean()`
+    default: return `${indent}v.any()`
+  }
+}
+
+// ---- io-ts ----
+
+export function jsonToIoTs(input: string): string {
+  const parsed = JSON.parse(input)
+  return generateIoTs(parsed, 'DataType', 0)
+}
+
+function generateIoTs(value: unknown, name: string, depth: number): string {
+  const indent = '  '.repeat(depth)
+  if (value === null) return `${indent}t.nullable(t.string)`
+  if (Array.isArray(value)) {
+    if (value.length === 0) return `${indent}t.array(t.unknown)`
+    const itemType = [...new Set(value.map(v => generateIoTs(v, name, depth).trim()))]
+    return `${indent}t.array(${itemType[0] || 't.unknown'})`
+  }
+  if (typeof value === 'object' && value !== null) {
+    const entries = Object.entries(value as Record<string, unknown>)
+    const fields = entries.map(([key, val]) => {
+      const fieldSchema = generateIoTs(val, toClassName(key), depth + 1).trim()
+      return `    ${key}: ${fieldSchema}`
+    })
+    return `t.type({\n${fields.join(',\n')}\n${indent}})`
+  }
+  switch (typeof value) {
+    case 'string': return `t.string`
+    case 'number': return `t.number`
+    case 'boolean': return `t.boolean`
+    default: return `t.unknown`
+  }
+}
+
+// ---- JSON Log Viewer ----
+
+export function jsonLogViewer(input: string): string {
+  const lines = input.trim().split('\n').filter(Boolean)
+  const parsed = lines.map((line, i) => {
+    try { return JSON.parse(line) }
+    catch { return { _raw: line, _error: 'Invalid JSON', _line: i + 1 } }
+  })
+  const result = parsed.map((entry, i) => {
+    const rec = entry as Record<string, unknown>
+    const timestamp = rec.timestamp || rec.time || rec.ts || rec['@timestamp'] || rec.date || ''
+    const level = (rec.level || rec.severity || rec.lvl || '').toString().toUpperCase()
+    const message = rec.message || rec.msg || rec.log || rec.text || rec.event || ''
+    const logger = rec.logger || rec.name || rec.source || rec.service || ''
+    return { index: i + 1, timestamp, level, message, logger, raw: rec }
+  })
+  return JSON.stringify(result, null, 2)
+}
+
+// ---- JSON Timestamp Converter ----
+
+export function jsonTimestampConverter(input: string): string {
+  const parsed = JSON.parse(input)
+  const convertTimestamps = (obj: unknown): unknown => {
+    if (typeof obj === 'string') {
+      const num = Number(obj)
+      if (!isNaN(num) && obj.length >= 10 && obj.length <= 16) {
+        const ms = obj.length === 10 ? num * 1000 : num
+        try {
+          const d = new Date(ms)
+          if (!isNaN(d.getTime())) {
+            return {
+              _original: obj,
+              _asDate: d.toISOString(),
+              _asLocale: d.toLocaleString(),
+              _asUnixSeconds: Math.floor(d.getTime() / 1000),
+              _asUnixMs: d.getTime(),
+            }
+          }
+        } catch { /* ignore */ }
+      }
+      const isoMatch = obj.match(/^(\d{4})-(\d{2})-(\d{2})T/)
+      if (isoMatch) {
+        const d = new Date(obj)
+        if (!isNaN(d.getTime())) {
+          return {
+            _original: obj,
+            _asUnixSeconds: Math.floor(d.getTime() / 1000),
+            _asUnixMs: d.getTime(),
+            _asLocale: d.toLocaleString(),
+          }
+        }
+      }
+    }
+    if (Array.isArray(obj)) return obj.map(convertTimestamps)
+    if (typeof obj === 'object' && obj !== null) {
+      const result: Record<string, unknown> = {}
+      for (const [k, v] of Object.entries(obj as Record<string, unknown>)) result[k] = convertTimestamps(v)
+      return result
+    }
+    return obj
+  }
+  return JSON.stringify(convertTimestamps(parsed), null, 2)
+}
+
+// ---- JSON Obfuscator ----
+
+export function jsonObfuscator(input: string): string {
+  const parsed = JSON.parse(input)
+  const seen = new Map<string, string>()
+  let counter = 0
+
+  function obfuscate(obj: unknown): unknown {
+    if (typeof obj === 'string') {
+      if (obj.length > 3 && /^[a-zA-Z]/.test(obj)) {
+        if (!seen.has(obj)) seen.set(obj, `value_${counter++}`)
+        return seen.get(obj)!
+      }
+      return obj
+    }
+    if (typeof obj === 'number') return Math.round(obj * 100) / 100
+    if (typeof obj === 'boolean') return obj
+    if (Array.isArray(obj)) return obj.map(obfuscate)
+    if (typeof obj === 'object' && obj !== null) {
+      const result: Record<string, unknown> = {}
+      for (const [k, v] of Object.entries(obj as Record<string, unknown>)) {
+        const obKey = k.length > 2 ? `field_${counter++}` : k
+        result[obKey] = obfuscate(v)
+      }
+      return result
+    }
+    return obj
+  }
+
+  const obfuscated = obfuscate(parsed)
+  return JSON.stringify({ original: parsed, obfuscated, mapping: Object.fromEntries(seen) }, null, 2)
+}
+
+// ---- JSON Feed Validator ----
+
+export function jsonFeedValidator(input: string): string {
+  const parsed = JSON.parse(input)
+  const issues: string[] = []
+  const warnings: string[] = []
+  if (!parsed.version) issues.push('Missing "version" (required: "https://jsonfeed.org/version/1.1")')
+  if (!parsed.title) issues.push('Missing "title" (required)')
+  if (!parsed.items || !Array.isArray(parsed.items)) issues.push('Missing "items" array (required)')
+  else {
+    parsed.items.forEach((item: Record<string, unknown>, i: number) => {
+      if (!item.id && !item.url) warnings.push(`Item ${i}: missing both "id" and "url"`)
+      if (!item.content_text && !item.content_html) warnings.push(`Item ${i}: no content_text or content_html`)
+    })
+  }
+  if (parsed.version && !parsed.version.startsWith('https://jsonfeed.org/version/')) {
+    warnings.push('"version" should be a JSON Feed version URL')
+  }
+  if (parsed.feed_url && typeof parsed.feed_url !== 'string') issues.push('"feed_url" must be a string')
+  if (parsed.home_page_url && typeof parsed.home_page_url !== 'string') issues.push('"home_page_url" must be a string')
+  if (issues.length === 0) issues.push('Valid JSON Feed structure')
+  return JSON.stringify({ valid: issues.length === 0 || (issues.length === 1 && issues[0].includes('Valid')), issues, warnings, itemCount: (parsed.items || []).length }, null, 2)
+}
+
+// ---- Insomnia Export ----
+
+export function jsonToInsomnia(input: string): string {
+  const parsed = JSON.parse(input)
+  const arr = Array.isArray(parsed) ? parsed : [parsed]
+  const resources = arr.map((item: Record<string, unknown>, i: number) => ({
+    _type: 'request',
+    _id: `req_${i}`,
+    parentId: '__WORKSPACE_ID__',
+    name: item.name || item.title || `Request ${i + 1}`,
+    url: String(item.url || item.path || 'https://example.com/api'),
+    method: String(item.method || 'GET').toUpperCase(),
+    headers: (item.headers as Record<string, unknown>[]) || [],
+    body: item.body ? { mimeType: 'application/json', text: JSON.stringify(item.body) } : undefined,
+  }))
+  return JSON.stringify({ _type: 'export', __export_format: 4, resources }, null, 2)
+}
+
+// ---- WKT to GeoJSON ----
+
+export function wktToGeojson(input: string): string {
+  const cleaned = input.trim().replace(/\s+/g, ' ')
+  const pointMatch = cleaned.match(/^POINT\s*\(([\d.\-]+)\s+([\d.\-]+)\)$/i)
+  if (pointMatch) {
+    return JSON.stringify({ type: 'FeatureCollection', features: [{ type: 'Feature', geometry: { type: 'Point', coordinates: [parseFloat(pointMatch[1]), parseFloat(pointMatch[2])] }, properties: {} }] }, null, 2)
+  }
+  const lineMatch = cleaned.match(/^LINESTRING\s*\(([\d.\-,\s]+)\)$/i)
+  if (lineMatch) {
+    const coords = lineMatch[1].split(',').map(p => {
+      const [x, y] = p.trim().split(/\s+/).map(Number)
+      return [x, y]
+    })
+    return JSON.stringify({ type: 'FeatureCollection', features: [{ type: 'Feature', geometry: { type: 'LineString', coordinates: coords }, properties: {} }] }, null, 2)
+  }
+  const polyMatch = cleaned.match(/^POLYGON\s*\(\(([\d.\-,\s]+)\)\)$/i)
+  if (polyMatch) {
+    const coords = [polyMatch[1].split(',').map(p => { const [x, y] = p.trim().split(/\s+/).map(Number); return [x, y] })]
+    return JSON.stringify({ type: 'FeatureCollection', features: [{ type: 'Feature', geometry: { type: 'Polygon', coordinates: coords }, properties: {} }] }, null, 2)
+  }
+  throw new Error('Unsupported WKT geometry type. Supported: POINT, LINESTRING, POLYGON')
+}
+
+// ---- TopoJSON to GeoJSON ----
+
+export function topojsonToGeojson(input: string): string {
+  const parsed = JSON.parse(input)
+  if (!parsed.type || parsed.type !== 'Topology') throw new Error('Invalid TopoJSON: must be a Topology object')
+  if (!parsed.objects || !parsed.arcs) throw new Error('Invalid TopoJSON: missing objects or arcs')
+  const features: Record<string, unknown>[] = []
+  for (const [name, geom] of Object.entries(parsed.objects as Record<string, unknown>)) {
+    const g = geom as Record<string, unknown>
+    if (g.type === 'GeometryCollection' && Array.isArray(g.geometries)) {
+      g.geometries.forEach((sub: Record<string, unknown>) => {
+        features.push({ type: 'Feature', geometry: { type: sub.type, coordinates: sub.coordinates || [] }, properties: { ...(sub.properties as Record<string, unknown> || {}), _topoObject: name } })
+      })
+    } else {
+      features.push({ type: 'Feature', geometry: { type: g.type, coordinates: g.coordinates || [] }, properties: { ...(g.properties as Record<string, unknown> || {}), _topoObject: name } })
+    }
+  }
+  return JSON.stringify({ type: 'FeatureCollection', features }, null, 2)
+}
