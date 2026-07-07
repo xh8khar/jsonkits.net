@@ -30,21 +30,66 @@ export function jsonToPostgresql(input: string): string {
   return lines.join('\n')
 }
 
+function splitSqlValues(valuesStr: string): string[] {
+  const result: string[] = []
+  let current = ''
+  let inQuote = false
+  let quoteChar = ''
+  for (let i = 0; i < valuesStr.length; i++) {
+    const ch = valuesStr[i]
+    if (inQuote) {
+      current += ch
+      if (ch === quoteChar) {
+        if (valuesStr[i + 1] === quoteChar) { current += quoteChar; i++ }
+        else inQuote = false
+      }
+    } else if (ch === "'" || ch === '"') {
+      inQuote = true
+      quoteChar = ch
+      current += ch
+    } else if (ch === ',') {
+      result.push(current.trim())
+      current = ''
+    } else {
+      current += ch
+    }
+  }
+  result.push(current.trim())
+  return result
+}
+
+function findAllInsertRows(input: string, insertRe: RegExp): { columns: string[]; values: string[] }[] {
+  const re = new RegExp(insertRe.source, 'gi')
+  const rows: { columns: string[]; values: string[] }[] = []
+  let m: RegExpExecArray | null
+  while ((m = re.exec(input)) !== null) {
+    rows.push({ columns: m[1].split(',').map(c => c.trim()), values: splitSqlValues(m[2]) })
+  }
+  return rows
+}
+
+function sqlRowsToJsonResult(rows: Record<string, unknown>[]): string {
+  if (rows.length === 0) throw new Error('No INSERT statement found')
+  return JSON.stringify(rows.length === 1 ? rows[0] : rows, null, 2)
+}
+
 export function postgresqlToJson(input: string): string {
-  const insertMatch = input.match(/INSERT INTO\s+\w+\s*\(([^)]+)\)\s*VALUES\s*\(([^)]+)\)/i)
-  if (!insertMatch) throw new Error('No INSERT statement found')
-  const columns = insertMatch[1].split(',').map(c => c.trim().replace(/"/g, ''))
-  const values = insertMatch[2].split(',').map(v => v.trim())
-  const result: Record<string, unknown> = {}
-  columns.forEach((c, i) => {
-    const v = values[i]
-    if (v === 'NULL' || v === 'null') result[c] = null
-    else if (v === 'TRUE' || v === 'true') result[c] = true
-    else if (v === 'FALSE' || v === 'false') result[c] = false
-    else if (!isNaN(Number(v))) result[c] = Number(v)
-    else result[c] = v.replace(/^'(.*)'$/, '$1').replace(/''/g, "'")
+  const rows = findAllInsertRows(input, /INSERT INTO\s+\w+\s*\(([^)]+)\)\s*VALUES\s*\(([^)]+)\)/i)
+  if (rows.length === 0) throw new Error('No INSERT statement found')
+  const results = rows.map(({ columns, values }) => {
+    const result: Record<string, unknown> = {}
+    columns.forEach((rawCol, i) => {
+      const c = rawCol.replace(/"/g, '')
+      const v = values[i]
+      if (v === 'NULL' || v === 'null') result[c] = null
+      else if (v === 'TRUE' || v === 'true') result[c] = true
+      else if (v === 'FALSE' || v === 'false') result[c] = false
+      else if (!isNaN(Number(v))) result[c] = Number(v)
+      else result[c] = v.replace(/^'(.*)'$/, '$1').replace(/''/g, "'")
+    })
+    return result
   })
-  return JSON.stringify(result, null, 2)
+  return sqlRowsToJsonResult(results)
 }
 
 // ---- MySQL SQL Generator ----
@@ -80,20 +125,22 @@ export function jsonToMysql(input: string): string {
 }
 
 export function mysqlToJson(input: string): string {
-  const insertMatch = input.match(/INSERT INTO\s+`?\w+`?\s*\(([^)]+)\)\s*VALUES\s*\(([^)]+)\)/i)
-  if (!insertMatch) throw new Error('No INSERT statement found')
-  const columns = insertMatch[1].split(',').map(c => c.trim().replace(/[`"]/g, ''))
-  const values = insertMatch[2].split(',').map(v => v.trim())
-  const result: Record<string, unknown> = {}
-  columns.forEach((c, i) => {
-    const v = values[i]
-    if (v === 'NULL' || v === 'null') result[c] = null
-    else if (v === 'TRUE' || v === 'true') result[c] = true
-    else if (v === 'FALSE' || v === 'false') result[c] = false
-    else if (!isNaN(Number(v))) result[c] = Number(v)
-    else result[c] = v.replace(/^'(.*)'$/, '$1').replace(/\\'/g, "'").replace(/\\\\/g, '\\')
+  const rows = findAllInsertRows(input, /INSERT INTO\s+`?\w+`?\s*\(([^)]+)\)\s*VALUES\s*\(([^)]+)\)/i)
+  if (rows.length === 0) throw new Error('No INSERT statement found')
+  const results = rows.map(({ columns, values }) => {
+    const result: Record<string, unknown> = {}
+    columns.forEach((rawCol, i) => {
+      const c = rawCol.replace(/[`"]/g, '')
+      const v = values[i]
+      if (v === 'NULL' || v === 'null') result[c] = null
+      else if (v === 'TRUE' || v === 'true') result[c] = true
+      else if (v === 'FALSE' || v === 'false') result[c] = false
+      else if (!isNaN(Number(v))) result[c] = Number(v)
+      else result[c] = v.replace(/^'(.*)'$/, '$1').replace(/\\'/g, "'").replace(/\\\\/g, '\\')
+    })
+    return result
   })
-  return JSON.stringify(result, null, 2)
+  return sqlRowsToJsonResult(results)
 }
 
 // ---- SQLite SQL Generator ----
@@ -129,20 +176,22 @@ export function jsonToSqlite(input: string): string {
 }
 
 export function sqliteToJson(input: string): string {
-  const insertMatch = input.match(/INSERT INTO\s+"?\w+"?\s*\(([^)]+)\)\s*VALUES\s*\(([^)]+)\)/i)
-  if (!insertMatch) throw new Error('No INSERT statement found')
-  const columns = insertMatch[1].split(',').map(c => c.trim().replace(/"/g, ''))
-  const values = insertMatch[2].split(',').map(v => v.trim())
-  const result: Record<string, unknown> = {}
-  columns.forEach((c, i) => {
-    const v = values[i]
-    if (v === 'NULL' || v === 'null') result[c] = null
-    else if (v === '1') result[c] = true
-    else if (v === '0') result[c] = false
-    else if (!isNaN(Number(v))) result[c] = Number(v)
-    else result[c] = v.replace(/^'(.*)'$/, '$1').replace(/''/g, "'")
+  // SQLite has no dedicated boolean type: booleans and integers are both stored as
+  // INTEGER, so a value of 1/0 is decoded as a number rather than guessed as a boolean.
+  const rows = findAllInsertRows(input, /INSERT INTO\s+"?\w+"?\s*\(([^)]+)\)\s*VALUES\s*\(([^)]+)\)/i)
+  if (rows.length === 0) throw new Error('No INSERT statement found')
+  const results = rows.map(({ columns, values }) => {
+    const result: Record<string, unknown> = {}
+    columns.forEach((rawCol, i) => {
+      const c = rawCol.replace(/"/g, '')
+      const v = values[i]
+      if (v === 'NULL' || v === 'null') result[c] = null
+      else if (!isNaN(Number(v)) && v !== '') result[c] = Number(v)
+      else result[c] = v.replace(/^'(.*)'$/, '$1').replace(/''/g, "'")
+    })
+    return result
   })
-  return JSON.stringify(result, null, 2)
+  return sqlRowsToJsonResult(results)
 }
 
 // ---- SQL Server SQL Generator ----
@@ -177,21 +226,33 @@ export function jsonToSqlServer(input: string): string {
   return lines.join('\n')
 }
 
+function parseSqlServerBitColumns(input: string): Set<string> {
+  const bitColumns = new Set<string>()
+  const createMatch = input.match(/CREATE TABLE[\s\S]*?\(([\s\S]*?)\)\s*;/i)
+  if (!createMatch) return bitColumns
+  const colDefRe = /\[(\w+)\]\s+BIT\b/gi
+  let m: RegExpExecArray | null
+  while ((m = colDefRe.exec(createMatch[1])) !== null) bitColumns.add(m[1])
+  return bitColumns
+}
+
 export function sqlServerToJson(input: string): string {
-  const insertMatch = input.match(/INSERT INTO\s+\[?\w+\]?\s*\(([^)]+)\)\s*VALUES\s*\(([^)]+)\)/i)
-  if (!insertMatch) throw new Error('No INSERT statement found')
-  const columns = insertMatch[1].split(',').map(c => c.trim().replace(/[\[\]]/g, ''))
-  const values = insertMatch[2].split(',').map(v => v.trim())
-  const result: Record<string, unknown> = {}
-  columns.forEach((c, i) => {
-    const v = values[i]
-    if (v === 'NULL' || v === 'null') result[c] = null
-    else if (v === '1') result[c] = true
-    else if (v === '0') result[c] = false
-    else if (!isNaN(Number(v))) result[c] = Number(v)
-    else result[c] = v.replace(/^N?'(.*)'$/, '$1').replace(/''/g, "'")
+  const bitColumns = parseSqlServerBitColumns(input)
+  const rows = findAllInsertRows(input, /INSERT INTO\s+\[?\w+\]?\s*\(([^)]+)\)\s*VALUES\s*\(([^)]+)\)/i)
+  if (rows.length === 0) throw new Error('No INSERT statement found')
+  const results = rows.map(({ columns, values }) => {
+    const result: Record<string, unknown> = {}
+    columns.forEach((rawCol, i) => {
+      const c = rawCol.replace(/[\[\]]/g, '')
+      const v = values[i]
+      if (v === 'NULL' || v === 'null') result[c] = null
+      else if (bitColumns.has(c) && (v === '1' || v === '0')) result[c] = v === '1'
+      else if (!isNaN(Number(v))) result[c] = Number(v)
+      else result[c] = v.replace(/^N?'(.*)'$/, '$1').replace(/''/g, "'")
+    })
+    return result
   })
-  return JSON.stringify(result, null, 2)
+  return sqlRowsToJsonResult(results)
 }
 
 // ---- Oracle SQL Generator ----
@@ -225,19 +286,20 @@ export function jsonToOracle(input: string): string {
 }
 
 export function oracleToJson(input: string): string {
-  const insertMatch = input.match(/INSERT INTO\s+\w+\s*\(([^)]+)\)\s*VALUES\s*\(([^)]+)\)/i)
-  if (!insertMatch) throw new Error('No INSERT statement found')
-  const columns = insertMatch[1].split(',').map(c => c.trim())
-  const values = insertMatch[2].split(',').map(v => v.trim())
-  const result: Record<string, unknown> = {}
-  columns.forEach((c, i) => {
-    c = c.trim()
-    const v = values[i]
-    if (v === 'NULL' || v === 'null') result[c] = null
-    else if (!isNaN(Number(v))) result[c] = Number(v)
-    else result[c] = v.replace(/^'(.*)'$/, '$1').replace(/''/g, "'")
+  const rows = findAllInsertRows(input, /INSERT INTO\s+\w+\s*\(([^)]+)\)\s*VALUES\s*\(([^)]+)\)/i)
+  if (rows.length === 0) throw new Error('No INSERT statement found')
+  const results = rows.map(({ columns, values }) => {
+    const result: Record<string, unknown> = {}
+    columns.forEach((rawCol, i) => {
+      const c = rawCol.trim()
+      const v = values[i]
+      if (v === 'NULL' || v === 'null') result[c] = null
+      else if (!isNaN(Number(v))) result[c] = Number(v)
+      else result[c] = v.replace(/^'(.*)'$/, '$1').replace(/''/g, "'")
+    })
+    return result
   })
-  return JSON.stringify(result, null, 2)
+  return sqlRowsToJsonResult(results)
 }
 
 // ---- Postman Collection ----

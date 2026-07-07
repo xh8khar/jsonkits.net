@@ -2,7 +2,7 @@
 import ToolLayout from '@/components/tools/ToolLayout'
 import { jsonDecrypt, jsonEncrypt } from '@/lib/converters'
 
-const example = 'key: my-secret\n[encrypted base64 string]'
+const example = 'key: my-secret\nFltDEggGUF9WLBVEEABBXkcRABhEH0dZUAQYBBpIMwAbEwgEARwDEAoOUElWGRZGFgtBSEcHCBpfFhFSQFZWEA=='
 
 export default function ToolPageClient() {
   return (

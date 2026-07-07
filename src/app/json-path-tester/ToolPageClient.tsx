@@ -3,7 +3,7 @@
 import ToolLayout from '@/components/tools/ToolLayout'
 import { jsonPathTester } from '@/lib/converters'
 
-const example = '{"store":{"book":[{"title":"JSON 101","price":9.99},{"title":"Advanced JSON","price":29.99}],"bicycle":{"color":"red","price":399}}}'
+const example = '{"store":{"book":[{"title":"JSON 101","price":9.99},{"title":"Advanced JSON","price":29.99}],"bicycle":{"color":"red","price":399}}}\n$.store.book[0].title'
 
 export default function ToolPageClient() {
   return (

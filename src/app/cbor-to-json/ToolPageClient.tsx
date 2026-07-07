@@ -3,7 +3,7 @@
 import ToolLayout from '@/components/tools/ToolLayout'
 import { cborToJson } from '@/lib/converters'
 
-const example = JSON.stringify({ name: 'JSONKits', version: 1, features: ['cbor-to-json', 'validator', 'converter'], active: true, metadata: { author: 'Dev', created: '2024-01-01' } }, null, 2)
+const example = 'a3646e616d65684a534f4e4b6974736776657273696f6e0166616374697665f5'
 
 export default function ToolPageClient() {
   return (

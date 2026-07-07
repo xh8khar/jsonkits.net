@@ -2,7 +2,7 @@
 import ToolLayout from '@/components/tools/ToolLayout'
 import { firestoreToJson, jsonToFirestore } from '@/lib/converters'
 
-const example = '{"stringValue":"Alice","integerValue":"30","booleanValue":true,"mapValue":{"fields":{"city":{"stringValue":"NYC"}}}}'
+const example = '{"mapValue":{"fields":{"name":{"stringValue":"Alice"},"age":{"integerValue":"30"},"active":{"booleanValue":true},"address":{"mapValue":{"fields":{"city":{"stringValue":"NYC"}}}}}}}'
 
 export default function ToolPageClient() {
   return (

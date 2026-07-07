@@ -3,7 +3,7 @@
 import ToolLayout from '@/components/tools/ToolLayout'
 import { jsonGunzip } from '@/lib/converters'
 
-const example = '{"name":"JSONKits","version":1,"features":["formatter","validator","converter"],"active":true,"metadata":{"author":"Dev","created":"2024-01-01"}}'
+const example = 'H4sIAAAAAAACAxXKMQqAMAwF0Lv8uYtrjqBgB0dxCJpCwLaQpl3Eu4tvfg8KZwFh3uK6qDcEDLGmtYCmgCTs3aSBdqRqmd3F/sO3XuzVcATw6ToE5Nbl/QDRd8NeUgAAAA=='
 
 export default function ToolPageClient() {
   return (

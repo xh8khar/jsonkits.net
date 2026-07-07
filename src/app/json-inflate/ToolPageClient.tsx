@@ -1,9 +1,9 @@
 'use client'
 
 import ToolLayout from '@/components/tools/ToolLayout'
-import { jsonDecompress } from '@/lib/converters'
+import { jsonInflate } from '@/lib/converters'
 
-const example = 'eJx1zrENwjAQBdCeU9xgYUeJHFk0SJRIQkSXfGd3kmNkO4ISsTsSBTW9Av+K4HuAnSMRMzi7vEw0hEUdpJZtIemkFdMD1xQKauujGlkNEXJd1/1JQ4kODuPQw3d3MX4xlBh8SItQ2qcp1T4H41xM+jh/Cx+NFb/A'
+const example = 'FYuxCgMhEAX/5dUe6JFq61QJJEXKkGI594gQFdbV5rh/D3bDMHOgcBYQbq/n456swWGItlQLKDjswtZVGuiNvWpmM9HZ8C9Ftjp5q2WITv9x4M3SEJBpF4csxpGNQQe427cqCFcZ81JhkwjC6tfL4sPiA87zDw=='
 
 export default function ToolPageClient() {
   return (
@@ -14,7 +14,7 @@ export default function ToolPageClient() {
         inputPlaceholder="Paste deflated Base64 data here..."
         outputPlaceholder="Decompressed JSON will appear here..."
         convertLabel="Inflate"
-        onConvert={jsonDecompress}
+        onConvert={jsonInflate}
         exampleInput={example}
         outputLanguage="json"
       />

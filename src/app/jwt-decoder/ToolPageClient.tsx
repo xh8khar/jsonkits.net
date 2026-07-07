@@ -3,7 +3,7 @@
 import ToolLayout from '@/components/tools/ToolLayout'
 import { jwtDecode } from '@/lib/converters'
 
-const example = JSON.stringify({ name: 'JSONKits', version: 1, features: ['jwt-decoder', 'validator', 'converter'], active: true, metadata: { author: 'Dev', created: '2024-01-01' } }, null, 2)
+const example = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'
 
 export default function ToolPageClient() {
   return (

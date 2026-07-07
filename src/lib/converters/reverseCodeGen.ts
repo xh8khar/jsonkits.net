@@ -116,7 +116,7 @@ export function goStructToJson(input: string): string {
   const fields: Record<string, string> = {}
   const lines = input.split('\n')
   for (const line of lines) {
-    const match = line.match(/\t(\w+)\s+([\w.]+(?:\[\])?)\s+`json:"(\w+)/)
+    const match = line.match(/^[ \t]+(\w+)\s+([\w.]+(?:\[\])?)\s+`json:"(\w+)/)
     if (match) {
       const [, name, type, jsonTag] = match
       fields[jsonTag || name] = type

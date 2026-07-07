@@ -1,7 +1,7 @@
 'use client'
 
 import ToolLayout from '@/components/tools/ToolLayout'
-import { jsonCompress } from '@/lib/converters'
+import { jsonDeflate } from '@/lib/converters'
 
 const example = '{"name":"JSONKits","version":1,"features":["formatter","validator","converter"],"active":true}'
 
@@ -14,7 +14,7 @@ export default function ToolPageClient() {
         inputPlaceholder="Paste your JSON here..."
         outputPlaceholder="Compressed output will appear here..."
         convertLabel="Deflate"
-        onConvert={jsonCompress}
+        onConvert={jsonDeflate}
         exampleInput={example}
         outputLanguage="text"
       />

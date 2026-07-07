@@ -3,7 +3,7 @@
 import ToolLayout from '@/components/tools/ToolLayout'
 import { jsonVersionDiff } from '@/lib/converters'
 
-const example = JSON.stringify({ name: 'JSONKits', version: 1, features: ['formatter', 'validator', 'converter'], active: true, metadata: { author: 'Dev', created: '2024-01-01' } }, null, 2)
+const example = 'v1:\n{"name":"Alice","age":30,"address":{"city":"NYC"}}\nv2:\n{"name":"Alice","age":31,"address":{"city":"LA"},"email":"alice@example.com"}'
 
 export default function ToolPageClient() {
   return (

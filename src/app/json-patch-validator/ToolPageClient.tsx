@@ -3,7 +3,11 @@
 import ToolLayout from '@/components/tools/ToolLayout'
 import { jsonPatchValidator } from '@/lib/converters'
 
-const example = JSON.stringify({ name: 'JSONKits', version: 1, features: ['formatter', 'validator', 'converter'], active: true, metadata: { author: 'Dev', created: '2024-01-01' } }, null, 2)
+const example = JSON.stringify([
+  { op: 'replace', path: '/name', value: 'Bob' },
+  { op: 'add', path: '/email', value: 'bob@example.com' },
+  { op: 'remove', path: '/temporary' }
+], null, 2)
 
 export default function ToolPageClient() {
   return (

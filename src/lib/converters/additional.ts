@@ -275,9 +275,33 @@ function parseSqlValues(block: string): unknown[] {
   return vals
 }
 
+function isValidMongoIdentifier(key: string): boolean {
+  return /^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(key)
+}
+
+function stringifyMongoValue(value: unknown, indent: number): string {
+  const pad = '  '.repeat(indent)
+  const childPad = '  '.repeat(indent + 1)
+  if (value === null || value === undefined) return 'null'
+  if (typeof value === 'string') return `'${value.replace(/\\/g, '\\\\').replace(/'/g, "\\'")}'`
+  if (typeof value === 'number' || typeof value === 'boolean') return String(value)
+  if (Array.isArray(value)) {
+    if (value.length === 0) return '[]'
+    const items = value.map(v => `${childPad}${stringifyMongoValue(v, indent + 1)}`)
+    return `[\n${items.join(',\n')}\n${pad}]`
+  }
+  const entries = Object.entries(value as Record<string, unknown>)
+  if (entries.length === 0) return '{}'
+  const fields = entries.map(([k, v]) => {
+    const key = isValidMongoIdentifier(k) ? k : `'${k.replace(/\\/g, '\\\\').replace(/'/g, "\\'")}'`
+    return `${childPad}${key}: ${stringifyMongoValue(v, indent + 1)}`
+  })
+  return `{\n${fields.join(',\n')}\n${pad}}`
+}
+
 export function jsonToMongodb(input: string): string {
   const parsed = JSON.parse(input)
-  return JSON.stringify(parsed, null, 2).replace(/"(\w+)"/g, '$1').replace(/"/g, "'")
+  return stringifyMongoValue(parsed, 0)
 }
 
 export function mongodbToJson(input: string): string {

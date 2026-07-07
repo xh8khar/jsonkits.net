@@ -135,11 +135,11 @@ export function plistToJson(input: string): string {
 
 function parsePlistDict(xml: string): Record<string, unknown> {
   const result: Record<string, unknown> = {}
-  const keyRegex = /<key>([^<]+)<\/key>\s*<(\w+)([^>]*)>([\s\S]*?)<\/\2>/g
+  const keyRegex = /<key>([^<]+)<\/key>\s*<(\w+)([^>]*?)(?:\/>|>([\s\S]*?)<\/\2>)/g
   let match
   while ((match = keyRegex.exec(xml)) !== null) {
     const [, key, tag, attrs, content] = match
-    result[key] = parsePlistValue(tag, content.trim(), attrs)
+    result[key] = parsePlistValue(tag, (content ?? '').trim(), attrs)
   }
   return result
 }
@@ -153,10 +153,10 @@ function parsePlistValue(tag: string, content: string, _attrs: string): unknown 
   if (tag === 'dict') return parsePlistDict(content)
   if (tag === 'array') {
     const arr: unknown[] = []
-    const itemRegex = /<(\w+)([^>]*)>([\s\S]*?)<\/\1>/g
+    const itemRegex = /<(\w+)([^>]*?)(?:\/>|>([\s\S]*?)<\/\1>)/g
     let m
     while ((m = itemRegex.exec(content)) !== null) {
-      arr.push(parsePlistValue(m[1], m[3].trim(), m[2]))
+      arr.push(parsePlistValue(m[1], (m[3] ?? '').trim(), m[2]))
     }
     return arr
   }
@@ -1318,19 +1318,26 @@ export function poToJson(input: string): string {
   const lines = input.split('\n')
   let currentId = ''
   let currentStr = ''
+  let hasEntry = false
+  const flush = () => {
+    if (hasEntry && currentId !== '') result[currentId] = currentStr
+    hasEntry = false
+  }
   for (const line of lines) {
     const idMatch = line.match(/^msgid\s+"((?:[^"\\]|\\.)*)"/)
-    if (idMatch) { currentId = idMatch[1]; currentStr = ''; continue }
+    if (idMatch) {
+      flush()
+      currentId = idMatch[1]
+      currentStr = ''
+      hasEntry = true
+      continue
+    }
     const strMatch = line.match(/^msgstr\s+"((?:[^"\\]|\\.)*)"/)
     if (strMatch) { currentStr = strMatch[1]; continue }
     const contMatch = line.match(/^"((?:[^"\\]|\\.)*)"/)
-    if (contMatch && currentStr !== undefined) currentStr += contMatch[1]
-    if (line.trim() === '' && currentId && currentId !== '') {
-      if (currentId !== '') result[currentId] = currentStr
-      currentId = ''
-    }
+    if (contMatch) currentStr += contMatch[1]
   }
-  if (currentId) result[currentId] = currentStr
+  flush()
   return JSON.stringify(result, null, 2)
 }
 
@@ -1341,7 +1348,7 @@ export function jsonToPo(input: string): string {
   const messages = entries.map(([id, str]) => {
     const escapedId = id.replace(/"/g, '\\"')
     const escapedStr = (str || '').replace(/"/g, '\\"')
-    return `\nmsgid "${escapedId}"\nmsgstr "${escapedStr}"`
+    return `\nmsgid "${escapedId}"\nmsgstr "${escapedStr}"\n`
   })
   return header + messages.join('')
 }

@@ -3,7 +3,7 @@
 import ToolLayout from '@/components/tools/ToolLayout'
 import { jmespathQuery } from '@/lib/converters'
 
-const example = JSON.stringify({ name: 'JSONKits', version: 1, features: ['jmespath-tester', 'validator', 'converter'], active: true, metadata: { author: 'Dev', created: '2024-01-01' } }, null, 2)
+const example = '{"name":"JSONKits","version":1,"features":["jmespath-tester","validator","converter"],"active":true}\nfeatures[0]'
 
 export default function ToolPageClient() {
   return (

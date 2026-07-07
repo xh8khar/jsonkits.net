@@ -3,7 +3,7 @@
 import ToolLayout from '@/components/tools/ToolLayout'
 import { jsonDecompress } from '@/lib/converters'
 
-const example = '{"name":"JSONKits","version":1,"features":["formatter","validator","converter"],"active":true,"metadata":{"author":"Dev","created":"2024-01-01"}}'
+const example = 'eNoVyjEKgDAMBdC7/LmLa46gYAdHcQiaQsC2kKZdxLuLb34PCmcBYd7iuqg3BAyxprWApoAk7N2kgXakapndxf7Dt17s1XAE8Ok6BOTW5f0AZoQcBw=='
 
 export default function ToolPageClient() {
   return (

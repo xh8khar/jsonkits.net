@@ -3,7 +3,7 @@
 import ToolLayout from '@/components/tools/ToolLayout'
 import { jsonToProtobuf } from '@/lib/converters'
 
-const example = JSON.stringify({ name: 'JSONKits', version: 1, features: ['json-to-protobuf', 'validator', 'converter'], active: true }, null, 2)
+const example = 'syntax = "proto3";\nmessage Person {\n  string name = 1;\n  int32 age = 2;\n}\n---DATA---\n{"name":"Alice","age":30}'
 
 export default function ToolPageClient() {
   return (

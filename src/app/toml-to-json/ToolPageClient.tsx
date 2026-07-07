@@ -3,7 +3,7 @@
 import ToolLayout from '@/components/tools/ToolLayout'
 import { jsonToToml, tomlToJson } from '@/lib/converters'
 
-const example = '{"name":"JSONKits","version":1,"features":["formatter","validator"],"active":true}'
+const example = 'name = "JSONKits"\nversion = 1\nfeatures = ["formatter", "validator"]\nactive = true'
 
 export default function ToolPageClient() {
   return (

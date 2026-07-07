@@ -203,14 +203,27 @@ function parsePropValue(value: string): unknown {
   return value
 }
 
+function parsePlainTextPath(path: string): (string | number)[] {
+  const tokens: (string | number)[] = []
+  const regex = /([^.[\]]+)|\[(\d+)\]/g
+  let m: RegExpExecArray | null
+  while ((m = regex.exec(path)) !== null) {
+    tokens.push(m[1] !== undefined ? m[1] : Number(m[2]))
+  }
+  return tokens
+}
+
 function setNested(obj: Record<string, unknown>, path: string, value: unknown): void {
-  const keys = path.split('.')
-  let current = obj
+  const keys = parsePlainTextPath(path)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let current: any = obj
   for (let i = 0; i < keys.length - 1; i++) {
-    if (!current[keys[i]] || typeof current[keys[i]] !== 'object') {
-      current[keys[i]] = {}
+    const key = keys[i]
+    const nextIsIndex = typeof keys[i + 1] === 'number'
+    if (current[key] === undefined || current[key] === null || typeof current[key] !== 'object') {
+      current[key] = nextIsIndex ? [] : {}
     }
-    current = current[keys[i]] as Record<string, unknown>
+    current = current[key]
   }
   current[keys[keys.length - 1]] = value
 }

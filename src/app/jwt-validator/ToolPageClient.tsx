@@ -3,7 +3,7 @@
 import ToolLayout from '@/components/tools/ToolLayout'
 import { jwtValidate } from '@/lib/converters'
 
-const example = JSON.stringify({ name: 'JSONKits', version: 1, features: ['jwt-validator', 'validator', 'converter'], active: true, metadata: { author: 'Dev', created: '2024-01-01' } }, null, 2)
+const example = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNzgzNDY0OTcwLCJleHAiOjE3ODM1NTEzNzB9.b30ZzK1V_ZOrpHg3OeeIaeptd41lNmYncCeVlMgh5yM'
 
 export default function ToolPageClient() {
   return (

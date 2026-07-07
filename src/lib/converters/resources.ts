@@ -204,6 +204,35 @@ export function jsonVersionDiff(input: string): string {
   }, null, 2)
 }
 
+function extractTopLevelJsonBlocks(text: string): string[] {
+  const blocks: string[] = []
+  let depth = 0
+  let start = -1
+  let inString = false
+  let escaped = false
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i]
+    if (inString) {
+      if (escaped) escaped = false
+      else if (ch === '\\') escaped = true
+      else if (ch === '"') inString = false
+      continue
+    }
+    if (ch === '"') { inString = true; continue }
+    if (ch === '{') {
+      if (depth === 0) start = i
+      depth++
+    } else if (ch === '}') {
+      depth--
+      if (depth === 0 && start !== -1) {
+        blocks.push(text.slice(start, i + 1))
+        start = -1
+      }
+    }
+  }
+  return blocks
+}
+
 export function jsonPatchGenerator(input: string): string {
   const lines = input.split('\n')
   const jsonStrings: string[] = []
@@ -215,7 +244,7 @@ export function jsonPatchGenerator(input: string): string {
   const text = jsonStrings.join('\n').trim()
   let from: Record<string, unknown>
   let to: Record<string, unknown>
-  const braceBlocks = text.match(/\{([^}]*)\}/g)
+  const braceBlocks = extractTopLevelJsonBlocks(text)
   if (braceBlocks && braceBlocks.length >= 2) {
     from = JSON.parse(braceBlocks[0])
     to = JSON.parse(braceBlocks[1])

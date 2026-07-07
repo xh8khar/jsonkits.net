@@ -271,7 +271,7 @@ export function jsonToGeojson(input: string): string {
 
 export function geojsonToJson(input: string): string {
   const parsed = JSON.parse(input)
-  const features = parsed.features || parsed.type === 'Feature' ? [parsed] : []
+  const features = parsed.features ? parsed.features : parsed.type === 'Feature' ? [parsed] : []
   const result = features.map((f: Record<string, unknown>) => {
     const props = { ...(f.properties as Record<string, unknown> || {}) }
     const geom = f.geometry as Record<string, unknown> | undefined
@@ -947,7 +947,7 @@ export function treeToJson(input: string): string {
       const key = trimmed.slice(0, colonIdx).trim()
       const val = trimmed.slice(colonIdx + 1).trim()
       const num = Number(val)
-      parent.obj[key] = val === '' ? '' : isNaN(num) ? val : num
+      parent.obj[key] = val === '' ? '' : val === 'true' ? true : val === 'false' ? false : val === 'null' ? null : isNaN(num) ? val : num
     }
   }
   return JSON.stringify(root, null, 2)
@@ -1138,6 +1138,8 @@ export function jsonDetectCircular(input: string): string {
 }
 
 // ---- Rename Keys ----
+const renameMappingLine = /^([A-Za-z_$][\w$]*)\s*:\s*([A-Za-z_$][\w$]*)$/
+
 export function jsonRenameKeys(input: string): string {
   const lines = input.split('\n')
   const mapping: Record<string, string> = {}
@@ -1145,12 +1147,9 @@ export function jsonRenameKeys(input: string): string {
   let inMapping = true
   for (const line of lines) {
     if (inMapping) {
-      const colonIdx = line.indexOf(':')
-      if (colonIdx > 0) {
-        const oldKey = line.slice(0, colonIdx).trim()
-        const newKey = line.slice(colonIdx + 1).trim()
-        if (oldKey && newKey) { mapping[oldKey] = newKey; continue }
-      }
+      if (line.trim() === '') continue
+      const match = line.trim().match(renameMappingLine)
+      if (match) { mapping[match[1]] = match[2]; continue }
     }
     inMapping = false
     jsonStr += line + '\n'

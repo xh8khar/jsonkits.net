@@ -3,7 +3,7 @@
 import ToolLayout from '@/components/tools/ToolLayout'
 import { messagePackToJson } from '@/lib/converters'
 
-const example = JSON.stringify({ name: 'JSONKits', version: 1, features: ['messagepack-to-json', 'validator', 'converter'], active: true, metadata: { author: 'Dev', created: '2024-01-01' } }, null, 2)
+const example = '83a46e616d65a84a534f4e4b697473a776657273696f6e01a6616374697665c3'
 
 export default function ToolPageClient() {
   return (
