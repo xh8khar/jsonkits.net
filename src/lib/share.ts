@@ -24,7 +24,8 @@ export function decodeShareData(encoded: string): { input: string; output: strin
   try {
     const compressed = fromBase64Url(encoded)
     const decompressed = inflate(compressed, { toText: true })
-    return JSON.parse(decompressed)
+    const parsed = JSON.parse(decompressed)
+    return { input: parsed.i ?? '', output: parsed.o ?? '' }
   } catch {
     return null
   }

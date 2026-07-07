@@ -732,9 +732,14 @@ export function m3uToJson(input: string): string {
   let current: Record<string, unknown> = {}
   for (const line of lines) {
     if (line.startsWith('#EXTINF:')) {
-      const match = line.match(/#EXTINF:\s*(-?\d+),(.+)/)
+      const match = line.match(/#EXTINF:\s*(-?\d+)\s*,?\s*(.*)/)
       if (match) {
-        current = { duration: parseInt(match[1]), title: match[2] }
+        const rest = match[2].trim()
+        const lastComma = rest.lastIndexOf(',')
+        current = {
+          duration: parseInt(match[1]),
+          title: lastComma >= 0 ? rest.substring(lastComma + 1).trim() : rest,
+        }
       }
     } else if (line.startsWith('#EXT')) {
       continue
@@ -786,15 +791,27 @@ export function lottieJsonViewer(input: string): string {
 // ---- KML / GeoJSON ----
 
 export function kmlToGeojson(input: string): string {
-  const coordinates: number[][][] = [[]]
   const coordRegex = /<coordinates>([\s\S]*?)<\/coordinates>/g
   let match
+  const allCoords: number[][] = []
   while ((match = coordRegex.exec(input)) !== null) {
     const coords = match[1].trim().split(/\s+/).map(p => {
       const parts = p.split(',').map(Number)
       return [parts[0], parts[1]]
     })
-    coordinates[0].push(...coords)
+    allCoords.push(...coords)
+  }
+  const hasPoint = /<Point>[\s\S]*?<\/Point>/i.test(input)
+  const hasPolygon = /<Polygon>[\s\S]*?<\/Polygon>/i.test(input)
+  const hasLine = /<LineString>[\s\S]*?<\/LineString>/i.test(input)
+  let geomType = 'LineString'
+  let geomCoords: unknown = allCoords
+  if (hasPoint) {
+    geomType = 'Point'
+    geomCoords = allCoords[0] || [0, 0]
+  } else if (hasPolygon) {
+    geomType = 'Polygon'
+    geomCoords = [allCoords]
   }
   const result = {
     type: 'FeatureCollection' as const,
@@ -802,8 +819,8 @@ export function kmlToGeojson(input: string): string {
       {
         type: 'Feature' as const,
         geometry: {
-          type: 'LineString' as const,
-          coordinates,
+          type: geomType,
+          coordinates: geomCoords,
         },
         properties: {} as Record<string, unknown>,
       },
@@ -892,7 +909,7 @@ export function icalToJson(input: string): string {
     const cleanKey = key.replace(/;[^;]+/, '')
     if (line.startsWith('BEGIN:') || line.startsWith('END:')) continue
     if (line.startsWith('DTSTART') || line.startsWith('DTEND') || line.startsWith('DTSTAMP')) {
-      current[cleanKey] = val
+      current[cleanKey.toLowerCase()] = val
     } else if (cleanKey === 'SUMMARY') current.summary = val
     else if (cleanKey === 'DESCRIPTION') current.description = val
     else if (cleanKey === 'LOCATION') current.location = val
@@ -939,20 +956,20 @@ export function rssToJson(input: string): string {
   let match
   while ((match = itemRegex.exec(input)) !== null) {
     const item: Record<string, unknown> = {}
-    const title = match[1].match(/<title><!\[CDATA\[([\s\S]*?)\]\]><\/title>/)
-    if (title) item.title = title[1]
-    const link = match[1].match(/<link>([^<]+)<\/link>/)
+    const title = match[1].match(/<title(?:[^>]*)>(?:<!\[CDATA\[([\s\S]*?)\]\]>|([^<]*))<\/title>/)
+    if (title) item.title = title[1] ?? title[2]
+    const link = match[1].match(/<link(?:[^>]*)>([^<]+)<\/link>/)
     if (link) item.link = link[1]
-    const desc = match[1].match(/<description><!\[CDATA\[([\s\S]*?)\]\]><\/description>/)
-    if (desc) item.description = desc[1]
-    const pubDate = match[1].match(/<pubDate>([^<]+)<\/pubDate>/)
+    const desc = match[1].match(/<description(?:[^>]*)>(?:<!\[CDATA\[([\s\S]*?)\]\]>|([^<]*))<\/description>/)
+    if (desc) item.description = desc[1] ?? desc[2]
+    const pubDate = match[1].match(/<pubDate(?:[^>]*)>([^<]+)<\/pubDate>/)
     if (pubDate) item.pubDate = pubDate[1]
-    const guid = match[1].match(/<guid>([^<]+)<\/guid>/)
+    const guid = match[1].match(/<guid(?:[^>]*)>([^<]+)<\/guid>/)
     if (guid) item.guid = guid[1]
     items.push(item)
   }
-  const titleMatch = input.match(/<title><!\[CDATA\[([\s\S]*?)\]\]><\/title>/)
-  if (titleMatch) result.title = titleMatch[1]
+  const titleMatch = input.match(/<title(?:[^>]*)>(?:<!\[CDATA\[([\s\S]*?)\]\]>|([^<]*))<\/title>/)
+  if (titleMatch) result.title = titleMatch[1] ?? titleMatch[2]
   const descMatch = input.match(/<description><!\[CDATA\[([\s\S]*?)\]\]><\/description>/)
   if (descMatch) result.description = descMatch[1]
   const linkMatch = input.match(/<link>([^<]+)<\/link>/)
@@ -1454,7 +1471,7 @@ export function jsonResumeBuilder(input: string): string {
 
 export function bookmarksToJson(input: string): string {
   const result: Record<string, unknown>[] = []
-  const linkRegex = /<a[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/g
+  const linkRegex = /<a[^>]*?href\s*=\s*"([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi
   let match
   while ((match = linkRegex.exec(input)) !== null) {
     result.push({ url: match[1], title: match[2].trim(), source: 'bookmarks' })
@@ -1607,6 +1624,24 @@ export function jsonLogViewer(input: string): string {
 export function jsonTimestampConverter(input: string): string {
   const parsed = JSON.parse(input)
   const convertTimestamps = (obj: unknown): unknown => {
+    if (typeof obj === 'number' && Number.isFinite(obj)) {
+      const len = String(Math.floor(obj)).length
+      if (len >= 10 && len <= 16) {
+        const ms = len === 10 ? obj * 1000 : obj
+        try {
+          const d = new Date(ms)
+          if (!isNaN(d.getTime())) {
+            return {
+              _original: obj,
+              _asDate: d.toISOString(),
+              _asLocale: d.toLocaleString(),
+              _asUnixSeconds: Math.floor(d.getTime() / 1000),
+              _asUnixMs: d.getTime(),
+            }
+          }
+        } catch { /* ignore */ }
+      }
+    }
     if (typeof obj === 'string') {
       const num = Number(obj)
       if (!isNaN(num) && obj.length >= 10 && obj.length <= 16) {
