@@ -55,16 +55,6 @@ const iconMap: Record<string, React.ReactNode> = {
   ),
 }
 
-const categoryColors: Record<string, string> = {
-  formatter: 'bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400',
-  validator: 'bg-emerald-100 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400',
-  viewer: 'bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400',
-  converter: 'bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400',
-  compare: 'bg-rose-100 text-rose-600 dark:bg-rose-900/30 dark:text-rose-400',
-  generator: 'bg-cyan-100 text-cyan-600 dark:bg-cyan-900/30 dark:text-cyan-400',
-  utility: 'bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400',
-}
-
 export default function ToolCard({ tool }: { tool: Tool }) {
   return (
     <Link
@@ -82,9 +72,6 @@ export default function ToolCard({ tool }: { tool: Tool }) {
           <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 line-clamp-2">
             {tool.description}
           </p>
-          <span className={`inline-block mt-2 text-xs font-medium px-2 py-0.5 rounded-full ${categoryColors[tool.category] || categoryColors.utility}`}>
-            {tool.category}
-          </span>
         </div>
       </div>
     </Link>
