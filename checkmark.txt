@@ -1,407 +1,419 @@
 =============================================================================
- JSONKITS — Complete Tool Collection Status (300/250+ tools)
+ JSONKITS — Complete Tool Checklist (384 tools)
+ Generated from src/lib/navigation.ts on 2026-07-09
 =============================================================================
 
-☑ = completed    ☐ = remaining
-
----------------------------------------------------------------------------
- JSON ↔ Data Formats (24/24)
----------------------------------------------------------------------------
-  ☑ JSON to CSV
-  ☑ CSV to JSON
-  ☑ JSON to XML
-  ☑ XML to JSON
-  ☑ JSON to YAML
-  ☑ YAML to JSON
-  ☑ JSON to TOML
-  ☑ TOML to JSON
-  ☑ JSON to INI
-  ☑ INI to JSON
-  ☑ JSON to Properties
-  ☑ Properties to JSON
-  ☑ JSON to TSV
-  ☑ TSV to JSON
-  ☑ JSON to Excel (XLSX)
-  ☑ Excel (XLSX) to JSON
-  ☑ JSON to HTML Table
-  ☑ HTML Table to JSON
-  ☑ JSON to Markdown Table
-  ☑ Markdown Table to JSON
-  ☑ JSON to Plain Text
-  ☑ Plain Text to JSON
-
----------------------------------------------------------------------------
-  JSON ↔ Programming Languages (19/19)
-----------------------------------------------------------------------------
-   ☑ JSON to TypeScript Interface
-   ☑ JSON to Java Class
-   ☑ JSON to C# Class
-   ☑ JSON to Python Dictionary
-   ☑ JSON to Python Dataclass
-   ☑ JSON to Python Dict Syntax
-   ☑ JSON to Go Struct
-  ☑ JSON to PHP Array
-  ☑ JSON to PHP Class
-  ☑ JSON to Kotlin Data Class
-  ☑ JSON to Swift Struct
-  ☑ JSON to Dart Model
-  ☑ JSON to Rust Struct
-  ☑ JSON to Scala Case Class
-  ☑ JSON to Ruby Hash
-  ☑ JSON to Perl Hash
-  ☑ JSON to Lua Table
-  ☑ JSON to R Object
-  ☑ JSON to MATLAB Struct
-
----------------------------------------------------------------------------
- Programming Languages → JSON (10/10)
----------------------------------------------------------------------------
-  ☑ TypeScript Interface to JSON
-  ☑ Java Class to JSON
-  ☑ C# Class to JSON
-  ☑ Python Dictionary to JSON
-  ☑ Go Struct to JSON
-  ☑ PHP Array to JSON
-  ☑ Kotlin Data Class to JSON
-  ☑ Swift Struct to JSON
-  ☑ Dart Model to JSON
-  ☑ Rust Struct to JSON
-
----------------------------------------------------------------------------
- JSON ↔ Databases (16/16)
----------------------------------------------------------------------------
-  ☑ JSON to SQL INSERT
-  ☑ SQL INSERT to JSON
-  ☑ JSON to MySQL
-  ☑ MySQL to JSON
-  ☑ JSON to PostgreSQL
-  ☑ PostgreSQL to JSON
-  ☑ JSON to SQLite
-  ☑ SQLite to JSON
-  ☑ JSON to SQL Server
-  ☑ SQL Server to JSON
-  ☑ JSON to Oracle SQL
-  ☑ Oracle to JSON
-  ☑ JSON to MongoDB Document
-  ☑ MongoDB to JSON
-  ☑ JSON to Firestore Document
-  ☑ Firestore to JSON
-
----------------------------------------------------------------------------
- JSON ↔ API Formats (10/10)
----------------------------------------------------------------------------
-  ☑ JSON to GraphQL Schema
-  ☑ GraphQL Schema to JSON
-  ☑ JSON to OpenAPI
-  ☑ OpenAPI to JSON
-   ☑ JSON to Swagger
-   ☑ Swagger to JSON
-  ☑ JSON to Postman Collection
-  ☑ Postman to JSON
-  ☑ JSON to cURL
-  ☑ cURL to JSON
-
----------------------------------------------------------------------------
- JSON ↔ Configuration Files (8/8)
----------------------------------------------------------------------------
-  ☑ JSON to .env
-  ☑ .env to JSON
-  ☑ JSON to Docker Compose YAML
-  ☑ Docker Compose to JSON
-  ☑ JSON to Kubernetes YAML
-  ☑ Kubernetes to JSON
-  ☑ JSON to Terraform Variables
-  ☑ Terraform to JSON
-
----------------------------------------------------------------------------
- JSON ↔ Web Formats (10/10)
----------------------------------------------------------------------------
-  ☑ JSON to JavaScript Object
-  ☑ JavaScript Object to JSON
-  ☑ JSON to JSONP
-  ☑ JSONP to JSON
-  ☑ JSON to URL Parameters
-  ☑ URL Parameters to JSON
-  ☑ JSON to Query String
-  ☑ Query String to JSON
-  ☑ JSON to Form Data
-  ☑ Form Data to JSON
-
----------------------------------------------------------------------------
- JSON ↔ Encodings (10/10)
----------------------------------------------------------------------------
-  ☑ JSON to Base64
-  ☑ Base64 to JSON
-  ☑ JSON to URL Encoded
-  ☑ URL Encoded to JSON
-  ☑ JSON to Unicode Escape
-  ☑ Unicode Escape to JSON
-  ☑ JSON to Hex
-  ☑ Hex to JSON
-  ☑ JSON to Binary
-  ☑ Binary to JSON
-
----------------------------------------------------------------------------
- JSON ↔ AI & Documentation (6/6)
----------------------------------------------------------------------------
-  ☑ JSON to Markdown
-  ☑ Markdown to JSON
-  ☑ JSON to README
-  ☑ README to JSON
-  ☑ JSON to Mermaid Diagram
-  ☑ Mermaid to JSON
-
----------------------------------------------------------------------------
- JSON ↔ Miscellaneous (4/10)
----------------------------------------------------------------------------
-  ☑ JSON to PDF
-  ☑ PDF to JSON (use JSON to PDF download)
-   ☑ JSON to Word
-   ☑ Word to JSON
-   ☑ JSON to QR Code
-   ☑ QR Code to JSON
-   ☑ JSON to Barcode
-   ☑ Barcode to JSON
-   ☑ JSON to Image (SVG)
-   ☑ Image to JSON (OCR)
-
----------------------------------------------------------------------------
- Specialized JSON Converters (19/19)
-----------------------------------------------------------------------------
-   ☑ Nested JSON to Flat JSON
-   ☑ Flat JSON to Nested JSON
-   ☐ Array JSON to Object JSON (use Convert Arrays)
-   ☐ Object JSON to Array JSON (use Convert Objects)
-   ☑ JSON to Key-Value Pairs
-   ☑ Key-Value Pairs to JSON
-   ☑ JSON to Tree Structure
-   ☑ Tree Structure to JSON
-   ☑ JSON to Schema
-   ☑ Schema to JSON
-   ☑ JSON to Fake Data
-   ☑ Fake Data to JSON
-   ☑ JSON to BSON
-   ☑ BSON to JSON
-   ☑ JSON to NDJSON
-   ☑ NDJSON to JSON
-   ☑ JSON to GeoJSON
-   ☑ GeoJSON to JSON
-
----------------------------------------------------------------------------
- Formatting Utilities (6/6)
-----------------------------------------------------------------------------
-   ☑ JSON Formatter
-   ☑ JSON Beautifier
-   ☑ JSON Pretty Print
-   ☑ JSON Minifier
-   ☑ JSON Compact
-   ☑ JSON Indenter
-
----------------------------------------------------------------------------
- Validation Utilities (6/6)
-----------------------------------------------------------------------------
-   ☑ JSON Validator
-   ☑ JSON Linter
-   ☑ JSON Syntax Checker
-   ☑ JSON Repair
-   ☑ JSON Fixer
-   ☑ Invalid JSON Repair
-
----------------------------------------------------------------------------
- Viewing Utilities (8/8)
-----------------------------------------------------------------------------
-   ☑ JSON Viewer
-   ☑ JSON Tree View (json-to-tree)
-   ☑ JSON Tree Viewer
-   ☑ JSON Explorer
-   ☑ JSON URL Viewer
-   ☑ JSON Search
-   ☑ JSON File Viewer
-   ☑ JSON Clipboard Viewer
-
----------------------------------------------------------------------------
- Comparison & Merge Utilities (6/6)
----------------------------------------------------------------------------
-  ☑ JSON Diff Checker
-  ☑ JSON Compare
-  ☑ JSON Merge
-  ☑ JSON Merge Files
-  ☑ JSON Split
-  ☑ JSON Array Diff
-
----------------------------------------------------------------------------
- Editing Utilities (7/7)
----------------------------------------------------------------------------
-  ☑ JSON Sort Keys
-  ☑ JSON Remove Duplicates
-  ☑ JSON Rename Keys
-  ☑ JSON Remove Null Values
-  ☑ JSON Filter
-  ☑ JSON Expand
-  ☑ JSON Collapse
-
----------------------------------------------------------------------------
- Extraction Utilities (11/11)
-----------------------------------------------------------------------------
-   ☑ JSONPath Tester
-   ☑ JSON Pointer Tester
-   ☑ JSON Key Counter
-   ☑ JSON Extract
-   ☑ Extract Objects
-   ☑ Extract Arrays
-   ☑ Extract Keys
-   ☑ Extract Values
-   ☑ Extract Nested Objects
-   ☑ JSON Array Counter
-   ☑ JSON Pointer Generator
-
----------------------------------------------------------------------------
- Analysis Utilities (7/7)
----------------------------------------------------------------------------
-  ☑ JSON Size Calculator
-  ☑ JSON Depth Analyzer
-  ☑ JSON Statistics
-  ☑ JSON Key Counter
-  ☑ JSON Type Detector
-  ☑ JSON Value Analyzer
-  ☑ JSON Collection Counter
-
----------------------------------------------------------------------------
- Generation Utilities (6/6)
-----------------------------------------------------------------------------
-   ☑ Fake JSON Generator
-   ☑ Random JSON Generator
-   ☑ Mock API Response Generator
-   ☑ Sample JSON Generator
-   ☑ JSON Schema Generator
-
----------------------------------------------------------------------------
- Security Utilities (5/5)
----------------------------------------------------------------------------
-  ☑ JSON Escape
-  ☑ JSON Unescape
-  ☑ JSON Encrypt
-  ☑ JSON Decrypt
-  ☑ JSON Mask Sensitive Data
-
----------------------------------------------------------------------------
- Compression Utilities (4/4)
----------------------------------------------------------------------------
-  ☑ Compress JSON (Deflate)
-  ☑ Decompress JSON (Inflate)
-  ☑ Gzip JSON
-  ☑ Gunzip JSON
-
----------------------------------------------------------------------------
- Developer Utilities (10/11)
-----------------------------------------------------------------------------
-   ☑ JSON Custom Stringify
-   ☑ JSON to Inline
-   ☑ JSON Case Converter
-   ☑ JSON Date Formatter
-   ☑ JSON Schema to TypeScript
-   ☑ JSON Schema Validator
-   ☑ JSON Merge Patch
-   ☑ Copy JSON
-   ☑ Validate Uploaded JSON
-   ☑ Convert JSON File
-   ☐ Download JSON
-   ☐ Upload JSON
-   ☐ Merge JSON Files (done)
-   ☐ Split JSON Files (done)
-   ☐ JSON Clipboard Viewer (done)
-
----------------------------------------------------------------------------
- Browser Tools (2/6)
-----------------------------------------------------------------------------
-   ☐ JSON File Viewer (done)
-   ☐ JSON URL Viewer (done)
-   ☐ Fetch JSON from URL (done)
-   ☐ API JSON Viewer (use URL Viewer)
-   ☑ JSON Live Preview
-
----------------------------------------------------------------------------
- Advanced Utilities (22/22)
----------------------------------------------------------------------------
-  ☑ Flatten Objects (Nested to Flat)
-  ☑ Unflatten Objects (Flat to Nested)
-  ☑ Normalize JSON
-  ☑ Denormalize JSON
-  ☑ Remove Empty Objects
-  ☑ Remove Empty Arrays
-  ☑ Sort Arrays
-  ☑ Convert Arrays to Objects
-  ☑ Convert Objects to Arrays
-  ☑ Detect Duplicate Keys
-  ☑ Detect Circular References
-  ☑ JSON Version Diff
-  ☑ JSON Patch Generator
-  ☑ JSON Patch Validator
-  ☑ JSON Merge Patch
-  ☑ JSON Pointer Generator
-  ☑ JSON Pointer Tester
-  ☑ JSON String Analyzer
-  ☑ JSON to Image (SVG)
-  ☑ JSON to QR Code
-  ☑ JSON to PDF
-  ☑ JSON Value Analyzer
-  ☑ JSON Collection Counter
-  ☑ JSON Array Diff
-
----------------------------------------------------------------------------
- Additional Tools Built (not in GOAL.md)
----------------------------------------------------------------------------
-  ☑ JSON to Markdown
-  ☑ JSON to Graphviz / Graphviz to JSON
-  ☑ JSONC / JSON with Comments (bidirectional)
-  ☑ JSON to Inline
-  ☑ JSON Key Transformer
-  ☑ JSON Value Replacer
-  ☑ JSON Truncate
-  ☑ JSON Array Flattener
-  ☑ JSON Convert Arrays / Convert Objects (transpose)
-  ☑ json-to-array / array-to-json (key-value array format)
-  ☑ JSON json-pointer-tester (RFC 6901)
-   ☑ JSON json-path-finder
-   ☑ JSON to Haskell
-   ☑ JSON to Elm
-   ☑ JSON to OCaml
-   ☑ JSON to Zig
-   ☑ Array JSON to Object JSON
-   ☑ Object JSON to Array JSON
-   ☑ JSON Deflate
-   ☑ JSON Inflate
-   ☑ Fetch JSON from URL
-   ☑ API JSON Viewer
+ ☑ = implemented & verified (converter harness: example input, edge-case
+     battery, and round-trip checks — see scripts/test-converters.ts)
 
 -----------------------------------------------------------------------------
-  JSON Slice
+ Formatters (67/67)
 -----------------------------------------------------------------------------
-   ☑ JSON Slice
+  ☑ JSON Formatter  —  /json-formatter/
+  ☑ JSON Minifier  —  /json-minifier/
+  ☑ JSON Sort Keys  —  /json-sort-keys/
+  ☑ JSON Remove Nulls  —  /json-remove-nulls/
+  ☑ JSON Size Calculator  —  /json-size-calculator/
+  ☑ JSON Depth Analyzer  —  /json-depth-analyzer/
+  ☑ JSONPath Tester  —  /json-path-tester/
+  ☑ JSON Statistics  —  /json-statistics/
+  ☑ JSON Key Counter  —  /json-key-counter/
+  ☑ JSON String Analyzer  —  /json-string-analyzer/
+  ☑ JSON Filter  —  /json-filter/
+  ☑ JSON Extract  —  /json-extract/
+  ☑ JSON Remove Empty  —  /json-remove-empty/
+  ☑ JSON Remove Duplicates  —  /json-remove-duplicates/
+  ☑ JSON Detect Circular  —  /json-detect-circular/
+  ☑ JSON Detect Duplicate Keys  —  /json-detect-duplicate-keys/
+  ☑ JSON Rename Keys  —  /json-rename-keys/
+  ☑ JSON Normalize  —  /json-normalize/
+  ☑ JSON Custom Stringify  —  /json-custom-stringify/
+  ☑ JSON to Inline  —  /json-to-inline/
+  ☑ JSON Sort Arrays  —  /json-sort-arrays/
+  ☑ JSON Split  —  /json-split/
+  ☑ JSON Pointer Tester  —  /json-pointer-tester/
+  ☑ JSON Mask Data  —  /json-mask-data/
+  ☑ JSON Linter  —  /json-linter/
+  ☑ JSON Repair  —  /json-repair/
+  ☑ JSON Search  —  /json-search/
+  ☑ JSON Type Detector  —  /json-type-detector/
+  ☑ JSON Case Converter  —  /json-case-converter/
+  ☑ JSON Date Formatter  —  /json-date-formatter/
+  ☑ JSON Copy  —  /json-copy/
+  ☑ JSON Download  —  /json-download/
+  ☑ JSON Upload  —  /json-upload/
+  ☑ JSON Expand  —  /json-expand/
+  ☑ JSON Collapse  —  /json-collapse/
+  ☑ JSON Extract Objects  —  /json-extract-objects/
+  ☑ JSON Extract Arrays  —  /json-extract-arrays/
+  ☑ JSON Denormalize  —  /json-denormalize/
+  ☑ JSON Pointer Generator  —  /json-pointer-generator/
+  ☑ JSON Compress (Deflate)  —  /json-compress/
+  ☑ JSON Decompress (Inflate)  —  /json-decompress/
+  ☑ JSON Gzip  —  /json-gzip/
+  ☑ JSON Gunzip  —  /json-gunzip/
+  ☑ JSON Value Analyzer  —  /json-value-analyzer/
+  ☑ JSON Collection Counter  —  /json-collection-counter/
+  ☑ JSON Slice  —  /json-slice/
+  ☑ Extract Keys  —  /extract-keys/
+  ☑ Extract Values  —  /extract-values/
+  ☑ Extract Nested Objects  —  /extract-nested-objects/
+  ☑ JSON Array Counter  —  /json-array-counter/
+  ☑ JSON Deflate  —  /json-deflate/
+  ☑ JSON Inflate  —  /json-inflate/
+  ☑ JSON Beautifier  —  /json-beautifier/
+  ☑ JSON Pretty Print  —  /json-pretty-print/
+  ☑ JSON Compact  —  /json-compact/
+  ☑ JSON Indenter  —  /json-indenter/
+  ☑ JMESPath Tester  —  /jmespath-tester/
+  ☑ JSON Property Path Finder  —  /json-property-path/
+  ☑ JSON Number Converter  —  /json-number-converter/
+  ☑ JSON Data Anonymizer  —  /json-data-anonymizer/
+  ☑ JSON to ANSI Colorized  —  /json-to-ansi/
+  ☑ JSON Editor  —  /json-editor/
+  ☑ JSON Parser  —  /json-parser/
+  ☑ JSON Stringify  —  /json-stringify/
+  ☑ JSON Token Counter  —  /json-token-counter/
+  ☑ JSON Path Finder  —  /json-path-finder/
+  ☑ JSON Obfuscator  —  /json-obfuscator/
 
 -----------------------------------------------------------------------------
- Developer Tools (11/11) - NEW
+ Validators (15/15)
 -----------------------------------------------------------------------------
-  ☑ JSON to Zod Schema
-  ☑ JSON to Yup Schema
-  ☑ JSON to Prisma Schema
-  ☑ JSON to Mongoose Schema
-  ☑ JSON to TypeScript Enum
-  ☑ JSON to TypeScript Type Guard
-  ☑ JSON to Pydantic v2
-  ☑ JSON to SQLAlchemy Model
-  ☑ Path Notation Converter
-  ☑ JSON Schema Diff
-  ☑ JSON Data Anonymizer
+  ☑ JSON Validator  —  /json-validator/
+  ☑ JSON Schema Validator  —  /json-schema-validator/
+  ☑ JSON Patch Validator  —  /json-patch-validator/
+  ☑ Validate Uploaded JSON  —  /validate-uploaded-json/
+  ☑ JSON Syntax Checker  —  /json-syntax-checker/
+  ☑ JSON Fixer  —  /json-fixer/
+  ☑ Invalid JSON Repair  —  /invalid-json-repair/
+  ☑ JWT Decoder  —  /jwt-decoder/
+  ☑ JWT Validator  —  /jwt-validator/
+  ☑ JSON Hash Generator  —  /json-hash/
+  ☑ JSON-LD Validator  —  /json-ld-validator/
+  ☑ package.json Validator  —  /package-json-validator/
+  ☑ tsconfig.json Validator  —  /tsconfig-validator/
+  ☑ composer.json Validator  —  /composer-json-validator/
+  ☑ JSON Feed Validator  —  /json-feed-validator/
 
-=============================================================================
- SUMMARY
-=============================================================================
-  Total tools:                      300+
-  Goal:                             250+
-  Status:                           ✓ GOAL REACHED
+-----------------------------------------------------------------------------
+ Viewers (15/15)
+-----------------------------------------------------------------------------
+  ☑ JSON Viewer  —  /json-viewer/
+  ☑ JSON File Viewer  —  /json-file-viewer/
+  ☑ JSON Clipboard Viewer  —  /json-clipboard-viewer/
+  ☑ JSON Explorer  —  /json-explorer/
+  ☑ JSON URL Viewer  —  /json-url-viewer/
+  ☑ JSON Live Preview  —  /json-live-preview/
+  ☑ Fetch JSON from URL  —  /fetch-json-from-url/
+  ☑ API JSON Viewer  —  /api-json-viewer/
+  ☑ JSON Tree Viewer  —  /json-tree-viewer/
+  ☑ HAR Viewer  —  /har-viewer/
+  ☑ GeoJSON Viewer  —  /geojson-viewer/
+  ☑ JSON Table Viewer  —  /json-table-viewer/
+  ☑ JSON Graph Viewer  —  /json-graph-viewer/
+  ☑ Lottie JSON Viewer  —  /lottie-json-viewer/
+  ☑ JSON Log Viewer  —  /json-log-viewer/
 
-=============================================================================
-  Running at: http://localhost:3000
-  Build:      npx next build
-=============================================================================
+-----------------------------------------------------------------------------
+ Converters (260/260)
+-----------------------------------------------------------------------------
+  ☑ JSON to YAML  —  /json-to-yaml/
+  ☑ YAML to JSON  —  /yaml-to-json/
+  ☑ JSON to CSV  —  /json-to-csv/
+  ☑ CSV to JSON  —  /csv-to-json/
+  ☑ JSON to XML  —  /json-to-xml/
+  ☑ XML to JSON  —  /xml-to-json/
+  ☑ JSON to TOML  —  /json-to-toml/
+  ☑ TOML to JSON  —  /toml-to-json/
+  ☑ JSON to INI  —  /json-to-ini/
+  ☑ INI to JSON  —  /ini-to-json/
+  ☑ JSON to Properties  —  /json-to-properties/
+  ☑ Properties to JSON  —  /properties-to-json/
+  ☑ JSON to TSV  —  /json-to-tsv/
+  ☑ TSV to JSON  —  /tsv-to-json/
+  ☑ JSON to HTML Table  —  /json-to-html-table/
+  ☑ HTML Table to JSON  —  /html-table-to-json/
+  ☑ JSON to Markdown Table  —  /json-to-markdown-table/
+  ☑ Markdown Table to JSON  —  /markdown-table-to-json/
+  ☑ JSON to Plain Text  —  /json-to-plain-text/
+  ☑ Plain Text to JSON  —  /plain-text-to-json/
+  ☑ JSON to TypeScript  —  /json-to-typescript/
+  ☑ JSON to Python  —  /json-to-python/
+  ☑ JSON to Go  —  /json-to-go/
+  ☑ JSON to Java  —  /json-to-java/
+  ☑ JSON to C#  —  /json-to-csharp/
+  ☑ JSON to PHP Array  —  /json-to-php-array/
+  ☑ JSON to PHP Class  —  /json-to-php-class/
+  ☑ JSON to Kotlin  —  /json-to-kotlin/
+  ☑ JSON to Swift  —  /json-to-swift/
+  ☑ JSON to Dart  —  /json-to-dart/
+  ☑ JSON to Rust  —  /json-to-rust/
+  ☑ JSON to Scala  —  /json-to-scala/
+  ☑ JSON to Ruby  —  /json-to-ruby/
+  ☑ JSON to Perl  —  /json-to-perl/
+  ☑ JSON to Lua  —  /json-to-lua/
+  ☑ JSON to R  —  /json-to-r/
+  ☑ JSON to MATLAB  —  /json-to-matlab/
+  ☑ JSON to Base64  —  /json-to-base64/
+  ☑ Base64 to JSON  —  /base64-to-json/
+  ☑ JSON to URL Encoded  —  /json-to-url-encoded/
+  ☑ URL Encoded to JSON  —  /url-encoded-to-json/
+  ☑ JSON to Hex  —  /json-to-hex/
+  ☑ Hex to JSON  —  /hex-to-json/
+  ☑ JSON to Unicode Escape  —  /json-to-unicode-escape/
+  ☑ Unicode Escape to JSON  —  /unicode-escape-to-json/
+  ☑ JSON to URL Parameters  —  /json-to-url-params/
+  ☑ URL Parameters to JSON  —  /url-params-to-json/
+  ☑ JSON to Query String  —  /json-to-query-string/
+  ☑ Query String to JSON  —  /query-string-to-json/
+  ☑ JSON to Form Data  —  /json-to-form-data/
+  ☑ Form Data to JSON  —  /form-data-to-json/
+  ☑ JSON to JSONP  —  /json-to-jsonp/
+  ☑ JSONP to JSON  —  /jsonp-to-json/
+  ☑ JSON to JS Object  —  /json-to-js-object/
+  ☑ JS Object to JSON  —  /js-object-to-json/
+  ☑ JSON to .env  —  /json-to-env/
+  ☑ .env to JSON  —  /env-to-json/
+  ☑ JSON to Docker Compose  —  /json-to-docker-compose/
+  ☑ Docker Compose to JSON  —  /docker-compose-to-json/
+  ☑ JSON to Kubernetes  —  /json-to-kubernetes/
+  ☑ Kubernetes to JSON  —  /kubernetes-to-json/
+  ☑ JSON to Terraform  —  /json-to-terraform/
+  ☑ Terraform to JSON  —  /terraform-to-json/
+  ☑ JSON to SQL INSERT  —  /json-to-sql-insert/
+  ☑ SQL INSERT to JSON  —  /sql-to-json/
+  ☑ JSON to MongoDB  —  /json-to-mongodb/
+  ☑ MongoDB to JSON  —  /mongodb-to-json/
+  ☑ JSON to cURL  —  /json-to-curl/
+  ☑ cURL to JSON  —  /curl-to-json/
+  ☑ cURL to Fetch  —  /curl-to-fetch/
+  ☑ cURL to Axios  —  /curl-to-axios/
+  ☑ cURL to Ky  —  /curl-to-ky/
+  ☑ JSON to Markdown  —  /json-to-markdown/
+  ☑ Markdown to JSON  —  /markdown-to-json/
+  ☑ Nested JSON to Flat  —  /nested-to-flat-json/
+  ☑ Flat JSON to Nested  —  /flat-to-nested-json/
+  ☑ JSON to Key-Value  —  /json-to-key-value/
+  ☑ Key-Value to JSON  —  /key-value-to-json/
+  ☑ JSON to Schema  —  /json-to-schema/
+  ☑ Schema to JSON  —  /schema-to-json/
+  ☑ JSON to NDJSON  —  /json-to-ndjson/
+  ☑ NDJSON to JSON  —  /ndjson-to-json/
+  ☑ JSON to GeoJSON  —  /json-to-geojson/
+  ☑ GeoJSON to JSON  —  /geojson-to-json/
+  ☑ JSON Escape  —  /json-escape/
+  ☑ JSON Unescape  —  /json-unescape/
+  ☑ JSON Merge  —  /json-merge/
+  ☑ JSON to Firestore  —  /json-to-firestore/
+  ☑ Firestore to JSON  —  /firestore-to-json/
+  ☑ JSON to GraphQL Schema  —  /json-to-graphql-schema/
+  ☑ GraphQL Schema to JSON  —  /graphql-schema-to-json/
+  ☑ JSON to OpenAPI  —  /json-to-openapi/
+  ☑ OpenAPI to JSON  —  /openapi-to-json/
+  ☑ JSON to Binary  —  /json-to-binary/
+  ☑ Binary to JSON  —  /binary-to-json/
+  ☑ JSON to Mermaid  —  /json-to-mermaid/
+  ☑ Mermaid to JSON  —  /mermaid-to-json/
+  ☑ JSON to README  —  /json-to-readme/
+  ☑ README to JSON  —  /readme-to-json/
+  ☑ JSON Object to Array  —  /json-to-array/
+  ☑ Array to JSON Object  —  /array-to-json/
+  ☑ JSON to Tree View  —  /json-to-tree/
+  ☑ Tree View to JSON  —  /tree-to-json/
+  ☑ JSON Convert to Object  —  /json-convert-arrays/
+  ☑ JSON Convert to Array  —  /json-convert-objects/
+  ☑ JSON Merge Patch  —  /json-merge-patch/
+  ☑ JSON to PostgreSQL  —  /json-to-postgresql/
+  ☑ PostgreSQL to JSON  —  /postgresql-to-json/
+  ☑ JSON to MySQL  —  /json-to-mysql/
+  ☑ MySQL to JSON  —  /mysql-to-json/
+  ☑ JSON to SQLite  —  /json-to-sqlite/
+  ☑ SQLite to JSON  —  /sqlite-to-json/
+  ☑ JSON to SQL Server  —  /json-to-sql-server/
+  ☑ SQL Server to JSON  —  /sql-server-to-json/
+  ☑ JSON to Oracle  —  /json-to-oracle/
+  ☑ Oracle to JSON  —  /oracle-to-json/
+  ☑ JSON to Postman  —  /json-to-postman/
+  ☑ Postman to JSON  —  /postman-to-json/
+  ☑ JSON to BSON  —  /json-to-bson/
+  ☑ BSON to JSON  —  /bson-to-json/
+  ☑ JSON to Graphviz  —  /json-to-graphviz/
+  ☑ Graphviz to JSON  —  /graphviz-to-json/
+  ☑ JSONC to JSON  —  /jsonc-to-json/
+  ☑ JSON to JSONC  —  /json-to-jsonc/
+  ☑ JSON Encrypt  —  /json-encrypt/
+  ☑ JSON Decrypt  —  /json-decrypt/
+  ☑ JSON Schema to TypeScript  —  /json-schema-to-typescript/
+  ☑ JSON Patch Generator  —  /json-patch-generator/
+  ☑ JSON to Excel (XLSX)  —  /json-to-xlsx/
+  ☑ Excel (XLSX) to JSON  —  /xlsx-to-json/
+  ☑ JSON Merge Files  —  /json-merge-files/
+  ☑ JSON to QR Code  —  /json-to-qrcode/
+  ☑ JSON to SVG Image  —  /json-to-image/
+  ☑ JSON to PDF  —  /json-to-pdf/
+  ☑ JSON to Swagger  —  /json-to-swagger/
+  ☑ Swagger to JSON  —  /swagger-to-json/
+  ☑ JSON to Word  —  /json-to-word/
+  ☑ Word to JSON  —  /word-to-json/
+  ☑ PDF to JSON  —  /pdf-to-json/
+  ☑ QR Code to JSON  —  /qr-code-to-json/
+  ☑ JSON to Barcode  —  /json-to-barcode/
+  ☑ Barcode to JSON  —  /barcode-to-json/
+  ☑ Image to JSON (OCR)  —  /image-to-json/
+  ☑ JSON to Python Dict  —  /json-to-python-dict/
+  ☑ Convert JSON File  —  /convert-json-file/
+  ☑ JSON to Haskell  —  /json-to-haskell/
+  ☑ JSON to Elm  —  /json-to-elm/
+  ☑ JSON to OCaml  —  /json-to-ocaml/
+  ☑ JSON to Zig  —  /json-to-zig/
+  ☑ Array JSON to Object JSON  —  /array-to-object-json/
+  ☑ Object JSON to Array JSON  —  /object-to-array-json/
+  ☑ JSON to Python Dataclass  —  /json-python-dataclass/
+  ☑ JSON to C  —  /json-to-c/
+  ☑ JSON to C++  —  /json-to-cpp/
+  ☑ JSON to Groovy  —  /json-to-groovy/
+  ☑ JSON to Elixir  —  /json-to-elixir/
+  ☑ JSON to PowerShell  —  /json-to-powershell/
+  ☑ JSON to F#  —  /json-to-fsharp/
+  ☑ JSON to Julia  —  /json-to-julia/
+  ☑ JSON to MessagePack  —  /json-to-messagepack/
+  ☑ MessagePack to JSON  —  /messagepack-to-json/
+  ☑ JSON to CBOR  —  /json-to-cbor/
+  ☑ CBOR to JSON  —  /cbor-to-json/
+  ☑ JWT Encoder  —  /jwt-encoder/
+  ☑ JSON to HTML  —  /json-to-html/
+  ☑ JSON to SQL CREATE TABLE  —  /json-to-sql-create/
+  ☑ JSON to Elasticsearch Bulk  —  /json-to-elasticsearch/
+  ☑ JSON to DynamoDB  —  /json-to-dynamodb/
+  ☑ JSON to BigQuery Schema  —  /json-to-bigquery/
+  ☑ JSON to Redis Commands  —  /json-to-redis/
+  ☑ JSON to MongoDB Aggregation  —  /json-to-mongodb-aggregation/
+  ☑ JSON Schema to Java  —  /json-schema-to-java/
+  ☑ JSON Schema to Pydantic  —  /json-schema-to-pydantic/
+  ☑ JSON to XSD  —  /json-to-xsd/
+  ☑ JSON to SOAP XML  —  /json-to-soap/
+  ☑ JSON to AsyncAPI  —  /json-to-asyncapi/
+  ☑ JSON to GraphQL Query  —  /json-to-graphql-query/
+  ☑ JSON to Erlang  —  /json-to-erlang/
+  ☑ JSON to Clojure  —  /json-to-clojure/
+  ☑ JSON to Objective-C  —  /json-to-objc/
+  ☑ JSON to Fortran  —  /json-to-fortran/
+  ☑ JSON to COBOL  —  /json-to-cobol/
+  ☑ JSON to SAS  —  /json-to-sas/
+  ☑ JSON to SQL UPDATE  —  /json-to-sql-update/
+  ☑ JSON to SQL DELETE  —  /json-to-sql-delete/
+  ☑ JSON to GraphQL Mutation  —  /json-to-graphql-mutation/
+  ☑ JSON to GraphQL Subscription  —  /json-to-graphql-subscription/
+  ☑ JSON to Snowflake  —  /json-to-snowflake/
+  ☑ JSON to Prometheus  —  /json-to-prometheus/
+  ☑ JSON to Zod Schema  —  /json-to-zod-schema/
+  ☑ JSON to Yup Schema  —  /json-to-yup-schema/
+  ☑ JSON to React Hook Form  —  /json-to-react-hook-form/
+  ☑ JSON to Formik  —  /json-to-formik/
+  ☑ JSON to Prisma Schema  —  /json-to-prisma-schema/
+  ☑ JSON to Mongoose Schema  —  /json-to-mongoose-schema/
+  ☑ JSON to TypeScript Enum  —  /json-to-typescript-enum/
+  ☑ JSON to TypeScript Type Guard  —  /json-to-type-guard/
+  ☑ JSON to Pydantic v2  —  /json-to-pydantic-v2/
+  ☑ JSON to SQLAlchemy Model  —  /json-to-sqlalchemy-model/
+  ☑ Path Notation Converter  —  /path-notation-converter/
+  ☑ JSON to POJO  —  /json-to-pojo/
+  ☑ JSON5 to JSON  —  /json5-to-json/
+  ☑ JSON to JSON5  —  /json-to-json5/
+  ☑ JSONL to JSON  —  /jsonl-to-json/
+  ☑ JSON to JSONL  —  /json-to-jsonl/
+  ☑ JSON to Parquet  —  /json-to-parquet/
+  ☑ Parquet to JSON  —  /parquet-to-json/
+  ☑ PList to JSON  —  /plist-to-json/
+  ☑ JSON to PList  —  /json-to-plist/
+  ☑ HAR to JSON  —  /har-to-json/
+  ☑ JSON i18n Translator  —  /json-i18n-translator/
+  ☑ JSON to Freezed  —  /json-to-freezed/
+  ☑ JSON to Apex  —  /json-to-apex/
+  ☑ JSON to LaTeX Table  —  /json-to-latex-table/
+  ☑ JSON to HTML Table  —  /json-to-table/
+  ☑ JSON to Chart  —  /json-to-chart/
+  ☑ SRT to JSON  —  /srt-to-json/
+  ☑ JSON to SRT  —  /json-to-srt/
+  ☑ M3U to JSON  —  /m3u-to-json/
+  ☑ JSON to M3U  —  /json-to-m3u/
+  ☑ KML to GeoJSON  —  /kml-to-geojson/
+  ☑ GeoJSON to KML  —  /geojson-to-kml/
+  ☑ GPX to JSON  —  /gpx-to-json/
+  ☑ iCal to JSON  —  /ical-to-json/
+  ☑ JSON to iCal  —  /json-to-ical/
+  ☑ RSS to JSON  —  /rss-to-json/
+  ☑ JSON to RSS  —  /json-to-rss/
+  ☑ JSON to Pandas  —  /json-to-pandas/
+  ☑ JSON to PySpark Schema  —  /json-to-pyspark-schema/
+  ☑ JSON to Hive DDL  —  /json-to-hive-ddl/
+  ☑ JSON to DBML  —  /json-to-dbml/
+  ☑ JSON to PlantUML  —  /json-to-plantuml/
+  ☑ JSON to VBA  —  /json-to-vba/
+  ☑ JSON to Delphi  —  /json-to-delphi/
+  ☑ JWK to PEM  —  /jwk-to-pem/
+  ☑ PEM to JWK  —  /pem-to-jwk/
+  ☑ Sitemap to JSON  —  /sitemap-to-json/
+  ☑ PO to JSON  —  /po-to-json/
+  ☑ JSON to PO  —  /json-to-po/
+  ☑ XLIFF to JSON  —  /xliff-to-json/
+  ☑ ARB to JSON  —  /arb-to-json/
+  ☑ JSON to iOS .strings  —  /json-to-ios-strings/
+  ☑ strings.xml to JSON  —  /strings-xml-to-json/
+  ☑ vCard to JSON  —  /vcard-to-json/
+  ☑ JSON to vCard  —  /json-to-vcard/
+  ☑ Bookmarks to JSON  —  /bookmarks-to-json/
+  ☑ JSON to Laravel Migration  —  /json-to-laravel-migration/
+  ☑ JSON to Django Model  —  /json-to-django-model/
+  ☑ JSON to Rails Migration  —  /json-to-rails-migration/
+  ☑ JSON to Spring Entity  —  /json-to-spring-entity/
+  ☑ JSON to Valibot Schema  —  /json-to-valibot/
+  ☑ JSON to io-ts  —  /json-to-io-ts/
+  ☑ JSON Timestamp Converter  —  /json-timestamp-converter/
+  ☑ JSON to Insomnia  —  /json-to-insomnia/
+  ☑ WKT to GeoJSON  —  /wkt-to-geojson/
+  ☑ TopoJSON to GeoJSON  —  /topojson-to-geojson/
+  ☑ JSON to Protocol Buffers  —  /json-to-protobuf/
+  ☑ Protocol Buffers to JSON  —  /protobuf-to-json/
+  ☑ JSON to Apache Avro  —  /json-to-avro/
+  ☑ Apache Avro to JSON  —  /avro-to-json/
+
+-----------------------------------------------------------------------------
+ Generators (22/22)
+-----------------------------------------------------------------------------
+  ☑ TypeScript Interface to JSON  —  /typescript-interface-to-json/
+  ☑ Java Class to JSON  —  /java-class-to-json/
+  ☑ C# Class to JSON  —  /csharp-class-to-json/
+  ☑ Python Dict to JSON  —  /python-dict-to-json/
+  ☑ Go Struct to JSON  —  /go-struct-to-json/
+  ☑ PHP Array to JSON  —  /php-array-to-json/
+  ☑ Kotlin to JSON  —  /kotlin-to-json/
+  ☑ Swift to JSON  —  /swift-to-json/
+  ☑ Dart to JSON  —  /dart-to-json/
+  ☑ Rust Struct to JSON  —  /rust-struct-to-json/
+  ☑ JSON Fake Data Generator  —  /json-fake-generator/
+  ☑ JSON Mock Generator  —  /json-mock-generator/
+  ☑ JSON Random Generator  —  /json-random-generator/
+  ☑ JSON Sample Generator  —  /json-sample-generator/
+  ☑ Fake Data to JSON  —  /fake-data-to-json/
+  ☑ JSON Schema Generator  —  /json-schema-generator/
+  ☑ JSON-LD Generator  —  /json-ld-generator/
+  ☑ Schema Markup Generator  —  /schema-markup-generator/
+  ☑ JSON Form Generator  —  /json-form-generator/
+  ☑ manifest.json Generator  —  /manifest-json-generator/
+  ☑ JSON to Sitemap  —  /json-to-sitemap/
+  ☑ JSON Resume Builder  —  /json-resume-builder/
+
+-----------------------------------------------------------------------------
+ Compare (5/5)
+-----------------------------------------------------------------------------
+  ☑ JSON Diff Checker  —  /json-diff-checker/
+  ☑ JSON Compare  —  /json-compare/
+  ☑ JSON Version Diff  —  /json-version-diff/
+  ☑ JSON Array Diff  —  /json-array-diff/
+  ☑ JSON Schema Diff  —  /json-schema-diff/
+
+-----------------------------------------------------------------------------
+ Site pages (not tools): /about /blog /contact /cookies /disclaimer /learn /privacy /terms
+-----------------------------------------------------------------------------
