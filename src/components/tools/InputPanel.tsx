@@ -3,7 +3,7 @@
 import { useRef, useCallback } from 'react'
 import dynamic from 'next/dynamic'
 
-const MonacoEditor = dynamic(() => import('@monaco-editor/react'), { ssr: false })
+const MonacoEditor = dynamic(() => import('./MonacoEditorClient'), { ssr: false })
 
 interface InputPanelProps {
   label: string

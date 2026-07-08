@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic'
 
-const MonacoEditor = dynamic(() => import('@monaco-editor/react'), { ssr: false })
+const MonacoEditor = dynamic(() => import('./MonacoEditorClient'), { ssr: false })
 
 interface OutputPanelProps {
   label: string
