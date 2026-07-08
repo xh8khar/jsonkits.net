@@ -1,13 +1,14 @@
 // ---- PostgreSQL SQL Generator ----
+import { cellText, unionKeys, toRowObjects, firstColumnValue, topLevelJsonBlocks } from './cell'
+
 export function jsonToPostgresql(input: string): string {
   const parsed = JSON.parse(input)
-  const arr = Array.isArray(parsed) ? parsed : [parsed]
-  if (arr.length === 0) return '-- Empty array'
-  const first = arr[0] as Record<string, unknown>
-  const columns = Object.keys(first)
+  const rows = toRowObjects(parsed)
+  if (rows.length === 0) return '-- Empty array'
+  const columns = unionKeys(rows)
   const colDefs = columns.map(k => {
-    const val = first[k]
-    const type = val === null ? 'TEXT' : typeof val === 'number' ? (Number.isInteger(val) ? 'INTEGER' : 'DOUBLE PRECISION') : typeof val === 'boolean' ? 'BOOLEAN' : 'TEXT'
+    const val = firstColumnValue(rows, k)
+    const type = typeof val === 'number' ? (Number.isInteger(val) ? 'INTEGER' : 'DOUBLE PRECISION') : typeof val === 'boolean' ? 'BOOLEAN' : (val !== null && typeof val === 'object') ? 'JSONB' : 'TEXT'
     return `  "${k}" ${type}`
   })
   const tableName = 'json_data'
@@ -17,13 +18,13 @@ export function jsonToPostgresql(input: string): string {
     ');',
     ''
   ]
-  for (const item of arr) {
+  for (const item of rows) {
     const vals = columns.map(c => {
-      const v = (item as Record<string, unknown>)[c]
-      if (v === null) return 'NULL'
+      const v = item[c]
+      if (v === null || v === undefined) return 'NULL'
       if (typeof v === 'boolean') return v ? 'TRUE' : 'FALSE'
       if (typeof v === 'number') return String(v)
-      return `'${String(v).replace(/'/g, "''")}'`
+      return `'${cellText(v).replace(/'/g, "''")}'`
     })
     lines.push(`INSERT INTO ${tableName} (${columns.map(c => `"${c}"`).join(', ')}) VALUES (${vals.join(', ')});`)
   }
@@ -95,13 +96,12 @@ export function postgresqlToJson(input: string): string {
 // ---- MySQL SQL Generator ----
 export function jsonToMysql(input: string): string {
   const parsed = JSON.parse(input)
-  const arr = Array.isArray(parsed) ? parsed : [parsed]
-  if (arr.length === 0) return '-- Empty array'
-  const first = arr[0] as Record<string, unknown>
-  const columns = Object.keys(first)
+  const rows = toRowObjects(parsed)
+  if (rows.length === 0) return '-- Empty array'
+  const columns = unionKeys(rows)
   const colDefs = columns.map(k => {
-    const val = first[k]
-    const type = val === null ? 'TEXT' : typeof val === 'number' ? (Number.isInteger(val) ? 'INT' : 'DOUBLE') : typeof val === 'boolean' ? 'BOOLEAN' : 'TEXT'
+    const val = firstColumnValue(rows, k)
+    const type = typeof val === 'number' ? (Number.isInteger(val) ? 'INT' : 'DOUBLE') : typeof val === 'boolean' ? 'BOOLEAN' : (val !== null && typeof val === 'object') ? 'JSON' : 'TEXT'
     return `  \`${k}\` ${type}`
   })
   const tableName = 'json_data'
@@ -111,13 +111,13 @@ export function jsonToMysql(input: string): string {
     ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;',
     ''
   ]
-  for (const item of arr) {
+  for (const item of rows) {
     const vals = columns.map(c => {
-      const v = (item as Record<string, unknown>)[c]
-      if (v === null) return 'NULL'
+      const v = item[c]
+      if (v === null || v === undefined) return 'NULL'
       if (typeof v === 'boolean') return v ? 'TRUE' : 'FALSE'
       if (typeof v === 'number') return String(v)
-      return `'${String(v).replace(/\\/g, '\\\\').replace(/'/g, "\\'")}'`
+      return `'${cellText(v).replace(/\\/g, '\\\\').replace(/'/g, "\\'")}'`
     })
     lines.push(`INSERT INTO \`${tableName}\` (${columns.map(c => `\`${c}\``).join(', ')}) VALUES (${vals.join(', ')});`)
   }
@@ -146,13 +146,12 @@ export function mysqlToJson(input: string): string {
 // ---- SQLite SQL Generator ----
 export function jsonToSqlite(input: string): string {
   const parsed = JSON.parse(input)
-  const arr = Array.isArray(parsed) ? parsed : [parsed]
-  if (arr.length === 0) return '-- Empty array'
-  const first = arr[0] as Record<string, unknown>
-  const columns = Object.keys(first)
+  const rows = toRowObjects(parsed)
+  if (rows.length === 0) return '-- Empty array'
+  const columns = unionKeys(rows)
   const colDefs = columns.map(k => {
-    const val = first[k]
-    const type = val === null ? 'TEXT' : typeof val === 'number' ? (Number.isInteger(val) ? 'INTEGER' : 'REAL') : typeof val === 'boolean' ? 'INTEGER' : 'TEXT'
+    const val = firstColumnValue(rows, k)
+    const type = typeof val === 'number' ? (Number.isInteger(val) ? 'INTEGER' : 'REAL') : typeof val === 'boolean' ? 'INTEGER' : 'TEXT'
     return `  "${k}" ${type}`
   })
   const tableName = 'json_data'
@@ -162,13 +161,13 @@ export function jsonToSqlite(input: string): string {
     ');',
     ''
   ]
-  for (const item of arr) {
+  for (const item of rows) {
     const vals = columns.map(c => {
-      const v = (item as Record<string, unknown>)[c]
-      if (v === null) return 'NULL'
+      const v = item[c]
+      if (v === null || v === undefined) return 'NULL'
       if (typeof v === 'boolean') return v ? '1' : '0'
       if (typeof v === 'number') return String(v)
-      return `'${String(v).replace(/'/g, "''")}'`
+      return `'${cellText(v).replace(/'/g, "''")}'`
     })
     lines.push(`INSERT INTO "${tableName}" (${columns.map(c => `"${c}"`).join(', ')}) VALUES (${vals.join(', ')});`)
   }
@@ -197,13 +196,12 @@ export function sqliteToJson(input: string): string {
 // ---- SQL Server SQL Generator ----
 export function jsonToSqlServer(input: string): string {
   const parsed = JSON.parse(input)
-  const arr = Array.isArray(parsed) ? parsed : [parsed]
-  if (arr.length === 0) return '-- Empty array'
-  const first = arr[0] as Record<string, unknown>
-  const columns = Object.keys(first)
+  const rows = toRowObjects(parsed)
+  if (rows.length === 0) return '-- Empty array'
+  const columns = unionKeys(rows)
   const colDefs = columns.map(k => {
-    const val = first[k]
-    const type = val === null ? 'NVARCHAR(MAX)' : typeof val === 'number' ? (Number.isInteger(val) ? 'INT' : 'FLOAT') : typeof val === 'boolean' ? 'BIT' : 'NVARCHAR(MAX)'
+    const val = firstColumnValue(rows, k)
+    const type = typeof val === 'number' ? (Number.isInteger(val) ? 'INT' : 'FLOAT') : typeof val === 'boolean' ? 'BIT' : 'NVARCHAR(MAX)'
     return `  [${k}] ${type}`
   })
   const tableName = 'json_data'
@@ -213,13 +211,13 @@ export function jsonToSqlServer(input: string): string {
     ');',
     ''
   ]
-  for (const item of arr) {
+  for (const item of rows) {
     const vals = columns.map(c => {
-      const v = (item as Record<string, unknown>)[c]
-      if (v === null) return 'NULL'
+      const v = item[c]
+      if (v === null || v === undefined) return 'NULL'
       if (typeof v === 'boolean') return v ? '1' : '0'
       if (typeof v === 'number') return String(v)
-      return `N'${String(v).replace(/'/g, "''")}'`
+      return `N'${cellText(v).replace(/'/g, "''")}'`
     })
     lines.push(`INSERT INTO [${tableName}] (${columns.map(c => `[${c}]`).join(', ')}) VALUES (${vals.join(', ')});`)
   }
@@ -258,27 +256,26 @@ export function sqlServerToJson(input: string): string {
 // ---- Oracle SQL Generator ----
 export function jsonToOracle(input: string): string {
   const parsed = JSON.parse(input)
-  const arr = Array.isArray(parsed) ? parsed : [parsed]
-  if (arr.length === 0) return '-- Empty array'
-  const first = arr[0] as Record<string, unknown>
-  const columns = Object.keys(first)
+  const rows = toRowObjects(parsed)
+  if (rows.length === 0) return '-- Empty array'
+  const columns = unionKeys(rows)
   const tableName = 'json_data'
   const lines: string[] = [
     `CREATE TABLE ${tableName} (`
   ]
   columns.forEach((k, i) => {
-    const val = first[k]
-    const type = val === null ? 'VARCHAR2(4000)' : typeof val === 'number' ? (Number.isInteger(val) ? 'NUMBER' : 'FLOAT') : typeof val === 'boolean' ? 'NUMBER(1)' : 'VARCHAR2(4000)'
+    const val = firstColumnValue(rows, k)
+    const type = typeof val === 'number' ? (Number.isInteger(val) ? 'NUMBER' : 'FLOAT') : typeof val === 'boolean' ? 'NUMBER(1)' : 'VARCHAR2(4000)'
     lines.push(`  ${k} ${type}${i < columns.length - 1 ? ',' : ''}`)
   })
   lines.push(');', '')
-  for (const item of arr) {
+  for (const item of rows) {
     const vals = columns.map(c => {
-      const v = (item as Record<string, unknown>)[c]
-      if (v === null) return 'NULL'
+      const v = item[c]
+      if (v === null || v === undefined) return 'NULL'
       if (typeof v === 'boolean') return v ? '1' : '0'
       if (typeof v === 'number') return String(v)
-      return `'${String(v).replace(/'/g, "''")}'`
+      return `'${cellText(v).replace(/'/g, "''")}'`
     })
     lines.push(`INSERT INTO ${tableName} (${columns.join(', ')}) VALUES (${vals.join(', ')});`)
   }
@@ -312,7 +309,7 @@ export function jsonToPostman(input: string): string {
       method: (item.method as string) || 'GET',
       header: [] as Record<string, string>[],
       url: {
-        raw: `https://api.example.com/${item.path || ''}`,
+        raw: `https://api.example.com/${String(item.path || '').replace(/^\//, '')}`,
         protocol: 'https',
         host: ['api', 'example', 'com'],
         path: (String(item.path || '').split('/').filter(Boolean))
@@ -349,7 +346,10 @@ export function postmanToJson(input: string): string {
     return {
       name: item.name,
       method: req.method || 'GET',
-      path: ((req.url as Record<string, unknown>)?.path as string[])?.join('/') || '',
+      path: (() => {
+        const segs = (req.url as Record<string, unknown>)?.path as string[] | undefined
+        return segs && segs.length ? '/' + segs.join('/') : ''
+      })(),
       headers: req.header as Record<string, string>[] || [],
       body: bodyObj
     }
@@ -454,7 +454,8 @@ export function graphvizToJson(input: string): string {
   const result: Record<string, unknown> = {}
   const edgeRegex = /(\w+)\s*->\s*(\w+)\s*\[label="([^"]+)"\]/g
   const nodeLabels: Record<string, string> = {}
-  const nodeMatch = input.matchAll(/n(\d+)\s*\[label="([^"]+)"/g)
+  // anchor to line start so edge lines ("n0 -> n1 [label=…]") don't overwrite node labels
+  const nodeMatch = input.matchAll(/^\s*n(\d+)\s*\[label="([^"]+)"/gm)
   for (const m of nodeMatch) nodeLabels[`n${m[1]}`] = m[2]
 
   const edges: Record<string, { child: string; label: string }[]> = {}
@@ -471,7 +472,9 @@ export function graphvizToJson(input: string): string {
 
   function build(nodeId: string): unknown {
     const label = nodeLabels[nodeId] || ''
-    if (label.startsWith('Array')) return []
+    if (label.startsWith('Array')) {
+      return (edges[nodeId] || []).map(edge => build(edge.child))
+    }
     if (label === 'Object' || label === '') {
       const obj: Record<string, unknown> = {}
       const children = edges[nodeId] || []
@@ -489,7 +492,6 @@ export function graphvizToJson(input: string): string {
     return label
   }
 
-  const rootKey = Object.keys(nodeLabels).find(k => !edges[k] && Object.values(edges).some(e => e.some(ee => ee.child === k)))
   const root = Object.keys(nodeLabels).find(k => {
     for (const v of Object.values(edges)) {
       if (v.some(e => e.child === k)) return false
@@ -589,6 +591,11 @@ export function jsonLinter(input: string): string {
 export function jsonRepair(input: string): string {
   let text = input.trim()
   if (!text) throw new Error('Empty input')
+  // Already-valid JSON (including scalars) is returned formatted, untouched —
+  // the repair heuristics below could otherwise corrupt valid strings.
+  try {
+    return JSON.stringify(JSON.parse(text), null, 2)
+  } catch { /* fall through to repair */ }
   const lines = text.split('\n')
   text = lines.map(line => {
     let inString = false
@@ -910,16 +917,10 @@ export function jsonKeyTransformer(input: string): string {
 
 // ---- JSON Compare ----
 export function jsonCompare(input: string): string {
-  const parts = input.trim().split(/\n(?={)/)
-  if (parts.length < 2) {
-    const wrapped = input.match(/\{[^}]*\}/g)
-    if (!wrapped || wrapped.length < 2) throw new Error('Need at least two JSON objects to compare')
-    const a = JSON.parse(wrapped[0])
-    const b = JSON.parse(wrapped[1])
-    return compareObjects(a, b)
-  }
-  const a = JSON.parse(parts[0])
-  const b = JSON.parse(parts[1])
+  const blocks = topLevelJsonBlocks(input, '{')
+  if (blocks.length < 2) throw new Error('Need at least two JSON objects to compare. Paste them one after another.')
+  const a = JSON.parse(blocks[0])
+  const b = JSON.parse(blocks[1])
   return compareObjects(a, b)
 }
 

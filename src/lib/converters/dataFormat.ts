@@ -1,3 +1,5 @@
+import { cellText, unionKeys, toRowObjects } from './cell'
+
 export function jsonToToml(input: string): string {
   const parsed = JSON.parse(input)
   return tomlSerialize(parsed, '')
@@ -110,11 +112,11 @@ export function jsonToIni(input: string): string {
   for (const [key, value] of Object.entries(parsed as Record<string, unknown>)) {
     if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
       const fields = Object.entries(value as Record<string, unknown>)
-        .map(([k, v]) => `${k}=${v ?? ''}`)
+        .map(([k, v]) => `${k}=${cellText(v)}`)
         .join('\n')
       sections.push(`[${key}]\n${fields}`)
     } else {
-      globalLines.push(`${key}=${value ?? ''}`)
+      globalLines.push(`${key}=${cellText(value)}`)
     }
   }
   const globalSection = globalLines.length ? globalLines.join('\n') + '\n' : ''
@@ -230,15 +232,13 @@ function setNested(obj: Record<string, unknown>, path: string, value: unknown): 
 
 export function jsonToTsv(input: string): string {
   const parsed = JSON.parse(input)
-  const array = Array.isArray(parsed) ? parsed : [parsed]
-  if (array.length === 0) return ''
-  const keys = Object.keys(array[0] as Record<string, unknown>)
+  const rowObjects = toRowObjects(parsed)
+  if (rowObjects.length === 0) return ''
+  const keys = unionKeys(rowObjects)
   const header = keys.join('\t')
-  const rows = array.map(item => {
+  const rows = rowObjects.map(item => {
     const row = keys.map(key => {
-      const val = (item as Record<string, unknown>)[key]
-      if (val === null || val === undefined) return ''
-      const str = String(val)
+      const str = cellText(item[key])
       if (str.includes('\t') || str.includes('\n') || str.includes('"')) {
         return `"${str.replace(/"/g, '""')}"`
       }
@@ -289,19 +289,18 @@ function parseNumber(val: string): unknown {
 
 export function jsonToHtmlTable(input: string): string {
   const parsed = JSON.parse(input)
-  const array = Array.isArray(parsed) ? parsed : [parsed]
-  if (array.length === 0) return '<table></table>'
-  const keys = Object.keys(array[0] as Record<string, unknown>)
+  const rows = toRowObjects(parsed)
+  if (rows.length === 0) return '<table></table>'
+  const keys = unionKeys(rows)
   let html = '<table>\n  <thead>\n    <tr>'
   for (const key of keys) {
     html += `<th>${escapeHtml(key)}</th>`
   }
   html += '</tr>\n  </thead>\n  <tbody>\n'
-  for (const item of array) {
+  for (const item of rows) {
     html += '    <tr>'
     for (const key of keys) {
-      const val = (item as Record<string, unknown>)[key]
-      html += `<td>${escapeHtml(String(val ?? ''))}</td>`
+      html += `<td>${escapeHtml(cellText(item[key]))}</td>`
     }
     html += '</tr>\n'
   }
@@ -349,16 +348,14 @@ function extractCells(tr: string): string[] {
 
 export function jsonToMarkdownTable(input: string): string {
   const parsed = JSON.parse(input)
-  const array = Array.isArray(parsed) ? parsed : [parsed]
-  if (array.length === 0) return ''
-  const keys = Object.keys(array[0] as Record<string, unknown>)
-  const header = '| ' + keys.join(' | ') + ' |'
+  const rowObjects = toRowObjects(parsed)
+  if (rowObjects.length === 0) return ''
+  const keys = unionKeys(rowObjects)
+  const escapeCell = (s: string) => s.replace(/\|/g, '\\|').replace(/\n/g, '<br>')
+  const header = '| ' + keys.map(escapeCell).join(' | ') + ' |'
   const separator = '| ' + keys.map(() => '---').join(' | ') + ' |'
-  const rows = array.map(item => {
-    return '| ' + keys.map(key => {
-      const val = (item as Record<string, unknown>)[key]
-      return String(val ?? '')
-    }).join(' | ') + ' |'
+  const rows = rowObjects.map(item => {
+    return '| ' + keys.map(key => escapeCell(cellText(item[key]))).join(' | ') + ' |'
   })
   return [header, separator, ...rows].join('\n')
 }

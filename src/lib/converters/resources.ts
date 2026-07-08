@@ -1,4 +1,5 @@
 import { deflate, inflate, deflateRaw, inflateRaw, gzip, ungzip } from 'pako'
+import { topLevelJsonBlocks } from './cell'
 
 export function jsonCopy(input: string): string {
   JSON.parse(input)
@@ -133,7 +134,12 @@ export function jsonCompress(input: string): string {
 }
 
 export function jsonDecompress(input: string): string {
-  const result = decode(inflate(b64toU8(input)))
+  let result: string
+  try {
+    result = decode(inflate(b64toU8(input.trim())))
+  } catch {
+    throw new Error('Input must be base64-encoded deflate data (as produced by JSON Compress)')
+  }
   JSON.parse(result)
   return result
 }
@@ -144,7 +150,12 @@ export function jsonGzip(input: string): string {
 }
 
 export function jsonGunzip(input: string): string {
-  const result = decode(ungzip(b64toU8(input)))
+  let result: string
+  try {
+    result = decode(ungzip(b64toU8(input.trim())))
+  } catch {
+    throw new Error('Input must be base64-encoded gzip data (as produced by JSON Gzip)')
+  }
   JSON.parse(result)
   return result
 }
@@ -155,7 +166,12 @@ export function jsonDeflate(input: string): string {
 }
 
 export function jsonInflate(input: string): string {
-  const result = decode(inflateRaw(b64toU8(input)))
+  let result: string
+  try {
+    result = decode(inflateRaw(b64toU8(input.trim())))
+  } catch {
+    throw new Error('Input must be base64-encoded raw deflate data (as produced by JSON Deflate)')
+  }
   JSON.parse(result)
   return result
 }
@@ -477,8 +493,17 @@ export function jsonFieldComparator(input: string): string {
 
 export function jsonArrayDiff(input: string): string {
   const text = input.trim()
-  const parts = text.match(/\[[\s\S]*?\]/g)
-  if (!parts || parts.length < 2) throw new Error('Need two JSON arrays to diff')
+  let parts = topLevelJsonBlocks(text, '[')
+  if (parts.length === 1) {
+    // A single top-level array of exactly two arrays also works: [[...],[...]]
+    try {
+      const outer = JSON.parse(parts[0])
+      if (Array.isArray(outer) && outer.length === 2 && outer.every(Array.isArray)) {
+        parts = [JSON.stringify(outer[0]), JSON.stringify(outer[1])]
+      }
+    } catch { /* keep original parts */ }
+  }
+  if (parts.length < 2) throw new Error('Need two JSON arrays to diff. Paste them one after another.')
   const arrA = JSON.parse(parts[0]) as unknown[]
   const arrB = JSON.parse(parts[1]) as unknown[]
   const setA = new Set(arrA.map(v => JSON.stringify(v)))

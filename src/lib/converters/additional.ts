@@ -195,7 +195,12 @@ export function jsonToEnv(input: string): string {
   if (typeof parsed !== 'object' || parsed === null) throw new Error('JSON must be an object')
   const flat = flattenObj(parsed)
   return Object.entries(flat)
-    .map(([k, v]) => `${k.toUpperCase().replace(/[^a-zA-Z0-9_]/g, '_')}=${v}`)
+    .map(([k, v]) => {
+      // camelCase → SNAKE_CASE so envToJson can restore the original key
+      const snake = k.replace(/([a-z0-9])([A-Z])/g, '$1_$2')
+      const envKey = snake.toUpperCase().replace(/[^a-zA-Z0-9_]/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, '')
+      return `${envKey}=${v}`
+    })
     .join('\n')
 }
 
@@ -208,16 +213,10 @@ export function envToJson(input: string): string {
     if (eqIdx === -1) continue
     const key = trimmed.slice(0, eqIdx).trim()
     const value = trimmed.slice(eqIdx + 1).trim()
-    const parts = key.toLowerCase().split('_')
-    let current = result
-    for (let i = 0; i < parts.length; i++) {
-      if (i === parts.length - 1) {
-        current[parts[i]] = parseNum(value.replace(/^["']|["']$/g, ''))
-      } else {
-        if (!current[parts[i]] || typeof current[parts[i]] !== 'object') current[parts[i]] = {}
-        current = current[parts[i]] as Record<string, unknown>
-      }
-    }
+    // SNAKE_CASE → camelCase (env files are flat by convention)
+    const parts = key.toLowerCase().split('_').filter(Boolean)
+    const camelKey = parts[0] + parts.slice(1).map(p => p.charAt(0).toUpperCase() + p.slice(1)).join('')
+    result[camelKey || key] = parseNum(value.replace(/^["']|["']$/g, ''))
   }
   return JSON.stringify(result, null, 2)
 }
@@ -842,7 +841,7 @@ function cborEncode(value: unknown): Uint8Array {
 function cborDecode(data: Uint8Array, offset = 0): { value: unknown; offset: number } {
   const initial = data[offset++]
   const major = initial >> 5
-  let additional = initial & 0x1f
+  const additional = initial & 0x1f
   let value: number
 
   if (additional < 24) {
@@ -856,8 +855,8 @@ function cborDecode(data: Uint8Array, offset = 0): { value: unknown; offset: num
     value = (data[offset] << 24) | (data[offset + 1] << 16) | (data[offset + 2] << 8) | data[offset + 3]
     offset += 4
   } else {
-    let hi = (data[offset] << 24) | (data[offset + 1] << 16) | (data[offset + 2] << 8) | data[offset + 3]
-    let lo = (data[offset + 4] << 24) | (data[offset + 5] << 16) | (data[offset + 6] << 8) | data[offset + 7]
+    const hi = (data[offset] << 24) | (data[offset + 1] << 16) | (data[offset + 2] << 8) | data[offset + 3]
+    const lo = (data[offset + 4] << 24) | (data[offset + 5] << 16) | (data[offset + 6] << 8) | data[offset + 7]
     offset += 8
     value = hi * 4294967296 + lo
   }
@@ -981,7 +980,13 @@ export async function jwtValidate(input: string): Promise<string> {
   const header = JSON.parse(base64UrlDecode(parts[0]))
   const payload = JSON.parse(base64UrlDecode(parts[1]))
   const now = Math.floor(Date.now() / 1000)
-  const checks: Record<string, any> = {
+  interface JwtChecks {
+    header: { alg: unknown; typ: unknown }
+    payload: unknown
+    checks: Record<string, unknown>
+    signature?: Record<string, unknown>
+  }
+  const checks: JwtChecks = {
     header: { alg: header.alg, typ: header.typ },
     payload: payload,
     checks: {},
@@ -1002,10 +1007,10 @@ export async function jwtValidate(input: string): Promise<string> {
   try {
     const { jwtVerify } = await import('jose')
     const encoder = new TextEncoder()
-    const { payload: verifiedPayload } = await jwtVerify(token, encoder.encode(secret))
+    await jwtVerify(token, encoder.encode(secret))
     checks.signature = { valid: true, algorithm: header.alg }
-  } catch (e: any) {
-    checks.signature = { valid: false, error: e.message || 'Signature verification failed' }
+  } catch (e) {
+    checks.signature = { valid: false, error: (e as Error).message || 'Signature verification failed' }
   }
 
   return JSON.stringify(checks, null, 2)
@@ -1278,6 +1283,22 @@ export function jsonSchemaToPydantic(input: string): string {
 }
 
 // JSON to HTML
+// Tokenizes pretty-printed, HTML-escaped JSON one token at a time so tokens
+// inside string values (digits, "true", brackets) are never double-wrapped.
+function highlightJsonHtml(escaped: string): string {
+  const tokenRe = /("(?:\\.|[^"\\])*")(\s*:)?|(-?\b\d+(?:\.\d+)?(?:[eE][+-]?\d+)?\b)|\b(true|false)\b|\b(null)\b|([\[\]{}])/g
+  return escaped.replace(tokenRe, (match, str, colon, num, bool, nul, bracket) => {
+    if (str !== undefined) {
+      return colon ? `<span class="key">${str}</span>${colon}` : `<span class="string">${str}</span>`
+    }
+    if (num !== undefined) return `<span class="number">${num}</span>`
+    if (bool !== undefined) return `<span class="boolean">${bool}</span>`
+    if (nul !== undefined) return `<span class="null">${nul}</span>`
+    if (bracket !== undefined) return `<span class="bracket">${bracket}</span>`
+    return match
+  })
+}
+
 export function jsonToHtml(input: string): string {
   const parsed = JSON.parse(input)
   const formatted = JSON.stringify(parsed, null, 2)
@@ -1303,7 +1324,7 @@ pre { margin: 0; white-space: pre-wrap; word-break: break-word; }
 </style>
 </head>
 <body>
-<pre>${escaped.replace(/"([^"]+)":/g, '<span class="key">"$1"</span>:').replace(/"([^"]+)"(?=[,\s\n\r])/g, '<span class="string">"$1"</span>').replace(/\b(\d+\.?\d*)\b/g, '<span class="number">$1</span>').replace(/\b(true|false)\b/g, '<span class="boolean">$1</span>').replace(/\bnull\b/g, '<span class="null">null</span>').replace(/([\[\]{}])/g, '<span class="bracket">$1</span>')}</pre>
+<pre>${highlightJsonHtml(escaped)}</pre>
 </body>
 </html>`
 }
@@ -1498,7 +1519,7 @@ export function jsonToGraphqlQuery(input: string): string {
         const inner = generateQueryFields(value as Record<string, unknown>, depth + 1)
         return `  ${key} {\n${inner.join('\n')}\n  }`
       }
-      if (Array.isArray(value) && value.length > 0 && typeof value[0] === 'object') {
+      if (Array.isArray(value) && value.length > 0 && typeof value[0] === 'object' && value[0] !== null && !Array.isArray(value[0])) {
         const inner = generateQueryFields(value[0] as Record<string, unknown>, depth + 1)
         return `  ${key} {\n${inner.join('\n')}\n  }`
       }
@@ -1693,33 +1714,43 @@ export function jsonToSas(input: string): string {
 }
 
 // SQL UPDATE
+function sqlScalar(value: unknown): string {
+  if (value === null || value === undefined) return 'NULL'
+  if (typeof value === 'string') return `'${value.replace(/'/g, "''")}'`
+  if (typeof value === 'boolean') return `${value ? 1 : 0}`
+  if (typeof value === 'number') return `${value}`
+  return `'${JSON.stringify(value).replace(/'/g, "''")}'`
+}
+
 export function jsonToSqlUpdate(input: string): string {
   const parsed = JSON.parse(input)
   const tableName = 'my_table'
-  const entries = Object.entries(parsed as Record<string, unknown>)
-  const setClauses = entries.map(([key, value]) => {
-    if (value === null || value === undefined) return `  ${key} = NULL`
-    if (typeof value === 'string') return `  ${key} = '${value.replace(/'/g, "''")}'`
-    if (typeof value === 'boolean') return `  ${key} = ${value ? 1 : 0}`
-    if (typeof value === 'number') return `  ${key} = ${value}`
-    return `  ${key} = '${String(value)}'`
+  const objects = (Array.isArray(parsed) ? parsed : [parsed]).filter(
+    (o): o is Record<string, unknown> => o !== null && typeof o === 'object' && !Array.isArray(o)
+  )
+  if (objects.length === 0) throw new Error('JSON must be an object or an array of objects')
+  const statements = objects.map((obj, i) => {
+    const setClauses = Object.entries(obj).map(([key, value]) => `  ${key} = ${sqlScalar(value)}`)
+    return `UPDATE ${tableName}\nSET\n${setClauses.join(',\n')}\nWHERE id = ${i + 1};`
   })
-  return `UPDATE ${tableName}\nSET\n${setClauses.join(',\n')}\nWHERE id = 1;\n`
+  return statements.join('\n\n') + '\n'
 }
 
 // SQL DELETE
 export function jsonToSqlDelete(input: string): string {
   const parsed = JSON.parse(input)
   const tableName = 'my_table'
-  const entries = Object.entries(parsed as Record<string, unknown>)
-  const whereClauses = entries.map(([key, value]) => {
-    if (value === null || value === undefined) return `  ${key} IS NULL`
-    if (typeof value === 'string') return `  ${key} = '${value.replace(/'/g, "''")}'`
-    if (typeof value === 'boolean') return `  ${key} = ${value ? 1 : 0}`
-    if (typeof value === 'number') return `  ${key} = ${value}`
-    return `  ${key} = '${String(value)}'`
+  const objects = (Array.isArray(parsed) ? parsed : [parsed]).filter(
+    (o): o is Record<string, unknown> => o !== null && typeof o === 'object' && !Array.isArray(o)
+  )
+  if (objects.length === 0) throw new Error('JSON must be an object or an array of objects')
+  const statements = objects.map(obj => {
+    const whereClauses = Object.entries(obj).map(([key, value]) =>
+      value === null || value === undefined ? `  ${key} IS NULL` : `  ${key} = ${sqlScalar(value)}`
+    )
+    return `DELETE FROM ${tableName}\nWHERE\n${whereClauses.join('\n  AND ')};`
   })
-  return `DELETE FROM ${tableName}\nWHERE\n${whereClauses.join('\n  AND ')};\n`
+  return statements.join('\n\n') + '\n'
 }
 
 // GraphQL Mutation
@@ -1729,7 +1760,7 @@ export function jsonToGraphqlMutation(input: string): string {
   function generateMutationFields(obj: Record<string, unknown>, depth: number): string[] {
     if (depth > 2) return ['...']
     return Object.entries(obj).map(([key, value]) => {
-      if (Array.isArray(value) && value.length > 0 && typeof value[0] === 'object') {
+      if (Array.isArray(value) && value.length > 0 && typeof value[0] === 'object' && value[0] !== null && !Array.isArray(value[0])) {
         const inner = generateMutationFields(value[0] as Record<string, unknown>, depth + 1)
         return `  ${key} {\n${inner.join('\n')}\n  }`
       }
@@ -1764,7 +1795,7 @@ export function jsonToGraphqlSubscription(input: string): string {
         const inner = generateSubFields(value as Record<string, unknown>, depth + 1)
         return `  ${key} {\n${inner.join('\n')}\n  }`
       }
-      if (Array.isArray(value) && value.length > 0 && typeof value[0] === 'object') {
+      if (Array.isArray(value) && value.length > 0 && typeof value[0] === 'object' && value[0] !== null && !Array.isArray(value[0])) {
         const inner = generateSubFields(value[0] as Record<string, unknown>, depth + 1)
         return `  ${key} {\n${inner.join('\n')}\n  }`
       }
@@ -1966,7 +1997,7 @@ function sampleFromAvroType(schema: Record<string, unknown>): unknown {
 export function avroToJson(input: string): string {
   const parsed = JSON.parse(input)
   let schema: Record<string, unknown>
-  let schemaObj: Record<string, unknown> | null = null
+  const schemaObj: Record<string, unknown> | null = null
 
   if (parsed.schema) {
     schema = typeof parsed.schema === 'string' ? JSON.parse(parsed.schema as string) : parsed.schema

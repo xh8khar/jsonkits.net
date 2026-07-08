@@ -2,6 +2,8 @@
 // New Tools Converter Functions
 // ============================================================
 
+import { cellText, unionKeys, toRowObjects, firstColumnValue } from './cell'
+
 // ---- JSON Editor / Parser / Stringify ----
 
 export function jsonEditor(input: string): string {
@@ -86,22 +88,23 @@ export function jsonToJsonl(input: string): string {
 
 export function jsonToParquet(input: string): string {
   const parsed = JSON.parse(input)
-  const arr = Array.isArray(parsed) ? parsed : [parsed]
-  if (arr.length === 0) return 'Empty data'
-  const first = arr[0] as Record<string, unknown>
-  const schema = Object.entries(first).map(([k, v]) => {
-    const t = v === null ? 'BYTE_ARRAY' : typeof v === 'number' ? (Number.isInteger(v) ? 'INT64' : 'DOUBLE') : typeof v === 'boolean' ? 'BOOLEAN' : 'BYTE_ARRAY'
+  const rows = toRowObjects(parsed)
+  if (rows.length === 0) return 'Empty data'
+  const columns = unionKeys(rows)
+  const schema = columns.map(k => {
+    const v = firstColumnValue(rows, k)
+    const t = typeof v === 'number' ? (Number.isInteger(v) ? 'INT64' : 'DOUBLE') : typeof v === 'boolean' ? 'BOOLEAN' : 'BYTE_ARRAY'
     return `  ${k}: ${t} (optional)`
   })
-  const colChunks = Object.keys(first).map(col => {
-    const values = arr.map(r => (r as Record<string, unknown>)[col])
-    return `    Column "${col}": ${values.map(v => v === null ? 'null' : String(v)).join(', ')}`
+  const colChunks = columns.map(col => {
+    const values = rows.map(r => r[col])
+    return `    Column "${col}": ${values.map(v => v === null || v === undefined ? 'null' : cellText(v)).join(', ')}`
   })
   return [
     'Parquet Schema:',
     ...schema,
     '',
-    `Row Group 1 (${arr.length} rows):`,
+    `Row Group 1 (${rows.length} rows):`,
     ...colChunks,
     '',
     'Note: Full Parquet binary encoding is not supported in browser.',
@@ -113,11 +116,29 @@ export function parquetToJson(input: string): string {
   const match = input.match(/Row Group 1 \((\d+) rows\):/)
   const count = match ? parseInt(match[1]) : 1
   const lines = input.split('\n')
-  const schemaLines = lines.filter(l => l.match(/^\s+\w+: /))
-  const columns = schemaLines.map(l => l.split(':')[0].trim()).filter(Boolean)
-  const result = Array.from({ length: count }, () => {
-    const obj: Record<string, string> = {}
-    columns.forEach(c => { obj[c] = `sample_${c}` })
+  const types: Record<string, string> = {}
+  for (const l of lines) {
+    const m = l.match(/^\s+(\w+): (\w+)/)
+    if (m && !l.includes('Column')) types[m[1]] = m[2]
+  }
+  const columnValues: Record<string, string[]> = {}
+  for (const l of lines) {
+    const m = l.match(/^\s+Column "([^"]+)": (.*)$/)
+    if (m) columnValues[m[1]] = m[2].split(', ')
+  }
+  const columns = Object.keys(columnValues).length ? Object.keys(columnValues) : Object.keys(types)
+  const parseVal = (raw: string | undefined, type: string): unknown => {
+    if (raw === undefined || raw === 'null') return null
+    if (type === 'INT64' || type === 'DOUBLE') {
+      const n = Number(raw)
+      return isNaN(n) ? raw : n
+    }
+    if (type === 'BOOLEAN') return raw === 'true'
+    return raw
+  }
+  const result = Array.from({ length: count }, (_, i) => {
+    const obj: Record<string, unknown> = {}
+    columns.forEach(c => { obj[c] = parseVal(columnValues[c]?.[i], types[c] || 'BYTE_ARRAY') })
     return obj
   })
   return JSON.stringify(result, null, 2)
@@ -434,17 +455,13 @@ function getApexType(value: unknown, key: string, classes: string[]): string {
 
 export function jsonToLatexTable(input: string): string {
   const parsed = JSON.parse(input)
-  const arr = Array.isArray(parsed) ? parsed : [parsed]
-  if (arr.length === 0) return '% Empty data'
-  const first = arr[0] as Record<string, unknown>
-  const columns = Object.keys(first)
+  const rowObjects = toRowObjects(parsed)
+  if (rowObjects.length === 0) return '% Empty data'
+  const columns = unionKeys(rowObjects)
   const colSpec = columns.map(() => 'l').join(' | ')
   const header = columns.map(c => `\\textbf{${escapeLatex(c)}}`).join(' & ')
-  const rows = arr.map(row => {
-    return columns.map(c => {
-      const v = (row as Record<string, unknown>)[c]
-      return escapeLatex(v === null ? '' : String(v))
-    }).join(' & ')
+  const rows = rowObjects.map(row => {
+    return columns.map(c => escapeLatex(cellText(row[c]))).join(' & ')
   })
   return `\\begin{table}[h]\n\\centering\n\\begin{tabular}{| ${colSpec} |}\n\\hline\n${header} \\\\\n\\hline\n${rows.map(r => r + ' \\\\').join('\n\\hline\n')}\n\\hline\n\\end{tabular}\n\\caption{JSON Data Table}\n\\end{table}`
 }
@@ -500,15 +517,14 @@ export function jsonLdValidator(input: string): string {
 
 export function jsonToTable(input: string): string {
   const parsed = JSON.parse(input)
-  const arr = Array.isArray(parsed) ? parsed : [parsed]
-  if (arr.length === 0) return '<p>No data</p>'
-  const first = arr[0] as Record<string, unknown>
-  const columns = Object.keys(first)
+  const rows = toRowObjects(parsed)
+  if (rows.length === 0) return '<p>No data</p>'
+  const columns = unionKeys(rows)
   let html = '<table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;font-family:sans-serif;">\n'
   html += '  <thead><tr>' + columns.map(c => `<th style="background:#f5f5f5;text-align:left;border:1px solid #ddd;padding:8px;font-weight:600;">${escapeHtml(c)}</th>`).join('') + '</tr></thead>\n'
   html += '  <tbody>\n'
-  for (const row of arr) {
-    html += '    <tr>' + columns.map(c => `<td style="border:1px solid #ddd;padding:8px;">${escapeHtml(String((row as Record<string, unknown>)[c] ?? ''))}</td>`).join('') + '</tr>\n'
+  for (const row of rows) {
+    html += '    <tr>' + columns.map(c => `<td style="border:1px solid #ddd;padding:8px;">${escapeHtml(cellText(row[c]))}</td>`).join('') + '</tr>\n'
   }
   html += '  </tbody>\n</table>'
   return html
@@ -576,13 +592,13 @@ export function jsonGraphViewer(input: string): string {
 
 export function jsonFormGenerator(input: string): string {
   const parsed = JSON.parse(input)
-  const fields = typeof parsed === 'object' && !Array.isArray(parsed) ? parsed as Record<string, unknown> : {}
+  const fields = parsed !== null && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed as Record<string, unknown> : {}
   const formFields = Object.entries(fields).map(([key, val]) => {
     const type = val === null ? 'text' : typeof val === 'boolean' ? 'checkbox' : typeof val === 'number' ? 'number' : 'text'
     const label = key.replace(/([A-Z])/g, ' $1').replace(/^./, s => s.toUpperCase())
     return `  <div class="form-group">
     <label for="${key}">${label}:</label>
-    <input type="${type}" id="${key}" name="${key}"${type !== 'checkbox' ? ` value="${escapeHtml(String(val ?? ''))}"` : ''}${type === 'checkbox' && val ? ' checked' : ''} class="form-control">
+    <input type="${type}" id="${key}" name="${key}"${type !== 'checkbox' ? ` value="${escapeHtml(cellText(val))}"` : ''}${type === 'checkbox' && val ? ' checked' : ''} class="form-control">
   </div>`
   })
   return `<form>
@@ -1014,16 +1030,15 @@ ${channelItems}
 
 export function jsonToPandas(input: string): string {
   const parsed = JSON.parse(input)
-  const arr = Array.isArray(parsed) ? parsed : [parsed]
-  if (arr.length === 0) return 'import pandas as pd\n\ndf = pd.DataFrame()'
-  const first = arr[0] as Record<string, unknown>
-  const columns = Object.keys(first)
-  const colDefs = columns.map(c => `    "${c}": [${arr.map(r => {
-    const v = (r as Record<string, unknown>)[c]
-    if (v === null) return 'None'
+  const rows = toRowObjects(parsed)
+  if (rows.length === 0) return 'import pandas as pd\n\ndf = pd.DataFrame()'
+  const columns = unionKeys(rows)
+  const colDefs = columns.map(c => `    "${c}": [${rows.map(r => {
+    const v = r[c]
+    if (v === null || v === undefined) return 'None'
     if (typeof v === 'boolean') return v ? 'True' : 'False'
     if (typeof v === 'number') return String(v)
-    return `"${String(v).replace(/"/g, '\\"')}"`
+    return `"${cellText(v).replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`
   }).join(', ')}]`).join(',\n')
   return `import pandas as pd\n\ndata = {\n${colDefs}\n}\n\ndf = pd.DataFrame(data)\nprint(df.head())\nprint(df.info())`
 }
@@ -1343,11 +1358,14 @@ export function poToJson(input: string): string {
 
 export function jsonToPo(input: string): string {
   const parsed = JSON.parse(input)
+  if (parsed === null || typeof parsed !== 'object' || Array.isArray(parsed)) {
+    throw new Error('JSON must be an object of msgid/msgstr string pairs')
+  }
   const entries = Object.entries(parsed as Record<string, string>)
   const header = '# JSONKits PO Export\n#\nmsgid ""\nmsgstr ""\n"Content-Type: text/plain; charset=UTF-8\\n"\n'
   const messages = entries.map(([id, str]) => {
     const escapedId = id.replace(/"/g, '\\"')
-    const escapedStr = (str || '').replace(/"/g, '\\"')
+    const escapedStr = cellText(str).replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, '\\n')
     return `\nmsgid "${escapedId}"\nmsgstr "${escapedStr}"\n`
   })
   return header + messages.join('')
@@ -1372,7 +1390,7 @@ export function arbToJson(input: string): string {
   const result: Record<string, string> = {}
   for (const [k, v] of Object.entries(parsed as Record<string, unknown>)) {
     if (k.startsWith('@')) continue
-    result[k] = String(v)
+    result[k] = cellText(v)
   }
   return JSON.stringify(result, null, 2)
 }
@@ -1381,8 +1399,11 @@ export function arbToJson(input: string): string {
 
 export function jsonToIosStrings(input: string): string {
   const parsed = JSON.parse(input)
-  const entries = Object.entries(parsed as Record<string, string>)
-  return entries.map(([k, v]) => `"${k}" = "${(v || '').replace(/"/g, '\\"')}";`).join('\n')
+  if (parsed === null || typeof parsed !== 'object' || Array.isArray(parsed)) {
+    throw new Error('JSON must be an object of key/value string pairs')
+  }
+  const entries = Object.entries(parsed as Record<string, unknown>)
+  return entries.map(([k, v]) => `"${k.replace(/"/g, '\\"')}" = "${cellText(v).replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, '\\n')}";`).join('\n')
 }
 
 // ---- Android strings.xml ----
@@ -1438,9 +1459,9 @@ export function jsonToVcard(input: string): string {
   for (const [key, val] of Object.entries(parsed)) {
     const vcardKey = fieldMap[key] || key.toUpperCase()
     if (Array.isArray(val)) {
-      val.forEach(v => lines.push(`${vcardKey}:${v}`))
+      val.forEach(v => lines.push(`${vcardKey}:${cellText(v)}`))
     } else {
-      lines.push(`${vcardKey}:${String(val)}`)
+      lines.push(`${vcardKey}:${cellText(val)}`)
     }
   }
   lines.push('END:VCARD')

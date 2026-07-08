@@ -1,6 +1,7 @@
 import * as yaml from 'js-yaml'
 import Papa from 'papaparse'
 import { XMLBuilder, XMLParser } from 'fast-xml-parser'
+import { unionKeys, toRowObjects } from './cell'
 
 export * from './dataFormat'
 export * from './codeGenerators'
@@ -59,14 +60,26 @@ export function yamlToJson(input: string): string {
 }
 
 export function jsonToCsv(input: string): string {
+  let parsed: unknown
   try {
-    const parsed = JSON.parse(input)
-    const array = Array.isArray(parsed) ? parsed : [parsed]
-    if (array.length === 0) return ''
-    return Papa.unparse(array)
+    parsed = JSON.parse(input)
   } catch {
     throw new Error('Invalid JSON')
   }
+  const rows = toRowObjects(parsed)
+  if (rows.length === 0) return ''
+  const columns = unionKeys(rows)
+  // Serialize nested objects/arrays as JSON strings so cells never collapse
+  // to "[object Object]"; leave primitives for Papa to format.
+  const flatRows = rows.map(row => {
+    const out: Record<string, unknown> = {}
+    for (const key of columns) {
+      const v = row[key]
+      out[key] = v !== null && typeof v === 'object' ? JSON.stringify(v) : v
+    }
+    return out
+  })
+  return Papa.unparse(flatRows, { columns })
 }
 
 export function csvToJson(input: string): string {

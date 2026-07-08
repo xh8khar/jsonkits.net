@@ -1,3 +1,5 @@
+import { cellText } from './cell'
+
 export function jsonToMarkdown(input: string): string {
   const parsed = JSON.parse(input)
   const json = JSON.stringify(parsed, null, 2)
@@ -73,7 +75,7 @@ function setNested(obj: Record<string, unknown>, path: string, value: unknown): 
 export function jsonToKeyValue(input: string): string {
   const parsed = JSON.parse(input)
   const flat = flatten(parsed)
-  return Object.entries(flat).map(([k, v]) => `${k}: ${v ?? ''}`).join('\n')
+  return Object.entries(flat).map(([k, v]) => `${k}: ${cellText(v)}`).join('\n')
 }
 
 export function keyValueToJson(input: string): string {
@@ -743,12 +745,9 @@ export function jsonToMermaid(input: string): string {
       for (let i = 0; i < Math.min(obj.length, 10); i++) walk(obj[i], id)
       return
     }
-    const id = parentId ? `N${nodeId++}` : (parentId || 'root')
-    if (!parentId) lines[0] = `  root["Object"]`
-    else {
-      lines.push(`  ${id}["Object"]`)
-      lines.push(`  ${parentId} --> ${id}`)
-    }
+    const id = `N${nodeId++}`
+    lines.push(`  ${id}["Object"]`)
+    if (parentId) lines.push(`  ${parentId} --> ${id}`)
     const entries = Object.entries(obj as Record<string, unknown>)
     for (let i = 0; i < Math.min(entries.length, 15); i++) {
       const [k, v] = entries[i]
@@ -770,36 +769,60 @@ export function jsonToMermaid(input: string): string {
 }
 
 export function mermaidToJson(input: string): string {
-  const lines = input.split('\n').filter(l => l.trim() && !l.trim().startsWith('graph'))
-  const result: Record<string, unknown> = {}
-  for (const line of lines) {
-    const trimmed = line.trim()
-    const arrowMatch = trimmed.match(/N\d+\["([^"]+)"\]\s*-->\s*N\d+\["([^"]+)"\]/)
-    if (arrowMatch) {
-      const parent = arrowMatch[1]
-      const child = arrowMatch[2]
-      if (!result[parent]) result[parent] = []
-      const childParts = child.split(':')
-      if (childParts.length > 1) {
-        const val = childParts[1].trim()
-        const num = Number(val)
-        if (childParts[0] === 'Array') continue
-        if (!result[parent]) result[parent] = {}
-        ;(result[parent] as Record<string, unknown>)[childParts[0].trim()] = isNaN(num) ? val : num
-      }
+  const labels: Record<string, string> = {}
+  const children: Record<string, string[]> = {}
+  const hasParent = new Set<string>()
+  for (const raw of input.split('\n')) {
+    const line = raw.trim()
+    if (!line || line.startsWith('graph')) continue
+    const edge = line.match(/^(\w+)(?:\["[^"]*"\])?\s*-->\s*(\w+)(?:\["([^"]*)"\])?$/)
+    if (edge) {
+      const [, from, to, toLabel] = edge
+      if (toLabel !== undefined) labels[to] = toLabel
+      if (!children[from]) children[from] = []
+      children[from].push(to)
+      hasParent.add(to)
+      continue
     }
+    const node = line.match(/^(\w+)\["([^"]*)"\]$/)
+    if (node) labels[node[1]] = node[2]
   }
-  if (Object.keys(result).length === 0) {
-    for (const line of lines) {
-      const m = line.trim().match(/N\d+\["([^"]+)"\]/)
-      if (m) {
-        const val = m[1]
-        const parts = val.split(':')
-        if (parts.length > 1) result[parts[0].trim()] = parts[1].trim()
+  if (Object.keys(labels).length === 0) throw new Error('No Mermaid nodes found (expected format from JSON to Mermaid)')
+
+  const parseScalar = (raw: string): unknown => {
+    if (raw === 'null') return null
+    if (raw === 'true') return true
+    if (raw === 'false') return false
+    const num = Number(raw)
+    if (!isNaN(num) && raw.trim() !== '') return num
+    return raw
+  }
+
+  function build(id: string): unknown {
+    const label = labels[id] ?? ''
+    const kids = children[id] || []
+    if (label.startsWith('Array(')) return kids.map(build)
+    if (label === 'Object') {
+      const obj: Record<string, unknown> = {}
+      for (const kid of kids) {
+        const kidLabel = labels[kid] ?? ''
+        const kidKids = children[kid] || []
+        if (kidKids.length > 0) {
+          obj[kidLabel] = build(kidKids[0])
+        } else {
+          const sep = kidLabel.indexOf(': ')
+          if (sep !== -1) obj[kidLabel.slice(0, sep)] = parseScalar(kidLabel.slice(sep + 2))
+          else obj[kidLabel] = null
+        }
       }
+      return obj
     }
+    return parseScalar(label)
   }
-  return JSON.stringify(result, null, 2)
+
+  const root = Object.keys(labels).find(id => !hasParent.has(id))
+  if (!root) throw new Error('Could not determine the Mermaid root node')
+  return JSON.stringify(build(root), null, 2)
 }
 
 // ---- README ----
@@ -880,74 +903,85 @@ export function arrayToJson(input: string): string {
 }
 
 // ---- Tree View ----
+// Containers render as "key Object" / "key Array [n]" lines, array elements as
+// "[i]", and scalars as JSON literals — so treeToJson can rebuild the exact
+// original structure, including types.
 export function jsonToTree(input: string): string {
   const parsed = JSON.parse(input)
   const lines: string[] = []
-  function walk(obj: unknown, indent = '', prefix = ''): void {
-    if (typeof obj !== 'object' || obj === null) {
-      lines.push(`${indent}${prefix}${String(obj ?? 'null').substring(0, 40)}`)
-      return
-    }
-    if (Array.isArray(obj)) {
-      lines.push(`${indent}${prefix}Array [${obj.length}]`)
-      for (let i = 0; i < obj.length; i++) {
-        const isLast = i === obj.length - 1
-        walk(obj[i], indent + (isLast ? '    ' : '│   '), isLast ? '└── ' : '├── ')
-      }
-      return
-    }
-    if (!prefix && !indent) lines.push(`${indent}${prefix}Object`)
-    else if (prefix) lines.push(`${indent}${prefix}Object`)
-    const entries = Object.entries(obj as Record<string, unknown>)
-    for (let i = 0; i < entries.length; i++) {
-      const [k, v] = entries[i]
+  if (Array.isArray(parsed)) lines.push(`Array [${parsed.length}]`)
+  else if (typeof parsed === 'object' && parsed !== null) lines.push('Object')
+  else return JSON.stringify(parsed)
+
+  function children(obj: unknown, indent: string): void {
+    if (typeof obj !== 'object' || obj === null) return
+    const entries: [string, unknown][] = Array.isArray(obj)
+      ? obj.map((v, i) => [`[${i}]`, v] as [string, unknown])
+      : Object.entries(obj as Record<string, unknown>)
+    entries.forEach(([k, v], i) => {
       const isLast = i === entries.length - 1
       const connector = isLast ? '└── ' : '├── '
-      if (typeof v === 'object' && v !== null) {
-        lines.push(`${indent}${connector}${k}`)
-        walk(v, indent + (isLast ? '    ' : '│   '), '')
+      const childIndent = indent + (isLast ? '    ' : '│   ')
+      if (Array.isArray(v)) {
+        lines.push(`${indent}${connector}${k} Array [${v.length}]`)
+        children(v, childIndent)
+      } else if (typeof v === 'object' && v !== null) {
+        lines.push(`${indent}${connector}${k} Object`)
+        children(v, childIndent)
       } else {
-        const val = String(v ?? 'null').substring(0, 40)
-        lines.push(`${indent}${connector}${k}: ${val}`)
+        lines.push(`${indent}${connector}${k}: ${JSON.stringify(v)}`)
       }
-    }
+    })
   }
-  walk(parsed)
+  children(parsed, '')
   return lines.join('\n')
 }
 
 export function treeToJson(input: string): string {
   const lines = input.split('\n').filter(l => l.trim())
-  const root: Record<string, unknown> = {}
-  const stack: { indent: number; obj: Record<string, unknown> }[] = [{ indent: -1, obj: root }]
+  if (lines.length === 0) throw new Error('Empty tree')
 
-  function getIndent(line: string): number {
-    let c = 0
-    for (const ch of line) {
-      if (ch === ' ' || ch === '│') c++
-      else break
-    }
-    return Math.floor(c / 2)
+  const rootLine = lines[0].trim()
+  let root: Record<string, unknown> | unknown[]
+  if (rootLine === 'Object') root = {}
+  else if (/^Array \[\d+\]$/.test(rootLine)) root = []
+  else {
+    try { return JSON.stringify(JSON.parse(rootLine), null, 2) } catch { return JSON.stringify(rootLine, null, 2) }
   }
 
-  for (const line of lines) {
-    const trimmed = line.replace(/^[│ ]*[├└]──\s*/, '').trim()
-    if (!trimmed) continue
-    const indent = getIndent(line)
-    const colonIdx = trimmed.indexOf(':')
-    while (stack.length > 0 && stack[stack.length - 1].indent >= indent) stack.pop()
-    const parent = stack[stack.length - 1]
-    if (!parent) continue
+  const stack: { depth: number; node: Record<string, unknown> | unknown[] }[] = [{ depth: 0, node: root }]
 
-    if (colonIdx === -1) {
-      const newObj: Record<string, unknown> = {}
-      parent.obj[trimmed] = newObj
-      stack.push({ indent, obj: newObj })
+  const attach = (parent: Record<string, unknown> | unknown[], key: string, value: unknown): void => {
+    if (Array.isArray(parent)) parent.push(value)
+    else parent[key] = value
+  }
+
+  for (const line of lines.slice(1)) {
+    const m = line.match(/^((?:(?:│   )|(?:    ))*)[├└]── (.*)$/)
+    if (!m) continue
+    const depth = m[1].length / 4 + 1
+    const content = m[2]
+    while (stack.length > 1 && stack[stack.length - 1].depth >= depth) stack.pop()
+    const parent = stack[stack.length - 1].node
+
+    const arrayMatch = content.match(/^(.*?) Array \[\d+\]$/)
+    const objectMatch = content.match(/^(.*?) Object$/)
+    if (arrayMatch) {
+      const child: unknown[] = []
+      attach(parent, arrayMatch[1].trim(), child)
+      stack.push({ depth, node: child })
+    } else if (objectMatch) {
+      const child: Record<string, unknown> = {}
+      attach(parent, objectMatch[1].trim(), child)
+      stack.push({ depth, node: child })
     } else {
-      const key = trimmed.slice(0, colonIdx).trim()
-      const val = trimmed.slice(colonIdx + 1).trim()
-      const num = Number(val)
-      parent.obj[key] = val === '' ? '' : val === 'true' ? true : val === 'false' ? false : val === 'null' ? null : isNaN(num) ? val : num
+      const sepIdx = content.indexOf(': ')
+      if (sepIdx === -1) continue
+      const key = content.slice(0, sepIdx).trim()
+      const raw = content.slice(sepIdx + 2).trim()
+      let value: unknown
+      try { value = JSON.parse(raw) } catch { value = raw }
+      attach(parent, key, value)
     }
   }
   return JSON.stringify(root, null, 2)
@@ -1022,7 +1056,7 @@ export function jsonStatistics(input: string): string {
     sizeMinified: JSON.stringify(parsed).length
   }
 
-  let keyCounts: number[] = []
+  const keyCounts: number[] = []
 
   function walk(obj: unknown, depth: number): void {
     stats.totalNodes++

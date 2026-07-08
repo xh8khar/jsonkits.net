@@ -76,8 +76,10 @@ function toPhpArrayExpr(value: unknown): string {
 export function jsonToPhpClass(input: string): string {
   const parsed = JSON.parse(input)
   const classes: string[] = []
-  generatePhpClass(parsed, 'RootObject', classes)
-  classes[0] = classes[0].replace(`class RootObject`, `class RootObject\n{`)
+  const rootType = generatePhpClass(parsed, 'RootObject', classes)
+  if (classes.length === 0) {
+    return `<?php\n\n// Root value is ${rootType}; wrap it in an object to generate a class.\n`
+  }
   return `<?php\n\n${classes.join('\n\n')}\n`
 }
 
