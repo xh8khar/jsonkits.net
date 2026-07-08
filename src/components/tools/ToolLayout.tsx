@@ -238,10 +238,12 @@ export default function ToolLayout({
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
       <script
         type="application/ld+json"
+        suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppJsonLd) }}
       />
       <script
         type="application/ld+json"
+        suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <div className="mb-8">

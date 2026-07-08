@@ -30,13 +30,13 @@ export default function ToolPageClient() {
           <li><strong>Data Transfer</strong>: Lightweight format for real-time data exchange between microservices.</li>
         </ul>
         <h2>What Are Dart Model Classes?</h2>
-        <p>Dart model classes with JSON serialization are essential for Flutter mobile apps and Dart backend services. The json_serializable package generates fromJson/toJson code automatically.
+        <p>Dart model classes with JSON serialization are essential for Flutter mobile apps and Dart backend services. The json_serializable package generates fromJson/toJson code automatically.</p>
         <p>Dart model classes power:</p>
         <ul>
           <li><strong>Flutter Apps</strong>: State management and API integration.</li>
           <li><strong>Firebase</strong>: Data models for Firestore documents.</li>
           <li><strong>Server-side Dart</strong>: Request/response typing in Dart Frog.</li>
-        </ul></p>
+        </ul>
         <h2>Why Generate Dart Model Classes from JSON?</h2>
         <p>Manually writing dart model classes for every API response is tedious and error-prone. Automatic generation ensures your types always match the actual data structure, saving time and preventing bugs. This is especially valuable when:</p>
         <ul>

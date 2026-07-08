@@ -30,13 +30,13 @@ export default function ToolPageClient() {
           <li><strong>Data Transfer</strong>: Lightweight format for real-time data exchange between microservices.</li>
         </ul>
         <h2>What Are R Lists?</h2>
-        <p>R lists are recursive vectors that can contain elements of different types, commonly used for statistical data and model outputs. They are the foundation of complex data structures in R.
+        <p>R lists are recursive vectors that can contain elements of different types, commonly used for statistical data and model outputs. They are the foundation of complex data structures in R.</p>
         <p>R lists are used for:</p>
         <ul>
           <li><strong>Statistical Models</strong>: Storing regression results and model summaries.</li>
           <li><strong>Data Science</strong>: Heterogeneous data collections for analysis.</li>
           <li><strong>Visualization</strong>: Plot parameters and graphical objects.</li>
-        </ul></p>
+        </ul>
         <h2>Why Generate R Lists from JSON?</h2>
         <p>Manually writing r lists for every API response is tedious and error-prone. Automatic generation ensures your types always match the actual data structure, saving time and preventing bugs. This is especially valuable when:</p>
         <ul>

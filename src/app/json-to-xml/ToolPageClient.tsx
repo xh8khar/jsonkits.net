@@ -32,13 +32,13 @@ export default function ToolPageClient() {
           <li><strong>Data Transfer</strong>: Lightweight format for real-time data exchange between microservices.</li>
         </ul>
         <h2>What Is XML?</h2>
-        <p>XML (eXtensible Markup Language) is a markup language that defines rules for encoding documents in a format that is both human-readable and machine-readable. It uses tags to define the structure and meaning of data.
+        <p>XML (eXtensible Markup Language) is a markup language that defines rules for encoding documents in a format that is both human-readable and machine-readable. It uses tags to define the structure and meaning of data.</p>
         <p>XML is widely used for:</p>
         <ul>
           <li><strong>SOAP APIs</strong>: Enterprise web services and legacy systems.</li>
           <li><strong>Configuration Files</strong>: Maven POM, Ant build files, and Spring beans.</li>
           <li><strong>Document Storage</strong>: Microsoft Office formats (DOCX, XLSX) are XML-based.</li>
-        </ul></p>
+        </ul>
         <h2>JSON vs. XML: Which Should You Use?</h2>
         <p>While both formats manage data, they serve different primary purposes. JSON is built for machines (APIs), while XML is built for humans (Configuration).</p>
                 <div className="overflow-x-auto">

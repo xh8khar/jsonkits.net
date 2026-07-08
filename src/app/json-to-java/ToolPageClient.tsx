@@ -30,13 +30,13 @@ export default function ToolPageClient() {
           <li><strong>Data Transfer</strong>: Lightweight format for real-time data exchange between microservices.</li>
         </ul>
         <h2>What Are Java POJOs?</h2>
-        <p>Java POJOs (Plain Old Java Objects) use private fields with public getter and setter methods, commonly mapped to JSON using Jackson or Gson libraries in Spring Boot applications.
+        <p>Java POJOs (Plain Old Java Objects) use private fields with public getter and setter methods, commonly mapped to JSON using Jackson or Gson libraries in Spring Boot applications.</p>
         <p>Java POJOs are fundamental for:</p>
         <ul>
           <li><strong>Spring Boot</strong>: DTOs for REST API controllers.</li>
           <li><strong>Enterprise Apps</strong>: Data models for JPA entities.</li>
           <li><strong>Android</strong>: JSON parsing for mobile app data.</li>
-        </ul></p>
+        </ul>
         <h2>Why Generate Java POJOs from JSON?</h2>
         <p>Manually writing java pojos for every API response is tedious and error-prone. Automatic generation ensures your types always match the actual data structure, saving time and preventing bugs. This is especially valuable when:</p>
         <ul>

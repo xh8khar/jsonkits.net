@@ -30,13 +30,13 @@ export default function ToolPageClient() {
           <li><strong>Data Transfer</strong>: Lightweight format for real-time data exchange between microservices.</li>
         </ul>
         <h2>What Are Lua Tables?</h2>
-        <p>Lua tables are the fundamental data structure in Lua, serving as arrays, dictionaries, and objects all in one. They are versatile and memory-efficient.
+        <p>Lua tables are the fundamental data structure in Lua, serving as arrays, dictionaries, and objects all in one. They are versatile and memory-efficient.</p>
         <p>Lua tables are essential for:</p>
         <ul>
           <li><strong>Game Development</strong>: Config files and game state (Love2D, Defold).</li>
           <li><strong>Embedded Systems</strong>: Configuring applications like Neovim and Awesome WM.</li>
           <li><strong>Redis Scripts</strong>: Data structures in Lua scripting.</li>
-        </ul></p>
+        </ul>
         <h2>Why Generate Lua Tables from JSON?</h2>
         <p>Manually writing lua tables for every API response is tedious and error-prone. Automatic generation ensures your types always match the actual data structure, saving time and preventing bugs. This is especially valuable when:</p>
         <ul>

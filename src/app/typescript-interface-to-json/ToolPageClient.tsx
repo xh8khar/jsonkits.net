@@ -26,13 +26,13 @@ export default function ToolPageClient() {
       />
             <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Are TypeScript Interfaces?</h2>
-        <p>TypeScript interfaces define the shape of data objects using type annotations for each property. They provide compile-time type checking and excellent developer experience with autocompletion.
+        <p>TypeScript interfaces define the shape of data objects using type annotations for each property. They provide compile-time type checking and excellent developer experience with autocompletion.</p>
         <p>TypeScript interfaces are essential for:</p>
         <ul>
           <li><strong>Frontend Apps</strong>: Typing API responses in React, Angular, and Vue.</li>
           <li><strong>Node.js Backends</strong>: Type-safe data models for server applications.</li>
           <li><strong>Library Development</strong>: Public API contracts for npm packages.</li>
-        </ul></p>
+        </ul>
         <h2>What Is JSON?</h2>
         <p>JSON (JavaScript Object Notation) is a lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate. Originally specified by Douglas Crockford, it is based on a subset of the JavaScript Programming Language Standard ECMA-262.</p>
         <p>JSON is widely used for:</p>

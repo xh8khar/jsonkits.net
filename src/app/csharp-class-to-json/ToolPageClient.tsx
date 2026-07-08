@@ -21,13 +21,13 @@ export default function ToolPageClient() {
       />
             <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Are C# Classes?</h2>
-        <p>C# classes with JSON attributes enable seamless serialization and deserialization in .NET applications. Using JsonPropertyName attributes ensures correct mapping between C# properties and JSON fields.
+        <p>C# classes with JSON attributes enable seamless serialization and deserialization in .NET applications. Using JsonPropertyName attributes ensures correct mapping between C# properties and JSON fields.</p>
         <p>C# classes are used for:</p>
         <ul>
           <li><strong>ASP.NET Core</strong>: API request/response models.</li>
           <li><strong>Azure Functions</strong>: Typed data for serverless applications.</li>
           <li><strong>Desktop Apps</strong>: Data binding in WPF and WinForms.</li>
-        </ul></p>
+        </ul>
         <h2>What Is JSON?</h2>
         <p>JSON (JavaScript Object Notation) is a lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate. Originally specified by Douglas Crockford, it is based on a subset of the JavaScript Programming Language Standard ECMA-262.</p>
         <p>JSON is widely used for:</p>

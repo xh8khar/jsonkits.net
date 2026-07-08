@@ -32,13 +32,13 @@ export default function ToolPageClient() {
           <li><strong>Data Transfer</strong>: Lightweight format for real-time data exchange between microservices.</li>
         </ul>
         <h2>What Is TSV?</h2>
-        <p>TSV (Tab-Separated Values) is a simple text format for tabular data where each row is a line and columns are separated by tab characters.
+        <p>TSV (Tab-Separated Values) is a simple text format for tabular data where each row is a line and columns are separated by tab characters.</p>
         <p>TSV is widely used for:</p>
         <ul>
           <li><strong>Data Science</strong>: Importing datasets into Python pandas and R.</li>
           <li><strong>Spreadsheets</strong>: Exporting data from Excel and Google Sheets.</li>
           <li><strong>Machine Learning</strong>: Training data with tabular features.</li>
-        </ul></p>
+        </ul>
         <h2>JSON vs. TSV: Which Should You Use?</h2>
         <p>While both formats manage data, they serve different primary purposes. JSON is built for machines (APIs), while TSV is built for humans (Configuration).</p>
                 <div className="overflow-x-auto">

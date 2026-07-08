@@ -27,13 +27,13 @@ export default function ToolPageClient() {
       />
             <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Are Kotlin Data Classes?</h2>
-        <p>Kotlin data classes are concise classes designed to hold data, automatically generating equals(), hashCode(), toString(), and copy() methods. They work seamlessly with kotlinx.serialization.
+        <p>Kotlin data classes are concise classes designed to hold data, automatically generating equals(), hashCode(), toString(), and copy() methods. They work seamlessly with kotlinx.serialization.</p>
         <p>Kotlin data classes excel at:</p>
         <ul>
           <li><strong>Android Apps</strong>: Room database entities and API models.</li>
           <li><strong>Ktor Backends</strong>: Request/response serialization.</li>
           <li><strong>Multiplatform</strong>: Shared data models across platforms.</li>
-        </ul></p>
+        </ul>
         <h2>What Is JSON?</h2>
         <p>JSON (JavaScript Object Notation) is a lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate. Originally specified by Douglas Crockford, it is based on a subset of the JavaScript Programming Language Standard ECMA-262.</p>
         <p>JSON is widely used for:</p>

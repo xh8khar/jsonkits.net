@@ -26,13 +26,13 @@ export default function ToolPageClient() {
       />
             <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Are PHP Arrays?</h2>
-        <p>PHP arrays are ordered maps that can store mixed types and nested structures. They are the primary data structure in PHP for handling collections and configuration.
+        <p>PHP arrays are ordered maps that can store mixed types and nested structures. They are the primary data structure in PHP for handling collections and configuration.</p>
         <p>PHP arrays are essential for:</p>
         <ul>
           <li><strong>Laravel</strong>: Configuration arrays and Eloquent data.</li>
           <li><strong>WordPress</strong>: Plugin settings and theme options.</li>
           <li><strong>API Responses</strong>: Preparing data for json_encode().</li>
-        </ul></p>
+        </ul>
         <h2>What Is JSON?</h2>
         <p>JSON (JavaScript Object Notation) is a lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate. Originally specified by Douglas Crockford, it is based on a subset of the JavaScript Programming Language Standard ECMA-262.</p>
         <p>JSON is widely used for:</p>

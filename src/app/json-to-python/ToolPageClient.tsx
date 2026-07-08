@@ -30,13 +30,13 @@ export default function ToolPageClient() {
           <li><strong>Data Transfer</strong>: Lightweight format for real-time data exchange between microservices.</li>
         </ul>
         <h2>What Are Python Dataclasses?</h2>
-        <p>Python dataclasses are a feature that automatically generates boilerplate code like __init__ for classes that primarily store data. Combined with type hints, they give you clear, self-documenting data models.
+        <p>Python dataclasses are a feature that automatically generates boilerplate code like __init__ for classes that primarily store data. Combined with type hints, they give you clear, self-documenting data models.</p>
         <p>Python dataclasses are used for:</p>
         <ul>
           <li><strong>API Clients</strong>: Typed models for REST and GraphQL responses.</li>
           <li><strong>Data Processing</strong>: Structured records in ETL pipelines.</li>
           <li><strong>Machine Learning</strong>: Feature definitions and model configuration.</li>
-        </ul></p>
+        </ul>
         <h2>Why Generate Python Dataclasses from JSON?</h2>
         <p>Manually writing python dataclasses for every API response is tedious and error-prone. Automatic generation ensures your types always match the actual data structure, saving time and preventing bugs. This is especially valuable when:</p>
         <ul>

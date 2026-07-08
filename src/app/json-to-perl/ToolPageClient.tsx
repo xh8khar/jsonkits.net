@@ -30,13 +30,13 @@ export default function ToolPageClient() {
           <li><strong>Data Transfer</strong>: Lightweight format for real-time data exchange between microservices.</li>
         </ul>
         <h2>What Are Perl Data Structures?</h2>
-        <p>Perl data structures using references combine arrays and hashes to create complex nested data. Perl's referent system allows flexible data modeling for text processing and system administration.
+        <p>Perl data structures using references combine arrays and hashes to create complex nested data. Perl's referent system allows flexible data modeling for text processing and system administration.</p>
         <p>Perl data structures are used for:</p>
         <ul>
           <li><strong>System Admin</strong>: Configuration parsing and log processing.</li>
           <li><strong>CGI Scripts</strong>: Legacy web application data handling.</li>
           <li><strong>Bioinformatics</strong>: Sequence and annotation data storage.</li>
-        </ul></p>
+        </ul>
         <h2>Why Generate Perl Data Structures from JSON?</h2>
         <p>Manually writing perl data structures for every API response is tedious and error-prone. Automatic generation ensures your types always match the actual data structure, saving time and preventing bugs. This is especially valuable when:</p>
         <ul>

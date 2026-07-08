@@ -30,13 +30,13 @@ export default function ToolPageClient() {
           <li><strong>Data Transfer</strong>: Lightweight format for real-time data exchange between microservices.</li>
         </ul>
         <h2>What Are PHP Classes?</h2>
-        <p>PHP classes with typed properties provide structured data handling for modern PHP applications. With PHP 8+ type declarations and getter/setter methods, they ensure data integrity.
+        <p>PHP classes with typed properties provide structured data handling for modern PHP applications. With PHP 8+ type declarations and getter/setter methods, they ensure data integrity.</p>
         <p>PHP classes are used for:</p>
         <ul>
           <li><strong>Symfony/Laravel</strong>: DTOs and data models.</li>
           <li><strong>API Platforms</strong>: Serialization groups for JSON responses.</li>
           <li><strong>E-commerce</strong>: Product, order, and customer models.</li>
-        </ul></p>
+        </ul>
         <h2>Why Generate PHP Classes from JSON?</h2>
         <p>Manually writing php classes for every API response is tedious and error-prone. Automatic generation ensures your types always match the actual data structure, saving time and preventing bugs. This is especially valuable when:</p>
         <ul>

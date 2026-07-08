@@ -32,13 +32,13 @@ export default function ToolPageClient() {
           <li><strong>Data Transfer</strong>: Lightweight format for real-time data exchange between microservices.</li>
         </ul>
         <h2>What Is Plain Text?</h2>
-        <p>Plain text key: value format uses dot notation to represent nested paths, making JSON structures readable in a simple linear format.
+        <p>Plain text key: value format uses dot notation to represent nested paths, making JSON structures readable in a simple linear format.</p>
         <p>Plain text representation is useful for:</p>
         <ul>
           <li><strong>Log Output</strong>: Printing structured data in application logs.</li>
           <li><strong>Debugging</strong>: Quick inspection of nested object structures.</li>
           <li><strong>Simple Exports</strong>: Human-readable data dumps.</li>
-        </ul></p>
+        </ul>
         <h2>JSON vs. Plain Text: Which Should You Use?</h2>
         <p>While both formats manage data, they serve different primary purposes. JSON is built for machines (APIs), while Plain Text is built for humans (Configuration).</p>
                 <div className="overflow-x-auto">

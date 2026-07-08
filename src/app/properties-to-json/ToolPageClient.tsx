@@ -32,13 +32,13 @@ export default function ToolPageClient() {
           <li><strong>Data Transfer</strong>: Lightweight format for real-time data exchange between microservices.</li>
         </ul>
         <h2>What Is Java Properties?</h2>
-        <p>Java .properties is a simple text configuration format using key=value pairs, commonly used in Java and Spring Boot applications.
+        <p>Java .properties is a simple text configuration format using key=value pairs, commonly used in Java and Spring Boot applications.</p>
         <p>Properties files are essential for:</p>
         <ul>
           <li><strong>Spring Boot</strong>: application.properties for microservice configuration.</li>
           <li><strong>Internationalization</strong>: Resource bundles for i18n (messages.properties).</li>
           <li><strong>Environment Settings</strong>: Database URLs, API keys, and feature toggles.</li>
-        </ul></p>
+        </ul>
         <h2>JSON vs. .properties: Which Should You Use?</h2>
         <p>While both formats manage data, they serve different primary purposes. JSON is built for machines (APIs), while .properties is built for humans (Configuration).</p>
                 <div className="overflow-x-auto">

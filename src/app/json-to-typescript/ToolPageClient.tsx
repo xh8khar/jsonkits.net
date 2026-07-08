@@ -30,13 +30,13 @@ export default function ToolPageClient() {
           <li><strong>Data Transfer</strong>: Lightweight format for real-time data exchange between microservices.</li>
         </ul>
         <h2>What Are TypeScript Interfaces?</h2>
-        <p>TypeScript interfaces define the shape of data objects using type annotations for each property. They provide compile-time type checking and excellent developer experience with autocompletion.
+        <p>TypeScript interfaces define the shape of data objects using type annotations for each property. They provide compile-time type checking and excellent developer experience with autocompletion.</p>
         <p>TypeScript interfaces are essential for:</p>
         <ul>
           <li><strong>Frontend Apps</strong>: Typing API responses in React, Angular, and Vue.</li>
           <li><strong>Node.js Backends</strong>: Type-safe data models for server applications.</li>
           <li><strong>Library Development</strong>: Public API contracts for npm packages.</li>
-        </ul></p>
+        </ul>
         <h2>Why Generate TypeScript Interfaces from JSON?</h2>
         <p>Manually writing typescript interfaces for every API response is tedious and error-prone. Automatic generation ensures your types always match the actual data structure, saving time and preventing bugs. This is especially valuable when:</p>
         <ul>

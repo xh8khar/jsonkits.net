@@ -32,13 +32,13 @@ export default function ToolPageClient() {
           <li><strong>Data Transfer</strong>: Lightweight format for real-time data exchange between microservices.</li>
         </ul>
         <h2>What Is YAML?</h2>
-        <p>YAML (YAML Ain't Markup Language) is a human-friendly data serialization standard for all programming languages. Unlike JSON, which uses brackets and braces, YAML uses indentation to represent the structure of data. This makes it cleaner and more readable for configuration files.
+        <p>YAML (YAML Ain't Markup Language) is a human-friendly data serialization standard for all programming languages. Unlike JSON, which uses brackets and braces, YAML uses indentation to represent the structure of data. This makes it cleaner and more readable for configuration files.</p>
         <p>DevOps teams prefer YAML for:</p>
         <ul>
           <li><strong>Kubernetes Manifests</strong>: Defining pods, services, and deployments in K8s.</li>
           <li><strong>CI/CD Pipelines</strong>: Configuring workflows in GitHub Actions, GitLab CI, and CircleCI.</li>
           <li><strong>Infrastructure as Code</strong>: Writing playbooks for Ansible or stack definitions for Docker Compose.</li>
-        </ul></p>
+        </ul>
         <h2>JSON vs. YAML: Which Should You Use?</h2>
         <p>While both formats manage data, they serve different primary purposes. JSON is built for machines (APIs), while YAML is built for humans (Configuration).</p>
                 <div className="overflow-x-auto">

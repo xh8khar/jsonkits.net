@@ -32,13 +32,13 @@ export default function ToolPageClient() {
           <li><strong>Data Transfer</strong>: Lightweight format for real-time data exchange between microservices.</li>
         </ul>
         <h2>What Is INI?</h2>
-        <p>INI is a classic configuration file format that organizes settings into sections with key-value pairs. It has been widely used in Windows and Unix configuration files for decades.
+        <p>INI is a classic configuration file format that organizes settings into sections with key-value pairs. It has been widely used in Windows and Unix configuration files for decades.</p>
         <p>INI files are commonly used for:</p>
         <ul>
           <li><strong>System Configuration</strong>: Windows .ini files, php.ini, and my.cnf.</li>
           <li><strong>Game Settings</strong>: Storing player preferences and game options.</li>
           <li><strong>Legacy Applications</strong>: Simple configuration for older software.</li>
-        </ul></p>
+        </ul>
         <h2>JSON vs. INI: Which Should You Use?</h2>
         <p>While both formats manage data, they serve different primary purposes. JSON is built for machines (APIs), while INI is built for humans (Configuration).</p>
                 <div className="overflow-x-auto">

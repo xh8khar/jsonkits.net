@@ -30,13 +30,13 @@ export default function ToolPageClient() {
           <li><strong>Data Transfer</strong>: Lightweight format for real-time data exchange between microservices.</li>
         </ul>
         <h2>What Are Ruby Hashes?</h2>
-        <p>Ruby hashes are key-value data structures that can be easily serialized to and from JSON using Ruby's built-in json library. They are the most common data structure in Ruby applications.
+        <p>Ruby hashes are key-value data structures that can be easily serialized to and from JSON using Ruby's built-in json library. They are the most common data structure in Ruby applications.</p>
         <p>Ruby hashes are used for:</p>
         <ul>
           <li><strong>Ruby on Rails</strong>: Parameter handling and API responses.</li>
           <li><strong>Configuration</strong>: YAML-based settings loaded as hashes.</li>
           <li><strong>Data Processing</strong>: Transforming data with enumerable methods.</li>
-        </ul></p>
+        </ul>
         <h2>Why Generate Ruby Hashes from JSON?</h2>
         <p>Manually writing ruby hashes for every API response is tedious and error-prone. Automatic generation ensures your types always match the actual data structure, saving time and preventing bugs. This is especially valuable when:</p>
         <ul>

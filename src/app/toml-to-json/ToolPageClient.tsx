@@ -32,13 +32,13 @@ export default function ToolPageClient() {
           <li><strong>Data Transfer</strong>: Lightweight format for real-time data exchange between microservices.</li>
         </ul>
         <h2>What Is TOML?</h2>
-        <p>TOML (Tom's Obvious, Minimal Language) is a configuration file format designed to be easy to read and write. It uses key-value pairs and table headers with strong typing and nesting support.
+        <p>TOML (Tom's Obvious, Minimal Language) is a configuration file format designed to be easy to read and write. It uses key-value pairs and table headers with strong typing and nesting support.</p>
         <p>Developers choose TOML for:</p>
         <ul>
           <li><strong>Package Configuration</strong>: Rust's Cargo.toml and Python's pyproject.toml.</li>
           <li><strong>Build Tools</strong>: Defining build dependencies and metadata.</li>
           <li><strong>Application Settings</strong>: Human-readable config files with comments.</li>
-        </ul></p>
+        </ul>
         <h2>JSON vs. TOML: Which Should You Use?</h2>
         <p>While both formats manage data, they serve different primary purposes. JSON is built for machines (APIs), while TOML is built for humans (Configuration).</p>
                 <div className="overflow-x-auto">

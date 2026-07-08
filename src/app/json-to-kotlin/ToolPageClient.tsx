@@ -30,13 +30,13 @@ export default function ToolPageClient() {
           <li><strong>Data Transfer</strong>: Lightweight format for real-time data exchange between microservices.</li>
         </ul>
         <h2>What Are Kotlin Data Classes?</h2>
-        <p>Kotlin data classes are concise classes designed to hold data, automatically generating equals(), hashCode(), toString(), and copy() methods. They work seamlessly with kotlinx.serialization.
+        <p>Kotlin data classes are concise classes designed to hold data, automatically generating equals(), hashCode(), toString(), and copy() methods. They work seamlessly with kotlinx.serialization.</p>
         <p>Kotlin data classes excel at:</p>
         <ul>
           <li><strong>Android Apps</strong>: Room database entities and API models.</li>
           <li><strong>Ktor Backends</strong>: Request/response serialization.</li>
           <li><strong>Multiplatform</strong>: Shared data models across platforms.</li>
-        </ul></p>
+        </ul>
         <h2>Why Generate Kotlin Data Classes from JSON?</h2>
         <p>Manually writing kotlin data classes for every API response is tedious and error-prone. Automatic generation ensures your types always match the actual data structure, saving time and preventing bugs. This is especially valuable when:</p>
         <ul>

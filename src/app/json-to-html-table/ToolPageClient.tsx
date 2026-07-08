@@ -32,13 +32,13 @@ export default function ToolPageClient() {
           <li><strong>Data Transfer</strong>: Lightweight format for real-time data exchange between microservices.</li>
         </ul>
         <h2>What Is HTML Tables?</h2>
-        <p>HTML tables use &lt;table&gt;, &lt;tr&gt;, &lt;th&gt;, and &lt;td&gt; tags to display structured data in rows and columns on web pages.
+        <p>HTML tables use &lt;table&gt;, &lt;tr&gt;, &lt;th&gt;, and &lt;td&gt; tags to display structured data in rows and columns on web pages.</p>
         <p>HTML tables are commonly used for:</p>
         <ul>
           <li><strong>Dashboards</strong>: Displaying data in web applications.</li>
           <li><strong>Email Templates</strong>: Responsive tables for email newsletters.</li>
           <li><strong>Documentation</strong>: Presenting structured information on web pages.</li>
-        </ul></p>
+        </ul>
         <h2>JSON vs. HTML Tables: Which Should You Use?</h2>
         <p>While both formats manage data, they serve different primary purposes. JSON is built for machines (APIs), while HTML Tables is built for humans (Configuration).</p>
                 <div className="overflow-x-auto">

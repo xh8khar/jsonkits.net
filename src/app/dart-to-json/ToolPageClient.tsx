@@ -28,13 +28,13 @@ export default function ToolPageClient() {
       />
             <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Are Dart Model Classes?</h2>
-        <p>Dart model classes with JSON serialization are essential for Flutter mobile apps and Dart backend services. The json_serializable package generates fromJson/toJson code automatically.
+        <p>Dart model classes with JSON serialization are essential for Flutter mobile apps and Dart backend services. The json_serializable package generates fromJson/toJson code automatically.</p>
         <p>Dart model classes power:</p>
         <ul>
           <li><strong>Flutter Apps</strong>: State management and API integration.</li>
           <li><strong>Firebase</strong>: Data models for Firestore documents.</li>
           <li><strong>Server-side Dart</strong>: Request/response typing in Dart Frog.</li>
-        </ul></p>
+        </ul>
         <h2>What Is JSON?</h2>
         <p>JSON (JavaScript Object Notation) is a lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate. Originally specified by Douglas Crockford, it is based on a subset of the JavaScript Programming Language Standard ECMA-262.</p>
         <p>JSON is widely used for:</p>

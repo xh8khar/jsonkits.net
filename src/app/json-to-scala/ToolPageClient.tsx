@@ -30,13 +30,13 @@ export default function ToolPageClient() {
           <li><strong>Data Transfer</strong>: Lightweight format for real-time data exchange between microservices.</li>
         </ul>
         <h2>What Are Scala Case Classes?</h2>
-        <p>Scala case classes are immutable data carriers with built-in pattern matching, equality, and serialization support. Combined with Play JSON, they provide type-safe JSON handling.
+        <p>Scala case classes are immutable data carriers with built-in pattern matching, equality, and serialization support. Combined with Play JSON, they provide type-safe JSON handling.</p>
         <p>Scala case classes are used for:</p>
         <ul>
           <li><strong>Play Framework</strong>: API response serialization.</li>
           <li><strong>Apache Spark</strong>: Dataset and DataFrame schemas.</li>
           <li><strong>Akka Actors</strong>: Message protocol definitions.</li>
-        </ul></p>
+        </ul>
         <h2>Why Generate Scala Case Classes from JSON?</h2>
         <p>Manually writing scala case classes for every API response is tedious and error-prone. Automatic generation ensures your types always match the actual data structure, saving time and preventing bugs. This is especially valuable when:</p>
         <ul>

@@ -2,9 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 import ThemeToggle from './ThemeToggle'
-import { navItems } from '@/lib/navigation'
 
 const SITE_URL = 'https://www.jsonkits.net'
 const SITE_TITLE = 'JSONKits - 300+ Free Online JSON Tools'
@@ -84,201 +82,40 @@ function SocialShare() {
   )
 }
 
-export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
-  const [mobileExpanded, setMobileExpanded] = useState<Set<string>>(new Set())
-  const pathname = usePathname()
-  const dropdownRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    function handleClickOutside(e: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setOpenDropdown(null)
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
-
-  useEffect(() => {
-    setOpenDropdown(null)
-    setMenuOpen(false)
-    setMobileExpanded(new Set())
-  }, [pathname])
-
-  const toggleMobile = (label: string) => {
-    setMobileExpanded(prev => {
-      const next = new Set(prev)
-      if (next.has(label)) {
-        next.delete(label)
-      } else {
-        next.add(label)
-      }
-      return next
-    })
-  }
-
-  const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/')
-
+export default function Navbar({ onMenuClick }: { onMenuClick: () => void }) {
   return (
-    <nav className="sticky top-0 z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="sticky top-0 z-30 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+      <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2 font-bold text-xl text-slate-900 dark:text-white">
-            <span className="text-blue-500">{'{ }'}</span>
-            JSONKits
-          </Link>
-
-          <div ref={dropdownRef} className="hidden md:flex items-center gap-1">
-            {navItems.map(item => (
-              <div key={item.href} className="relative">
-                {item.children ? (
-                  <>
-                    <button
-                      onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
-                      className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-1 ${
-                        isActive(item.href)
-                          ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
-                          : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
-                      }`}
-                    >
-                      {item.label}
-                      <svg className={`w-3 h-3 transition-transform ${openDropdown === item.label ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
-                    {openDropdown === item.label && (
-                      <div className="absolute top-full left-0 mt-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg shadow-xl py-1 min-w-[200px] max-h-[70vh] overflow-y-auto z-50 animate-fade-in">
-                        {item.children.map(child => (
-                          <Link
-                            key={child.href}
-                            href={child.href}
-                            className={`block px-4 py-2 text-sm transition-colors ${
-                              pathname === child.href
-                                ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
-                                : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
-                            }`}
-                          >
-                            {child.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <Link
-                    href={item.href}
-                    className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                      isActive(item.href)
-                        ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
-                        : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                )}
-              </div>
-            ))}
-            <div className="ml-2 pl-2 border-l border-slate-200 dark:border-slate-700 flex items-center gap-1">
-              <SocialShare />
-              <ThemeToggle />
-            </div>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={onMenuClick}
+              className="lg:hidden p-2 -ml-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800"
+              aria-label="Toggle tools menu"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+            <Link href="/" className="lg:hidden flex items-center gap-2 font-bold text-xl text-slate-900 dark:text-white">
+              <span className="text-blue-500">{'{ }'}</span>
+              JSONKits
+            </Link>
           </div>
 
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800"
-            aria-label="Toggle menu"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {menuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
+          <div className="hidden lg:flex items-center gap-1">
+            <Link href="/blog" className="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Blog</Link>
+            <Link href="/learn" className="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Learn</Link>
+            <Link href="/about" className="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">About</Link>
+            <Link href="/contact" className="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Contact</Link>
+          </div>
+
+          <div className="flex items-center gap-1">
+            <SocialShare />
+            <ThemeToggle />
+          </div>
         </div>
       </div>
-
-      {menuOpen && (
-        <div className="md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 animate-fade-in max-h-[80vh] overflow-y-auto">
-          <div className="px-4 py-3 space-y-1">
-            {navItems.map(item => (
-              <div key={item.href}>
-                {item.children ? (
-                  <>
-                    <button
-                      onClick={() => toggleMobile(item.label)}
-                      className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                        isActive(item.href)
-                          ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
-                          : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
-                      }`}
-                    >
-                      {item.label}
-                      <svg className={`w-3 h-3 transition-transform ${mobileExpanded.has(item.label) ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
-                    {mobileExpanded.has(item.label) && (
-                      <div className="ml-3 space-y-0.5 animate-fade-in">
-                        {item.children.map(child => (
-                          <Link
-                            key={child.href}
-                            href={child.href}
-                            onClick={() => setMenuOpen(false)}
-                            className={`block px-3 py-1.5 rounded-lg text-sm ${
-                              pathname === child.href
-                                ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
-                                : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
-                            }`}
-                          >
-                            {child.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <Link
-                    href={item.href}
-                    onClick={() => setMenuOpen(false)}
-                    className={`block px-3 py-2 rounded-lg text-sm font-medium ${
-                      isActive(item.href)
-                        ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
-                        : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                )}
-              </div>
-            ))}
-            <div className="pt-2 flex items-center gap-2">
-              <ThemeToggle />
-              <span className="text-xs text-slate-400 dark:text-slate-500">|</span>
-              <span className="text-xs text-slate-400 dark:text-slate-500">Share:</span>
-              {socialLinks.map(link => (
-                <a
-                  key={link.name}
-                  href={link.href()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setMenuOpen(false)}
-                  className="p-1.5 rounded text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                  aria-label={link.name}
-                >
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                    {link.svg}
-                  </svg>
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
     </nav>
   )
 }

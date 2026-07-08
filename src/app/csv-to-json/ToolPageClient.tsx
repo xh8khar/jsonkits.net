@@ -32,13 +32,13 @@ export default function ToolPageClient() {
           <li><strong>Data Transfer</strong>: Lightweight format for real-time data exchange between microservices.</li>
         </ul>
         <h2>What Is CSV?</h2>
-        <p>CSV (Comma-Separated Values) is a simple file format used to store tabular data, such as a spreadsheet or database. Each line of the file is a data record and each record consists of one or more fields separated by commas.
+        <p>CSV (Comma-Separated Values) is a simple file format used to store tabular data, such as a spreadsheet or database. Each line of the file is a data record and each record consists of one or more fields separated by commas.</p>
         <p>CSV is essential for:</p>
         <ul>
           <li><strong>Data Migration</strong>: Moving data between databases and spreadsheets.</li>
           <li><strong>Analytics</strong>: Preparing data for analysis in Excel, Tableau, or Power BI.</li>
           <li><strong>Legacy Systems</strong>: Exporting reports from enterprise software.</li>
-        </ul></p>
+        </ul>
         <h2>JSON vs. CSV: Which Should You Use?</h2>
         <p>While both formats manage data, they serve different primary purposes. JSON is built for machines (APIs), while CSV is built for humans (Configuration).</p>
                 <div className="overflow-x-auto">

@@ -21,13 +21,13 @@ export default function ToolPageClient() {
       />
             <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Are Rust Structs?</h2>
-        <p>Rust structs with Serde derive macros enable safe and efficient JSON serialization with compile-time type checking. Serde is the most widely used serialization framework in the Rust ecosystem.
+        <p>Rust structs with Serde derive macros enable safe and efficient JSON serialization with compile-time type checking. Serde is the most widely used serialization framework in the Rust ecosystem.</p>
         <p>Rust structs are critical for:</p>
         <ul>
           <li><strong>Web Services</strong>: Actix-web and Axum request handlers.</li>
           <li><strong>CLI Tools</strong>: Configuration parsing with serde and toml.</li>
           <li><strong>Systems Programming</strong>: Network protocol data structures.</li>
-        </ul></p>
+        </ul>
         <h2>What Is JSON?</h2>
         <p>JSON (JavaScript Object Notation) is a lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate. Originally specified by Douglas Crockford, it is based on a subset of the JavaScript Programming Language Standard ECMA-262.</p>
         <p>JSON is widely used for:</p>

@@ -30,13 +30,13 @@ export default function ToolPageClient() {
           <li><strong>Data Transfer</strong>: Lightweight format for real-time data exchange between microservices.</li>
         </ul>
         <h2>What Are C# Classes?</h2>
-        <p>C# classes with JSON attributes enable seamless serialization and deserialization in .NET applications. Using JsonPropertyName attributes ensures correct mapping between C# properties and JSON fields.
+        <p>C# classes with JSON attributes enable seamless serialization and deserialization in .NET applications. Using JsonPropertyName attributes ensures correct mapping between C# properties and JSON fields.</p>
         <p>C# classes are used for:</p>
         <ul>
           <li><strong>ASP.NET Core</strong>: API request/response models.</li>
           <li><strong>Azure Functions</strong>: Typed data for serverless applications.</li>
           <li><strong>Desktop Apps</strong>: Data binding in WPF and WinForms.</li>
-        </ul></p>
+        </ul>
         <h2>Why Generate C# Classes from JSON?</h2>
         <p>Manually writing c# classes for every API response is tedious and error-prone. Automatic generation ensures your types always match the actual data structure, saving time and preventing bugs. This is especially valuable when:</p>
         <ul>

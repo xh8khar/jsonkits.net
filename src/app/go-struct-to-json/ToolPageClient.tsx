@@ -21,13 +21,13 @@ export default function ToolPageClient() {
       />
             <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Are Go Structs?</h2>
-        <p>Go structs with JSON tags define how Go types map to JSON fields. When paired with json struct tags, they tell the encoding/json package exactly how to serialize and deserialize data.
+        <p>Go structs with JSON tags define how Go types map to JSON fields. When paired with json struct tags, they tell the encoding/json package exactly how to serialize and deserialize data.</p>
         <p>Go structs are essential for:</p>
         <ul>
           <li><strong>Web Services</strong>: Typed request/response models for HTTP APIs.</li>
           <li><strong>Microservices</strong>: Data contracts between service boundaries.</li>
           <li><strong>CLI Tools</strong>: Configuration parsing and output formatting.</li>
-        </ul></p>
+        </ul>
         <h2>What Is JSON?</h2>
         <p>JSON (JavaScript Object Notation) is a lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate. Originally specified by Douglas Crockford, it is based on a subset of the JavaScript Programming Language Standard ECMA-262.</p>
         <p>JSON is widely used for:</p>

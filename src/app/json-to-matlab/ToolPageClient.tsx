@@ -30,13 +30,13 @@ export default function ToolPageClient() {
           <li><strong>Data Transfer</strong>: Lightweight format for real-time data exchange between microservices.</li>
         </ul>
         <h2>What Are MATLAB Structs?</h2>
-        <p>MATLAB structs are data containers with named fields that can store different types of data. They are widely used in scientific computing and engineering applications.
+        <p>MATLAB structs are data containers with named fields that can store different types of data. They are widely used in scientific computing and engineering applications.</p>
         <p>MATLAB structs are used for:</p>
         <ul>
           <li><strong>Signal Processing</strong>: Organizing measurement data and parameters.</li>
           <li><strong>Image Processing</strong>: Storing image metadata and processing results.</li>
           <li><strong>Control Systems</strong>: System model and simulation parameters.</li>
-        </ul></p>
+        </ul>
         <h2>Why Generate MATLAB Structs from JSON?</h2>
         <p>Manually writing matlab structs for every API response is tedious and error-prone. Automatic generation ensures your types always match the actual data structure, saving time and preventing bugs. This is especially valuable when:</p>
         <ul>

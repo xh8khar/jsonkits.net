@@ -32,13 +32,13 @@ export default function ToolPageClient() {
           <li><strong>Data Transfer</strong>: Lightweight format for real-time data exchange between microservices.</li>
         </ul>
         <h2>What Is Markdown Tables?</h2>
-        <p>Markdown tables use pipe (|) characters to separate columns and dashes (-) to separate headers from data, providing a clean text-based tabular format.
+        <p>Markdown tables use pipe (|) characters to separate columns and dashes (-) to separate headers from data, providing a clean text-based tabular format.</p>
         <p>Markdown tables are used for:</p>
         <ul>
           <li><strong>GitHub README</strong>: Documentation with tabular data.</li>
           <li><strong>Technical Blogging</strong>: Clean tables in markdown-based articles.</li>
           <li><strong>Wiki Pages</strong>: Structured content in project wikis.</li>
-        </ul></p>
+        </ul>
         <h2>JSON vs. Markdown Tables: Which Should You Use?</h2>
         <p>While both formats manage data, they serve different primary purposes. JSON is built for machines (APIs), while Markdown Tables is built for humans (Configuration).</p>
                 <div className="overflow-x-auto">

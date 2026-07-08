@@ -26,13 +26,13 @@ export default function ToolPageClient() {
       />
             <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Are Swift Structs?</h2>
-        <p>Swift structs conforming to Codable are value types that can be encoded to JSON using JSONEncoder and decoded with JSONDecoder. They are the foundation of data modeling in iOS and macOS development.
+        <p>Swift structs conforming to Codable are value types that can be encoded to JSON using JSONEncoder and decoded with JSONDecoder. They are the foundation of data modeling in iOS and macOS development.</p>
         <p>Swift structs are used for:</p>
         <ul>
           <li><strong>iOS Apps</strong>: API response models with URLSession.</li>
           <li><strong>SwiftUI</strong>: Data models for reactive UI bindings.</li>
           <li><strong>macOS Apps</strong>: Property list and JSON serialization.</li>
-        </ul></p>
+        </ul>
         <h2>What Is JSON?</h2>
         <p>JSON (JavaScript Object Notation) is a lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate. Originally specified by Douglas Crockford, it is based on a subset of the JavaScript Programming Language Standard ECMA-262.</p>
         <p>JSON is widely used for:</p>

@@ -30,13 +30,13 @@ export default function ToolPageClient() {
           <li><strong>Data Transfer</strong>: Lightweight format for real-time data exchange between microservices.</li>
         </ul>
         <h2>What Are PHP Arrays?</h2>
-        <p>PHP arrays are ordered maps that can store mixed types and nested structures. They are the primary data structure in PHP for handling collections and configuration.
+        <p>PHP arrays are ordered maps that can store mixed types and nested structures. They are the primary data structure in PHP for handling collections and configuration.</p>
         <p>PHP arrays are essential for:</p>
         <ul>
           <li><strong>Laravel</strong>: Configuration arrays and Eloquent data.</li>
           <li><strong>WordPress</strong>: Plugin settings and theme options.</li>
           <li><strong>API Responses</strong>: Preparing data for json_encode().</li>
-        </ul></p>
+        </ul>
         <h2>Why Generate PHP Arrays from JSON?</h2>
         <p>Manually writing php arrays for every API response is tedious and error-prone. Automatic generation ensures your types always match the actual data structure, saving time and preventing bugs. This is especially valuable when:</p>
         <ul>

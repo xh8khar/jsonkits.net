@@ -30,13 +30,13 @@ export default function ToolPageClient() {
           <li><strong>Data Transfer</strong>: Lightweight format for real-time data exchange between microservices.</li>
         </ul>
         <h2>What Are Swift Structs?</h2>
-        <p>Swift structs conforming to Codable are value types that can be encoded to JSON using JSONEncoder and decoded with JSONDecoder. They are the foundation of data modeling in iOS and macOS development.
+        <p>Swift structs conforming to Codable are value types that can be encoded to JSON using JSONEncoder and decoded with JSONDecoder. They are the foundation of data modeling in iOS and macOS development.</p>
         <p>Swift structs are used for:</p>
         <ul>
           <li><strong>iOS Apps</strong>: API response models with URLSession.</li>
           <li><strong>SwiftUI</strong>: Data models for reactive UI bindings.</li>
           <li><strong>macOS Apps</strong>: Property list and JSON serialization.</li>
-        </ul></p>
+        </ul>
         <h2>Why Generate Swift Structs from JSON?</h2>
         <p>Manually writing swift structs for every API response is tedious and error-prone. Automatic generation ensures your types always match the actual data structure, saving time and preventing bugs. This is especially valuable when:</p>
         <ul>

@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
+import AppShell from '@/components/layout/AppShell'
 import { ToastProvider } from '@/components/ui/Toast'
 
 const SITE_URL = 'https://www.jsonkits.net'
@@ -76,11 +75,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className="min-h-screen flex flex-col">
+      <body className="min-h-screen">
         <ToastProvider>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
+          <AppShell>{children}</AppShell>
         </ToastProvider>
       </body>
     </html>

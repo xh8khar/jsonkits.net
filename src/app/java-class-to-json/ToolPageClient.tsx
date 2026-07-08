@@ -26,13 +26,13 @@ export default function ToolPageClient() {
       />
             <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Are Java POJOs?</h2>
-        <p>Java POJOs (Plain Old Java Objects) use private fields with public getter and setter methods, commonly mapped to JSON using Jackson or Gson libraries in Spring Boot applications.
+        <p>Java POJOs (Plain Old Java Objects) use private fields with public getter and setter methods, commonly mapped to JSON using Jackson or Gson libraries in Spring Boot applications.</p>
         <p>Java POJOs are fundamental for:</p>
         <ul>
           <li><strong>Spring Boot</strong>: DTOs for REST API controllers.</li>
           <li><strong>Enterprise Apps</strong>: Data models for JPA entities.</li>
           <li><strong>Android</strong>: JSON parsing for mobile app data.</li>
-        </ul></p>
+        </ul>
         <h2>What Is JSON?</h2>
         <p>JSON (JavaScript Object Notation) is a lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate. Originally specified by Douglas Crockford, it is based on a subset of the JavaScript Programming Language Standard ECMA-262.</p>
         <p>JSON is widely used for:</p>

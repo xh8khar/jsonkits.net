@@ -26,13 +26,13 @@ export default function ToolPageClient() {
       />
             <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Are Python Dataclasses?</h2>
-        <p>Python dataclasses are a feature that automatically generates boilerplate code like __init__ for classes that primarily store data. Combined with type hints, they give you clear, self-documenting data models.
+        <p>Python dataclasses are a feature that automatically generates boilerplate code like __init__ for classes that primarily store data. Combined with type hints, they give you clear, self-documenting data models.</p>
         <p>Python dataclasses are used for:</p>
         <ul>
           <li><strong>API Clients</strong>: Typed models for REST and GraphQL responses.</li>
           <li><strong>Data Processing</strong>: Structured records in ETL pipelines.</li>
           <li><strong>Machine Learning</strong>: Feature definitions and model configuration.</li>
-        </ul></p>
+        </ul>
         <h2>What Is JSON?</h2>
         <p>JSON (JavaScript Object Notation) is a lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate. Originally specified by Douglas Crockford, it is based on a subset of the JavaScript Programming Language Standard ECMA-262.</p>
         <p>JSON is widely used for:</p>

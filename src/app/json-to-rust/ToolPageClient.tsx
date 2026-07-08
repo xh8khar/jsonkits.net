@@ -30,13 +30,13 @@ export default function ToolPageClient() {
           <li><strong>Data Transfer</strong>: Lightweight format for real-time data exchange between microservices.</li>
         </ul>
         <h2>What Are Rust Structs?</h2>
-        <p>Rust structs with Serde derive macros enable safe and efficient JSON serialization with compile-time type checking. Serde is the most widely used serialization framework in the Rust ecosystem.
+        <p>Rust structs with Serde derive macros enable safe and efficient JSON serialization with compile-time type checking. Serde is the most widely used serialization framework in the Rust ecosystem.</p>
         <p>Rust structs are critical for:</p>
         <ul>
           <li><strong>Web Services</strong>: Actix-web and Axum request handlers.</li>
           <li><strong>CLI Tools</strong>: Configuration parsing with serde and toml.</li>
           <li><strong>Systems Programming</strong>: Network protocol data structures.</li>
-        </ul></p>
+        </ul>
         <h2>Why Generate Rust Structs from JSON?</h2>
         <p>Manually writing rust structs for every API response is tedious and error-prone. Automatic generation ensures your types always match the actual data structure, saving time and preventing bugs. This is especially valuable when:</p>
         <ul>

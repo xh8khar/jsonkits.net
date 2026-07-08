@@ -30,13 +30,13 @@ export default function ToolPageClient() {
           <li><strong>Data Transfer</strong>: Lightweight format for real-time data exchange between microservices.</li>
         </ul>
         <h2>What Are Go Structs?</h2>
-        <p>Go structs with JSON tags define how Go types map to JSON fields. When paired with json struct tags, they tell the encoding/json package exactly how to serialize and deserialize data.
+        <p>Go structs with JSON tags define how Go types map to JSON fields. When paired with json struct tags, they tell the encoding/json package exactly how to serialize and deserialize data.</p>
         <p>Go structs are essential for:</p>
         <ul>
           <li><strong>Web Services</strong>: Typed request/response models for HTTP APIs.</li>
           <li><strong>Microservices</strong>: Data contracts between service boundaries.</li>
           <li><strong>CLI Tools</strong>: Configuration parsing and output formatting.</li>
-        </ul></p>
+        </ul>
         <h2>Why Generate Go Structs from JSON?</h2>
         <p>Manually writing go structs for every API response is tedious and error-prone. Automatic generation ensures your types always match the actual data structure, saving time and preventing bugs. This is especially valuable when:</p>
         <ul>
