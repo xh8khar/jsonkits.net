@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useRef, useEffect } from 'react'
 import { Button } from '@/components/ui/Button'
 import { useToast } from '@/components/ui/Toast'
 import InputPanel from '@/components/tools/InputPanel'
@@ -11,7 +11,14 @@ export default function ToolPageClient() {
   const [input, setInput] = useState('')
   const [output, setOutput] = useState('')
   const [loading, setLoading] = useState(false)
+  const outputRef = useRef<HTMLDivElement>(null)
   const { addToast } = useToast()
+
+  useEffect(() => {
+    if (output) {
+      outputRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }, [output])
 
   const handleFetch = useCallback(async () => {
     const url = input.trim()
@@ -55,7 +62,7 @@ export default function ToolPageClient() {
           <Button variant="ghost" onClick={loadExample}>Load Example</Button>
           <Button variant="ghost" onClick={handleClear}>Clear</Button>
         </div>
-        {output && <OutputPanel value={output} label="JSON Response" />}
+        {output && <div ref={outputRef}><OutputPanel value={output} label="JSON Response" /></div>}
       </div>
       <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 prose prose-slate dark:prose-invert">
         <h2>What Is This Tool?</h2>

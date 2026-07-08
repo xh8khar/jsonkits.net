@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useRef, useEffect } from 'react'
 import { Button } from '@/components/ui/Button'
 import { useToast } from '@/components/ui/Toast'
 import InputPanel from '@/components/tools/InputPanel'
@@ -11,7 +11,14 @@ const example = '{\n  "name": "JSONKits",\n  "version": 1,\n  "features": ["form
 export default function ToolPageClient() {
   const [input, setInput] = useState('')
   const [result, setResult] = useState<{ valid: boolean; error?: string } | null>(null)
+  const resultRef = useRef<HTMLDivElement>(null)
   const { addToast } = useToast()
+
+  useEffect(() => {
+    if (result) {
+      resultRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }, [result])
 
   const handleValidate = useCallback(() => {
     if (!input.trim()) {
@@ -63,7 +70,7 @@ export default function ToolPageClient() {
         </div>
 
         {result && (
-          <div className={`p-4 rounded-lg border ${result.valid ? 'bg-emerald-50 border-emerald-200 dark:bg-emerald-900/20 dark:border-emerald-800' : 'bg-red-50 border-red-200 dark:bg-red-900/20 dark:border-red-800'}`}>
+          <div ref={resultRef} className={`p-4 rounded-lg border ${result.valid ? 'bg-emerald-50 border-emerald-200 dark:bg-emerald-900/20 dark:border-emerald-800' : 'bg-red-50 border-red-200 dark:bg-red-900/20 dark:border-red-800'}`}>
             <div className="flex items-center gap-2">
               {result.valid ? (
                 <svg className="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">

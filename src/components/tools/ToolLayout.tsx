@@ -116,6 +116,7 @@ export default function ToolLayout({
   const [historyOpen, setHistoryOpen] = useState(false)
   const [previewOpen, setPreviewOpen] = useState(false)
   const previewRef = useRef<HTMLDivElement>(null)
+  const outputRef = useRef<HTMLDivElement>(null)
   const [history, setHistory] = useState<HistoryEntry[]>([])
   const slugRef = useRef('')
   const { addToast } = useToast()
@@ -227,6 +228,14 @@ export default function ToolLayout({
     setError('')
   }, [])
 
+  // Jump to the output panel when a result appears — it would otherwise
+  // appear off-screen on mobile or when the page is long.
+  useEffect(() => {
+    if (output || error) {
+      outputRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }, [output, error])
+
   // Jump to the preview panel when it opens — it renders below the action
   // buttons and would otherwise appear off-screen unnoticed.
   useEffect(() => {
@@ -282,13 +291,15 @@ export default function ToolLayout({
           placeholder={inputPlaceholder}
           language={isReversed && bidirectional ? outputLanguage : inputLanguage}
         />
-        <OutputPanel
-          label={isReversed && bidirectional ? inputLabel : outputLabel}
-          value={output}
-          placeholder={outputPlaceholder}
-          language={isReversed && bidirectional ? inputLanguage : outputLanguage}
-          error={error}
-        />
+        <div ref={outputRef}>
+          <OutputPanel
+            label={isReversed && bidirectional ? inputLabel : outputLabel}
+            value={output}
+            placeholder={outputPlaceholder}
+            language={isReversed && bidirectional ? inputLanguage : outputLanguage}
+            error={error}
+          />
+        </div>
       </div>
 
       <div className="flex flex-wrap items-center gap-3 mb-8">
