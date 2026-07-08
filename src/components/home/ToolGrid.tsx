@@ -15,8 +15,16 @@ const categories: { label: string; value: ToolCategory | 'all' }[] = [
   { label: 'Compare', value: 'compare' },
 ]
 
-export default function ToolGrid({ searchQuery = '' }: { searchQuery?: string }) {
-  const [activeCategory, setActiveCategory] = useState<ToolCategory | 'all'>('all')
+interface ToolGridProps {
+  searchQuery?: string
+  activeCategory?: ToolCategory | 'all'
+  onCategoryChange?: (category: ToolCategory | 'all') => void
+}
+
+export default function ToolGrid({ searchQuery = '', activeCategory: controlledCategory, onCategoryChange }: ToolGridProps) {
+  const [internalCategory, setInternalCategory] = useState<ToolCategory | 'all'>('all')
+  const activeCategory = controlledCategory ?? internalCategory
+  const setActiveCategory = onCategoryChange ?? setInternalCategory
 
   const filtered = tools.filter(t => {
     const matchCategory = activeCategory === 'all' || t.category === activeCategory
