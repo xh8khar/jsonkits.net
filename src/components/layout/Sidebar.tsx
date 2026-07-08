@@ -182,15 +182,6 @@ export default function Sidebar({ mobileOpen, onMobileClose }: SidebarProps) {
             </div>
           )}
         </nav>
-
-        <div className="p-3 border-t border-slate-200 dark:border-slate-800 shrink-0">
-          <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
-            <Link href="/blog" onClick={onMobileClose} className="hover:text-blue-500">Blog</Link>
-            <Link href="/learn" onClick={onMobileClose} className="hover:text-blue-500">Learn</Link>
-            <Link href="/about" onClick={onMobileClose} className="hover:text-blue-500">About</Link>
-            <Link href="/contact" onClick={onMobileClose} className="hover:text-blue-500">Contact</Link>
-          </div>
-        </div>
       </aside>
     </>
   )
