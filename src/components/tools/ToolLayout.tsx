@@ -114,6 +114,7 @@ export default function ToolLayout({
   const [isReversed, setIsReversed] = useState(false)
   const [historyOpen, setHistoryOpen] = useState(false)
   const [previewOpen, setPreviewOpen] = useState(false)
+  const previewRef = useRef<HTMLDivElement>(null)
   const [history, setHistory] = useState<HistoryEntry[]>([])
   const slugRef = useRef('')
   const { addToast } = useToast()
@@ -224,6 +225,14 @@ export default function ToolLayout({
     setOutput('')
     setError('')
   }, [])
+
+  // Jump to the preview panel when it opens — it renders below the action
+  // buttons and would otherwise appear off-screen unnoticed.
+  useEffect(() => {
+    if (previewOpen) {
+      previewRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }, [previewOpen])
 
   // Rendered preview for outputs a browser can display directly: HTML
   // documents/fragments (sandboxed iframe, scripts disabled), inline SVG, and
@@ -392,7 +401,7 @@ export default function ToolLayout({
       </div>
 
       {previewOpen && previewKind && (
-        <div className="mb-8 border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden animate-fade-in">
+        <div ref={previewRef} className="mb-8 scroll-mt-20 border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden animate-fade-in">
           <div className="flex items-center justify-between px-4 py-2 bg-slate-50 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700">
             <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Live Preview</span>
             <button
@@ -415,7 +424,7 @@ export default function ToolLayout({
               sandbox=""
               srcDoc={output}
               title="Rendered output preview"
-              className="w-full h-96 bg-white"
+              className="w-full h-[32rem] bg-white"
             />
           )}
         </div>
