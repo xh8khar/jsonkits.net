@@ -3,6 +3,7 @@
 // ============================================================
 
 import { cellText, unionKeys, toRowObjects, firstColumnValue } from './cell'
+import { renderHtmlTable } from './htmlTable'
 
 // ---- JSON Editor / Parser / Stringify ----
 
@@ -517,17 +518,8 @@ export function jsonLdValidator(input: string): string {
 
 export function jsonToTable(input: string): string {
   const parsed = JSON.parse(input)
-  const rows = toRowObjects(parsed)
-  if (rows.length === 0) return '<p>No data</p>'
-  const columns = unionKeys(rows)
-  let html = '<table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;font-family:sans-serif;">\n'
-  html += '  <thead><tr>' + columns.map(c => `<th style="background:#f5f5f5;text-align:left;border:1px solid #ddd;padding:8px;font-weight:600;">${escapeHtml(c)}</th>`).join('') + '</tr></thead>\n'
-  html += '  <tbody>\n'
-  for (const row of rows) {
-    html += '    <tr>' + columns.map(c => `<td style="border:1px solid #ddd;padding:8px;">${escapeHtml(cellText(row[c]))}</td>`).join('') + '</tr>\n'
-  }
-  html += '  </tbody>\n</table>'
-  return html
+  if (Array.isArray(parsed) && parsed.length === 0) return '<p>No data</p>'
+  return renderHtmlTable(parsed, true)
 }
 
 export function jsonTableViewer(input: string): string {

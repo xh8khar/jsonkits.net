@@ -1,4 +1,5 @@
 import { cellText, unionKeys, toRowObjects } from './cell'
+import { renderHtmlTable } from './htmlTable'
 
 export function jsonToToml(input: string): string {
   const parsed = JSON.parse(input)
@@ -289,23 +290,7 @@ function parseNumber(val: string): unknown {
 
 export function jsonToHtmlTable(input: string): string {
   const parsed = JSON.parse(input)
-  const rows = toRowObjects(parsed)
-  if (rows.length === 0) return '<table></table>'
-  const keys = unionKeys(rows)
-  let html = '<table>\n  <thead>\n    <tr>'
-  for (const key of keys) {
-    html += `<th>${escapeHtml(key)}</th>`
-  }
-  html += '</tr>\n  </thead>\n  <tbody>\n'
-  for (const item of rows) {
-    html += '    <tr>'
-    for (const key of keys) {
-      html += `<td>${escapeHtml(cellText(item[key]))}</td>`
-    }
-    html += '</tr>\n'
-  }
-  html += '  </tbody>\n</table>'
-  return html
+  return renderHtmlTable(parsed, false)
 }
 
 function escapeHtml(str: string): string {
