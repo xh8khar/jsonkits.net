@@ -113,6 +113,7 @@ export default function ToolLayout({
   const [error, setError] = useState('')
   const [isReversed, setIsReversed] = useState(false)
   const [historyOpen, setHistoryOpen] = useState(false)
+  const [previewOpen, setPreviewOpen] = useState(false)
   const [history, setHistory] = useState<HistoryEntry[]>([])
   const slugRef = useRef('')
   const { addToast } = useToast()
@@ -224,6 +225,18 @@ export default function ToolLayout({
     setError('')
   }, [])
 
+  // Rendered preview for outputs a browser can display directly: HTML
+  // documents/fragments (sandboxed iframe, scripts disabled), inline SVG, and
+  // data-URL images such as generated QR codes.
+  const effectiveOutputLanguage = isReversed && bidirectional ? inputLanguage : outputLanguage
+  const previewKind: 'html' | 'image' | null = !output || error
+    ? null
+    : output.startsWith('data:image/')
+      ? 'image'
+      : effectiveOutputLanguage === 'html' || /^\s*<(svg|!doctype html|html)\b/i.test(output)
+        ? 'html'
+        : null
+
   const handleShare = useCallback(() => {
     if (!input && !output) return
     const url = buildShareUrl(input, output)
@@ -303,6 +316,20 @@ export default function ToolLayout({
             }>
               Download
             </Button>
+            {previewKind && (
+              <Button
+                variant={previewOpen ? 'primary' : 'secondary'}
+                onClick={() => setPreviewOpen(!previewOpen)}
+                icon={
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                }
+              >
+                {previewOpen ? 'Hide Preview' : 'Preview'}
+              </Button>
+            )}
             {output && (
               <Button variant="secondary" onClick={handleShare} icon={
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -363,6 +390,36 @@ export default function ToolLayout({
           </div>
         )}
       </div>
+
+      {previewOpen && previewKind && (
+        <div className="mb-8 border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden animate-fade-in">
+          <div className="flex items-center justify-between px-4 py-2 bg-slate-50 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700">
+            <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Live Preview</span>
+            <button
+              onClick={() => setPreviewOpen(false)}
+              className="p-1 rounded text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-700"
+              aria-label="Close preview"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          {previewKind === 'image' ? (
+            <div className="flex items-center justify-center p-6 bg-white">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={output} alt="Generated output preview" className="max-w-full max-h-96" />
+            </div>
+          ) : (
+            <iframe
+              sandbox=""
+              srcDoc={output}
+              title="Rendered output preview"
+              className="w-full h-96 bg-white"
+            />
+          )}
+        </div>
+      )}
 
       {children}
     </div>

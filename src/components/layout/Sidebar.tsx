@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { tools } from '@/lib/navigation'
@@ -39,16 +39,27 @@ export default function Sidebar({ mobileOpen, onMobileClose }: SidebarProps) {
     [pathname]
   )
 
-  const [expanded, setExpanded] = useState<Set<ToolCategory>>(() => new Set(['formatter']))
+  // activeCategory derives purely from usePathname, which is identical during
+  // prerender and hydration, so seeding it here keeps the active tool's group
+  // expanded (and its link highlighted) in the static HTML too.
+  const [expanded, setExpanded] = useState<Set<ToolCategory>>(() => {
+    const initial = new Set<ToolCategory>(['formatter'])
+    if (activeCategory) initial.add(activeCategory)
+    return initial
+  })
 
-  // Deferred to a client-only effect (rather than computed in the initial state) so the
-  // first render always matches the statically prerendered HTML and avoids a hydration mismatch.
+  // Client-side navigations after mount still need to expand the new category.
   useEffect(() => {
     if (activeCategory) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setExpanded(prev => (prev.has(activeCategory) ? prev : new Set(prev).add(activeCategory)))
     }
   }, [activeCategory])
+
+  const activeLinkRef = useRef<HTMLAnchorElement | null>(null)
+  useEffect(() => {
+    activeLinkRef.current?.scrollIntoView({ block: 'nearest' })
+  }, [pathname])
 
   const toggleCategory = (cat: ToolCategory) => {
     setExpanded(prev => {
@@ -165,6 +176,8 @@ export default function Sidebar({ mobileOpen, onMobileClose }: SidebarProps) {
                             key={tool.id}
                             href={tool.slug}
                             onClick={onMobileClose}
+                            ref={isActive(tool.slug) ? activeLinkRef : undefined}
+                            aria-current={isActive(tool.slug) ? 'page' : undefined}
                             className={`block px-2 py-1.5 rounded-lg text-sm truncate transition-colors ${
                               isActive(tool.slug)
                                 ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-medium'
