@@ -5,7 +5,67 @@ import Link from 'next/link'
 import ToolGrid from './ToolGrid'
 import ToolCard from './ToolCard'
 import { tools } from '@/lib/navigation'
-import type { ToolCategory } from '@/types'
+import { learnPosts } from '@/lib/learn/posts'
+import type { FAQItem, ToolCategory } from '@/types'
+
+const featuredArticleSlugs = [
+  'getting-started-with-json',
+  'json-vs-yaml-guide',
+  'common-json-mistakes',
+]
+
+const faqs: FAQItem[] = [
+  {
+    question: 'What is JSONKits?',
+    answer:
+      'JSONKits is a free collection of 384+ browser-based JSON tools for developers — formatters, validators, viewers, converters, generators, and comparison tools. Everything runs entirely in your browser using JavaScript and WebAssembly.',
+  },
+  {
+    question: 'Is JSONKits free to use?',
+    answer:
+      'Yes, every tool on JSONKits is completely free with no subscriptions, usage limits, or credit card required.',
+  },
+  {
+    question: 'Is my data uploaded to a server?',
+    answer:
+      'No. All processing happens 100% client-side in your browser. Your JSON, CSV, YAML, or other data is never sent to, stored on, or seen by any server — which makes JSONKits safe to use with sensitive or proprietary data.',
+  },
+  {
+    question: 'Do I need to create an account?',
+    answer:
+      'No sign-up is required. Open any tool and start using it immediately.',
+  },
+  {
+    question: 'What is JSON used for?',
+    answer:
+      'JSON (JavaScript Object Notation) is a lightweight, text-based data format used to exchange data between servers, APIs, mobile apps, and web applications. It is the standard format for REST APIs, configuration files, and NoSQL databases like MongoDB.',
+  },
+  {
+    question: 'How is JSON different from YAML or XML?',
+    answer:
+      'JSON is more compact and easier to parse than XML, while YAML is more human-readable and supports comments, which JSON does not. All three are used for data serialization, but JSON is the most widely supported across programming languages and web APIs. See our JSON vs YAML and JSON vs XML guides for a full comparison.',
+  },
+  {
+    question: 'Can I use JSONKits tools offline or without an internet connection?',
+    answer:
+      'Once a tool page has loaded, all conversion and formatting logic runs locally in your browser, so most tools continue to work without a live network connection.',
+  },
+  {
+    question: 'How many tools does JSONKits offer?',
+    answer:
+      'JSONKits currently offers 384 tools across formatters, validators, viewers, converters, generators, and compare utilities, covering formats like YAML, XML, CSV, TypeScript, SQL, and many more.',
+  },
+]
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(faq => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+  })),
+}
 
 const popularIds = [
   'formatter',
@@ -102,6 +162,10 @@ export default function HomeContent() {
   const popularTools = popularIds
     .map(id => tools.find(t => t.id === id))
     .filter((t): t is NonNullable<typeof t> => Boolean(t))
+
+  const featuredArticles = featuredArticleSlugs
+    .map(slug => learnPosts.find(p => p.slug === slug))
+    .filter((p): p is NonNullable<typeof p> => Boolean(p))
 
   const categoryCounts = categoryGroups.map(group => ({
     ...group,
@@ -215,17 +279,100 @@ export default function HomeContent() {
       </section>
 
       <section className="border-t border-slate-200 dark:border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 text-center">
-          <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-2">New to working with JSON?</h2>
-          <p className="text-slate-500 dark:text-slate-400 mb-4">Read our guides on JSON syntax, schema design & common pitfalls.</p>
-          <Link href="/learn" className="inline-flex items-center gap-1.5 text-blue-500 hover:text-blue-600 font-medium">
-            Visit the Learn Center
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </Link>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+          <div className="flex items-baseline justify-between mb-6">
+            <div>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Learn About JSON</h2>
+              <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Guides on JSON syntax, common errors, and format comparisons.</p>
+            </div>
+            <Link href="/learn" className="shrink-0 text-sm font-medium text-blue-500 hover:text-blue-600">
+              Visit Learn Center &rarr;
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {featuredArticles.map(post => (
+              <Link
+                key={post.slug}
+                href={`/learn/${post.slug}`}
+                className="group block p-5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-lg dark:hover:shadow-blue-900/10 transition-all duration-200"
+              >
+                <span className="text-xs font-medium text-slate-400">{post.readTime}</span>
+                <h3 className="font-semibold text-slate-900 dark:text-white group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors mt-1">
+                  {post.title}
+                </h3>
+                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1.5 line-clamp-2">{post.description}</p>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
+
+      <section className="bg-slate-50 dark:bg-slate-900/50 border-t border-slate-200 dark:border-slate-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
+            <div className="lg:col-span-1">
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">About JSONKits</h2>
+              <p className="text-slate-600 dark:text-slate-400 mb-4">
+                JSONKits is a free, browser-based toolkit for working with JSON and related data
+                formats. Every tool runs entirely on your device — nothing you paste or upload is
+                ever sent to a server, which makes it safe for private or proprietary data.
+              </p>
+              <Link href="/about" className="inline-flex items-center gap-1.5 text-blue-500 hover:text-blue-600 font-medium text-sm">
+                More about our project
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </Link>
+            </div>
+            <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+                <h3 className="font-semibold text-sm text-slate-900 dark:text-white mb-1">Privacy first</h3>
+                <p className="text-sm text-slate-500 dark:text-slate-400">No data ever leaves your device — all processing happens client-side.</p>
+              </div>
+              <div className="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+                <h3 className="font-semibold text-sm text-slate-900 dark:text-white mb-1">Blazing fast</h3>
+                <p className="text-sm text-slate-500 dark:text-slate-400">Tools run instantly in the browser with no network round-trip.</p>
+              </div>
+              <div className="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+                <h3 className="font-semibold text-sm text-slate-900 dark:text-white mb-1">Completely free</h3>
+                <p className="text-sm text-slate-500 dark:text-slate-400">No subscriptions, no hidden costs, no credit card required.</p>
+              </div>
+              <div className="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+                <h3 className="font-semibold text-sm text-slate-900 dark:text-white mb-1">No sign-up</h3>
+                <p className="text-sm text-slate-500 dark:text-slate-400">Start using any of the 384 tools immediately, no account needed.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-slate-200 dark:border-slate-800">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Frequently Asked Questions</h2>
+          <div className="space-y-3">
+            {faqs.map(faq => (
+              <details
+                key={faq.question}
+                className="group p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"
+              >
+                <summary className="flex items-center justify-between gap-3 cursor-pointer list-none font-medium text-slate-900 dark:text-white">
+                  {faq.question}
+                  <svg className="w-4 h-4 shrink-0 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <p className="text-sm text-slate-600 dark:text-slate-400 mt-3">{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
     </div>
   )
 }
