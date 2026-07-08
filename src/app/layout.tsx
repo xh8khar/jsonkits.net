@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import AppShell from '@/components/layout/AppShell'
 import { ToastProvider } from '@/components/ui/Toast'
+import ErrorBoundary from '@/components/ErrorBoundary'
+import { SentryInit } from '@/components/SentryInit'
 
 const SITE_URL = 'https://www.jsonkits.net'
 
@@ -82,7 +84,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="min-h-screen">
         <ToastProvider>
-          <AppShell>{children}</AppShell>
+          <ErrorBoundary>
+            <SentryInit />
+            <AppShell>{children}</AppShell>
+          </ErrorBoundary>
         </ToastProvider>
       </body>
     </html>

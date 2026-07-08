@@ -2,6 +2,7 @@ import * as yaml from 'js-yaml'
 import Papa from 'papaparse'
 import { XMLBuilder, XMLParser } from 'fast-xml-parser'
 import { unionKeys, toRowObjects } from './cell'
+import { friendlyJsonError } from '@/lib/errorFormatter'
 
 export * from './dataFormat'
 export * from './codeGenerators'
@@ -16,16 +17,16 @@ export * from './newTools'
 export function formatJSON(input: string): string {
   try {
     return JSON.stringify(JSON.parse(input), null, 2)
-  } catch {
-    throw new Error('Invalid JSON')
+  } catch (e) {
+    throw new Error(friendlyJsonError((e as Error).message))
   }
 }
 
 export function minifyJSON(input: string): string {
   try {
     return JSON.stringify(JSON.parse(input))
-  } catch {
-    throw new Error('Invalid JSON')
+  } catch (e) {
+    throw new Error(friendlyJsonError((e as Error).message))
   }
 }
 
@@ -34,7 +35,7 @@ export function validateJSON(input: string): { valid: boolean; error?: string } 
     JSON.parse(input)
     return { valid: true }
   } catch (e) {
-    return { valid: false, error: (e as Error).message }
+    return { valid: false, error: friendlyJsonError((e as Error).message) }
   }
 }
 
@@ -42,8 +43,8 @@ export function jsonToYaml(input: string): string {
   try {
     const parsed = JSON.parse(input)
     return yaml.dump(parsed, { indent: 2, lineWidth: -1, noRefs: true })
-  } catch {
-    throw new Error('Invalid JSON')
+  } catch (e) {
+    throw new Error(friendlyJsonError((e as Error).message))
   }
 }
 
@@ -98,8 +99,8 @@ export function jsonToTypescript(input: string, rootName = 'RootObject'): string
   try {
     const parsed = JSON.parse(input)
     return generateInterface(parsed, rootName)
-  } catch {
-    throw new Error('Invalid JSON')
+  } catch (e) {
+    throw new Error(friendlyJsonError((e as Error).message))
   }
 }
 
@@ -151,8 +152,8 @@ export function jsonToXml(input: string): string {
     const finalObj = keys.length === 1 ? wrapped : { root: wrapped }
     const builder = new XMLBuilder({ format: true, indentBy: '  ', ignoreAttributes: false })
     return builder.build(finalObj)
-  } catch {
-    throw new Error('Invalid JSON')
+  } catch (e) {
+    throw new Error(friendlyJsonError((e as Error).message))
   }
 }
 
@@ -188,8 +189,8 @@ export function jsonToPython(input: string): string {
       return `${header}\nRootObject = ${rootType}\n`
     }
     return `${header}\n\n${classes.join('\n\n\n')}\n`
-  } catch {
-    throw new Error('Invalid JSON')
+  } catch (e) {
+    throw new Error(friendlyJsonError((e as Error).message))
   }
 }
 
@@ -231,8 +232,8 @@ export function jsonToGo(input: string): string {
       return `package main\n\ntype RootObject ${rootType}\n`
     }
     return `package main\n\n${structs.join('\n\n')}\n`
-  } catch {
-    throw new Error('Invalid JSON')
+  } catch (e) {
+    throw new Error(friendlyJsonError((e as Error).message))
   }
 }
 
@@ -274,8 +275,8 @@ export function jsonToJava(input: string): string {
       return `import java.util.List;\n\npublic class RootObject {\n    // root value type: ${rootType}\n}\n`
     }
     return `import java.util.List;\n\n${classes.join('\n\n')}\n`
-  } catch {
-    throw new Error('Invalid JSON')
+  } catch (e) {
+    throw new Error(friendlyJsonError((e as Error).message))
   }
 }
 
@@ -314,8 +315,9 @@ function getJavaType(value: unknown, key: string, classes: string[]): string {
 }
 
 export function jsonDiff(a: string, b: string): string {
-  const objA = JSON.parse(a)
-  const objB = JSON.parse(b)
+  let objA: unknown, objB: unknown
+  try { objA = JSON.parse(a) } catch (e) { throw new Error(friendlyJsonError((e as Error).message)) }
+  try { objB = JSON.parse(b) } catch (e) { throw new Error(friendlyJsonError((e as Error).message)) }
   return JSON.stringify(diffObjects(objA, objB), null, 2)
 }
 

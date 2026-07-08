@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/Button'
 import { useToast } from '@/components/ui/Toast'
 import InputPanel from '@/components/tools/InputPanel'
 import OutputPanel from '@/components/tools/OutputPanel'
+import { friendlyConvertError } from '@/lib/errorFormatter'
 
 export default function ToolPageClient() {
   const [input, setInput] = useState('')
@@ -26,7 +27,7 @@ export default function ToolPageClient() {
       setOutput(JSON.stringify(data, null, 2))
       addToast('Data fetched successfully!', 'success')
     } catch (e) {
-      addToast('Fetch failed: ' + (e as Error).message, 'error')
+      addToast(friendlyConvertError('Fetch JSON', (e as Error).message), 'error')
       setOutput('')
     } finally {
       setLoading(false)

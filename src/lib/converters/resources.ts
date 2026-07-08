@@ -323,12 +323,9 @@ export function jsonPatchValidator(input: string): string {
 
 // ---- Batch 5: Remaining 10 Tools ----
 
-import * as XLSX from 'xlsx'
-import QRCode from 'qrcode'
-import { jsPDF } from 'jspdf'
-
-export function jsonToXlsx(input: string): string {
+export async function jsonToXlsx(input: string): Promise<string> {
   const parsed = JSON.parse(input)
+  const XLSX = await import('xlsx')
   const arr = Array.isArray(parsed) ? parsed : [parsed]
   const ws = XLSX.utils.json_to_sheet(arr)
   const wb = XLSX.utils.book_new()
@@ -337,7 +334,8 @@ export function jsonToXlsx(input: string): string {
   return wbout
 }
 
-export function xlsxToJson(input: string): string {
+export async function xlsxToJson(input: string): Promise<string> {
+  const XLSX = await import('xlsx')
   const wb = XLSX.read(input, { type: 'base64' })
   const sheet = wb.Sheets[wb.SheetNames[0]]
   const data = XLSX.utils.sheet_to_json(sheet)
@@ -390,6 +388,7 @@ function deepMergeRemaining(a: Record<string, unknown>, b: Record<string, unknow
 export async function jsonToQrcode(input: string): Promise<string> {
   JSON.parse(input)
   try {
+    const QRCode = (await import('qrcode')).default
     const dataUrl = await QRCode.toDataURL(input, { width: 400, margin: 2, color: { dark: '#000000', light: '#ffffff' } })
     return dataUrl
   } catch {
@@ -417,6 +416,7 @@ export function jsonToImage(input: string): string {
 
 export async function jsonToPdf(input: string): Promise<string> {
   const parsed = JSON.parse(input)
+  const { jsPDF } = await import('jspdf')
   const doc = new jsPDF()
   const json = JSON.stringify(parsed, null, 2)
   const lines = doc.splitTextToSize(json, 180)

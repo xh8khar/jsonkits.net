@@ -7,6 +7,7 @@ import { useToast } from '@/components/ui/Toast'
 import InputPanel from './InputPanel'
 import OutputPanel from './OutputPanel'
 import { decodeShareData, buildShareUrl } from '@/lib/share'
+import { friendlyConvertError } from '@/lib/errorFormatter'
 
 const SITE_URL = 'https://www.jsonkits.net'
 const MAX_HISTORY = 20
@@ -172,7 +173,7 @@ export default function ToolLayout({
       setHistory(loadHistory(slugRef.current))
       addToast('Converted successfully', 'success')
     } catch (e) {
-      const msg = (e as Error).message
+      const msg = friendlyConvertError(title, (e as Error).message)
       setError(msg)
       addToast(msg, 'error')
     } finally {
