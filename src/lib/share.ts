@@ -52,8 +52,12 @@ export function decodeShareData(encoded: string): { input: string; output: strin
     } catch { /* not compressed */ }
     const data = inflated ?? raw
     if (data.length === 0) return null
-    // Old JSON format starts with '{'
-    if (data[0] === 0x7b) {
+    // New raw format always embeds a literal NUL separator between input and
+    // output, which valid JSON text (the old format) can never contain — so
+    // this is an unambiguous discriminator. (Checking data[0] === '{' isn't
+    // reliable: JSON input is the common case, so the new format's first byte
+    // is frequently '{' too, which would wrongly route it through JSON.parse.)
+    if (data.indexOf(0) === -1 && data[0] === 0x7b) {
       const text = new TextDecoder().decode(data)
       const parsed = JSON.parse(text)
       if (parsed && typeof parsed.i === 'string') {
